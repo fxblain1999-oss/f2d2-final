@@ -1,0 +1,12 @@
+{
+  "name": "f2d2-shopify-theme",
+  "private": true,
+  "scripts": {
+    "shopify:check": "shopify theme check",
+    "shopify:dev": "shopify theme dev --store ky30sv-ht.myshopify.com",
+    "shopify:push:draft": "shopify theme push --store ky30sv-ht.myshopify.com --unpublished",
+    "shopify:push:current": "shopify theme push --store ky30sv-ht.myshopify.com --nodelete",
+    "shopify:push:live": "shopify theme push --store ky30sv-ht.myshopify.com --live --allow-live",
+    "shopify:publish:new": "shopify theme push --store ky30sv-ht.myshopify.com --unpublished --publish"
+  }
+}

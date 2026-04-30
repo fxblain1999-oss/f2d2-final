@@ -1,0 +1,13 @@
+*.zip
+*.bak
+*.backup
+*_backup.*
+.git/
+.github/
+.gitignore
+.shopifyignore
+.theme-check.yml
+node_modules/
+package.json
+package-lock.json
+README.md

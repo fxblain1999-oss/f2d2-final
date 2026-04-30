@@ -1,0 +1,2 @@
+ignore:
+  - sections/*_backup.liquid
