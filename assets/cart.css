@@ -110,6 +110,11 @@
 .cart-drawer {
   --color-cart-bubble: rgb(var(--color-foreground));
 }
+body.cart-drawer-open .header-section {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 .cart,
 .cart-drawer,
 .cart-addons-drawer {

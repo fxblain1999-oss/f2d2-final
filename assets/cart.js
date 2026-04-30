@@ -33,11 +33,17 @@ class CartDrawer extends DrawerComponent {
   }
 
   show(focusElement = null, animate = true) {
+    document.body.classList.add('cart-drawer-open');
     super.show(focusElement, animate);
 
     if (this.open) {
       FoxTheme.a11y.trapFocus(this, this.focusElement);
     }
+  }
+
+  handleAfterHide() {
+    super.handleAfterHide();
+    document.body.classList.remove('cart-drawer-open');
   }
 
   async onCartRefresh(event) {
