@@ -232,7 +232,7 @@
                   {%- endif -%}
 
                   {%- capture cart_item -%}
-                    <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+                    <tr class="cart-item{% if is_kickflip_item %} cart-item--kickflip{% endif %}" id="CartItem-{{ item.index | plus: 1 }}">
                       <td class="cart-item__product">
                         <div class="flex items-start gap-4">
                           {%- if item.image -%}

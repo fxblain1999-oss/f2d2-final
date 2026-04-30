@@ -1,15 +1,6 @@
 {%- liquid
-  assign logo = settings.logo
-  assign logo_mobile = settings.logo_mobile
   assign menu = section.settings.menu
   assign menu_mobile = section.settings.menu_mobile
-
-  assign logo_mobile_width = settings.logo_width_mobile
-  assign logo_mobile_width_2x = logo_mobile_width | times: 2
-
-  if logo_mobile == blank
-    assign logo_mobile = logo
-  endif
 
   if menu_mobile == blank
     assign menu_mobile = menu
