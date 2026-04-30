@@ -640,10 +640,22 @@
 }
 
 
-@media screen and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
+
   body.cart-drawer-open #shopify-section-sections--20942895546533__header,
   body:has(cart-drawer[open]) #shopify-section-sections--20942895546533__header,
-  body:has(cart-drawer[active]) #shopify-section-sections--20942895546533__header,
+  body:has(cart-drawer[active]) #shopify-section-sections--20942895546533__header {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-100%) !important;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s !important;
+  }
+
+  #shopify-section-sections--20942895546533__header {
+    transition: opacity 0.25s ease 0.35s, transform 0.25s ease 0.35s, visibility 0s linear 0.35s !important;
+  }
+
   body.cart-drawer-open .header-section,
   body:has(cart-drawer[open]) .header-section,
   body:has(cart-drawer[active]) .header-section {
