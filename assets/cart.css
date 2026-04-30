@@ -110,10 +110,13 @@
 .cart-drawer {
   --color-cart-bubble: rgb(var(--color-foreground));
 }
-body.cart-drawer-open .header-section {
+body.cart-drawer-open .header-section,
+body:has(cart-drawer[open]) .header-section,
+body:has(cart-drawer[active]) .header-section {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
+  transform: translateY(-100%) !important;
 }
 .cart,
 .cart-drawer,

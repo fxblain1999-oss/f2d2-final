@@ -11,6 +11,10 @@ class CartDrawer extends DrawerComponent {
     return false;
   }
 
+  static get observedAttributes() {
+    return [...super.observedAttributes, 'active'];
+  }
+
   get sectionId() {
     return this.getAttribute('data-section-id');
   }
@@ -20,6 +24,7 @@ class CartDrawer extends DrawerComponent {
 
     document.addEventListener('cart:grouped-sections', this.getSectionToRenderListener);
     document.addEventListener('cart:refresh', this.onCartRefreshListener);
+    this.syncHeaderVisibility();
   }
 
   disconnectedCallback() {
@@ -30,6 +35,22 @@ class CartDrawer extends DrawerComponent {
 
   getSectionToRender(event) {
     event.detail.sections.push(FoxTheme.utils.getSectionId(this));
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    super.attributeChangedCallback(name, oldValue, newValue);
+    if (name === 'open' || name === 'active') {
+      this.syncHeaderVisibility();
+    }
+  }
+
+  syncHeaderVisibility() {
+    document.body.classList.toggle('cart-drawer-open', this.open || this.hasAttribute('active'));
+  }
+
+  prepareToShow() {
+    super.prepareToShow();
+    document.body.classList.add('cart-drawer-open');
   }
 
   show(focusElement = null, animate = true) {

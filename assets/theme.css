@@ -6269,6 +6269,15 @@ input:is([type=radio])::after {
     pointer-events: auto !important;
     transition-property: box-shadow, background-color !important;
   }
+
+  body.cart-drawer-open .header-section,
+  body:has(cart-drawer[open]) .header-section,
+  body:has(cart-drawer[active]) .header-section {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-100%) !important;
+  }
 }
 
 .menu__item {
