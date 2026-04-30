@@ -562,6 +562,27 @@
   content: none !important;
 }
 
+.cart-item__remove,
+.cart-item__remove:hover,
+.cart-item__remove:focus,
+.cart-item__remove:focus-visible,
+.cart-item__remove:visited {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-underline-offset: 0 !important;
+  box-shadow: none !important;
+}
+.cart-item__remove::before,
+.cart-item__remove::after,
+.cart-item__remove *::before,
+.cart-item__remove *::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
 .cart-quantity {
   --buttons-height: 3.8rem;
   --quantity-button-width: 3.5rem;
