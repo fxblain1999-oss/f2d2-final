@@ -708,3 +708,17 @@
     margin-inline-end: 0;
   }
 }
+
+@media (min-width: 768px) {
+  .cart .cart-item__product--info {
+    display: block !important;
+  }
+
+  .cart .cart-item__details {
+    display: block !important;
+  }
+
+  .cart .cart-item__details .grid {
+    display: grid !important;
+  }
+}
