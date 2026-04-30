@@ -7,7 +7,7 @@
     {% if section.settings.image != blank %}
       {{ section.settings.image | image_url: width: 2200 | image_tag: class: 'f2d2-home-hero__image', loading: 'eager', alt: section.settings.title | escape }}
     {% else %}
-      <img src="{{ hero_image | asset_url }}" class="f2d2-home-hero__image" alt="{{ section.settings.title | escape }}">
+      <img src="{{ hero_image | asset_url }}" class="f2d2-home-hero__image" alt="{{ section.settings.title | escape }}" loading="eager" width="1536" height="1024">
     {% endif %}
   </div>
 
