@@ -665,3 +665,22 @@
     transform: translateY(-100%) !important;
   }
 }
+
+@media screen and (max-width: 767.98px) {
+  body:has(#CartDrawer[open]) .header-section,
+  body:has(#CartDrawer[active]) .header-section,
+  body:has(cart-drawer[open]) .header-section,
+  body:has(cart-drawer[active]) .header-section {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-100%) !important;
+  }
+
+  #CartDrawer,
+  cart-drawer,
+  .cart-drawer,
+  .drawer {
+    z-index: 999999 !important;
+  }
+}
