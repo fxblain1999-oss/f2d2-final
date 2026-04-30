@@ -246,7 +246,7 @@
                                 <div class="block">
                                   <a href="{{ item.url }}" class="cart-item__title text-pcard-title reversed-link">{{- item.product.title | escape -}}</a>
                                 </div>
-                                <div class="cart-item__prices lg:hidden">
+                                <div class="cart-item__prices cart-item__prices--mobile-title lg:hidden">
                                   <div class="price text-right flex flex-wrap items-center gap-x-2 font-body-bolder{% if item.original_price != item.final_price %} price--on-sale{% endif %}">
                                     {%- liquid
                                       assign money_price = item.original_price | money
@@ -344,6 +344,34 @@
                                     </li>
                                   {%- endfor -%}
                                 </ul>
+                              {%- endif -%}
+                              {%- if is_kickflip_item -%}
+                                <div class="cart-item__prices cart-item__prices--mobile-details lg:hidden">
+                                  <div class="price flex flex-wrap items-center gap-x-2 font-body-bolder{% if item.original_price != item.final_price %} price--on-sale{% endif %}">
+                                    {%- liquid
+                                      assign money_price = item.original_price | money
+                                      if settings.currency_code_enabled
+                                        assign money_price = item.original_price | money_with_currency
+                                      endif
+                                    -%}
+                                    {%- if item.original_price != item.final_price -%}
+                                      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                                      <s class="price__sale font-body text-sm text-subtext">{{ money_price }}</s>
+                                      <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                                      <span class="price__regular">
+                                        {%- liquid
+                                          if settings.currency_code_enabled
+                                            echo item.final_price | money_with_currency
+                                          else
+                                            echo item.final_price | money
+                                          endif
+                                        -%}
+                                      </span>
+                                    {%- else -%}
+                                      {{- money_price -}}
+                                    {%- endif -%}
+                                  </div>
+                                </div>
                               {%- endif -%}
                             </div>
                             <a id="Loader-{{ section.id }}-{{ item.index | plus: 1 }}"{% unless is_gift_wrap_item %} is="cart-remove-item"{% else %} is="gift-wrap-remove-item"{% endunless %} class="btn--link cart-item__remove items-center justify-center relative hidden lg:flex" href="{{ item.url_to_remove }}" data-index="{{ item.index | plus: 1 }}">
