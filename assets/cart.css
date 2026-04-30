@@ -6,9 +6,6 @@
 .cart table thead tr th:not(:first-child) {
   width: 20%;
 }
-.cart tbody tr {
-  border-block-start: 0.1rem solid rgb(var(--color-border));
-}
 .cart tbody tr td {
   padding-block: 3rem;
   padding-inline-end: 3rem;
@@ -658,5 +655,16 @@
 
   .cart .cart-item__remove {
     margin-inline-end: 0;
+  }
+
+  .cart .cart-item__prices {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: start;
+    margin-top: 0.5rem;
+  }
+
+  .cart .cart-item__details {
+    display: grid;
   }
 }
