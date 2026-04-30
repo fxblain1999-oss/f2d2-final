@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_U4L9pK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zWUadL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Politique de Création",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_GtMrfH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>📘 Politique de Création – [F2D2]<br/>1. 🎯 Objectif<br/>Cette politique définit les règles et standards encadrant la création de visuels, l’envoi des fichiers, la validation client, et la production d’imprimés. Elle vise à garantir :<br/>⦁\tLa qualité des impressions<br/>⦁\tL’uniformité des processus<br/>⦁\tLe respect des délais de production<br/>⦁\tUne bonne expérience client<br/><br/>2. 🧾 Types de créations acceptées<br/>Nous acceptons les créations dans les formats suivants :<br/>⦁\tPDF (préféré)<br/>⦁\tAI, PSD, EPS (avec les polices vectorisées ou intégrées)<br/>⦁\tJPEG, PNG (300 dpi minimum)<br/><br/>Les fichiers doivent :<br/>⦁\tÊtre en mode colorimétrique CMJN<br/>⦁\tComporter 3 mm de fond perdu<br/>⦁\tAvoir une résolution minimum de 300 dpi<br/><br/>3. ✍️ Assistance à la création<br/>Nous proposons 3 niveaux de service :<br/>⦁\tFichier prêt à imprimer : le client fournit un fichier conforme.<br/>⦁\tAjustement technique : nous corrigeons les marges, fonds perdus, colorimétrie.<br/>⦁\tCréation sur mesure : un graphiste conçoit entièrement le visuel, selon les instructions du client.<br/>⦁\tTout travail de création fera l'objet d’un devis validé avant exécution.<br/><br/>4. 🔍 Validation des fichiers<br/>Avant tout envoi à l’impression, les fichiers sont :<br/>⦁\tContrôlés par nos soins (résolution, fond perdu, format…)<br/>⦁\tEnvoyés au client pour validation finale par mail ou sur l’interface client<br/>⦁\tAucune impression ne sera lancée sans validation expresse du client.<br/><br/>5. 🕒 Délais de création<br/>Type de service\tDélai standard<br/>Vérification technique\t24h ouvrées<br/>Ajustement de fichier\t1 à 2 jours ouvrés<br/>Création sur mesure\t3 à 5 jours ouvrés<br/><br/>Ces délais commencent à partir de la réception complète du brief et du paiement.<br/><br/>6. 💬 Révisions et validations<br/>⦁\t1 à 2 allers-retours sont inclus dans la création sur mesure<br/>⦁\tToute demande supplémentaire sera facturée selon un tarif horaire<br/>⦁\tLe client est responsable de la relecture : aucune réclamation ne sera acceptée pour des erreurs présentes dans un fichier validé.<br/><br/>7. 🚫 Contenus interdits<br/>Nous refusons toute création contenant :<br/>⦁\tDu contenu haineux, raciste, sexiste ou discriminatoire<br/>⦁\tDes images protégées par droit d’auteur sans licence<br/>⦁\tDes visuels de mauvaise qualité ou illisibles<br/><br/>8. 📁 Archivage<br/>Les fichiers créés ou corrigés sont conservés 30 jours à compter de la date d’impression. Sur demande, nous pouvons les archiver plus longtemps (service payant).<br/><br/>9. 📜 Acceptation<br/>Toute commande implique l’acceptation pleine et entière de la présente politique.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zWUadL",
+        "text_GtMrfH"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_U4L9pK"
+  ]
+}

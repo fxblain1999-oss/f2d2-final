@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_mPzMmQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mY3UzY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Politique de rembourssement",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_nwDYLb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>📘 Politique de Remboursement – [Nom de l'entreprise d'impression en ligne]</p><p>1. 🎯 Objectif</p><p>Cette politique vise à encadrer les demandes de remboursement de manière claire, équitable et conforme à notre engagement qualité. En tant que prestataire d’impression à la demande, chaque commande est personnalisée : les retours et remboursements sont donc soumis à conditions.</p><p></p><p>2. 📦 Produits concernés</p><p>Nos produits étant personnalisés et imprimés à la demande, ils ne peuvent pas être retournés pour remboursement en cas de changement d’avis du client.</p><p></p><p>Les remboursements sont uniquement possibles dans les cas suivants :</p><p></p><p>Erreur de fabrication</p><p></p><p>Défaut de qualité d’impression manifeste</p><p></p><p>Produit endommagé à la livraison</p><p></p><p>Non-conformité par rapport au bon à tirer validé (BAT)</p><p></p><p>3. ❌ Cas non éligibles au remboursement</p><p>Aucun remboursement ne sera accordé si :</p><p></p><p>Le fichier fourni par le client contient une erreur (fautes, mauvaise résolution, mauvaise couleur, etc.)</p><p></p><p>Le client valide un bon à tirer contenant une erreur</p><p></p><p>Le produit a été mal utilisé, lavé ou stocké</p><p></p><p>Le délai de production ou livraison estimé a été dépassé de moins de 7 jours ouvrés</p><p></p><p>4. 🔁 Délai de réclamation</p><p>Le client dispose d’un délai de 7 jours calendaires à compter de la réception pour signaler un problème et demander un remboursement ou un réimpression.</p><p></p><p>La demande doit être faite :</p><p></p><p>Par e-mail à [adresse support]</p><p></p><p>En joignant des photos claires du produit et de l’emballage</p><p></p><p>En précisant le numéro de commande et la description du problème</p><p></p><p>5. 🔍 Vérification</p><p>Chaque demande fait l’objet d’une analyse par notre équipe qualité. Nous nous réservons le droit de :</p><p></p><p>Demander des éléments complémentaires</p><p></p><p>Refuser le remboursement si la responsabilité de l’erreur n’est pas avérée</p><p></p><p>6. 💰 Modalités de remboursement</p><p>Si la demande est acceptée, le client pourra choisir entre :</p><p></p><p>Un remboursement total ou partiel par le même mode de paiement que la commande</p><p></p><p>Une réimpression gratuite du produit</p><p></p><p>Un avoir valable 6 mois</p><p></p><p>7. 📦 Retour de marchandise</p><p>Dans certains cas, nous pouvons demander le retour des produits défectueux avant traitement du remboursement. Les frais de retour seront à notre charge si l’erreur est confirmée.</p><p></p><p>8. 📜 Acceptation</p><p>Toute commande implique l’acceptation pleine et entière de la présente politique de remboursement. Elle est consultable à tout moment sur notre site ou envoyée sur demande.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mY3UzY",
+        "text_nwDYLb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_mPzMmQ"
+  ]
+}

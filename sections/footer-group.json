@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_text_F3FNhx": {
+          "type": "image_text",
+          "settings": {
+            "block_width": 25,
+            "heading": "",
+            "heading_size": "h4",
+            "image": "shopify://shop_images/F2D2_Logo.png",
+            "image_width": 150,
+            "text": "<p>Nous sommes prêts à vous servir ! </p>",
+            "button_label": "",
+            "button_link": "",
+            "open_default": true,
+            "show_divider": false
+          }
+        },
+        "menu_DEKGYP": {
+          "type": "menu",
+          "settings": {
+            "block_width": 17,
+            "heading": "Nos Politques",
+            "heading_size": "h4",
+            "menu": "footer",
+            "open_default": true,
+            "show_divider": false
+          }
+        },
+        "contact_information_BA3eUF": {
+          "type": "contact_information",
+          "settings": {
+            "block_width": 25,
+            "heading": "Notre information",
+            "heading_size": "h4",
+            "address": "331 Rue Adam, Saint-Amable, Québec",
+            "working_hours": "10:00am - 5:00pm, Lundi à Vendredi",
+            "email": "info@f2d2.ca",
+            "phone": "514-318-7208",
+            "open_default": true,
+            "show_divider": false
+          }
+        },
+        "newsletter_3qCrWc": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "block_width": 41,
+            "heading": "Inscivez-vous pour une rabais de 10%",
+            "heading_size": "h3",
+            "newsletter_description": "<p>Inscrivez-vous pour des mises à jours ou rabais</p>",
+            "newsletter_term": "<p>En vous abonnant vous acceptez les <a href=\"#\">Terms of Use</a> & <a href=\"#\">Privacy Policy.</a></p>",
+            "newsletter_text_alignment": "left",
+            "form_width": 465,
+            "order_first": true
+          }
+        }
+      },
+      "block_order": [
+        "image_text_F3FNhx",
+        "menu_DEKGYP",
+        "contact_information_BA3eUF",
+        "newsletter_3qCrWc"
+      ],
+      "custom_css": [
+        ".form-control {--color-border: var(--color-field);}",
+        "@media (min-width: 1024px) {.footer__bottom {padding-top: 8rem; }}",
+        "@media (max-width: 1023.98px) {.footer-block--newsletter.order-first {margin-bottom: 2.4rem; }}",
+        "@media (max-width: 767.98px) {.footer__bottom {padding-top: 2.4rem; }}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "footer_bottom_menu": "",
+        "show_section_divider": false,
+        "divider_width": "full"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

@@ -1,0 +1,613 @@
+{% liquid
+  assign section_id = 'f2d2-quote-popup-' | append: section.id
+  assign modal_id = section_id | append: '-modal'
+%}
+
+<section id="{{ section_id }}" class="f2d2-quote-popup">
+  <div class="page-width f2d2-quote-popup__inner">
+    <div class="f2d2-quote-popup__content">
+      <p class="f2d2-quote-popup__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="f2d2-quote-popup__title">{{ section.settings.heading }}</h1>
+      <div class="f2d2-quote-popup__text rte">
+        {{ section.settings.text }}
+      </div>
+
+      <button type="button" class="f2d2-quote-popup__button" aria-haspopup="dialog" aria-controls="{{ modal_id }}">
+        {{ section.settings.button_label }}
+      </button>
+
+      <div class="f2d2-quote-popup__meta">
+        <span>514-318-7208</span>
+        <span>info@f2d2.ca</span>
+        <span>Sainte-Amable, QC</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="{{ modal_id }}" class="f2d2-quote-popup__modal" role="dialog" aria-modal="true" aria-labelledby="{{ section_id }}-title" hidden data-f2d2-auto-open>
+    <div class="f2d2-quote-popup__overlay" data-f2d2-quote-close></div>
+
+    <div class="f2d2-quote-popup__panel" tabindex="-1">
+      <button type="button" class="f2d2-quote-popup__close" aria-label="Fermer" data-f2d2-quote-close>
+        &times;
+      </button>
+
+      <div class="f2d2-quote-popup__panel-head">
+        <p class="f2d2-quote-popup__panel-eyebrow">Soumission F2D2</p>
+        <h2 id="{{ section_id }}-title">Parlez-nous de votre projet</h2>
+        <p>Plus les d&eacute;tails sont clairs, plus la soumission sera rapide et pr&eacute;cise.</p>
+      </div>
+
+      {% form 'contact', id: section_id, class: 'f2d2-quote-popup__form' %}
+        {% if form.posted_successfully? %}
+          <div class="f2d2-quote-popup__status f2d2-quote-popup__status--success" role="status">
+            Merci. Votre demande de soumission a bien ete envoyee.
+          </div>
+        {% elsif form.errors %}
+          <div class="f2d2-quote-popup__status f2d2-quote-popup__status--error" role="alert">
+            Verifiez les champs requis, puis reessayez.
+          </div>
+        {% endif %}
+
+        <div class="f2d2-quote-popup__grid">
+          <label>
+            <span>Nom complet *</span>
+            <input type="text" name="contact[Nom]" autocomplete="name" required>
+          </label>
+
+          <label>
+            <span>Courriel *</span>
+            <input type="email" name="contact[email]" autocomplete="email" required>
+          </label>
+
+          <label>
+            <span>T&eacute;l&eacute;phone *</span>
+            <input type="tel" name="contact[Telephone]" autocomplete="tel" required>
+          </label>
+
+          <label>
+            <span>Entreprise</span>
+            <input type="text" name="contact[Entreprise]" autocomplete="organization">
+          </label>
+
+          <label>
+            <span>Type de projet *</span>
+            <select name="contact[Type de projet]" required>
+              <option value="">S&eacute;lectionnez</option>
+              <option value="DTF">DTF</option>
+              <option value="UV DTF">UV DTF</option>
+              <option value="Gravure">Gravure</option>
+              <option value="Corporatif">Corporatif</option>
+              <option value="Vetements personnalises">V&ecirc;tements personnalis&eacute;s</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Quantit&eacute; approximative</span>
+            <input type="text" name="contact[Quantite]" placeholder="Ex: 50 chandails, 100 collants">
+          </label>
+
+          <label>
+            <span>Date souhait&eacute;e</span>
+            <input type="text" name="contact[Date souhaitee]" placeholder="Ex: semaine prochaine">
+          </label>
+
+          <label>
+            <span>Budget</span>
+            <select name="contact[Budget]">
+              <option value="">&Agrave; d&eacute;terminer</option>
+              <option value="Moins de 250$">Moins de 250$</option>
+              <option value="250$ a 500$">250$ a 500$</option>
+              <option value="500$ a 1000$">500$ a 1000$</option>
+              <option value="1000$ et plus">1000$ et plus</option>
+            </select>
+          </label>
+
+          <label class="f2d2-quote-popup__wide">
+            <span>D&eacute;tails du projet *</span>
+            <textarea name="contact[body]" rows="6" required placeholder="Dimensions, couleurs, fichiers/logo disponibles, type de mat&eacute;riel, finition, contraintes, d&eacute;lai..."></textarea>
+          </label>
+        </div>
+
+        <p class="f2d2-quote-popup__hint">
+          Pour joindre un logo ou un fichier, mentionnez-le dans le message. Nous vous r&eacute;pondrons avec la meilleure fa&ccedil;on de l'envoyer.
+        </p>
+
+        <button type="submit" class="f2d2-quote-popup__submit">Envoyer la demande</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} {
+    position: relative;
+    display: flex;
+    min-height: calc(100svh - 16rem);
+    color: #ffffff;
+    background-color: #151515;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image:
+      linear-gradient(90deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.66) 42%, rgba(17, 17, 17, 0.34) 100%),
+      url('{{ "f2d2-hero-merch.png" | asset_url }}');
+      }
+
+  #{{ section_id }} .f2d2-quote-popup__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: inherit;
+    padding-top: clamp(4rem, 7vw, 8rem);
+    padding-bottom: clamp(4rem, 7vw, 8rem);
+  }
+
+  #{{ section_id }} .page-width.f2d2-quote-popup__inner {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__overlay {
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(10, 14, 24, 0.65) 0%,
+        rgba(5, 8, 14, 0.92) 100%
+      );
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__content {
+    width: min(100%, 66rem);
+    max-width: 66rem;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__eyebrow,
+  #{{ section_id }} .f2d2-quote-popup__panel-eyebrow {
+    margin: 0 0 1rem;
+    color: #5ea7ff;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__title {
+    max-width: 70rem;
+    margin: 0;
+    font-size: clamp(4.4rem, 7vw, 8.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__text {
+    max-width: 54rem;
+    margin-top: 1.8rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.75rem;
+    line-height: 1.45;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__button,
+  #{{ section_id }} .f2d2-quote-popup__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.4rem;
+    margin-top: 1.4rem;
+    padding: 0 2.8rem;
+    box-sizing: border-box;
+    border: 1px solid #5ea7ff;
+    color: #ffffff;
+    background: linear-gradient(180deg, #1b7dff 0%, #0048b8 100%);
+    box-shadow:
+      0 16px 34px rgba(0, 72, 184, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.8rem;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.3rem;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__modal[hidden] {
+    display: none;
+  }
+
+  html.f2d2-quote-popup-open {
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    padding: clamp(1.2rem, 2vw, 2.4rem);
+
+    background: rgba(6, 10, 16, 0.76);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  #{{ section_id }} select {
+    color: #ffffff;
+    background: #151b23;
+  }
+
+  #{{ section_id }} select option {
+    color: #ffffff;
+    background: #0f141b;
+  }
+
+  #{{ section_id }} select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 104rem);
+    max-width: 104rem;
+    min-height: 72rem;
+    max-height: calc(100dvh - 4.8rem);
+    overflow: auto;
+    padding: 3.2rem 3.2rem 2.8rem;
+    color: #ffffff;
+    background: #0f141b;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 2rem;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+    outline: none;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 3rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__panel-head {
+    max-width: 72rem;
+    margin-bottom: 2.2rem;
+    padding-right: 6rem;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__panel-head h2 {
+    margin: 0;
+    font-size: clamp(4.2rem, 4.8vw, 5.8rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__panel-head p {
+    margin: 0.9rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.6rem;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 100%;
+    min-height: 0;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 1.6rem;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  #{{ section_id }} label {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #{{ section_id }} label span {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} input,
+  #{{ section_id }} select,
+  #{{ section_id }} textarea {
+    width: 100%;
+    max-width: none;
+    min-height: 5rem;
+    padding: 1.2rem 1.4rem;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 1rem;
+    color: #ffffff;
+    background: #151b23;
+    box-shadow: none;
+    font-size: 1.6rem;
+    line-height: 1.35;
+  }
+
+  #{{ section_id }} textarea {
+    min-height: 13rem;
+    resize: vertical;
+  }
+
+  #{{ section_id }} input::placeholder,
+  #{{ section_id }} textarea::placeholder {
+    color: rgba(255, 255, 255, 0.52);
+  }
+
+  #{{ section_id }} select option {
+    color: #111111;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__wide,
+  #{{ section_id }} .f2d2-quote-popup__hint,
+  #{{ section_id }} .f2d2-quote-popup__status {
+    grid-column: 1 / -1;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__submit {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 5.4rem;
+    margin-top: 0;
+    padding: 1.4rem 2rem;
+    border-radius: 1rem;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__hint {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 1.2rem;
+    line-height: 1.45;
+    background: transparent;
+    padding: 0;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__status {
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 800;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__status--success {
+    background: rgba(31, 143, 78, 0.22);
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__status--error {
+    background: rgba(185, 45, 45, 0.22);
+  }
+
+  @media (max-width: 749px) {
+    #{{ section_id }} {
+      min-height: auto;
+      padding: 4rem 0;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__modal {
+      padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+      align-items: start;
+      overflow-y: auto;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__panel {
+      width: 100%;
+      min-height: auto;
+      height: auto;
+      max-height: calc(100dvh - 2rem);
+      padding: 2rem 1.6rem calc(2.4rem + env(safe-area-inset-bottom));
+      border-radius: 1.4rem;
+      overscroll-behavior: contain;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__panel-head {
+      padding-right: 4.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__panel-head h2 {
+      font-size: clamp(3rem, 9vw, 4.2rem);
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__panel-head p {
+      margin-top: 0.6rem;
+      font-size: 1.4rem;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__form::after {
+      content: "";
+      display: block;
+      flex: 0 0 calc(0.6rem + env(safe-area-inset-bottom));
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      flex: 0 0 auto;
+    }
+
+    #{{ section_id }} input,
+    #{{ section_id }} select,
+    #{{ section_id }} textarea {
+      min-height: 4.8rem;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    #{{ section_id }} textarea {
+      min-height: 12rem;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__button,
+    #{{ section_id }} .f2d2-quote-popup__submit {
+      width: 100%;
+      min-height: 5.2rem;
+      padding: 1.3rem 1.6rem;
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__submit {
+      margin-top: 0.2rem;
+      margin-bottom: 0;
+    }
+
+    #{{ section_id }} .f2d2-quote-popup__hint {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* FIX BACKGROUND FORM */
+  #{{ section_id }} .f2d2-quote-popup__panel {
+    background: #0f141b !important;
+    isolation: isolate;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__form {
+    background: #0f141b;
+    position: relative;
+    z-index: 2;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__grid {
+    background: #0f141b;
+  }
+
+  #{{ section_id }} input,
+  #{{ section_id }} select,
+  #{{ section_id }} textarea {
+    background: #151b23 !important;
+  }
+</style>
+
+<script>
+  (() => {
+    const section = document.getElementById({{ section_id | json }});
+    if (!section) return;
+
+    const modal = section.querySelector('.f2d2-quote-popup__modal');
+    const panel = section.querySelector('.f2d2-quote-popup__panel');
+    const openButton = section.querySelector('.f2d2-quote-popup__button');
+    const closeButtons = section.querySelectorAll('[data-f2d2-quote-close]');
+    const hasStatus = section.querySelector('.f2d2-quote-popup__status');
+    let previousFocus = null;
+
+    const openModal = () => {
+      previousFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.classList.add('f2d2-quote-popup-open');
+    };
+
+    const closeModal = () => {
+      modal.hidden = true;
+      document.documentElement.classList.remove('f2d2-quote-popup-open');
+      if (previousFocus && previousFocus.focus) previousFocus.focus();
+    };
+
+    openButton.addEventListener('click', openModal);
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+    section.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    if (modal.hasAttribute('data-f2d2-auto-open') || hasStatus) openModal();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "F2D2 Quote Popup",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Image de fond (.png)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit titre",
+      "default": "Soumissions professionnelles"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Demandez une soumission claire, rapide et adapt&eacute;e."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>DTF, UV DTF, gravure, corporatif et projets personnalis&eacute;s. Envoyez les d&eacute;tails importants et notre &eacute;quipe vous r&eacute;pond avec une proposition professionnelle.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton",
+      "default": "Demander une soumission"
+    }
+  ],
+  "presets": [
+    {
+      "name": "F2D2 Quote Popup"
+    }
+  ]
+}
+{% endschema %}

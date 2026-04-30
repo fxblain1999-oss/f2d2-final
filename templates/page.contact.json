@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "form": {
+      "type": "f2d2-quote-popup",
+      "settings": {
+        "eyebrow": "Soumissions professionnelles",
+        "heading": "Demandez une soumission claire, rapide et adaptée.",
+        "text": "<p>DTF, UV DTF, gravure, corporatif et projets personnalisés. Envoyez les details importants et notre équipe vous repond avec une proposition professionnelle.</p>",
+        "button_label": "Demander une soumission"
+      }
+    }
+  },
+  "order": [
+    "form"
+  ]
+}

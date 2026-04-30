@@ -1,0 +1,281 @@
+﻿{% assign section_id = 'f2d2-services-' | append: section.id %}
+
+<section id="{{ section_id }}" class="f2d2-home-services">
+  <div class="page-width f2d2-home-services__wrap">
+    <div class="f2d2-home-services__grid" data-f2d2-services-track>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <article class="f2d2-service-card" {{ block.shopify_attributes }}>
+            <div class="f2d2-service-card__icon">
+              {% assign title = block.settings.title | downcase %}
+              {% assign icon_alt = block.settings.title | default: 'Service' | escape %}
+
+              {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | image_url: width: 120 }}"
+                  alt="{{ icon_alt }}"
+                  loading="lazy"
+                  width="120"
+                  height="120"
+                >
+              {% elsif title contains 'uv' %}
+                <img src="{{ 'uv_icon.webp' | asset_url }}" alt="UV DTF" loading="lazy" width="120" height="120">
+              {% elsif title contains 'corporatif' %}
+                <img src="{{ 'corp_icon.webp' | asset_url }}" alt="Corporatif" loading="lazy" width="120" height="120">
+              {% elsif title contains 'gravure' %}
+                <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Gravure" loading="lazy" width="120" height="120">
+              {% elsif title contains 'dtf' %}
+                <img src="{{ 'dtf_icon.webp' | asset_url }}" alt="DTF" loading="lazy" width="120" height="120">
+              {% else %}
+                <div class="f2d2-service-card__icon--placeholder">
+                  {{ block.settings.icon_text | default: 'Logo' }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.title != blank %}
+              <h3 class="f2d2-service-card__title">{{ block.settings.title }}</h3>
+            {% endif %}
+          </article>
+        {% endfor %}
+      {% else %}
+        {% assign fallback_titles = 'DTF|UV DTF|Corporatif|Gravure' | split: '|' %}
+        {% for title in fallback_titles %}
+          <article class="f2d2-service-card">
+            <div class="f2d2-service-card__icon">
+              {% assign fallback_title = title | downcase %}
+
+              {% if fallback_title contains 'uv' %}
+                <img src="{{ 'uv_icon.webp' | asset_url }}" alt="UV DTF" loading="lazy" width="120" height="120">
+              {% elsif fallback_title contains 'corporatif' %}
+                <img src="{{ 'corp_icon.webp' | asset_url }}" alt="Corporatif" loading="lazy" width="120" height="120">
+              {% elsif fallback_title contains 'gravure' %}
+                <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Gravure" loading="lazy" width="120" height="120">
+              {% elsif fallback_title contains 'dtf' %}
+                <img src="{{ 'dtf_icon.webp' | asset_url }}" alt="DTF" loading="lazy" width="120" height="120">
+              {% else %}
+                <div class="f2d2-service-card__icon--placeholder">Logo</div>
+              {% endif %}
+            </div>
+            <h3 class="f2d2-service-card__title">{{ title }}</h3>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }} {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+#{{ section_id }} {
+  padding: 0;
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.96) 0%, rgba(6, 6, 6, 0.98) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+#{{ section_id }} .f2d2-home-services__wrap {
+  overflow: hidden;
+}
+
+/* GRID BASE */
+#{{ section_id }} .f2d2-home-services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+/* CARD BASE */
+#{{ section_id }} .f2d2-service-card {
+  position: relative;
+  min-height: 160px;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+/* ICON */
+#{{ section_id }} .f2d2-service-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+#{{ section_id }} .f2d2-service-card__icon img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+/* TITLE */
+#{{ section_id }} .f2d2-service-card__title {
+  margin: 0;
+  line-height: 1.1;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* TABLET / MOBILE */
+@media screen and (max-width: 989px) {
+  #{{ section_id }} .f2d2-home-services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #{{ section_id }} .f2d2-service-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    padding: 1.2rem 0.8rem 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  /* plus d'air avant la ligne horizontale du milieu */
+  #{{ section_id }} .f2d2-service-card:nth-child(-n+2) {
+    padding-bottom: 3rem;
+  }
+
+  /* pas de ligne sous la dernière rangée */
+  #{{ section_id }} .f2d2-service-card:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+
+  /* séparateur vertical sur la colonne de gauche */
+  #{{ section_id }} .f2d2-service-card:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  #{{ section_id }} .f2d2-service-card__icon img {
+    width: min(28vw, 110px);
+    height: min(28vw, 110px);
+  }
+
+  #{{ section_id }} .f2d2-service-card__title {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 990px) {
+  #{{ section_id }} .f2d2-home-services__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  #{{ section_id }} .f2d2-service-card {
+    min-height: 170px;
+    padding: 1.2rem 1rem;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  #{{ section_id }} .f2d2-service-card__icon {
+    margin-bottom: 6px;
+  }
+
+  #{{ section_id }} .f2d2-service-card__icon img {
+    width: 82px;
+    height: 82px;
+  }
+
+  #{{ section_id }} .f2d2-service-card__title {
+    font-size: 1.05rem;
+    line-height: 1.1;
+  }
+
+  /* séparateur avant la première card */
+  #{{ section_id }} .f2d2-home-services__grid::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  /* séparateurs entre les cards */
+  #{{ section_id }} .f2d2-service-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "F2D2 Home Services",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Bandeau de services a 4 colonnes."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icone"
+        },
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Symbole texte",
+          "default": "◆"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Impression DTF"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "F2D2 Home Services",
+      "blocks": [
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" }
+      ]
+    }
+  ]
+}
+{% endschema %}

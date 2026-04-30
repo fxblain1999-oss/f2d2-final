@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "hero": {
+      "type": "f2d2-home-hero"
+    },
+    "services": {
+      "type": "f2d2-home-services"
+    },
+    "featured_products": {
+      "type": "f2d2-home-featured-products"
+    },
+    "corporate": {
+      "type": "f2d2-home-corporate-banner"
+    },
+    "gallery": {
+      "type": "f2d2-home-gallery"
+    },
+    "cta": {
+      "type": "f2d2-home-cta"
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "featured_products",
+    "corporate",
+    "gallery",
+    "cta"
+  ]
+}

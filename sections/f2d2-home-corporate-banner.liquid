@@ -1,0 +1,211 @@
+﻿{% assign section_id = 'f2d2-corporate-banner-' | append: section.id %}
+
+<section id="{{ section_id }}" class="f2d2-home-corporate-banner">
+  <div class="f2d2-home-corporate-banner__media">
+    <img
+      src="{{ 'corporate_bg.png' | asset_url }}"
+      loading="lazy"
+      class="f2d2-home-corporate-banner__image"
+      alt="{{ section.settings.heading | escape }}"
+    >
+  </div>
+
+  <div class="f2d2-home-corporate-banner__overlay"></div>
+
+  <div class="page-width f2d2-home-corporate-banner__inner">
+    <div class="f2d2-home-corporate-banner__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="f2d2-home-corporate-banner__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="f2d2-home-corporate-banner__text rte">{{ section.settings.text }}</div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <a href="https://f2d2.ca/pages/contact" class="f2d2-home-corporate-banner__btn">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    display: block !important;
+  }
+
+  #{{ section_id }} {
+    position: relative;
+    overflow: hidden;
+    height: 520px;
+    display: block;
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line-height);
+    color: #fff;
+    background: #090909;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__media,
+  #{{ section_id }} .f2d2-home-corporate-banner__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__media {
+    z-index: 0;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__overlay {
+    z-index: 1;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.90) 0%,
+        rgba(0, 0, 0, 0.82) 22%,
+        rgba(0, 0, 0, 0.62) 40%,
+        rgba(0, 0, 0, 0.28) 63%,
+        rgba(0, 0, 0, 0.08) 100%
+      );
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__content {
+    max-width: 370px;
+    padding-left: 2rem;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__title {
+    margin: 0;
+    font-size: clamp(2.7rem, 3.2vw, 4.8rem);
+    line-height: 0.92;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__text {
+    margin-top: 1.2rem;
+    font-size: 1.45rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__text p {
+    margin: 0;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.6rem;
+    min-width: 220px;
+    min-height: 48px;
+    padding: 0 1.8rem;
+    border: 1px solid #5ea7ff;
+    background: linear-gradient(180deg, #1b7dff 0%, #0048b8 100%);
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+      0 4px 14px rgba(0, 72, 184, 0.30);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  #{{ section_id }} .f2d2-home-corporate-banner__btn:hover {
+    opacity: 0.96;
+    transform: translateY(-1px);
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} {
+      height: 380px;
+    }
+
+    #{{ section_id }} .f2d2-home-corporate-banner__content {
+      max-width: 290px;
+      padding-left: 1.2rem;
+    }
+
+    #{{ section_id }} .f2d2-home-corporate-banner__title {
+      font-size: clamp(2.1rem, 8vw, 3.4rem);
+    }
+
+    #{{ section_id }} .f2d2-home-corporate-banner__text {
+      font-size: 1.1rem;
+      margin-top: 0.9rem;
+    }
+
+    #{{ section_id }} .f2d2-home-corporate-banner__btn {
+      min-width: 190px;
+      min-height: 44px;
+      font-size: 0.95rem;
+      margin-top: 1.2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "F2D2 Corporate Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Solutions pour entreprises"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Uniformes • Branding • Volume</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Demander soumission"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "F2D2 Corporate Banner"
+    }
+  ]
+}
+{% endschema %}

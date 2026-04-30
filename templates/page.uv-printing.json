@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_3e93jw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nqAgDb": {
+          "type": "heading",
+          "settings": {
+            "heading": "UV Printing",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_TtRVgB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Impression directe sur objets rigides</strong> : plaques, coques de cellulaires, plastique, verre, métal.<br/><br/>Un rendu <strong>net, en couleur</strong>, <strong>durable</strong> et <strong>résistant à l’usure</strong>, idéal pour un usage quotidien ou promotionnel.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nqAgDb",
+        "text_TtRVgB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_WcVydr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UcGpMg": {
+          "type": "heading",
+          "settings": {
+            "heading": "Besoin d'un nouveaux panneau?",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UcGpMg"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_height": "adapt",
+        "layout": "image_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_3e93jw",
+    "image_with_text_WcVydr"
+  ]
+}

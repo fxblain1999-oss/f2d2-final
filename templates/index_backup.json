@@ -1,0 +1,600 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_Afwz4m": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tfafB6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bienvenue dans notre studio de création",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_yeX6GW": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Les Créations F2D2 – Impression, personnalisation & création sur mesure</strong></p><p>Les Créations F2D2, c’est une entreprise québécoise passionnée, située à Sainte-Amable, spécialisée dans la personnalisation de vêtements, d’objets promotionnels et d’articles uniques destinés aux particuliers, aux entreprises, aux événements spéciaux ainsi qu’aux créateurs.</p><p>Grâce à un atelier complet et à des équipements à la fine pointe de la technologie, F2D2 offre des services professionnels de haute qualité dans une multitude de domaines, avec un souci constant du détail et une créativité sans limites.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tfafB6",
+        "text_yeX6GW"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image": "shopify://shop_images/521171053_718388367777665_546931424687341030_n_a5d747fa-d14f-46c1-869c-023533a4b69c.jpg",
+        "image_height": "adapt",
+        "layout": "image_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "collection_list_Mt6JjM": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_n8nfyP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "femme-t-shirts",
+            "image": "shopify://shop_images/woman-holds-and-smells-a-single-ranunculus-flower.jpg",
+            "title": "Vêtements pour femmes",
+            "description": ""
+          }
+        },
+        "featured_collection_XwU7YK": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "vetement-pour-homme",
+            "image": "shopify://shop_images/profile-of-a-person-in-black-tee.jpg",
+            "title": "Vêtements pour hommes",
+            "description": ""
+          }
+        },
+        "featured_collection_TTGzH4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "chapeau",
+            "image": "shopify://shop_images/young-man-adjusts-his-baseball-cap.jpg",
+            "title": "Nos chapeaux",
+            "description": ""
+          }
+        },
+        "featured_collection_e9XD3A": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sacs",
+            "image": "shopify://shop_images/clothes-rail-beside-gray-wall.jpg",
+            "title": "Nos sacs",
+            "description": ""
+          }
+        },
+        "featured_collection_3gthfF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bouteille",
+            "image": "shopify://shop_images/DSC00100-scaled.jpg",
+            "title": "Nos bouteilles",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_n8nfyP",
+        "featured_collection_XwU7YK",
+        "featured_collection_TTGzH4",
+        "featured_collection_e9XD3A",
+        "featured_collection_3gthfF"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "standard",
+        "subheading": "",
+        "heading": "Achetez des produits de haute qualité",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "description": "<p>Nous offrons une qualité d’impression supérieure avec un service rapide !</p>",
+        "text_size": "text-base",
+        "card_color_inherited": false,
+        "show_product_count": false,
+        "show_icon": true,
+        "card_style": "",
+        "card_image_ratio": "1/1",
+        "content_alignment": "center",
+        "columns_desktop": 5,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "product_tabs_iJHLzK": {
+      "type": "product-tabs",
+      "blocks": {
+        "tab_Yz8Mnz": {
+          "type": "tab",
+          "settings": {
+            "title": "Vêtements",
+            "collection": "clothing"
+          }
+        },
+        "tab_AfgNn8": {
+          "type": "tab",
+          "settings": {
+            "title": "Accessoires",
+            "collection": "accesoire"
+          }
+        }
+      },
+      "block_order": [
+        "tab_Yz8Mnz",
+        "tab_AfgNn8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "",
+        "header_layout": "horizontal",
+        "heading": "Nos impressions populaires",
+        "heading_size": "h2",
+        "heading_highlight_style": "none",
+        "limit": 4,
+        "columns": 4,
+        "column_gap": "extra-large",
+        "row_gap": "large",
+        "grid_layout": "standard",
+        "pcard_image_ratio": "3/4",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "tabs_nav_style": "design-1",
+        "padding_top": 100,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "rich_text_BnD3pH": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_rTBbdJ": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "F2D2Boutique"
+          }
+        },
+        "heading_THxmEM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Toujours prêt pour de nouveaux projets",
+            "heading_size": "h4",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_q7pAqq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Si vous souhaitez explorer un service que nous n’offrons pas, envoyez-nous un courriel !</p>",
+            "text_size": "text-base"
+          }
+        },
+        "button_WLgaJC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Nous Contactez",
+            "button_link": "shopify://pages/contact",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_rTBbdJ",
+        "heading_THxmEM",
+        "text_q7pAqq",
+        "button_WLgaJC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_DKiM3g": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_EYj3Un": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nos service aux Entreprise",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_pHxbqk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nous offrons une gamme complète de services créatifs et techniques pour répondre aux besoins variés des entreprises, petites ou grandes. Que ce soit pour bâtir votre image de marque ou optimiser votre production visuelle, notre équipe est là pour vous accompagner à chaque étape.</p><h3>🎨 <strong>Création de logo</strong></h3><p>Nous concevons des logos uniques, percutants et adaptés à l'identité de votre entreprise. Un bon logo, c’est bien plus qu’un symbole — c’est la première impression que vous laissez.</p><h3>✏️ <strong>Vectorisation d’image</strong></h3><p>Transformez vos images en fichiers vectoriels de haute qualité, prêts pour toutes les applications professionnelles : impression, broderie, gravure et plus encore.</p><h3>🖌️ <strong>Design graphique</strong></h3><p>Confiez-nous la création de vos supports visuels : affiches, cartes d'affaires, bannières, emballages… Notre expertise en design graphique donnera vie à vos idées.</p><h3>🖨️ <strong>Prépresse pour impression</strong></h3><p>Nous préparons vos fichiers pour une impression professionnelle sans faille. Nos services de prépresse garantissent des résultats conformes aux standards d’impression, en tenant compte des marges, couleurs et formats.</p><h3>👕 <strong>Création de visuels pour vêtements</strong></h3><p>Donnez du style à vos collections! Nous concevons des visuels originaux pour l’impression sur t-shirts, hoodies, casquettes et autres vêtements, avec une touche créative à votre image.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EYj3Un",
+        "text_pHxbqk"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image": "shopify://shop_images/team-meeting-full-of-happy-young-adults.jpg",
+        "image_height": "adapt",
+        "layout": "text_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "multicolumn_HWWX6U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Uf7Miy": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Impression DTF",
+            "heading_size": "h4",
+            "text": "<p>Impression couleur éclatante et durable sur tous types de tissus.<br/>Parfait pour les chandails d’équipe, les logos de compagnie ou les vêtements personnalisés.<br/>Meilleure alternative à la sérigraphie pour les petites et moyennes quantités.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_gk9ViP": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Sublimation",
+            "heading_size": "h4",
+            "text": "<p><strong>Impression</strong> sur tasses, textiles, objets décoratifs et plus encore.<br/>Résultat permanent, éclatant et sans épaisseur au toucher.<br/>Idéal pour les cadeaux uniques ou produits promotionnels.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_yKdd6m": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Gravure & Découpe laser",
+            "heading_size": "h4",
+            "text": "<p><strong>Gravure précise</strong> sur bois, cuir, métal, acrylique, verre, etc.<br/>Découpe personnalisée pour des projets créatifs ou industriels.<br/>Parfait pour la signalisation, les décorations, les boîtes cadeaux ou les articles corporatifs.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_wxJ84F": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "UV Printing",
+            "heading_size": "h4",
+            "text": "<p><strong>Impression directe sur objets rigides</strong> : plaques, coques de cellulaires, plastique, verre, métal.<br/><br/>Un rendu <strong>net, en couleur</strong>, <strong>durable</strong> et <strong>résistant à l’usure</strong>, idéal pour un usage quotidien ou promotionnel.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "column_Uf7Miy",
+        "column_gk9ViP",
+        "column_yKdd6m",
+        "column_wxJ84F"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-4",
+        "heading": "Nos services d'impressions",
+        "heading_size": "h2",
+        "heading_highlight_style": "none",
+        "subheading": "",
+        "description": "",
+        "text_size": "text-base",
+        "column_alignment": "left",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "multicolumn_fCiaxK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_fkBMP8": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Impression DTF",
+            "heading_size": "h4",
+            "text": "<p>Impression couleur éclatante et durable sur tous types de tissus.<br/>Parfait pour les chandails d’équipe, les logos de compagnie ou les vêtements personnalisés.<br/>Meilleure alternative à la sérigraphie pour les petites et moyennes quantités.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_hEFXT7": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Sublimation",
+            "heading_size": "h4",
+            "text": "<p><strong>Impression</strong> sur tasses, textiles, objets décoratifs et plus encore.<br/>Résultat permanent, éclatant et sans épaisseur au toucher.<br/>Idéal pour les cadeaux uniques ou produits promotionnels.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_QE3aNP": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "Gravure & Découpe laser",
+            "heading_size": "h4",
+            "text": "<p><strong>Gravure précise</strong> sur bois, cuir, métal, acrylique, verre, etc.<br/>Découpe personnalisée pour des projets créatifs ou industriels.<br/>Parfait pour la signalisation, les décorations, les boîtes cadeaux ou les articles corporatifs.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_qntqgr": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "UV Printing",
+            "heading_size": "h4",
+            "text": "<p><strong>Impression directe sur objets rigides</strong> : plaques, coques de cellulaires, plastique, verre, métal.<br/><br/>Un rendu <strong>net, en couleur</strong>, <strong>durable</strong> et <strong>résistant à l’usure</strong>, idéal pour un usage quotidien ou promotionnel.</p>",
+            "text_size": "text-sm",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "column_fkBMP8",
+        "column_hEFXT7",
+        "column_QE3aNP",
+        "column_qntqgr"
+      ],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "heading": "Nos services d'impressions",
+        "heading_size": "h2",
+        "heading_highlight_style": "none",
+        "subheading": "",
+        "description": "",
+        "text_size": "text-base",
+        "column_alignment": "left",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "collapsible_tabs_cmPW6L": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "collapsible_item_ACQxpH": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Quels sont les délais d’impression ?",
+            "content": "<p>Nous prenons environ 5 jours ouvrables pour traiter et analyser votre commande. Nous prenons également le temps d’analyser vos logos afin de nous assurer de leur qualité, pour garantir une impression optimale et répondre au mieux à vos besoins. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_item_HaUgDk": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Quelles sont les options de retour en cas de produit endommagé ?",
+            "content": "<p>Nous faisons toujours notre possible pour envoyer des produits en parfait état. Cependant, si vous recevez un article présentant un défaut ou endommagé, nous vous expédierons un produit de remplacement</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_item_iFr8we": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Offrez-vous des rabais de volume?",
+            "content": "<p>Nous offrons un rabais de volume qui se calcule automatiquement dans le panier. Par exemple, si vous commandez 10 chandails, une réduction de 15 % sera appliquée à votre commande.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_item_K4P3Y9": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Pouvez-vous envoyer des échantillons ?",
+            "content": "<p>Bien sûr, nous envoyons des échantillons uniquement pour les commandes en gros volume. N’hésitez pas à nous écrire par courriel pour obtenir plus d’informations.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_item_ACQxpH",
+        "collapsible_item_HaUgDk",
+        "collapsible_item_iFr8we",
+        "collapsible_item_K4P3Y9"
+      ],
+      "custom_css": [
+        ".section__wrapper {--header-padding-bottom-large: 13.1rem;}",
+        ".accordion-parent {max-width: 937px;}",
+        ".accordion-item:first-child .accordion-details__summary {padding-top: 0;}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "standing-column",
+        "heading": "Foire aux questions",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "subheading": "",
+        "description": "<p>Nous créons des produits destinés aussi bien aux particuliers qu’aux entreprises. N’hésitez pas à nous contacter pour plus d’informations. </p>",
+        "text_size": "text-base",
+        "button_label": "Nous contacter",
+        "button_link": "shopify://pages/contact",
+        "button_style": "btn--primary",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h3",
+        "item_icon_size": "extra-large",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": true,
+        "divider_width": "full",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_overlay_HfWhgw": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_cWgYXz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Il est temps de faire travailler vos muscles créatifs.",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "button_TCRTax": {
+          "type": "button",
+          "settings": {
+            "button_label": "Créer",
+            "button_link": "shopify://collections/vetements",
+            "button_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cWgYXz",
+        "button_TCRTax"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "full",
+        "image": "shopify://shop_images/sidewalk-sale-retail-shop-shirts.jpg",
+        "desktop_height": "extra-medium",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "scheme-46a082ed-83f4-4d42-9560-c3dbb9881b21",
+        "content_position": "middle-left",
+        "content_alignment": "left",
+        "mobile_height": "auto",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "image_with_text_Afwz4m",
+    "collection_list_Mt6JjM",
+    "product_tabs_iJHLzK",
+    "rich_text_BnD3pH",
+    "image_with_text_DKiM3g",
+    "multicolumn_HWWX6U",
+    "multicolumn_fCiaxK",
+    "collapsible_tabs_cmPW6L",
+    "image_with_text_overlay_HfWhgw"
+  ]
+}

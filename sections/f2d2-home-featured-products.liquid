@@ -1,0 +1,506 @@
+﻿{% assign section_id = 'f2d2-featured-products-' | append: section.id %}
+{% assign featured_collection = collections['all'] %}
+
+<section id="{{ section_id }}" class="f2d2-home-featured-products">
+  <div class="page-width">
+    <div class="f2d2-home-featured-products__head">
+      {% if section.settings.heading != blank %}
+        <h2 class="f2d2-home-featured-products__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+
+    <div class="f2d2-home-featured-products__grid">
+      {% if featured_collection != blank %}
+        {% for product in featured_collection.products limit: section.settings.products_to_show %}
+          <article class="f2d2-product-card {% if forloop.index <= 2 %}f2d2-product-card--group-a{% else %}f2d2-product-card--group-b{% endif %} f2d2-product-card--{{ forloop.index }}">
+            <a href="{{ product.url }}" class="f2d2-product-card__media">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'f2d2-product-card__image', alt: product.title | escape }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'f2d2-product-card__image' }}
+              {% endif %}
+            </a>
+            <div class="f2d2-product-card__content">
+              <div class="f2d2-product-card__header">
+                <h3 class="f2d2-product-card__title">
+                  <a href="{{ product.url }}">{{ product.title }}</a>
+                </h3>
+                <div class="f2d2-product-card__price">
+                  {{ product.price | money }}
+                </div>
+              </div>
+              <a href="{{ product.url }}" class="f2d2-product-card__button">{{ section.settings.button_label }}</a>
+            </div>
+          </article>
+        {% endfor %}
+      {% elsif section.blocks.size > 0 %}
+        {% for block in section.blocks limit: section.settings.products_to_show %}
+          <article class="f2d2-product-card {% if forloop.index <= 2 %}f2d2-product-card--group-a{% else %}f2d2-product-card--group-b{% endif %} f2d2-product-card--{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.link | default: '#' }}" class="f2d2-product-card__media">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'f2d2-product-card__image', alt: block.settings.title | escape }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'f2d2-product-card__image' }}
+              {% endif %}
+            </a>
+            <div class="f2d2-product-card__content">
+              <h3 class="f2d2-product-card__title"><a href="{{ block.settings.link | default: '#' }}">{{ block.settings.title }}</a></h3>
+              <div class="f2d2-product-card__price">{{ block.settings.price }}</div>
+              <a href="{{ block.settings.link | default: '#' }}" class="f2d2-product-card__button">{{ section.settings.button_label }}</a>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <article class="f2d2-product-card">
+            <div class="f2d2-product-card__media">{{ 'product-' | append: i | placeholder_svg_tag: 'f2d2-product-card__image' }}</div>
+            <div class="f2d2-product-card__content">
+              <h3 class="f2d2-product-card__title">Produit exemple</h3>
+              <div class="f2d2-product-card__price">$0.00</div>
+              <span class="f2d2-product-card__button">{{ section.settings.button_label }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  #{{ section_id }} {
+    padding: 2.8rem 0 4.6rem;
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line-height);
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.68) 100%),
+      url({{ 'section_bg.png' | asset_url }});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    border-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  #{{ section_id }} .f2d2-home-featured-products__head {
+    position: relative;
+    margin-bottom: 2.4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.15rem;
+  }
+
+  #{{ section_id }} .f2d2-home-featured-products__head::before,
+  #{{ section_id }} .f2d2-home-featured-products__head::after {
+    content: "";
+    flex: 1 1 auto;
+    max-width: 20rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  #{{ section_id }} .f2d2-home-featured-products__title {
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+    font-size: clamp(2.3rem, 4.5vw, 4rem);
+    line-height: 0.94;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  #{{ section_id }} .f2d2-home-featured-products__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  #{{ section_id }} .f2d2-product-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.34),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .f2d2-product-card__media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25.8rem;
+    overflow: hidden;
+    padding: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Groupe 1 : cartes 1 et 2 */
+  #{{ section_id }} .f2d2-product-card--group-a .f2d2-product-card__media {
+    background:
+      linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)),
+      url({{ 'card-bg-group-a.png' | asset_url }});
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Groupe 2 : cartes 3 et 4 */
+  #{{ section_id }} .f2d2-product-card--group-b .f2d2-product-card__media {
+    background:
+      linear-gradient(rgba(0,0,0), rgba(0,0,0,0.1)),
+      url({{ 'card-bg-group-b.png' | asset_url }});
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #{{ section_id }} .f2d2-product-card__content {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.85) 40%,
+      rgba(0, 0, 0, 0.98) 100%
+    );
+  }
+
+  #{{ section_id }} .f2d2-product-card__media {
+    position: relative;
+    z-index: 1;
+  }
+
+  #{{ section_id }} .f2d2-product-card__image {
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    margin: auto;
+    transition: transform 0.25s ease;
+  }
+
+  #{{ section_id }} .f2d2-product-card--1 .f2d2-product-card__image {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: translateX(0) translateY(-10%) scale(1);
+  }
+
+  #{{ section_id }} .f2d2-product-card--2 .f2d2-product-card__image {
+    width: 170% !important;
+    max-width: 170% !important;
+    transform: translateX(0) translateY(-5%) scale(1);
+  }
+
+  #{{ section_id }} .f2d2-product-card--3 .f2d2-product-card__image {
+    width: 120% !important;
+    max-width: 120% !important;
+    transform: translateX(0) translateY(-10%) scale(1);
+  }
+
+  #{{ section_id }} .f2d2-product-card--4 .f2d2-product-card__image {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: translateX(0) translateY(-18%) scale(1) !important;
+  }
+
+  #{{ section_id }} .f2d2-product-card--1:hover .f2d2-product-card__image {
+    transform: translateX(0) translateY(-10%) scale(1.04);
+  }
+
+  #{{ section_id }} .f2d2-product-card--2:hover .f2d2-product-card__image {
+    transform: translateX(0) translateY(-5%) scale(1.04);
+  }
+
+  #{{ section_id }} .f2d2-product-card--3:hover .f2d2-product-card__image {
+    transform: translateX(0) translateY(-10%) scale(1.04);
+  }
+
+  #{{ section_id }} .f2d2-product-card--4:hover .f2d2-product-card__image {
+    transform: translateX(0) translateY(-18%) scale(1.04) !important;
+  }
+
+  #{{ section_id }} .f2d2-product-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.45rem 0.55rem 0.55rem;
+    background:
+      linear-gradient(180deg, rgba(18,18,18,0.86) 0%, rgba(8,8,8,0.98) 100%);
+  }
+
+  #{{ section_id }} .f2d2-product-card__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #{{ section_id }} .f2d2-product-card__title,
+  #{{ section_id }} .f2d2-product-card__price {
+    margin: 0 0 3px;
+    padding: 0;
+    font-size: 2rem; /* ajuste entre 1rem et 1.15rem selon ton goût */
+    font-weight: 600;
+  }
+
+  #{{ section_id }} .f2d2-product-card__title {
+    flex: unset; /* IMPORTANT */
+    margin-right: 5px; /* espace entre titre et prix */
+  }
+
+  #{{ section_id }} .f2d2-product-card__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  #{{ section_id }} .f2d2-product-card__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto 10px;
+
+    padding: 0.75rem 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    border-radius: 4px;
+    border: 1px solid #2f6edc;
+    background: linear-gradient(180deg, #2a7bff 0%, #0d47a1 100%);
+
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.25),
+      0 2px 6px rgba(0,0,0,0.4);
+
+    transition: all 0.2s ease;
+  }
+
+  @media screen and (min-width: 990px) {
+    #{{ section_id }} {
+      padding: 3.4rem 0 5.4rem;
+    }
+
+    #{{ section_id }} .f2d2-home-featured-products__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .page-width {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+  #{{ section_id }} .f2d2-product-card__button {
+    width: 100%;
+    min-height: 2.6rem;
+    font-size: clamp(0.65rem, 2.5vw, 0.82rem);
+    padding: 0.55rem 0.4rem;
+    white-space: nowrap;
+  }    
+
+    #{{ section_id }} .page-width {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+    }
+
+    #{{ section_id }} .f2d2-home-featured-products__grid {
+      gap: 1rem;
+    }
+
+    #{{ section_id }} .f2d2-product-card__media {
+      height: clamp(11rem, 42vw, 14rem);
+      aspect-ratio: auto;
+      padding: 0.7rem;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    #{{ section_id }} {
+      padding: 2.3rem 0 3.6rem;
+    }
+
+    #{{ section_id }} .f2d2-home-featured-products__head {
+      gap: 0.7rem;
+      margin-bottom: 1.8rem;
+    }
+
+    #{{ section_id }} .f2d2-home-featured-products__head::before,
+    #{{ section_id }} .f2d2-home-featured-products__head::after {
+      max-width: none;
+    }
+
+    #{{ section_id }} .f2d2-home-featured-products__title {
+      font-size: clamp(2rem, 8.4vw, 2.7rem);
+    }
+
+  #{{ section_id }} .f2d2-product-card__content {
+    padding: 0.45rem 0.55rem 0.6rem;
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.65) 40%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+  }
+
+  .f2d2-product-card__title,
+  .f2d2-product-card__price {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+
+  #{{ section_id }} .f2d2-product-card__content {
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  #{{ section_id }} .f2d2-product-card__title {
+    font-size: clamp(1.2rem, 2.6vw, 0.9rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 0;
+  }
+
+  #{{ section_id }} .f2d2-product-card__price {
+    font-size: clamp(1.2rem, 2.6vw, 0.9rem);
+    white-space: nowrap;
+  }
+
+    #{{ section_id }} .f2d2-product-card--1 .f2d2-product-card__image {
+      width: 110% !important;
+      max-width: 110% !important;
+      transform: translateX(0) translateY(-12%) scale(1);
+    }
+
+    #{{ section_id }} .f2d2-product-card--2 .f2d2-product-card__image {
+      width: 170% !important;
+      max-width: 170% !important;
+      transform: translateX(-2%) translateY(5%) scale(1);
+    }
+
+    #{{ section_id }} .f2d2-product-card--3 .f2d2-product-card__image {
+      width: 120% !important;
+      max-width: 120% !important;
+      transform: translateX(-5%) translateY(10%) scale(1);
+    }
+
+    #{{ section_id }} .f2d2-product-card--4 .f2d2-product-card__image {
+      width: 100% !important;
+      max-width: 100% !important;
+      transform: translateX(-2%) translateY(10%) scale(1) !important;
+    }
+
+    #{{ section_id }} .f2d2-product-card--1:hover .f2d2-product-card__image {
+      transform: translateX(0) translateY(-12%) scale(1.04);
+    }
+
+    #{{ section_id }} .f2d2-product-card--2:hover .f2d2-product-card__image {
+      transform: translateX(-2%) translateY(5%) scale(1.04);
+    }
+
+    #{{ section_id }} .f2d2-product-card--3:hover .f2d2-product-card__image {
+      transform: translateX(-5%) translateY(10%) scale(1.04);
+    }
+
+    #{{ section_id }} .f2d2-product-card--4:hover .f2d2-product-card__image {
+      transform: translateX(-2%) translateY(10%) scale(1.04) !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "F2D2 Featured Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Produits Populaires"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Nombre de produits",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Ajouter au panier"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Carte produit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Produit personnalise"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Prix",
+          "default": "$0.00"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "F2D2 Featured Products"
+    }
+  ],
+  "max_blocks": 4
+}
+{% endschema %}

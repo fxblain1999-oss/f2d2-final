@@ -1,0 +1,252 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_cCVUbP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tyTzw6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Coin des petits et Animaux 🐶",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_YwqhXQ": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>Bienvenue chez F2D2 — là où l’imagination des enfants devient magique à porter !<br/></strong></h2><p>Chez <strong>F2D2</strong>, nous croyons que les vêtements pour enfants devraient être aussi colorés, uniques et pleins de personnalité qu’eux. C’est pourquoi nous transformons vos idées les plus folles (et les passions préférées de vos petits) en imprimés originaux sur des tissus doux et confortables, qu’ils adoreront porter tous les jours.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tyTzw6",
+        "text_YwqhXQ"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "scheme-26077e1f-01ee-40cf-ab39-3b2adc39518a",
+        "color_scheme": "scheme-39c2ae8b-0e6a-4e35-bacf-0c293adce360",
+        "image": "shopify://shop_images/kids-power-posing.jpg",
+        "image_height": "adapt",
+        "layout": "image_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "rich_text_rEg8Am": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4iXkpM": {
+          "type": "heading",
+          "settings": {
+            "heading": "🎨 Notre promesse : du rêve au vêtement",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_8Cn7mD": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Quand l’imagination rencontre la création</strong><br/><br/>Unicornes, dinosaures, fusées, super-héros ou animaux rigolos… peu importe ce qui fait briller les yeux de vos enfants, nous donnons vie à leurs univers préférés grâce à des impressions de haute qualité. Un dessin, une photo ou même une simple idée ? Nous la transformons en motif unique et fun.</p><p><strong>Qualité adaptée aux enfants</strong><br/><br/>Les enfants bougent, sautent, grimpent, renversent… et leurs vêtements doivent suivre le rythme ! Nos impressions sont durables, résistantes au lavage et surtout douces sur la peau. Parce que le confort, c’est aussi important que le style.</p><p><strong>Des tailles pour tous les âges</strong><br/><br/>De la grenouillère pour bébé au hoodie pour les “grands”, nous proposons une large gamme de tailles. Chaque enfant mérite de porter un vêtement qui lui va parfaitement… et qui lui ressemble.</p><p><strong>Un choix écoresponsable</strong><br/><br/>Nous pensons aussi à l’avenir de nos enfants. Encres respectueuses de l’environnement, matériaux de qualité et réduction des déchets font partie de notre engagement pour une planète plus saine.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4iXkpM",
+        "text_8Cn7mD"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "scheme-26077e1f-01ee-40cf-ab39-3b2adc39518a",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "product_tabs_ckXFDQ": {
+      "type": "product-tabs",
+      "blocks": {
+        "tab_iBDdKe": {
+          "type": "tab",
+          "settings": {
+            "title": "",
+            "collection": "articles-pour-les-petits"
+          }
+        }
+      },
+      "block_order": [
+        "tab_iBDdKe"
+      ],
+      "name": "t:sections.product-tabs.presets.name",
+      "settings": {
+        "color_scheme": "scheme-26077e1f-01ee-40cf-ab39-3b2adc39518a",
+        "header_layout": "vertical",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "limit": 12,
+        "columns": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_layout": "standard",
+        "pcard_image_ratio": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "tabs_nav_style": "design-2",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "image_gallery_CEEArW": {
+      "type": "image-gallery",
+      "blocks": {
+        "image_FBNHFe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/511268858_122108452622917774_8005768046777578281_n.jpg",
+            "link": ""
+          }
+        },
+        "image_AptNft": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/514377856_122108352374917774_4009293786037876776_n.jpg",
+            "link": ""
+          }
+        },
+        "image_R63nr3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/514068427_122108352548917774_2047253986528493045_n.jpg",
+            "link": ""
+          }
+        },
+        "image_qEnAGP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/514040222_122108352710917774_3205208687360085844_n.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_FBNHFe",
+        "image_AptNft",
+        "image_R63nr3",
+        "image_qEnAGP"
+      ],
+      "name": "t:sections.image-gallery.name",
+      "settings": {
+        "color_scheme": "scheme-26077e1f-01ee-40cf-ab39-3b2adc39518a",
+        "header_layout": "vertical",
+        "heading": "Inspiration",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "subheading": "",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "social_media": "none",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "image_ratio": "1/1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "product_tabs_qMKWX6": {
+      "type": "product-tabs",
+      "blocks": {
+        "tab_qxeGwj": {
+          "type": "tab",
+          "settings": {
+            "title": "Pour nos compagnons",
+            "collection": "pour-nos-animaux"
+          }
+        }
+      },
+      "block_order": [
+        "tab_qxeGwj"
+      ],
+      "name": "t:sections.product-tabs.presets.name",
+      "settings": {
+        "color_scheme": "scheme-26077e1f-01ee-40cf-ab39-3b2adc39518a",
+        "header_layout": "vertical",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "limit": 4,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_layout": "standard",
+        "pcard_image_ratio": "1/1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "tabs_nav_style": "design-2",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_cCVUbP",
+    "rich_text_rEg8Am",
+    "product_tabs_ckXFDQ",
+    "image_gallery_CEEArW",
+    "product_tabs_qMKWX6"
+  ]
+}

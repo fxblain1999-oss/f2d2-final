@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_t6nLj3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_e9VTDh": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "",
+            "heading_size": "h4",
+            "text": "<h3>Impression DTF</h3><p>Impression couleur éclatante et durable sur tous types de tissus.<br/>Parfait pour les chandails d’équipe, les logos de compagnie ou les vêtements personnalisés.<br/>Meilleure alternative à la sérigraphie pour les petites et moyennes quantités.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_C7GKFw": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "",
+            "heading_size": "h4",
+            "text": "<h3>Sublimation</h3><p><strong>Impression</strong> sur tasses, textiles, objets décoratifs et plus encore.<br/>Résultat permanent, éclatant et sans épaisseur au toucher.<br/>Idéal pour les cadeaux uniques ou produits promotionnels.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_rApTKf": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "",
+            "heading_size": "h4",
+            "text": "<h3>Gravure & Découpe laser</h3><p><strong>Gravure précise</strong> sur bois, cuir, métal, acrylique, verre, etc.<br/>Découpe personnalisée pour des projets créatifs ou industriels.<br/>Parfait pour la signalisation, les décorations, les boîtes cadeaux ou les articles corporatifs.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        },
+        "column_VD4UdX": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "",
+            "heading_size": "h4",
+            "text": "<h3>UV Printing</h3><p><strong>Impression directe sur objets rigides</strong> : plaques, coques de cellulaires, plastique, verre, métal.<br/><br/>Un rendu <strong>net, en couleur</strong>, <strong>durable</strong> et <strong>résistant à l’usure</strong>, idéal pour un usage quotidien ou promotionnel.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_style": "btn--underline",
+            "button_link": "",
+            "mobile_layout": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "column_e9VTDh",
+        "column_C7GKFw",
+        "column_rApTKf",
+        "column_VD4UdX"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Nos services d'impresion",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "subheading": "",
+        "description": "",
+        "text_size": "text-base",
+        "column_alignment": "left",
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "rich_text_BBJCR3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fyEETP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Notre aide aux Entreprises",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_4CLLeX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nous offrons une gamme complète de services créatifs et techniques pour répondre aux besoins variés des entreprises, petites ou grandes. Que ce soit pour bâtir votre image de marque ou optimiser votre production visuelle, notre équipe est là pour vous accompagner à chaque étape.</p><h3>🎨 <strong>Création de logo</strong></h3><p>Nous concevons des logos uniques, percutants et adaptés à l'identité de votre entreprise. Un bon logo, c’est bien plus qu’un symbole — c’est la première impression que vous laissez.</p><h3>✏️ <strong>Vectorisation d’image</strong></h3><p>Transformez vos images en fichiers vectoriels de haute qualité, prêts pour toutes les applications professionnelles : impression, broderie, gravure et plus encore.</p><h3>🖌️ <strong>Design graphique</strong></h3><p>Confiez-nous la création de vos supports visuels : affiches, cartes d'affaires, bannières, emballages… Notre expertise en design graphique donnera vie à vos idées.</p><h3>🖨️ <strong>Prépresse pour impression</strong></h3><p>Nous préparons vos fichiers pour une impression professionnelle sans faille. Nos services de prépresse garantissent des résultats conformes aux standards d’impression, en tenant compte des marges, couleurs et formats.</p><h3>👕 <strong>Création de visuels pour vêtements</strong></h3><p>Donnez du style à vos collections! Nous concevons des visuels originaux pour l’impression sur t-shirts, hoodies, casquettes et autres vêtements, avec une touche créative à votre image.</p><h3>🔧 <strong>Support technique pour DTF & configuration d’équipements</strong></h3><p>Besoin d’aide pour démarrer avec l’impression DTF (Direct-To-Film)? Nous vous accompagnons dans la configuration de vos équipements et vous offrons un soutien technique personnalisé pour assurer une production fluide et efficace.c</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fyEETP",
+        "text_4CLLeX"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "contact_form_VwECnR": {
+      "type": "contact-form",
+      "blocks": {
+        "custom_field_NREnLE": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "phone",
+            "heading": "Téléphone",
+            "placeholder": "Téléphone",
+            "required": false,
+            "full_width": true,
+            "select_options": "Option 1, Option 2, Option 3",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": "Option 1, Option 2, Option 3"
+          }
+        }
+      },
+      "block_order": [
+        "custom_field_NREnLE"
+      ],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "scheme-1",
+        "heading": "Nous contacter",
+        "heading_size": "h1",
+        "heading_highlight_style": "none",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_t6nLj3",
+    "rich_text_BBJCR3",
+    "contact_form_VwECnR"
+  ]
+}

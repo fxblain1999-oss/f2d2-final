@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_MUBRwP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WKYTH4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Politique d'expédition",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_HwGAat": {
+          "type": "text",
+          "settings": {
+            "text": "<p>📘 Politique d’Expédition – [Nom de l'entreprise d'impression en ligne]</p><p>1. 🚚 Objectif</p><p>Cette politique définit les conditions d’expédition de nos produits imprimés afin de garantir :</p><p></p><p>Une transparence sur les délais et frais de livraison</p><p></p><p>Une bonne gestion des attentes clients</p><p></p><p>Une prise en charge efficace des incidents de transport</p><p></p><p>2. 🗓️ Délais de traitement et de production</p><p>Le délai total comprend :</p><p></p><p>Temps de création (si applicable)</p><p></p><p>Temps de production :</p><p></p><p>Standard : 2 à 5 jours ouvrés après validation du fichier ou du BAT</p><p></p><p>Express : 24 à 48h (selon disponibilité, avec surcoût)</p><p></p><p>Temps d’expédition : dépend du transporteur et de la destination (voir section 4)</p><p></p><p>Remarque : Les délais commencent à courir à compter de la validation du fichier ou du BAT et du paiement.</p><p></p><p>3. 📦 Emballage</p><p>Tous nos produits sont emballés avec soin pour garantir leur protection durant le transport :</p><p></p><p>Produits plats (cartes, flyers) : sous enveloppe renforcée ou carton rigide</p><p></p><p>Produits fragiles ou en volume (affiches, textiles, mugs) : boîtes carton, papier bulle, etc.</p><p></p><p>4. 🚛 Modes et frais de livraison</p><p>Mode de livraison\tDélai estimé\tTarif</p><p>Standard (Colissimo, Mondial Relay, etc.)\t2 à 4 jours ouvrés\tÀ partir de 4,90 €</p><p>Express (Chronopost, DHL, etc.)\t24 à 48h ouvrées\tSelon poids/destination</p><p>Retrait local (si disponible)\tSous 24h après production\tGratuit</p><p></p><p>Les frais sont calculés automatiquement au moment de la commande, selon le poids, le volume et l’adresse de livraison.</p><p></p><p>5. 🌍 Zones desservies</p><p>Nous livrons actuellement :</p><p></p><p>En France métropolitaine</p><p></p><p>Dans l’Union Européenne</p><p></p><p>Dans certains pays hors UE (sur devis ou accord préalable)</p><p></p><p>6. 📬 Suivi et réception</p><p>Un numéro de suivi est envoyé par e-mail dès l’expédition.</p><p></p><p>Le client est responsable de la bonne saisie de l’adresse.</p><p></p><p>En cas d’absence, un avis de passage sera laissé par le transporteur.</p><p></p><p>7. ❗Retards ou pertes</p><p>Nous ne sommes pas responsables des retards imputables aux transporteurs une fois le colis expédié.</p><p>En cas de perte ou de dommage avéré :</p><p></p><p>Une enquête est ouverte auprès du transporteur</p><p></p><p>Une solution est proposée au client (réexpédition ou remboursement)</p><p></p><p>8. 📦 Colis endommagé ou non conforme</p><p>En cas de produit reçu :</p><p></p><p>Endommagé</p><p></p><p>Mouillé</p><p></p><p>Déformé</p><p></p><p>Ou non conforme à la commande</p><p></p><p>Le client doit nous contacter sous 48h avec des photos à l’appui. Passé ce délai, aucune réclamation ne pourra être prise en compte.</p><p></p><p>9. 🛑 Non-réclamation / Retour à l’expéditeur</p><p>En cas de colis non réclamé dans les délais (point relais ou échec de livraison), et retourné à l’expéditeur :</p><p></p><p>Le client pourra demander une nouvelle expédition, à ses frais</p><p></p><p>Aucun remboursement automatique ne sera effectué</p><p></p><p>10. 📜 Acceptation</p><p>En validant sa commande, le client accepte les conditions de cette politique d’expédition.</p><p></p><p></p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WKYTH4",
+        "text_HwGAat"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_MUBRwP"
+  ]
+}

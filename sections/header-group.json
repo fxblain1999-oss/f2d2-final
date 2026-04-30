@@ -1,0 +1,204 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_XjgC3J": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_bar_n4eWby": {
+          "type": "announcement_bar",
+          "settings": {
+            "text": "Livraison gratuite sur tous les commandes de 200$+",
+            "link": "/cart"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_bar_n4eWby"
+      ],
+      "custom_css": [
+        ".announcement-bar__content {display: block;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3f31faa3-b1aa-4357-b455-c0415e7dc840",
+        "content_width": 30,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "promotion_banner_Pi3m9b": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "Nos Produits",
+            "menu_columns": 2,
+            "promotions_width": 66,
+            "promotion_columns": 5,
+            "color_scheme_1": "",
+            "promo_image_1": "shopify://shop_images/woman-in-fashionable-dungarees.jpg",
+            "subheading_1": "",
+            "heading_1": "Femmes",
+            "heading_size_1": "h5",
+            "description_1": "",
+            "button_label_1": "Voir Plus",
+            "button_style_1": "btn--primary",
+            "content_position_1": "below",
+            "content_alignment_1": "left",
+            "promotion_link_1": "shopify://collections/femme-t-shirts",
+            "color_scheme_2": "",
+            "promo_image_2": "shopify://shop_images/mens-fashion-man-in-shirt-and-jeans-leaning-on-bicycle.jpg",
+            "subheading_2": "",
+            "heading_2": "Hommes",
+            "heading_size_2": "h5",
+            "description_2": "",
+            "button_label_2": "Voir plus",
+            "button_style_2": "btn--primary",
+            "content_position_2": "below",
+            "content_alignment_2": "left",
+            "promotion_link_2": "shopify://collections/vetement-pour-homme",
+            "color_scheme_3": "",
+            "promo_image_3": "shopify://shop_images/tan-colored-hat-on-monochrome-background.jpg",
+            "subheading_3": "",
+            "heading_3": "Chapeaux",
+            "heading_size_3": "h5",
+            "description_3": "",
+            "button_label_3": "Voir Plus",
+            "button_style_3": "btn--primary",
+            "content_position_3": "below",
+            "content_alignment_3": "left",
+            "promotion_link_3": "shopify://collections/chapeau",
+            "color_scheme_4": "",
+            "promo_image_4": "shopify://shop_images/modern-blue-handbag.jpg",
+            "subheading_4": "",
+            "heading_4": "Sacs",
+            "heading_size_4": "h5",
+            "description_4": "",
+            "button_label_4": "Voir plus",
+            "button_style_4": "btn--primary",
+            "content_position_4": "below",
+            "content_alignment_4": "left",
+            "promotion_link_4": "shopify://collections/sacs",
+            "color_scheme_5": "",
+            "promo_image_5": "shopify://shop_images/yoga-mat-flatlay-with-laptop-and-water-bottle.jpg",
+            "heading_5": "Bouteilles",
+            "subheading_5": "",
+            "heading_size_5": "h5",
+            "description_5": "",
+            "button_label_5": "Voir plus",
+            "button_style_5": "btn--primary",
+            "content_position_5": "below",
+            "content_alignment_5": "left",
+            "promotion_link_5": "shopify://collections/bouteille"
+          }
+        },
+        "promotion_banner_cAfNBt": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "Nos Services",
+            "menu_columns": 3,
+            "promotions_width": 66,
+            "promotion_columns": 4,
+            "color_scheme_1": "",
+            "promo_image_1": "shopify://shop_images/DTF-Shirt-Printing.webp",
+            "subheading_1": "",
+            "heading_1": "Impression DTF",
+            "heading_size_1": "h5",
+            "description_1": "",
+            "button_label_1": "Voir plus",
+            "button_style_1": "btn--primary",
+            "content_position_1": "below",
+            "content_alignment_1": "left",
+            "promotion_link_1": "shopify://pages/impression-dtf",
+            "color_scheme_2": "",
+            "promo_image_2": "shopify://shop_images/download.jpg",
+            "subheading_2": "Sublimation",
+            "heading_2": "",
+            "heading_size_2": "h5",
+            "description_2": "",
+            "button_label_2": "Voir plus",
+            "button_style_2": "btn--primary",
+            "content_position_2": "below",
+            "content_alignment_2": "left",
+            "promotion_link_2": "shopify://pages/sublimation",
+            "color_scheme_3": "",
+            "promo_image_3": "shopify://shop_images/decoupe_laser_decoration_-_img_princ.webp",
+            "subheading_3": "",
+            "heading_3": "Gravure et Laser",
+            "heading_size_3": "h5",
+            "description_3": "",
+            "button_label_3": "Voir plus",
+            "button_style_3": "btn--primary",
+            "content_position_3": "below",
+            "content_alignment_3": "left",
+            "promotion_link_3": "shopify://pages/gravure-et-laser",
+            "color_scheme_4": "",
+            "promo_image_4": "shopify://shop_images/ImageForArticle_15936_44916085366157418407.webp",
+            "subheading_4": "",
+            "heading_4": "UV printing",
+            "heading_size_4": "h5",
+            "description_4": "",
+            "button_label_4": "Voir plus",
+            "button_style_4": "btn--primary",
+            "content_position_4": "below",
+            "content_alignment_4": "left",
+            "promotion_link_4": "",
+            "color_scheme_5": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "heading_size_5": "h5",
+            "description_5": "",
+            "button_label_5": "",
+            "button_style_5": "btn--primary",
+            "content_position_5": "below",
+            "content_alignment_5": "left",
+            "promotion_link_5": ""
+          }
+        }
+      },
+      "block_order": [
+        "promotion_banner_Pi3m9b",
+        "promotion_banner_cAfNBt"
+      ],
+      "custom_css": [
+        ".card-media__description {opacity: 0.6;}",
+        ".card-media__description {--text-margin-top: 0.4rem;}"
+      ],
+      "settings": {
+        "container": "full",
+        "color_scheme": "scheme-1",
+        "menu": "main-menu",
+        "menu_mobile": "main-menu",
+        "header_layout": "center-left",
+        "sticky_header": "always",
+        "menu_trigger": "hover",
+        "show_sperator_line": true,
+        "hide_sperator_on_pages": "",
+        "enable_transparent_header": false,
+        "transparent_header_color": "#ffffff",
+        "logo_mobile_position": "center",
+        "show_social_media_icons": true,
+        "enable_language_selector": true,
+        "enable_country_selector": false,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_XjgC3J",
+    "header"
+  ]
+}

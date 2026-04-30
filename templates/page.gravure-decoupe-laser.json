@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_6EdC3x": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tdAEr9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gravure & Découpe laser",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_mVKp6w": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Gravure précise</strong> sur bois, cuir, métal, acrylique, verre, etc.<br/>Découpe personnalisée pour des projets créatifs ou industriels.<br/>Parfait pour la signalisation, les décorations, les boîtes cadeaux ou les articles corporatifs.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tdAEr9",
+        "text_mVKp6w"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "slideshow_YczKUb": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_EUNz4Y": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "",
+            "background": "shopify://shop_images/shipping-box.jpg",
+            "background_mobile": "shopify://shop_images/shipping-box.jpg",
+            "image_overlay_opacity": 0,
+            "show_content_in_container": true,
+            "content_position": "middle-center",
+            "content_position_mobile": "middle-center",
+            "text_alignment": "center",
+            "title": "Créer des emballages personnalisé",
+            "heading_size": "hd1",
+            "subheading": "",
+            "description": "",
+            "description_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary"
+          }
+        },
+        "slide_HHU8dp": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "",
+            "background": "shopify://shop_images/wooden-boxes-in-all-sizes-on-a-table.jpg",
+            "background_mobile": "shopify://shop_images/wooden-boxes-in-all-sizes-on-a-table.jpg",
+            "image_overlay_opacity": 0,
+            "show_content_in_container": true,
+            "content_position": "middle-center",
+            "content_position_mobile": "middle-center",
+            "text_alignment": "center",
+            "title": "Ou des gravures personnalisées",
+            "heading_size": "hd1",
+            "subheading": "",
+            "description": "",
+            "description_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary"
+          }
+        },
+        "slide_i86gxp": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "",
+            "background": "shopify://shop_images/man-holding-his-leather-travel-bag.jpg",
+            "image_overlay_opacity": 0,
+            "show_content_in_container": true,
+            "content_position": "middle-center",
+            "content_position_mobile": "middle-center",
+            "text_alignment": "center",
+            "title": "<strong>Votre logo sur un sac en cuir ?</strong>",
+            "heading_size": "hd1",
+            "subheading": "",
+            "description": "",
+            "description_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_EUNz4Y",
+        "slide_HHU8dp",
+        "slide_i86gxp"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "full",
+        "layout": "centered",
+        "slide_height": "medium",
+        "show_dots": true,
+        "autoplay": true,
+        "autoplay_delay": 5,
+        "controls_position": "bottom",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Créer des produits personnalisé",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_6EdC3x",
+    "slideshow_YczKUb"
+  ]
+}

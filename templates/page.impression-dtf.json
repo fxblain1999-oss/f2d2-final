@@ -1,0 +1,184 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_gqpAgh": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_FXDcet": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Impression des Logos Corporatifs</strong>",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_WyHKMf": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>L’impression DTF sublime vos logos corporatifs avec des couleurs éclatantes, une netteté impeccable et une durabilité qui renforce l’image de votre marque.</strong></p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FXDcet",
+        "text_WyHKMf"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image": "shopify://shop_images/italian-bottle.jpg",
+        "image_height": "extra-small",
+        "layout": "image_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_AjwrfA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nRTNig": {
+          "type": "heading",
+          "settings": {
+            "heading": "Impression en Couleurs Complètes",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_Lf4QVx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nous proposons des impressions grand format en couleurs complètes, à la demande.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nRTNig",
+        "text_Lf4QVx"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image": "shopify://shop_images/happy-sprinkles.jpg",
+        "image_height": "extra-small",
+        "layout": "text_first",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "products_showcase_LEhey8": {
+      "type": "products-showcase",
+      "name": "t:sections.products-showcase.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Trouver votre impression parfaite",
+        "heading_size": "h2",
+        "heading_highlight_style": "none",
+        "products": [
+          "creation-personnalise-1305775-mens-locker-2-0-t-shirt",
+          "creation-personnalise-2000l-womens-ultra-cotton®-t-shirt",
+          "creation-personnalise-2200-mens-ultra-cotton®-tank-top",
+          "creation-3005-unisex-jersey-v-neck-tee",
+          "creation-personnalise-64000l-womens-softstyle®-t-shirt"
+        ],
+        "pcard_title_size": "h3",
+        "pcard_description_display": "none",
+        "pcard_description_size": "text-sm",
+        "pcard_image_ratio": "3/4",
+        "pcard_show_vendor": false,
+        "pcard_show_type": false,
+        "pcard_button_label": "Voir plus",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    },
+    "rich_text_zHHATF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7EzgyY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Explorer tous nos produits",
+            "heading_size": "hd1",
+            "heading_highlight_style": "none"
+          }
+        },
+        "text_tzykRq": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        },
+        "button_4fJQRT": {
+          "type": "button",
+          "settings": {
+            "button_label": "voir plus",
+            "button_link": "shopify://collections/vetements",
+            "button_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7EzgyY",
+        "text_tzykRq",
+        "button_4fJQRT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_gqpAgh",
+    "image_with_text_AjwrfA",
+    "products_showcase_LEhey8",
+    "rich_text_zHHATF"
+  ]
+}

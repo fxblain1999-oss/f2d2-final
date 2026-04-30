@@ -1,0 +1,167 @@
+﻿{% assign section_id = 'f2d2-gallery-demo-' | append: section.id %}
+
+<section id="{{ section_id }}" class="f2d2-home-gallery-demo">
+  <div class="page-width">
+    <div class="f2d2-home-gallery-demo__head">
+      <h2 class="f2d2-home-gallery-demo__title">
+        {{ section.settings.heading | default: 'Nos Réalisations' }}
+      </h2>
+    </div>
+
+    <div class="f2d2-home-gallery-demo__grid">
+        <article class="f2d2-home-gallery-demo__item">
+          <div class="custom-card-image">
+            <img src="{{ 'card-1.png' | asset_url }}" alt="">
+          </div>
+        </article>
+
+        <article class="f2d2-home-gallery-demo__item">
+          <div class="custom-card-image">
+            <img src="{{ 'card-2.png' | asset_url }}" alt="">
+          </div>
+        </article>
+
+        <article class="f2d2-home-gallery-demo__item">
+          <div class="custom-card-image">
+            <img src="{{ 'card-3.png' | asset_url }}" alt="">
+          </div>
+        </article>
+
+        <article class="f2d2-home-gallery-demo__item">
+          <div class="custom-card-image">
+            <img src="{{ 'card-4.png' | asset_url }}" alt="">
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    display: block !important;
+  }
+
+  #{{ section_id }} {
+    display: block;
+    padding: 2.75rem 0 3.25rem;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url({{ 'section_bg.png' | asset_url }});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+  }
+
+  #{{ section_id }} .page-width {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #{{ section_id }} .f2d2-home-gallery-demo__head {
+    position: relative;
+    margin-bottom: 1.6rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #{{ section_id }} .f2d2-home-gallery-demo__head::before,
+  #{{ section_id }} .f2d2-home-gallery-demo__head::after {
+    content: "";
+    flex: 1 1 auto;
+    max-width: 26rem;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  #{{ section_id }} .f2d2-home-gallery-demo__title {
+    margin: 0;
+    font-size: clamp(2.3rem, 4.5vw, 4rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ section_id }} .f2d2-home-gallery-demo__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  #{{ section_id }} .f2d2-home-gallery-demo__item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    background:
+      radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 35%),
+      linear-gradient(145deg, #2a211c 0%, #131313 55%, #1a120e 100%);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+  }
+
+  #{{ section_id }} .custom-card-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .custom-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .f2d2-home-gallery-demo__grid {
+      gap: 0.8rem;
+    }
+
+    #{{ section_id }} .page-width {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #{{ section_id }} .f2d2-home-gallery-demo__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.15rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "F2D2 Home Gallery Demo",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Nos Réalisations"
+    }
+  ],
+  "presets": [
+    {
+      "name": "F2D2 Home Gallery Demo"
+    }
+  ]
+}
+{% endschema %}
