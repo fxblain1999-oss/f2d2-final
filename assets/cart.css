@@ -786,12 +786,15 @@
   .cart:not(.cart-drawer) thead th {
     padding: 1.6rem 2rem;
     text-align: center;
+    vertical-align: middle;
+    font-weight: 700;
     border-left: 1px solid rgb(var(--color-border));
+    border-bottom: 1px solid rgb(var(--color-border));
   }
 
   .cart:not(.cart-drawer) thead th:first-child {
     width: 55%;
-    text-align: left;
+    text-align: center;
     border-left: 0;
   }
 
