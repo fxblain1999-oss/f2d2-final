@@ -774,7 +774,8 @@
   .cart:not(.cart-drawer) table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     border: 1px solid rgb(var(--color-border));
   }
 
@@ -809,7 +810,6 @@
 
   .cart:not(.cart-drawer) tbody tr {
     position: relative;
-    border-bottom: 1px solid rgb(var(--color-border));
   }
 
   .cart:not(.cart-drawer) tbody td {
@@ -860,14 +860,20 @@
 
   .cart:not(.cart-drawer) .cart-item__total {
     position: relative;
-    padding-right: 6rem;
+    padding-inline: 2rem 6rem;
+    vertical-align: middle;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__total > span {
+    display: block;
+    text-align: center;
   }
 
   .cart:not(.cart-drawer) .cart-item__remove {
     position: absolute !important;
-    top: 1.2rem;
-    right: 1.2rem;
-    transform: none !important;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%) !important;
     display: flex !important;
     z-index: 5;
   }
