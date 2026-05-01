@@ -899,3 +899,104 @@
     margin-top: 1rem;
   }
 }
+
+/* ================================
+   CART NORMAL DESKTOP - TABLE PROPRE
+================================ */
+@media (min-width: 1024px) {
+  .cart:not(.cart-drawer) .cart__form,
+  .cart:not(.cart-drawer) .cart__footer {
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .cart:not(.cart-drawer) table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .cart:not(.cart-drawer) thead tr {
+    border-bottom: 1px solid rgb(var(--color-border));
+  }
+
+  .cart:not(.cart-drawer) thead th {
+    padding: 0 2rem 1.8rem;
+    text-align: center;
+  }
+
+  .cart:not(.cart-drawer) thead th:first-child {
+    text-align: left;
+    width: 55%;
+  }
+
+  .cart:not(.cart-drawer) thead th:nth-child(2) {
+    width: 20%;
+  }
+
+  .cart:not(.cart-drawer) thead th:nth-child(3) {
+    display: none;
+  }
+
+  .cart:not(.cart-drawer) thead th:nth-child(4) {
+    width: 25%;
+    text-align: right;
+    padding-right: 6rem;
+  }
+
+  .cart:not(.cart-drawer) tbody tr {
+    border-bottom: 1px solid rgb(var(--color-border));
+  }
+
+  .cart:not(.cart-drawer) tbody td {
+    padding: 3rem 2rem;
+    vertical-align: middle;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__product > .flex {
+    display: grid !important;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__media {
+    width: 90px;
+    flex: none;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__price {
+    text-align: center;
+    border-left: 1px solid rgba(var(--color-border), 0.5);
+  }
+
+  .cart:not(.cart-drawer) .cart-item__price .price {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__quantity {
+    display: none !important;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__total {
+    position: relative;
+    text-align: right;
+    padding-right: 7rem;
+    border-left: 1px solid rgba(var(--color-border), 0.5);
+  }
+
+  .cart:not(.cart-drawer) .cart-item__remove {
+    position: absolute !important;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex !important;
+  }
+
+  .cart:not(.cart-drawer) .cart__footer {
+    margin-top: 3rem;
+    border-top: 1px solid rgb(var(--color-border));
+    padding-top: 3rem;
+  }
+}
