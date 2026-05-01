@@ -946,6 +946,10 @@
     position: relative;
   }
 
+  .cart:not(.cart-drawer) tbody tr + tr {
+    border-top: 1px solid rgba(var(--color-border), 0.55) !important;
+  }
+
   .cart:not(.cart-drawer) tbody td {
     padding: 0 !important;
   }
@@ -978,6 +982,11 @@
   .cart:not(.cart-drawer) .cart-item__details {
     grid-column: 2;
     align-self: center;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__prices--mobile-details {
+    display: block !important;
+    margin-top: 0.8rem;
   }
 
   .cart:not(.cart-drawer) .cart-item__remove {
