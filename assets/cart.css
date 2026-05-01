@@ -907,3 +907,95 @@
     padding-top: 3rem;
   }
 }
+
+/* ================================
+   CART NORMAL DESKTOP - STYLE DRAWER SIMPLE
+   Override final: panier complet en liste simple, sans colonnes prix/total.
+================================ */
+@media (min-width: 1024px) {
+  .cart:not(.cart-drawer) .cart__form,
+  .cart:not(.cart-drawer) .cart__footer {
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .cart:not(.cart-drawer) table {
+    display: block !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+  }
+
+  .cart:not(.cart-drawer) thead,
+  .cart:not(.cart-drawer) .cart-item__price,
+  .cart:not(.cart-drawer) .cart-item__quantity,
+  .cart:not(.cart-drawer) .cart-item__total {
+    display: none !important;
+  }
+
+  .cart:not(.cart-drawer) tbody,
+  .cart:not(.cart-drawer) tbody tr,
+  .cart:not(.cart-drawer) tbody td {
+    display: block !important;
+    width: 100% !important;
+    border: 0 !important;
+  }
+
+  .cart:not(.cart-drawer) tbody tr {
+    position: relative;
+  }
+
+  .cart:not(.cart-drawer) tbody td {
+    padding: 0 !important;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__product > .flex {
+    display: grid !important;
+    grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr) 3.2rem;
+    gap: 2.4rem;
+    align-items: center;
+    width: min(100%, 72rem);
+    margin-inline: auto;
+    padding: 2.6rem 0;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__media {
+    width: 100% !important;
+    flex: none !important;
+    align-self: center;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__product--info {
+    display: contents !important;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__details,
+  .cart:not(.cart-drawer) .cart-item__details .grid {
+    display: block !important;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__details {
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__remove {
+    position: static !important;
+    grid-column: 3;
+    align-self: start;
+    justify-self: end;
+    display: flex !important;
+    transform: none !important;
+    z-index: 5;
+  }
+
+  .cart:not(.cart-drawer) .cart-item__remove:hover {
+    transform: translateY(-0.1rem) scale(1.05) !important;
+  }
+
+  .cart:not(.cart-drawer) .cart__footer {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
