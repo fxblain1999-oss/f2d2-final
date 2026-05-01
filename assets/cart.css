@@ -155,6 +155,22 @@
     min-width: 0 !important;
     margin: 0 !important;
   }
+
+  .cart .cart-item__product {
+    position: relative;
+    padding-inline-end: 4.4rem;
+  }
+
+  .cart .cart-item__product--info {
+    position: static;
+  }
+
+  .cart .cart-item__product--info > .cart-item__remove {
+    position: absolute;
+    inset-block-start: 3rem;
+    inset-inline-end: 3rem;
+    display: flex !important;
+  }
 }
 
 /* SHARED SAFETY */
