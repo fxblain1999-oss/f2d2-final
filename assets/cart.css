@@ -744,3 +744,33 @@
     width: 100% !important;
   }
 }
+
+/* FIX DESKTOP - garder le panier PC normal */
+@media (min-width: 768px) {
+  .cart .cart-item__product > .flex {
+    display: flex !important;
+    width: auto !important;
+  }
+
+  .cart .cart-item__product--info {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .cart .cart-item__details {
+    display: block !important;
+  }
+
+  .cart .cart-item__details .grid {
+    display: grid !important;
+  }
+
+  .cart .cart-item__prices {
+    margin-inline-start: auto !important;
+    text-align: end !important;
+  }
+
+  .cart .cart-item__action > .flex:first-child {
+    display: flex !important;
+  }
+}
