@@ -760,3 +760,67 @@
     z-index: 999999 !important;
   }
 }
+
+/* ================================
+   FIX CART DESKTOP CLEAN
+   ================================ */
+@media (min-width: 1024px) {
+
+  /* reset du layout cassé */
+  .cart .cart-item__product > .flex {
+    display: flex !important;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* image */
+  .cart .cart-item__media {
+    flex: 0 0 80px;
+  }
+
+  /* bloc infos */
+  .cart .cart-item__product--info {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* description */
+  .cart .cart-item__details {
+    flex: 1;
+  }
+
+  /* prix colonne */
+  .cart td:nth-child(2) {
+    text-align: center;
+    width: 15%;
+  }
+
+  /* quantité */
+  .cart td:nth-child(3) {
+    text-align: center;
+    width: 15%;
+  }
+
+  /* total */
+  .cart td:nth-child(4) {
+    text-align: right;
+    width: 15%;
+  }
+
+  /* bouton remove propre */
+  .cart .cart-item__remove {
+    position: static !important;
+    margin-left: 1rem;
+  }
+
+  /* enlever le position absolute que tu avais */
+  .cart .cart-item__product--info > .cart-item__remove {
+    position: static !important;
+  }
+
+  /* meilleure lisibilité */
+  .cart tbody tr td {
+    padding-block: 2rem;
+  }
+}
