@@ -156,20 +156,16 @@
     margin: 0 !important;
   }
 
-  .cart .cart-item__product {
+  .cart .cart-item {
     position: relative;
-    padding-inline-end: 4.4rem;
-  }
-
-  .cart .cart-item__product--info {
-    position: static;
   }
 
   .cart .cart-item__product--info > .cart-item__remove {
     position: absolute;
-    inset-block-start: 3rem;
-    inset-inline-end: 3rem;
+    inset-block-start: 6.8rem;
+    inset-inline-end: 0;
     display: flex !important;
+    z-index: 1;
   }
 }
 
