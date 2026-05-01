@@ -863,17 +863,13 @@
     padding-right: 6rem;
   }
 
-  .cart:not(.cart-drawer) .cart-item__total {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem;
-  }
-
   .cart:not(.cart-drawer) .cart-item__remove {
-    position: static !important;
+    position: absolute !important;
+    top: 1.2rem;
+    right: 1.2rem;
     transform: none !important;
-    margin: 0;
+    display: flex !important;
+    z-index: 5;
   }
 
   .cart:not(.cart-drawer) .cart__footer {
