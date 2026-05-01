@@ -644,7 +644,7 @@
   .cart .cart-item__product > .flex {
     display: grid !important;
     grid-template-columns: minmax(5.6rem, 7.2rem) minmax(0, 1fr) 3.2rem;
-    align-items: start;
+    align-items: center;
     gap: 1.2rem;
   }
 
@@ -652,7 +652,7 @@
     grid-column: 1;
     grid-row: 1;
     width: 100%;
-    align-self: start;
+    align-self: center;
   }
 
   .cart .cart-item__product--info {
@@ -663,7 +663,7 @@
     grid-column: 2;
     grid-row: 1;
     display: block !important;
-    align-self: start;
+    align-self: center;
   }
 
   .cart .cart-item__details .grid {
