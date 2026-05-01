@@ -119,16 +119,14 @@
 
 @media (min-width: 1024px) {
   .cart .cart__footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    display: block;
     width: 100%;
   }
 
   .cart .cart__footer-wrapper {
-    width: min(100%, 46rem);
-    min-width: 46rem;
-    max-width: 46rem;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
   }
 
   .cart .cart__footer--buttons,
@@ -142,7 +140,7 @@
 
   .cart .additional-checkout-buttons [data-shopify-buttoncontainer] {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 1rem !important;
     width: 100% !important;
     max-width: 100% !important;
