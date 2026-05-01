@@ -874,9 +874,9 @@
 
   .cart:not(.cart-drawer) .cart-item__remove {
     position: absolute !important;
-    top: 50%;
+    top: -4.9rem;
     right: 2rem;
-    transform: translateY(-50%) !important;
+    transform: none !important;
     display: flex !important;
     z-index: 5;
   }
