@@ -67,11 +67,6 @@
                 {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
               {%- endif -%}
             </div>
-            {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-            {%- form 'product', product, id: product_form_installment_id, class: 'installment' -%}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-              {{ form | payment_terms }}
-            {%- endform -%}
           </div>
         {%- when 'inventory' -%}
           <div
@@ -134,6 +129,11 @@
               {{ block.shopify_attributes }}
             >
               {{ product.description }}
+              {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+              {%- form 'product', product, id: product_form_installment_id, class: 'installment product__description-installment' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {{ form | payment_terms }}
+              {%- endform -%}
             </div>
           {%- endif -%}
         {%- when 'sku' -%}

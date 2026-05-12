@@ -271,6 +271,14 @@
 .product__block--addons .btn {
   padding: 0 !important;
 }
+.product__block--addons + .product__block--description {
+  border-top: 0.1rem solid rgb(var(--color-border));
+  margin-top: 2.8rem;
+  padding-top: 2.8rem;
+}
+.product__description-installment {
+  margin-top: 2.4rem;
+}
 .product__block--pickup_availability, .product__block--buy_buttons {
   margin: var(--product-blocks-gap-large) 0;
 }
