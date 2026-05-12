@@ -156,14 +156,14 @@
         "text_4aarbm",
         "variant_picker",
         "buy_buttons",
-        "description",
         "icon_with_text",
+        "addons",
+        "description",
         "pickup_availability",
         "complementary",
         "collapsible-row-1",
         "collapsible-row-2",
-        "collapsible-row-3",
-        "addons"
+        "collapsible-row-3"
       ],
       "custom_css": [
         ".f-price-item--sale {order: 0;}",
