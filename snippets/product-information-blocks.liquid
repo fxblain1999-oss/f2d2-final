@@ -1,3 +1,4 @@
+{% # theme-check-disable UnclosedHTMLElement %}
 {%- liquid
   assign product_form_id = 'product-form-' | append: section.id
   
@@ -14,7 +15,12 @@
   class="product__info-container{% if enable_sticky_info %} sticky-element{% endif %}"
 >
   <div class="product__blocks accordion-parent">
+    {%- assign reassurance_wrapper_open = false -%}
     {%- for block in section.blocks -%}
+      {%- if reassurance_wrapper_open and block.type != 'addons' -%}
+        </div>
+        {%- assign reassurance_wrapper_open = false -%}
+      {%- endif -%}
       {%- case block.type -%}
         {%- when '@app' -%}
           <div class="product__block product__block--{{ block.type }}">
@@ -332,6 +338,10 @@
               {%- endif -%}
             </div>
           {%- endif -%}
+          {%- if reassurance_wrapper_open -%}
+            </div>
+            {%- assign reassurance_wrapper_open = false -%}
+          {%- endif -%}
         {%- when 'variant_picker' -%}
           <div
             class="product__block product__block--{{ block.type }}"
@@ -532,6 +542,8 @@
             </product-recommendations>
           </div>
         {%- when 'icon-with-text' -%}
+          <div class="product__reassurance-group">
+            {%- assign reassurance_wrapper_open = true -%}
           <div
             class="product__block product__block--{{ block.type }} product__block--{{ block.type }}-{{ block.settings.layout }}"
             {{ block.shopify_attributes }}
@@ -705,6 +717,9 @@
           </div>
       {%- endcase -%}
     {%- endfor -%}
+    {%- if reassurance_wrapper_open -%}
+      </div>
+    {%- endif -%}
   </div>
   {%- if show_details_link == true -%}
     <a
@@ -720,3 +735,4 @@
     </a>
   {%- endif -%}
 </div>
+{% # theme-check-enable UnclosedHTMLElement %}
