@@ -291,15 +291,22 @@
 .product__block--addons .btn {
   padding: 0 !important;
 }
+.product__block--buy_buttons,
+.product__block--icon-with-text-horizontal,
+.product__block--addons {
+  max-width: 56rem;
+  margin-inline: auto;
+}
 .product__block--icon-with-text-horizontal {
+  margin-top: 1.6rem;
   margin-bottom: 0;
 }
 .product__block--icon-with-text-horizontal .icon-with-text,
 .product__block--addons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(1.2rem, 4vw, 3.2rem);
-  row-gap: 1.2rem;
+  column-gap: clamp(1rem, 4vw, 3.2rem);
+  row-gap: 0.9rem;
   width: 100%;
 }
 .product__block--icon-with-text-horizontal .icon-with-text__item,
@@ -311,8 +318,29 @@
 .product__block--icon-with-text-horizontal .icon-with-text__item {
   flex-wrap: nowrap;
 }
+.product__block--icon-with-text-horizontal .icon-with-text__item span,
+.product__block--addons .btn span {
+  overflow: visible;
+  white-space: nowrap;
+}
 .product__block--addons {
-  margin-top: 1.2rem;
+  margin-top: 0.9rem;
+}
+@media (max-width: 767.98px) {
+  .product__block--icon-with-text-horizontal .icon-with-text__item,
+  .product__block--addons .btn {
+    gap: 0.4rem;
+  }
+  .product__block--icon-with-text-horizontal .icon-with-text__item span,
+  .product__block--addons .btn span {
+    font-size: clamp(1.15rem, 3.2vw, 1.35rem);
+    line-height: 1.2;
+  }
+  .product__block--icon-with-text-horizontal .icon,
+  .product__block--addons svg {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
 }
 @media (min-width: 1024px) {
   .product__block--icon-with-text-horizontal .icon-with-text,
