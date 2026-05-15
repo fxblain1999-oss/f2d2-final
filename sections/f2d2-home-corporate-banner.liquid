@@ -95,13 +95,13 @@
   }
 
   #{{ section_id }} .f2d2-home-corporate-banner__content {
-    max-width: 370px;
-    padding-left: 2rem;
+    max-width: clamp(440px, 31vw, 590px);
+    padding-left: clamp(2rem, 2.5vw, 3.6rem);
   }
 
   #{{ section_id }} .f2d2-home-corporate-banner__title {
     margin: 0;
-    font-size: clamp(2.7rem, 3.2vw, 4.8rem);
+    font-size: clamp(3.4rem, 4vw, 6rem);
     line-height: 0.92;
     font-weight: 800;
     letter-spacing: -0.04em;
@@ -109,8 +109,8 @@
   }
 
   #{{ section_id }} .f2d2-home-corporate-banner__text {
-    margin-top: 1.2rem;
-    font-size: 1.45rem;
+    margin-top: clamp(1.3rem, 1.2vw, 2rem);
+    font-size: clamp(1.45rem, 1.15vw, 1.8rem);
     line-height: 1.35;
     color: rgba(255, 255, 255, 0.92);
   }
@@ -123,16 +123,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.6rem;
-    min-width: 220px;
-    min-height: 48px;
-    padding: 0 1.8rem;
+    margin-top: clamp(1.8rem, 1.5vw, 2.6rem);
+    min-width: clamp(240px, 14vw, 300px);
+    min-height: clamp(52px, 3vw, 62px);
+    padding: 0 clamp(2rem, 1.5vw, 2.6rem);
     border: 1px solid #5ea7ff;
     background: linear-gradient(180deg, #1b7dff 0%, #0048b8 100%);
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.05rem;
+    font-size: clamp(1.08rem, 0.8vw, 1.25rem);
     font-weight: 800;
     letter-spacing: 0.02em;
     box-shadow:
@@ -152,24 +152,24 @@
     }
 
     #{{ section_id }} .f2d2-home-corporate-banner__content {
-      max-width: 290px;
-      padding-left: 1.2rem;
+      max-width: min(34rem, 86vw);
+      padding-left: 1.5rem;
     }
 
     #{{ section_id }} .f2d2-home-corporate-banner__title {
-      font-size: clamp(2.1rem, 8vw, 3.4rem);
+      font-size: clamp(2.7rem, 9vw, 4rem);
     }
 
     #{{ section_id }} .f2d2-home-corporate-banner__text {
-      font-size: 1.1rem;
-      margin-top: 0.9rem;
+      font-size: clamp(1.15rem, 3.2vw, 1.35rem);
+      margin-top: 1rem;
     }
 
     #{{ section_id }} .f2d2-home-corporate-banner__btn {
-      min-width: 190px;
-      min-height: 44px;
-      font-size: 0.95rem;
-      margin-top: 1.2rem;
+      min-width: min(26rem, 82vw);
+      min-height: 48px;
+      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+      margin-top: 1.4rem;
     }
   }
 </style>
