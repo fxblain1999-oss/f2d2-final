@@ -152,6 +152,10 @@
   .product__media .media-wrapper > img {
     object-fit: contain;
   }
+  .product__media-container img[data-transparent-fit="done"] {
+    transform: translate(var(--transparent-fit-x, 0), var(--transparent-fit-y, 0)) scale(var(--transparent-fit-scale, 1));
+    transform-origin: center;
+  }
   .product__media-gallery .slider-controls--below {
     --controls-spacing: 1.6rem;
   }
