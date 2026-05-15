@@ -294,6 +294,10 @@
   }
 }
 @media (min-width: 1024px) {
+  .product__block--title {
+    max-width: 56rem;
+    margin-inline: auto;
+  }
   .product__block--title > .product__title {
     display: block;
     max-width: 100%;
