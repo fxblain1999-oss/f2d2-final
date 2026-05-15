@@ -135,22 +135,23 @@
   .product {
     --product-gap: 0.8rem;
   }
-  .product__mobile-title {
+  .product .product__mobile-title {
     display: block;
-    margin-bottom: 0;
+    margin: 0 0 0.4rem;
     text-align: center;
   }
   .product__info-wrapper .product__block--title {
     display: none;
   }
   .product__media-gallery .slider-controls--below {
-    --controls-spacing: 0.4rem;
+    --controls-spacing: 0;
+    padding-bottom: 3.2rem;
   }
   .product__media-gallery .slider-controls--group {
-    margin-top: 0.4rem;
+    margin-top: 0;
   }
-  .product__block--buy_buttons {
-    margin-top: 0.8rem;
+  .product .product__block--buy_buttons {
+    margin-top: 0.6rem;
   }
   .product__thumbs-badge {
     width: 2.4rem;
