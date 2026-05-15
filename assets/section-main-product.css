@@ -143,6 +143,15 @@
   .product__info-wrapper .product__block--title {
     display: none;
   }
+  .product__media-container {
+    height: min(52svh, 38rem);
+  }
+  .product__media-container:before {
+    display: none;
+  }
+  .product__media .media-wrapper > img {
+    object-fit: contain;
+  }
   .product__media-gallery .slider-controls--below {
     --controls-spacing: 1.6rem;
   }
