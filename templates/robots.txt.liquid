@@ -1,0 +1,17 @@
+{% for group in robots.default_groups %}
+  {{- group.user_agent }}
+
+  {% for rule in group.rules %}
+    {{- rule }}
+  {% endfor %}
+
+  {%- if group.user_agent.value == '*' -%}
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+  {%- endif -%}
+{% endfor %}
+
+Sitemap: {{ shop.url }}/sitemap.xml
