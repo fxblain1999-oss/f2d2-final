@@ -304,7 +304,6 @@
     font-size: clamp(2.4rem, 2.05vw, 3.4rem);
     line-height: 1.12;
     text-align: center;
-    white-space: nowrap;
   }
   .product__block--title > a.product__title {
     display: none;
