@@ -9,6 +9,10 @@
   assign og_image_height = page_image.height
 
   if request.page_type == 'index'
+    assign og_title = 'Produits personnalisés'
+    assign og_url = 'https://f2d2.ca'
+    assign og_type = 'website'
+    assign og_description = 'F2D crée des produits personnalisés premium : vêtements, accessoires et créations uniques adaptés à vos besoins.'
     assign og_image_url = 'https://cdn.shopify.com/s/files/1/0720/6489/3093/files/logo_f2d2_bg.png?v=1778880536'
     assign og_image_width = 801
     assign og_image_height = 277
@@ -24,9 +28,9 @@
 %}
 
 <meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:type" content="{{ og_type }}">
 <meta property="og:url" content="{{ og_url }}">
 <meta property="og:title" content="{{ og_title | escape }}">
-<meta property="og:type" content="{{ og_type }}">
 <meta property="og:description" content="{{ og_description | escape }}">
 
 {%- if og_image_url != blank -%}
