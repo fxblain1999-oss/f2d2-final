@@ -70,6 +70,9 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="product flex flex-wrap {{ product_class }}">
+    <div class="product__mobile-title product__block product__block--title w-full">
+      <h1 class="product__title h1">{{ product.title | escape }}</h1>
+    </div>
     {%- if product.media.size > 0 -%}
       <motion-element data-motion="fade-up" data-motion-delay="50" class="product__media-wrapper w-full relative">
         {% render 'product-media-gallery',
