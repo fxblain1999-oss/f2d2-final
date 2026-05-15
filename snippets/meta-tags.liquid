@@ -13,9 +13,12 @@
     assign og_url = 'https://f2d2.ca'
     assign og_type = 'website'
     assign og_description = 'F2D crée des produits personnalisés premium : vêtements, accessoires et créations uniques adaptés à vos besoins.'
-    assign og_image_url = 'https://cdn.shopify.com/s/files/1/0720/6489/3093/files/logo_f2d2_bg.png?v=1778880536'
-    assign og_image_width = 801
-    assign og_image_height = 277
+    assign og_image_url = 'f2d2_og.png' | asset_url
+    unless og_image_url contains '://'
+      assign og_image_url = og_image_url | prepend: 'https:'
+    endunless
+    assign og_image_width = 1200
+    assign og_image_height = 630
   endif
 
   if request.page_type == 'product'
