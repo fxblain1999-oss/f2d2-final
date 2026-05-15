@@ -74,6 +74,43 @@
       endif
     -%}
 
+    {% if request.page_type == 'index' %}
+      <meta property="og:type" content="website">
+
+      <meta property="og:title" content="Produits personnalisés">
+
+      <meta
+        property="og:description"
+        content="F2D crée des produits personnalisés premium : vêtements, accessoires et créations uniques adaptés à vos besoins."
+      >
+
+      <meta
+        property="og:image"
+        content="https://cdn.shopify.com/s/files/1/0720/6489/3093/files/logo_f2d2_bg.png?v=1778880536"
+      >
+
+      <meta
+        property="og:image:secure_url"
+        content="https://cdn.shopify.com/s/files/1/0720/6489/3093/files/logo_f2d2_bg.png?v=1778880536"
+      >
+
+      <meta property="og:url" content="{{ canonical_url }}">
+
+      <meta name="twitter:card" content="summary_large_image">
+
+      <meta name="twitter:title" content="Produits personnalisés">
+
+      <meta
+        name="twitter:description"
+        content="F2D crée des produits personnalisés premium : vêtements, accessoires et créations uniques adaptés à vos besoins."
+      >
+
+      <meta
+        name="twitter:image"
+        content="https://cdn.shopify.com/s/files/1/0720/6489/3093/files/logo_f2d2_bg.png?v=1778880536"
+      >
+    {% endif %}
+
     {{ content_for_header }}
 
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
