@@ -133,21 +133,24 @@
 }
 @media (max-width: 767.98px) {
   .product {
-    --product-gap: 1.2rem;
+    --product-gap: 0.8rem;
   }
   .product__mobile-title {
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     text-align: center;
   }
   .product__info-wrapper .product__block--title {
     display: none;
   }
-  .product__media-container {
-    --aspect-ratio-mobile: 1.35;
+  .product__media-gallery .slider-controls--below {
+    --controls-spacing: 0.4rem;
   }
-  .product__media .media-wrapper > img {
-    object-fit: contain;
+  .product__media-gallery .slider-controls--group {
+    margin-top: 0.4rem;
+  }
+  .product__block--buy_buttons {
+    margin-top: 0.8rem;
   }
   .product__thumbs-badge {
     width: 2.4rem;
