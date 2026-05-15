@@ -150,6 +150,10 @@
   .product__media-gallery .slider-controls--group {
     margin-top: 0;
   }
+  .product__media-container[data-transparent-trim] {
+    margin-top: calc(var(--transparent-trim-top, 0px) * -1);
+    margin-bottom: calc(var(--transparent-trim-bottom, 0px) * -1);
+  }
   .product .product__block--buy_buttons {
     margin-top: 0.6rem;
   }
