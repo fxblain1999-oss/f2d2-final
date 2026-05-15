@@ -132,13 +132,22 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767.98px) {
+  .product {
+    --product-gap: 1.2rem;
+  }
   .product__mobile-title {
     display: block;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.8rem;
     text-align: center;
   }
   .product__info-wrapper .product__block--title {
     display: none;
+  }
+  .product__media-container {
+    --aspect-ratio-mobile: 1.35;
+  }
+  .product__media .media-wrapper > img {
+    object-fit: contain;
   }
   .product__thumbs-badge {
     width: 2.4rem;
