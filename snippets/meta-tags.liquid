@@ -3,6 +3,22 @@
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
   assign og_description = page_description | default: shop.description | default: shop.name
+  assign og_image = page_image
+  assign og_image_url = blank
+  assign og_image_width = page_image.width
+  assign og_image_height = page_image.height
+
+  if request.page_type == 'index'
+    assign og_title = 'Produits personnalisés'
+    assign og_description = 'F2D crée des produits personnalisés premium : vêtements, accessoires et créations uniques adaptés à vos besoins.'
+    assign og_image = blank
+    assign og_image_url = 'logo_f2d2.png' | asset_url
+    unless og_image_url contains '://'
+      assign og_image_url = og_image_url | prepend: 'https:'
+    endunless
+    assign og_image_width = 801
+    assign og_image_height = 277
+  endif
 
   if request.page_type == 'product'
     assign og_type = 'product'
@@ -19,11 +35,16 @@
 <meta property="og:type" content="{{ og_type }}">
 <meta property="og:description" content="{{ og_description | escape }}">
 
-{%- if page_image -%}
-  <meta property="og:image" content="http:{{ page_image | image_url }}">
-  <meta property="og:image:secure_url" content="https:{{ page_image | image_url }}">
-  <meta property="og:image:width" content="{{ page_image.width }}">
-  <meta property="og:image:height" content="{{ page_image.height }}">
+{%- if og_image_url != blank -%}
+  <meta property="og:image" content="{{ og_image_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image_url }}">
+  <meta property="og:image:width" content="{{ og_image_width }}">
+  <meta property="og:image:height" content="{{ og_image_height }}">
+{%- elsif og_image -%}
+  <meta property="og:image" content="http:{{ og_image | image_url }}">
+  <meta property="og:image:secure_url" content="https:{{ og_image | image_url }}">
+  <meta property="og:image:width" content="{{ og_image_width }}">
+  <meta property="og:image:height" content="{{ og_image_height }}">
 {%- endif -%}
 
 {%- if request.page_type == 'product' -%}
@@ -37,3 +58,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_description | escape }}">
+{%- if og_image_url != blank -%}
+  <meta name="twitter:image" content="{{ og_image_url }}">
+{%- elsif og_image -%}
+  <meta name="twitter:image" content="https:{{ og_image | image_url }}">
+{%- endif -%}
