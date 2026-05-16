@@ -29,24 +29,25 @@
   }
 
   .f2d2-web-page__inner {
-    width: min(1120px, calc(100% - 32px));
+    width: min(1440px, calc(100% - 48px));
     margin: 0 auto;
   }
 
   .f2d2-web-hero {
     position: relative;
-    min-height: 680px;
+    width: 100%;
+    min-height: 760px;
     display: flex;
     align-items: center;
-    padding: 96px 0 46px;
+    padding: 116px 0 54px;
     background:
-      linear-gradient(90deg, #020406 0%, rgba(2, 4, 6, 0.94) 30%, rgba(2, 4, 6, 0.5) 58%, rgba(2, 4, 6, 0.12) 100%),
+      linear-gradient(90deg, #020406 0%, rgba(2, 4, 6, 0.94) 26%, rgba(2, 4, 6, 0.42) 56%, rgba(2, 4, 6, 0.08) 100%),
       linear-gradient(180deg, rgba(2, 4, 6, 0) 70%, #020406 100%),
-      url({{ 'f2d2-web-hero-crop.png' | asset_url }}) right center / auto 100% no-repeat;
+      url({{ 'f2d2-web-hero-crop.png' | asset_url }}) center center / cover no-repeat;
   }
 
   .f2d2-web-hero__content {
-    max-width: 520px;
+    max-width: 600px;
   }
 
   .f2d2-web-eyebrow {
@@ -61,7 +62,7 @@
   .f2d2-web-hero h2 {
     margin: 0;
     color: #fff;
-    font-size: clamp(48px, 7vw, 82px);
+    font-size: clamp(56px, 6.5vw, 94px);
     line-height: 0.95;
     font-weight: 900;
     letter-spacing: 0;
@@ -120,7 +121,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    margin-top: 58px;
+    margin-top: 76px;
     border: 1px solid var(--web-line);
     border-radius: 6px;
     background: rgba(8, 13, 20, 0.82);
@@ -133,7 +134,7 @@
     gap: 16px;
     align-items: center;
     min-height: 96px;
-    padding: 22px 26px;
+    padding: 24px 32px;
     border-right: 1px solid var(--web-line);
   }
 
@@ -172,7 +173,7 @@
   }
 
   .f2d2-web-block {
-    padding: 54px 0;
+    padding: 68px 0;
   }
 
   .f2d2-web-section-head {
@@ -203,7 +204,7 @@
   .f2d2-web-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 
   .f2d2-web-card,
@@ -217,7 +218,7 @@
   }
 
   .f2d2-web-card {
-    padding: 28px 24px 22px;
+    padding: 34px 28px 26px;
   }
 
   .f2d2-web-card h3 {
@@ -263,7 +264,7 @@
   }
 
   .f2d2-web-hosting {
-    padding: 10px 0 52px;
+    padding: 14px 0 64px;
   }
 
   .f2d2-web-hosting h2 span {
@@ -279,13 +280,13 @@
   .f2d2-web-pricing {
     display: grid;
     grid-template-columns: repeat(3, 1fr) 1.1fr;
-    gap: 18px;
+    gap: 24px;
     align-items: stretch;
   }
 
   .f2d2-web-plan {
     position: relative;
-    padding: 28px 22px 22px;
+    padding: 34px 28px 26px;
     text-align: center;
   }
 
@@ -333,7 +334,7 @@
   .f2d2-web-proof {
     display: grid;
     gap: 21px;
-    padding: 26px 24px;
+    padding: 32px 28px;
   }
 
   .f2d2-web-proof__item {
@@ -359,9 +360,9 @@
   .f2d2-web-cta {
     display: grid;
     grid-template-columns: 92px 1fr auto;
-    gap: 28px;
+    gap: 34px;
     align-items: center;
-    padding: 24px 32px;
+    padding: 30px 38px;
     margin-bottom: 70px;
   }
 
