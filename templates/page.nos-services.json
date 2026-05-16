@@ -79,13 +79,29 @@
             "button_link": "",
             "mobile_layout": "inherit"
           }
+        },
+        "column_sites_webs": {
+          "type": "column",
+          "settings": {
+            "show_image": false,
+            "image_width": "medium",
+            "title": "",
+            "heading_size": "h4",
+            "text": "<h3>Cr\u00e9ation de sites webs</h3><p>Sites vitrines, boutiques Shopify et refontes web pour pr\u00e9senter votre entreprise, vendre en ligne et recevoir plus facilement des demandes de clients.</p>",
+            "text_size": "text-base",
+            "button_label": "Voir le service",
+            "button_style": "btn--underline",
+            "button_link": "shopify://pages/creation-sites-webs",
+            "mobile_layout": "inherit"
+          }
         }
       },
       "block_order": [
         "column_e9VTDh",
         "column_C7GKFw",
         "column_rApTKf",
-        "column_VD4UdX"
+        "column_VD4UdX",
+        "column_sites_webs"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -97,7 +113,7 @@
         "description": "",
         "text_size": "text-base",
         "column_alignment": "left",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "column_gap": "large",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
