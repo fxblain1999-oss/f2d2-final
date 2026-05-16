@@ -91,7 +91,7 @@
             "text_size": "text-base",
             "button_label": "Voir le service",
             "button_style": "btn--underline",
-            "button_link": "shopify://pages/creation-sites-webs",
+            "button_link": "/pages/creation-sites-webs",
             "mobile_layout": "inherit"
           }
         }
