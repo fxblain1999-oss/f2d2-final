@@ -171,7 +171,20 @@
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} {
       background: #1f1f1f;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      border-bottom: 0;
+      position: relative;
+    }
+
+    #shopify-section-{{ section.id }}::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: min(1500px, calc(100% - 96px));
+      height: 1px;
+      background: rgba(0, 132, 255, 0.34);
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
     #shopify-section-{{ section.id }} .header {
@@ -259,8 +272,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 4.45rem;
-      padding: 1.05rem 2rem;
+      min-height: 4.7625rem;
+      padding: 1.20625rem 2rem;
       text-align: center;
       color: rgba(255, 255, 255, 0.92);
       text-transform: uppercase;
@@ -310,8 +323,8 @@
 
     #shopify-section-{{ section.id }} .header__menu > ul > li > a,
     #shopify-section-{{ section.id }} .header__menu > ul > li > details > summary {
-      min-height: 4.7rem;
-      padding: 1.15rem 2.4rem;
+      min-height: 5.0125rem;
+      padding: 1.30625rem 2.4rem;
       font-size: 1.04rem;
     }
 
