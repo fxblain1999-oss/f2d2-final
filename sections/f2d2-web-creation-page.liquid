@@ -390,14 +390,28 @@
   @media (max-width: 990px) {
     .f2d2-web-hero {
       min-height: auto;
-      padding: 78px 0 40px;
+      align-items: flex-start;
+      padding: 0 0 40px;
       background:
         linear-gradient(180deg, rgba(2, 4, 6, 0.35), #020406 78%),
         url({{ 'f2d2-web-hero-crop.png' | asset_url }}) center top / auto 48% no-repeat;
     }
 
     .f2d2-web-hero__content {
-      padding-top: 260px;
+      max-width: 620px;
+      margin: 0 auto;
+      padding-top: clamp(250px, 50svh, 360px);
+      text-align: center;
+    }
+
+    .f2d2-web-hero__lead,
+    .f2d2-web-hero__copy {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .f2d2-web-actions {
+      justify-content: center;
     }
 
     .f2d2-web-feature-strip,
