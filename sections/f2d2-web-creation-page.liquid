@@ -390,17 +390,17 @@
   @media (max-width: 990px) {
     .f2d2-web-hero {
       min-height: auto;
-      align-items: flex-start;
-      padding: 0 0 40px;
+      align-items: center;
+      padding: 42px 0 40px;
       background:
-        linear-gradient(180deg, rgba(2, 4, 6, 0.35), #020406 78%),
-        url({{ 'f2d2-web-hero-crop.png' | asset_url }}) center top / auto 48% no-repeat;
+        linear-gradient(180deg, rgba(2, 4, 6, 0.12), rgba(2, 4, 6, 0.9) 58%, #020406 100%),
+        url({{ 'f2d2-web-hero-crop.png' | asset_url }}) center top / auto 100% no-repeat;
     }
 
     .f2d2-web-hero__content {
       max-width: 620px;
       margin: 0 auto;
-      padding-top: clamp(250px, 50svh, 360px);
+      padding-top: clamp(150px, 28svh, 220px);
       text-align: center;
     }
 
