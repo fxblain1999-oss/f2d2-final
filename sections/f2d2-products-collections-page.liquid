@@ -67,30 +67,28 @@
             if image == blank
               assign image = collection.image
             endif
-          endif
-        {% liquid
-          assign href = routes.collections_url
 
-          case title
-            when 'VÊTEMENTS'
-              assign href = '/collections/tous-nos-vetements'
+            assign href = routes.collections_url
 
-            when 'CHANDAILS À CAPUCHE'
-              assign href = '/collections/hoodies'
+            case title
+              when 'VÊTEMENTS'
+                assign href = '/collections/tous-nos-vetements'
 
-            when 'CASQUETTES'
-              assign href = '/collections/chapeaux'
+              when 'CHANDAILS À CAPUCHE'
+                assign href = '/collections/hoodies'
 
-            when 'BOUTEILLES & CONTENANTS'
-              assign href = '/collections/bouteilles-et-contenants'
+              when 'CASQUETTES'
+                assign href = '/collections/chapeaux'
 
-            when 'SACS & BAGAGES'
-              assign href = '/collections/sacs'
+              when 'BOUTEILLES & CONTENANTS'
+                assign href = '/collections/bouteilles-et-contenants'
 
-            when 'ACCESSOIRES'
-              assign href = '/collections/accessoire'
-          endcase
-        %}
+              when 'SACS & BAGAGES'
+                assign href = '/collections/sacs'
+
+              when 'ACCESSOIRES'
+                assign href = '/collections/accessoire'
+            endcase
         -%}
         <article class="f2d2-category-card" {{ block.shopify_attributes }}>
           <a href="{{ href }}" class="f2d2-category-card__link" aria-label="{{ title | escape }}">
