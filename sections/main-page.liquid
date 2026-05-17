@@ -5,16 +5,232 @@
   }
 </style>
 
-<div class="page-width page-width--narrow section--padding">
-  <h1 class="main-page-title page-title h1 text-center">
-    <motion-element class="inline-flex" data-motion="fade-up">
-      {{ page.title | escape }}
-    </motion-element>
-  </h1>
-  <div class="page__content rte">
-    {{ page.content }}
+{%- if page.handle == 'vetements' -%}
+  {%- liquid
+    assign clothing_collections = 'vetement-pour-homme,femme-t-shirts,vetements' | split: ','
+    assign clothing_titles = 'Hommes,Femmes,Tous les vêtements' | split: ','
+    assign clothing_descriptions = 'Essentiels confortables et personnalisables.,Coupes modernes pour tous les jours.,Parcourez toute la sélection vêtements.' | split: ','
+  -%}
+  <div class="f2d2-clothing-fallback section--padding">
+    <div class="page-width">
+      <div class="f2d2-clothing-fallback__header">
+        <p>Vêtements</p>
+        <h1>Magasinez par collection</h1>
+        <div class="rte">
+          <p>Retrouvez nos collections de vêtements pour hommes, femmes et toute la famille.</p>
+        </div>
+      </div>
+
+      <div class="f2d2-clothing-fallback__grid">
+        {%- for collection_handle in clothing_collections -%}
+          {%- liquid
+            assign collection = collections[collection_handle]
+            assign title = clothing_titles[forloop.index0] | default: collection.title
+            assign description = clothing_descriptions[forloop.index0]
+            assign image = collection.products.first.featured_media.preview_image | default: collection.image
+          -%}
+          <article class="f2d2-clothing-fallback-card">
+            <a href="{{ collection.url | default: routes.collections_url }}" class="f2d2-clothing-fallback-card__link">
+              <div class="f2d2-clothing-fallback-card__media">
+                {%- if image != blank -%}
+                  {{
+                    image
+                    | image_url: width: 900
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '320, 520, 720, 900',
+                      sizes: '(max-width: 749px) 90vw, (max-width: 1199px) 45vw, 31vw',
+                      class: 'f2d2-clothing-fallback-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'collection-1' | placeholder_svg_tag: 'f2d2-clothing-fallback-card__placeholder' }}
+                {%- endif -%}
+              </div>
+              <div class="f2d2-clothing-fallback-card__content">
+                <span class="f2d2-clothing-fallback-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 5 5.5 2 9l3 3 2-1v9h10v-9l2 1 3-3-3-3.5L16 4l-4 2-4-2Z"/><path d="M9 4c.6 1.5 1.6 2.2 3 2.2S14.4 5.5 15 4"/></svg>
+                </span>
+                <h2>{{ title | escape }}</h2>
+                <p>{{ description | escape }}</p>
+                <span class="f2d2-clothing-fallback-card__button">
+                  Voir la collection
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+                </span>
+              </div>
+            </a>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
   </div>
-</div>
+{%- else -%}
+  <div class="page-width page-width--narrow section--padding">
+    <h1 class="main-page-title page-title h1 text-center">
+      <motion-element class="inline-flex" data-motion="fade-up">
+        {{ page.title | escape }}
+      </motion-element>
+    </h1>
+    <div class="page__content rte">
+      {{ page.content }}
+    </div>
+  </div>
+{%- endif -%}
+
+{% style %}
+  {%- if page.handle == 'vetements' -%}
+    #shopify-section-{{ section.id }} {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 92, 214, 0.34), transparent 34rem),
+        linear-gradient(135deg, #050b0f 0%, #071017 50%, #020507 100%);
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback {
+      color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__header {
+      max-width: 76rem;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__header > p {
+      margin: 0 0 1rem;
+      color: #28a5ff;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback h1 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(3.4rem, 5vw, 5.8rem);
+      line-height: 1.04;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__header .rte {
+      max-width: 58rem;
+      margin: 1.8rem auto 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.75rem;
+      line-height: 1.55;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 0.8rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__link {
+      display: grid;
+      grid-template-rows: minmax(24rem, 1fr) auto;
+      min-height: 48rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24rem;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__image,
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__placeholder {
+      width: 100%;
+      height: 100%;
+      max-height: 28rem;
+      object-fit: contain;
+      filter: drop-shadow(0 2rem 2.4rem rgba(0, 0, 0, 0.5));
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 2.4rem 2.4rem;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 6.6rem;
+      height: 6.6rem;
+      margin: -1.8rem 0 1.2rem;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(145deg, #0f7cff, #0047b7);
+      box-shadow: 0 1.2rem 3.5rem rgba(0, 91, 255, 0.34);
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card p {
+      margin: 1rem 0 2rem;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 1.45rem;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      min-height: 4.2rem;
+      margin-top: auto;
+      padding: 0.9rem 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 99rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card__button svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    @media (max-width: 989px) {
+      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
+        grid-template-columns: 1fr;
+        max-width: 54rem;
+        margin-inline: auto;
+      }
+    }
+  {%- endif -%}
+{% endstyle %}
 
 {% schema %}
 {
