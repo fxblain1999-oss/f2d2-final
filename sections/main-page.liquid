@@ -6,11 +6,6 @@
 </style>
 
 {%- if page.handle == 'vetements' -%}
-  {%- liquid
-    assign clothing_collections = 'vetement-pour-homme,femme-t-shirts,vetements' | split: ','
-    assign clothing_titles = 'Hommes,Femmes,Tous les vêtements' | split: ','
-    assign clothing_descriptions = 'Essentiels confortables et personnalisables.,Coupes modernes pour tous les jours.,Parcourez toute la sélection vêtements.' | split: ','
-  -%}
   <div class="f2d2-clothing-fallback section--padding">
     <div class="page-width">
       <div class="f2d2-clothing-fallback__header">
@@ -22,11 +17,31 @@
       </div>
 
       <div class="f2d2-clothing-fallback__grid">
-        {%- for collection_handle in clothing_collections -%}
+        {%- assign shown_clothing_collections = 0 -%}
+        {%- for collection in collections -%}
           {%- liquid
-            assign collection = collections[collection_handle]
-            assign title = clothing_titles[forloop.index0] | default: collection.title
-            assign description = clothing_descriptions[forloop.index0]
+            assign collection_handle = collection.handle
+            assign collection_search = collection.title | append: ' ' | append: collection.handle | handle
+            assign is_clothing_collection = false
+
+            if collection_search contains 'vetement' or collection_search contains 't-shirt' or collection_search contains 't-shirts' or collection_search contains 'chandail' or collection_search contains 'hoodie' or collection_search contains 'homme' or collection_search contains 'femme' or collection_search contains 'enfant'
+              assign is_clothing_collection = true
+            endif
+
+            if collection_handle == 'vetements'
+              assign is_clothing_collection = false
+            endif
+
+            unless is_clothing_collection
+              continue
+            endunless
+
+            assign shown_clothing_collections = shown_clothing_collections | plus: 1
+            assign title = collection.title
+            assign description = collection.description | strip_html | strip
+            if description == blank
+              assign description = 'Découvrez cette collection de vêtements.'
+            endif
             assign image = collection.products.first.featured_media.preview_image | default: collection.image
           -%}
           <article class="f2d2-clothing-fallback-card">
@@ -60,6 +75,11 @@
             </a>
           </article>
         {%- endfor -%}
+        {%- if shown_clothing_collections == 0 -%}
+          <p class="f2d2-clothing-fallback__empty">
+            Aucune collection de vêtements n'est disponible pour le moment.
+          </p>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -122,6 +142,13 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2rem;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__empty {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback-card {
