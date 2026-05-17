@@ -1,16 +1,81 @@
 {
   "sections": {
     "main": {
-      "type": "main-list-collections",
+      "type": "f2d2-products-collections-page",
+      "blocks": {
+        "category_vetements": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/vetement-pour-homme",
+            "title": "Vêtements",
+            "description": "Confort et style au quotidien",
+            "link": "",
+            "icon": "shirt"
+          }
+        },
+        "category_chandails": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/femme-t-shirts",
+            "title": "Chandails à capuche",
+            "description": "Chaleur et confort",
+            "link": "",
+            "icon": "hoodie"
+          }
+        },
+        "category_casquettes": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/chapeau",
+            "title": "Casquettes",
+            "description": "Style et protection",
+            "link": "",
+            "icon": "cap"
+          }
+        },
+        "category_bouteilles": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/bouteille",
+            "title": "Bouteilles & contenants",
+            "description": "Hydratez-vous avec style",
+            "link": "",
+            "icon": "bottle"
+          }
+        },
+        "category_sacs": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/sacs",
+            "title": "Sacs & bagages",
+            "description": "Pratiques et résistants",
+            "link": "",
+            "icon": "bag"
+          }
+        },
+        "category_accessoires": {
+          "type": "category",
+          "settings": {
+            "collection": "shopify://collections/accesoire",
+            "title": "Accessoires",
+            "description": "Petits détails, grand impact",
+            "link": "",
+            "icon": "mug"
+          }
+        }
+      },
+      "block_order": [
+        "category_vetements",
+        "category_chandails",
+        "category_casquettes",
+        "category_bouteilles",
+        "category_sacs",
+        "category_accessoires"
+      ],
       "settings": {
-        "sort": "alphabetical",
-        "title": "Nos produits",
-        "heading_size": "h1",
-        "columns_desktop": 3,
-        "column_gap": "medium",
-        "columns_mobile": "2",
-        "padding_top": 70,
-        "padding_bottom": 80
+        "eyebrow": "Nos produits",
+        "heading": "Découvrez notre sélection",
+        "text": "<p>Des produits de qualité conçus pour répondre à vos besoins.<br>Explorez nos catégories et trouvez ce qu’il vous faut.</p>"
       }
     }
   },
