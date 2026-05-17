@@ -68,13 +68,29 @@
               assign image = collection.image
             endif
           endif
-          assign href = block.settings.link
-          if href == blank and collection != blank
-            assign href = collection.url
-          endif
-          if href == blank
-            assign href = routes.collections_url
-          endif
+        {% liquid
+          assign href = routes.collections_url
+
+          case title
+            when 'VÊTEMENTS'
+              assign href = '/collections/tous-nos-vetements'
+
+            when 'CHANDAILS À CAPUCHE'
+              assign href = '/collections/hoodies'
+
+            when 'CASQUETTES'
+              assign href = '/collections/chapeaux'
+
+            when 'BOUTEILLES & CONTENANTS'
+              assign href = '/collections/bouteilles-et-contenants'
+
+            when 'SACS & BAGAGES'
+              assign href = '/collections/sacs'
+
+            when 'ACCESSOIRES'
+              assign href = '/collections/accessoire'
+          endcase
+        %}
         -%}
         <article class="f2d2-category-card" {{ block.shopify_attributes }}>
           <a href="{{ href }}" class="f2d2-category-card__link" aria-label="{{ title | escape }}">
