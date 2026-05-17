@@ -15,7 +15,7 @@
         "category_vetements": {
           "type": "category",
           "settings": {
-            "collection": "shopify://collections/vetement-pour-homme",
+            "collection": "shopify://collections/vetements-pour-homme",
             "title": "Vêtements",
             "description": "Confort et style au quotidien",
             "link": "/pages/vetements",
@@ -25,7 +25,7 @@
         "category_chandails": {
           "type": "category",
           "settings": {
-            "collection": "shopify://collections/femme-t-shirts",
+            "collection": "shopify://collections/t-shirts",
             "title": "Chandails à capuche",
             "description": "Chaleur et confort",
             "link": "",
@@ -35,7 +35,7 @@
         "category_casquettes": {
           "type": "category",
           "settings": {
-            "collection": "shopify://collections/chapeau",
+            "collection": "shopify://collections/chapeaux",
             "title": "Casquettes",
             "description": "Style et protection",
             "link": "",
@@ -45,7 +45,7 @@
         "category_bouteilles": {
           "type": "category",
           "settings": {
-            "collection": "shopify://collections/bouteille",
+            "collection": "shopify://collections/bouteilles-et-contenants",
             "title": "Bouteilles & contenants",
             "description": "Hydratez-vous avec style",
             "link": "",
@@ -55,10 +55,10 @@
         "category_sacs": {
           "type": "category",
           "settings": {
-            "collection": "shopify://collections/sacs",
+            "collection": "",
             "title": "Sacs & bagages",
             "description": "Pratiques et résistants",
-            "link": "",
+            "link": "/collections/all",
             "icon": "bag"
           }
         },

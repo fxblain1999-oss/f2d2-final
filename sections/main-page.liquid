@@ -42,7 +42,17 @@
             if description == blank
               assign description = 'Découvrez cette collection de vêtements.'
             endif
-            assign image = collection.products.first.featured_media.preview_image | default: collection.image
+            assign first_product = collection.products.first
+            assign image = first_product.featured_media.preview_image
+            if image == blank
+              assign image = first_product.featured_image
+            endif
+            if image == blank
+              assign image = first_product.images.first
+            endif
+            if image == blank
+              assign image = collection.image
+            endif
           -%}
           <article class="f2d2-clothing-fallback-card">
             <a href="{{ collection.url | default: routes.collections_url }}" class="f2d2-clothing-fallback-card__link">
