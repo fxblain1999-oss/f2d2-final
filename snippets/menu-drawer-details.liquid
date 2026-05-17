@@ -1,4 +1,6 @@
 {%- liquid
+  assign link_title_handle = link.title | handle
+
   case block.type
     when 'promotion_banner'
       assign promo_images = block.settings.promo_image_1 | append: ',' | append: block.settings.promo_image_2 | append: ',' | append: block.settings.promo_image_3 | append: ',' | append: block.settings.promo_image_4 | append: ',' | append: block.settings.promo_image_5
@@ -30,6 +32,13 @@
       {{ link.title | escape }}
     </button>
     <ul class="flex flex-col h-full v-scrollable" data-parent role="list">
+      {%- if link_title_handle == 'nos-produits' -%}
+        <li class="menu-drawer__item" level="child">
+          <a href="{{ routes.collections_url }}" class="menu-drawer__item-link flex items-center justify-between">
+            Toutes les collections
+          </a>
+        </li>
+      {%- endif -%}
       {%- if collections != blank and block.type == 'product_list' and enable_mega_menu -%}
         <div class="menu-drawer__item" level="child">
           <ul role="list" class="grid gap-3">

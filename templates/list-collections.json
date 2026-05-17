@@ -4,13 +4,13 @@
       "type": "main-list-collections",
       "settings": {
         "sort": "alphabetical",
-        "title": "Collections",
+        "title": "Nos produits",
         "heading_size": "h1",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_gap": "medium",
-        "columns_mobile": "1",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "columns_mobile": "2",
+        "padding_top": 70,
+        "padding_bottom": 80
       }
     }
   },

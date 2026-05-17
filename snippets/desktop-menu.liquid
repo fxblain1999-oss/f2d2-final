@@ -13,6 +13,10 @@
       {%- liquid
         assign enable_mega_menu = false
         assign link_title_handle = link.title | handle
+        assign link_url = link.url
+        if link_title_handle == 'nos-produits' or link.url == '/collections/all'
+          assign link_url = routes.collections_url
+        endif
         for block in blocks
           assign menu_title_handle = block.settings.menu_title | handle
           if menu_title_handle == link_title_handle
@@ -40,7 +44,7 @@
               trigger="{{ section.settings.menu_trigger }}"
               {{ block.shopify_attributes }}
             >
-              <summary data-link="{{ link.url }}" class="z-2">
+              <summary data-link="{{ link_url }}" class="z-2">
                 <span class="menu__item flex items-center relative">
                   <span class="reversed-link flex items-center font-navigation">
                     {%- if link.title == 'Nos Produits' -%}
@@ -110,7 +114,7 @@
           {%- if enable_mega_menu -%}
             {% render 'mega-menu', link: link, block: mega_menu_block %}
           {%- else -%}
-            <a href="{{ link.url }}" class="menu__item flex relative z-2 font-navigation">
+            <a href="{{ link_url }}" class="menu__item flex relative z-2 font-navigation">
               <span class="reversed-link">
                 {%- if link.title == 'Nos Produits' -%}
                   PRODUITS
