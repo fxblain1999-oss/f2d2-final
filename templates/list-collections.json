@@ -7,7 +7,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/vetement-pour-homme",
-            "image": "shopify://shop_images/mens-fashion-man-in-shirt-and-jeans-leaning-on-bicycle.jpg",
             "title": "Vêtements",
             "description": "Confort et style au quotidien",
             "link": "",
@@ -18,7 +17,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/femme-t-shirts",
-            "image": "shopify://shop_images/woman-in-fashionable-dungarees.jpg",
             "title": "Chandails à capuche",
             "description": "Chaleur et confort",
             "link": "",
@@ -29,7 +27,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/chapeau",
-            "image": "shopify://shop_images/tan-colored-hat-on-monochrome-background.jpg",
             "title": "Casquettes",
             "description": "Style et protection",
             "link": "",
@@ -40,7 +37,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/bouteille",
-            "image": "shopify://shop_images/italian-bottle.jpg",
             "title": "Bouteilles & contenants",
             "description": "Hydratez-vous avec style",
             "link": "",
@@ -51,7 +47,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/sacs",
-            "image": "shopify://shop_images/man-holding-his-leather-travel-bag.jpg",
             "title": "Sacs & bagages",
             "description": "Pratiques et résistants",
             "link": "",
@@ -62,7 +57,6 @@
           "type": "category",
           "settings": {
             "collection": "shopify://collections/accesoire",
-            "image": "shopify://shop_images/black-cup.jpg",
             "title": "Accessoires",
             "description": "Petits détails, grand impact",
             "link": "",

@@ -52,7 +52,7 @@
           assign description = block.settings.description
           assign image = block.settings.image
           if image == blank and collection != blank
-            assign image = collection.image | default: collection.products.first.featured_media.preview_image
+            assign image = collection.products.first.featured_media.preview_image | default: collection.image
           endif
           assign href = block.settings.link
           if href == blank and collection != blank
