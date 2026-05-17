@@ -1,3 +1,4 @@
+{%- unless page.handle == 'vetements' -%}
 {%- liquid
   assign header_layout = section.settings.header_layout
   assign show_all_button_on_top = section.settings.show_all_button_on_top
@@ -638,3 +639,4 @@
   ]
 }
 {% endschema %}
+{%- endunless -%}
