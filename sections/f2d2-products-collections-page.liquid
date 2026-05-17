@@ -15,6 +15,10 @@
       {%- if section.settings.text != blank -%}
         <div class="f2d2-products-page__intro rte">{{ section.settings.text }}</div>
       {%- endif -%}
+      <a href="{{ routes.all_products_collection_url }}" class="f2d2-products-page__all-button">
+        Tous nos produits
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+      </a>
     </div>
 
     <div class="f2d2-products-page__features" aria-label="Avantages">
@@ -196,6 +200,35 @@
     color: rgba(255, 255, 255, 0.76);
     font-size: 1.8rem;
     line-height: 1.55;
+  }
+
+  .section-{{ section.id }} .f2d2-products-page__all-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 4.8rem;
+    margin-top: 2.6rem;
+    padding: 1.2rem 2.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 99rem;
+    color: #fff;
+    background: linear-gradient(145deg, var(--f2d2-blue), var(--f2d2-blue-deep));
+    box-shadow: 0 1.2rem 3rem rgba(0, 91, 255, 0.28);
+    font-size: 1.45rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .section-{{ section.id }} .f2d2-products-page__all-button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 1.6rem 3.6rem rgba(0, 91, 255, 0.36);
+  }
+
+  .section-{{ section.id }} .f2d2-products-page__all-button svg {
+    width: 1.9rem;
+    height: 1.9rem;
   }
 
   .section-{{ section.id }} .f2d2-products-page__features {
