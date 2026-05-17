@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "main": {
+      "type": "f2d2-clothing-collections-page",
+      "blocks": {
+        "men": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/vetement-pour-homme",
+            "title": "Hommes",
+            "description": "Essentiels confortables et personnalisables.",
+            "link": "",
+            "icon": "men"
+          }
+        },
+        "women": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/femme-t-shirts",
+            "title": "Femmes",
+            "description": "Coupes modernes pour tous les jours.",
+            "link": "",
+            "icon": "women"
+          }
+        },
+        "all": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/vetements",
+            "title": "Tous les vêtements",
+            "description": "Parcourez toute la sélection vêtements.",
+            "link": "",
+            "icon": "men"
+          }
+        }
+      },
+      "block_order": [
+        "men",
+        "women",
+        "all"
+      ],
+      "settings": {
+        "eyebrow": "Vêtements",
+        "heading": "Magasinez par collection",
+        "text": "<p>Retrouvez nos collections de vêtements pour hommes, femmes et toute la famille.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

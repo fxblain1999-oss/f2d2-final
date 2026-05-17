@@ -9,7 +9,7 @@
             "collection": "shopify://collections/vetement-pour-homme",
             "title": "Vêtements",
             "description": "Confort et style au quotidien",
-            "link": "",
+            "link": "/pages/vetements",
             "icon": "shirt"
           }
         },

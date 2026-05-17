@@ -1,0 +1,336 @@
+{%- liquid
+  assign collection_blocks = section.blocks | where: 'type', 'collection'
+-%}
+
+<section class="f2d2-clothing-page section-{{ section.id }}">
+  <div class="f2d2-clothing-page__inner page-width">
+    <div class="f2d2-clothing-page__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1>{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="f2d2-clothing-page__grid">
+      {%- for block in collection_blocks -%}
+        {%- liquid
+          assign collection = block.settings.collection
+          assign title = block.settings.title | default: collection.title
+          assign description = block.settings.description
+          assign image = block.settings.image
+          if image == blank and collection != blank
+            assign image = collection.products.first.featured_media.preview_image | default: collection.image
+          endif
+          assign href = block.settings.link
+          if href == blank and collection != blank
+            assign href = collection.url
+          endif
+          if href == blank
+            assign href = routes.collections_url
+          endif
+        -%}
+        <article class="f2d2-clothing-card" {{ block.shopify_attributes }}>
+          <a href="{{ href }}" class="f2d2-clothing-card__link">
+            <div class="f2d2-clothing-card__media">
+              {%- if image != blank -%}
+                {{
+                  image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '320, 520, 720, 900',
+                    sizes: '(max-width: 749px) 90vw, (max-width: 1199px) 45vw, 31vw',
+                    class: 'f2d2-clothing-card__image'
+                }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'f2d2-clothing-card__placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="f2d2-clothing-card__content">
+              <span class="f2d2-clothing-card__icon">
+                {%- case block.settings.icon -%}
+                  {%- when 'women' -%}
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v2l3 4-2.5 1.5L15 12v9H9v-9l-1.5 2.5L5 13l3-4V7a4 4 0 0 1 4-4Z"/><path d="M10 21v-6"/><path d="M14 21v-6"/></svg>
+                  {%- when 'kids' -%}
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 5 7l2 4 2-1v10h6V10l2 1 2-4-3-2-4 2-4-2Z"/><path d="M10 5c.4 1 1 1.5 2 1.5S13.6 6 14 5"/></svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 5 5.5 2 9l3 3 2-1v9h10v-9l2 1 3-3-3-3.5L16 4l-4 2-4-2Z"/><path d="M9 4c.6 1.5 1.6 2.2 3 2.2S14.4 5.5 15 4"/></svg>
+                {%- endcase -%}
+              </span>
+              <h2>{{ title | escape }}</h2>
+              {%- if description != blank -%}
+                <p>{{ description | escape }}</p>
+              {%- endif -%}
+              <span class="f2d2-clothing-card__button">
+                Voir la collection
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+              </span>
+            </div>
+          </a>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .section-{{ section.id }} {
+    --f2d2-blue: #0f7cff;
+    --f2d2-blue-deep: #0047b7;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0;
+    color: #fff;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(0, 92, 214, 0.34), transparent 34rem),
+      linear-gradient(135deg, #050b0f 0%, #071017 50%, #020507 100%);
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-page__header {
+    max-width: 76rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-page__header p:first-child {
+    margin: 0 0 1rem;
+    color: #28a5ff;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-{{ section.id }} h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(3.4rem, 5vw, 5.8rem);
+    line-height: 1.04;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-page__header .rte {
+    max-width: 58rem;
+    margin: 1.8rem auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.75rem;
+    line-height: 1.55;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-page__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card {
+    min-width: 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.8rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: rgba(69, 158, 255, 0.72);
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__link {
+    display: grid;
+    grid-template-rows: minmax(24rem, 1fr) auto;
+    min-height: 48rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24rem;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__image,
+  .section-{{ section.id }} .f2d2-clothing-card__placeholder {
+    width: 100%;
+    height: 100%;
+    max-height: 28rem;
+    object-fit: contain;
+    filter: drop-shadow(0 2rem 2.4rem rgba(0, 0, 0, 0.5));
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2.4rem 2.4rem;
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.6rem;
+    height: 6.6rem;
+    margin: -1.8rem 0 1.2rem;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(145deg, var(--f2d2-blue), var(--f2d2-blue-deep));
+    box-shadow: 0 1.2rem 3.5rem rgba(0, 91, 255, 0.34);
+  }
+
+  .section-{{ section.id }} svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card p {
+    margin: 1rem 0 2rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 1.45rem;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    min-height: 4.2rem;
+    margin-top: auto;
+    padding: 0.9rem 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 99rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .section-{{ section.id }} .f2d2-clothing-card__button svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  @media (max-width: 989px) {
+    .section-{{ section.id }} .f2d2-clothing-page__grid {
+      grid-template-columns: 1fr;
+      max-width: 54rem;
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .section-{{ section.id }} {
+      padding: 4.4rem 0;
+    }
+
+    .section-{{ section.id }} .f2d2-clothing-card__link {
+      min-height: 40rem;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "F2D2 vêtements",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "Vêtements"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Magasinez par style"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Retrouvez nos collections de vêtements pour hommes, femmes et toute la famille.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection vêtement",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image personnalisée"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien personnalisé"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "default": "men",
+          "options": [
+            {
+              "value": "men",
+              "label": "Homme"
+            },
+            {
+              "value": "women",
+              "label": "Femme"
+            },
+            {
+              "value": "kids",
+              "label": "Enfants"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "F2D2 vêtements"
+    }
+  ]
+}
+{% endschema %}
