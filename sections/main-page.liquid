@@ -271,6 +271,10 @@
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter {
+      position: relative;
+      z-index: 1000;
+      isolation: isolate;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -278,15 +282,19 @@
       max-width: 89rem;
       margin: -1rem auto 4.8rem;
       padding: 1.6rem 2.4rem;
+
       border: 1px solid rgba(61, 140, 255, 0.72);
       border-radius: 99rem;
+
       background:
         radial-gradient(circle at 70% 0%, rgba(0, 118, 255, 0.22), transparent 55%),
         rgba(4, 13, 27, 0.76);
+
       box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.03),
         0 0 3.2rem rgba(0, 104, 255, 0.24),
         0 1.8rem 4.5rem rgba(0, 0, 0, 0.42);
+
       -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
     }
@@ -324,6 +332,7 @@
       align-items: center;
       flex: 1 1 36rem;
       min-width: 28rem;
+      z-index: 1001;
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-icon {
@@ -405,18 +414,30 @@
       position: absolute;
       top: calc(100% + 1rem);
       left: 0;
-      z-index: 5;
+
+      z-index: 99999;
+
       width: 100%;
       max-height: 32rem;
+
       margin: 0;
       padding: 0.8rem;
+
       overflow: auto;
       list-style: none;
+
       color: #fff;
+
       border: 1px solid rgba(91, 177, 255, 0.55);
       border-radius: 2.4rem;
+
       background:
-        linear-gradient(180deg, rgba(9, 18, 32, 0.98), rgba(3, 8, 16, 0.98));
+        linear-gradient(
+          180deg,
+          rgba(9, 18, 32, 0.98),
+          rgba(3, 8, 16, 0.98)
+        );
+
       box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.04),
         0 2.2rem 5rem rgba(0, 0, 0, 0.45),
@@ -651,26 +672,3 @@
 }
 {% endschema %}
 
-.f2d2-clothing-fallback__filter {
-  position: relative;
-  z-index: 50;
-}
-
-.f2d2-clothing-fallback__select-wrap {
-  position: relative;
-  z-index: 60;
-}
-
-.f2d2-clothing-fallback__select-menu {
-  z-index: 9999;
-}
-
-.f2d2-clothing-fallback__grid {
-  position: relative;
-  z-index: 1;
-}
-
-.f2d2-clothing-fallback-card {
-  position: relative;
-  z-index: 1;
-}
