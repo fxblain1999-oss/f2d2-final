@@ -60,7 +60,7 @@
       position: sticky !important;
       top: 0 !important;
       inset-block-start: 0 !important;
-      z-index: 1000 !important;
+      z-index: 9999 !important;
       overflow: visible !important;
       pointer-events: auto !important;
       transform: none !important;
@@ -175,6 +175,8 @@
     }
 
     #shopify-section-{{ section.id }} .header {
+      position: relative;
+      z-index: 9999 !important;
       --header-grid-template: "logo navigation icons" / auto minmax(0, 1fr) auto;
       display: grid;
       align-items: center;
