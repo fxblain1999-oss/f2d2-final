@@ -17,30 +17,38 @@
       </div>
 
       <div class="f2d2-clothing-fallback__filter">
+        <span class="f2d2-clothing-fallback__filter-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z"/></svg>
+        </span>
         <label for="F2D2ClothingFilter-{{ section.id }}">Filtrer les collections</label>
-        <select id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter>
-          <option value="all">Toutes les collections</option>
-          {%- for collection in collections -%}
-            {%- liquid
-              assign collection_handle = collection.handle
-              assign collection_search = collection.title | append: ' ' | append: collection.handle | handle
-              assign is_clothing_collection = false
-
-              if collection_search contains 'vetement' or collection_search contains 't-shirt' or collection_search contains 't-shirts' or collection_search contains 'chandail' or collection_search contains 'hoodie' or collection_search contains 'homme' or collection_search contains 'femme' or collection_search contains 'enfant'
-                assign is_clothing_collection = true
-              endif
-
-              if collection_handle == 'vetements' or collection_handle == 'tous-nos-vetements' or collection_handle == 'tous-les-vetements'
+        <div class="f2d2-clothing-fallback__select-wrap">
+          <span class="f2d2-clothing-fallback__select-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4V4Z"/><path d="M14 4h6v6h-6V4Z"/><path d="M4 14h6v6H4v-6Z"/><path d="M14 14h6v6h-6v-6Z"/></svg>
+          </span>
+          <select id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter>
+            <option value="all">Toutes les collections</option>
+            {%- for collection in collections -%}
+              {%- liquid
+                assign collection_handle = collection.handle
+                assign collection_search = collection.title | append: ' ' | append: collection.handle | handle
                 assign is_clothing_collection = false
-              endif
 
-              unless is_clothing_collection
-                continue
-              endunless
-            -%}
-            <option value="{{ collection.handle | escape }}">{{ collection.title | escape }}</option>
-          {%- endfor -%}
-        </select>
+                if collection_search contains 'vetement' or collection_search contains 't-shirt' or collection_search contains 't-shirts' or collection_search contains 'chandail' or collection_search contains 'hoodie' or collection_search contains 'homme' or collection_search contains 'femme' or collection_search contains 'enfant'
+                  assign is_clothing_collection = true
+                endif
+
+                if collection_handle == 'vetements' or collection_handle == 'tous-nos-vetements' or collection_handle == 'tous-les-vetements'
+                  assign is_clothing_collection = false
+                endif
+
+                unless is_clothing_collection
+                  continue
+                endunless
+              -%}
+              <option value="{{ collection.handle | escape }}">{{ collection.title | escape }}</option>
+            {%- endfor -%}
+          </select>
+        </div>
       </div>
 
       <div class="f2d2-clothing-fallback__grid">
