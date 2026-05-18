@@ -209,7 +209,7 @@
     color: #fff;
     background:
       radial-gradient(circle at 50% 0%, rgba(0, 92, 214, 0.12), transparent 42rem),
-      radial-gradient(circle at 8% 45%, rgba(0, 129, 255, 0.14), transparent 24rem),
+      radial-gradient(circle at 8% 45%, rgba(0, 129, 255, 0.05), transparent 24rem),
       linear-gradient(135deg, #050b0f 0%, #071017 46%, #020507 100%);
   }
 
@@ -292,7 +292,7 @@
   .section-{{ section.id }} .f2d2-products-page__features {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.4rem;
+    gap: 1.4rem;
     max-width: 104rem;
     margin: 0 auto 3.6rem;
   }
@@ -357,7 +357,7 @@
 
   .section-{{ section.id }} .f2d2-products-page__grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: 1.6rem;
   }
 
@@ -383,7 +383,7 @@
   .section-{{ section.id }} .f2d2-category-card__link {
     display: flex;
     flex-direction: column;
-    min-height: 38.4rem;
+    min-height: 34rem;
     height: 100%;
     padding: 1.8rem 1.8rem 1.6rem;
     color: inherit;
@@ -395,7 +395,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20.4rem;
+    height: 16.5rem;
     margin-bottom: -0.6rem;
     overflow: hidden;
   }
