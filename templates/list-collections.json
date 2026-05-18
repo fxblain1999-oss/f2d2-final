@@ -25,7 +25,7 @@
         "category_chandails": {
           "type": "category",
           "settings": {
-            "collection": "t-shirts",
+            "collection": "hoodies",
             "title": "Chandails à capuche",
             "description": "Chaleur et confort",
             "link": "",

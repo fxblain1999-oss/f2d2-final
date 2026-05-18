@@ -78,7 +78,9 @@
 
           assign href = collection.url
 
-          case title
+          assign title_key = title | upcase
+
+          case title_key
 
             when 'VÊTEMENTS'
               assign href = '/pages/vetements'
@@ -87,7 +89,7 @@
               assign href = '/collections/hoodies'
 
             when 'CASQUETTES'
-              assign href = '/collections/chapeaux'
+              assign href = '/collections/chapeau'
 
             when 'BOUTEILLES & CONTENANTS'
               assign href = '/collections/bouteilles-et-contenants'
