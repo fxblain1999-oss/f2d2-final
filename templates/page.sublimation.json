@@ -72,7 +72,7 @@
         "description": "",
         "text_size": "text-base",
         "show_collection_description": false,
-        "collection": "bouteille",
+        "collection": "bouteilles-et-contenants",
         "limit": 8,
         "columns": 4,
         "column_gap": "medium",

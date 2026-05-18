@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -92,7 +101,7 @@
             "button_style_5": "btn--primary",
             "content_position_5": "below",
             "content_alignment_5": "left",
-            "promotion_link_5": "shopify://collections/bouteille"
+            "promotion_link_5": "shopify://collections/bouteilles-et-contenants"
           }
         },
         "promotion_banner_cAfNBt": {
