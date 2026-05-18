@@ -60,8 +60,18 @@
           if image == blank and collection != blank
 
             assign first_product = collection.products.first
+            assign second_product = collection.products[1]
 
-            if first_product.featured_media.preview_image != blank
+            if title_key == 'VÊTEMENTS' and second_product.featured_media.preview_image != blank
+              assign image = second_product.featured_media.preview_image
+
+            elsif title_key == 'VÊTEMENTS' and second_product.featured_image != blank
+              assign image = second_product.featured_image
+
+            elsif title_key == 'VÊTEMENTS' and second_product.images.first != blank
+              assign image = second_product.images.first
+
+            elsif first_product.featured_media.preview_image != blank
               assign image = first_product.featured_media.preview_image
 
             elsif first_product.featured_image != blank
