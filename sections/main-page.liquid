@@ -444,6 +444,58 @@
         0 0 2.8rem rgba(0, 102, 255, 0.16);
     }
 
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu::-webkit-scrollbar-track {
+      background:
+        rgba(5, 12, 22, 0.9);
+
+      border-radius: 999px;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu::-webkit-scrollbar-thumb {
+      background:
+        linear-gradient(
+          180deg,
+          #1f8fff 0%,
+          #005eff 100%
+        );
+
+      border-radius: 999px;
+
+      border: 2px solid rgba(5, 12, 22, 0.95);
+
+      box-shadow:
+        0 0 12px rgba(0, 102, 255, 0.45),
+        inset 0 0 4px rgba(255,255,255,0.25);
+
+      transition:
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu::-webkit-scrollbar-thumb:hover {
+      background:
+        linear-gradient(
+          180deg,
+          #49a6ff 0%,
+          #0b6cff 100%
+        );
+
+      box-shadow:
+        0 0 16px rgba(0, 132, 255, 0.75),
+        inset 0 0 6px rgba(255,255,255,0.35);
+    }
+
+    /* Firefox */
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu {
+      scrollbar-width: thin;
+      scrollbar-color: #0b6cff rgba(5, 12, 22, 0.9);
+    }
+
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu[hidden] {
       display: none;
     }
