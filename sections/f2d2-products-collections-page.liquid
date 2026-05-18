@@ -56,20 +56,28 @@
           assign collection = collections[collection_handle]
           assign title = block.settings.title | default: collection.title
           assign title_key = title | upcase
+          assign is_vetements_card = false
+          if block.id == 'category_vetements' or title_key == 'VÊTEMENTS'
+            assign is_vetements_card = true
+            assign collection = collections['vetements-pour-homme']
+          endif
           assign description = block.settings.description
           assign image = block.settings.image
           if image == blank and collection != blank
 
             assign first_product = collection.products.first
-            assign second_product = collection.products[1]
+            assign second_product = blank
+            for product in collection.products offset: 1 limit: 1
+              assign second_product = product
+            endfor
 
-            if title_key == 'VÊTEMENTS' and second_product.featured_media.preview_image != blank
+            if is_vetements_card and second_product.featured_media.preview_image != blank
               assign image = second_product.featured_media.preview_image
 
-            elsif title_key == 'VÊTEMENTS' and second_product.featured_image != blank
+            elsif is_vetements_card and second_product.featured_image != blank
               assign image = second_product.featured_image
 
-            elsif title_key == 'VÊTEMENTS' and second_product.images.first != blank
+            elsif is_vetements_card and second_product.images.first != blank
               assign image = second_product.images.first
 
             elsif first_product.featured_media.preview_image != blank
