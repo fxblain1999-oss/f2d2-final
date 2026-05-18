@@ -25,7 +25,7 @@
           <span class="f2d2-clothing-fallback__select-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4V4Z"/><path d="M14 4h6v6h-6V4Z"/><path d="M4 14h6v6H4v-6Z"/><path d="M14 14h6v6h-6v-6Z"/></svg>
           </span>
-          <select id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter>
+          <select id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter hidden>
             <option value="all">Toutes les collections</option>
             {%- for collection in collections -%}
               {%- liquid
@@ -48,6 +48,25 @@
               <option value="{{ collection.handle | escape }}">{{ collection.title | escape }}</option>
             {%- endfor -%}
           </select>
+          <button
+            class="f2d2-clothing-fallback__select-button"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="F2D2ClothingMenu-{{ section.id }}"
+            data-f2d2-clothing-filter-button
+          >
+            <span data-f2d2-clothing-filter-label>Toutes les collections</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul
+            class="f2d2-clothing-fallback__select-menu"
+            id="F2D2ClothingMenu-{{ section.id }}"
+            role="listbox"
+            tabindex="-1"
+            data-f2d2-clothing-filter-menu
+            hidden
+          ></ul>
         </div>
       </div>
 
@@ -134,14 +153,65 @@
       if (!section) return;
 
       const filter = section.querySelector('[data-f2d2-clothing-filter]');
+      const button = section.querySelector('[data-f2d2-clothing-filter-button]');
+      const buttonLabel = section.querySelector('[data-f2d2-clothing-filter-label]');
+      const menu = section.querySelector('[data-f2d2-clothing-filter-menu]');
       const cards = section.querySelectorAll('[data-f2d2-clothing-card]');
-      if (!filter || !cards.length) return;
+      if (!filter || !button || !buttonLabel || !menu || !cards.length) return;
 
-      filter.addEventListener('change', () => {
-        const value = filter.value;
+      const closeMenu = () => {
+        menu.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+      };
+
+      const openMenu = () => {
+        menu.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+      };
+
+      const applyFilter = (value) => {
+        filter.value = value;
+        const selectedOption = filter.options[filter.selectedIndex];
+        buttonLabel.textContent = selectedOption ? selectedOption.textContent : 'Toutes les collections';
         cards.forEach((card) => {
           card.hidden = value !== 'all' && card.dataset.collectionHandle !== value;
         });
+        menu.querySelectorAll('[role="option"]').forEach((option) => {
+          option.setAttribute('aria-selected', String(option.dataset.value === value));
+        });
+      };
+
+      Array.from(filter.options).forEach((option) => {
+        const item = document.createElement('li');
+        item.className = 'f2d2-clothing-fallback__select-option';
+        item.setAttribute('role', 'option');
+        item.setAttribute('aria-selected', String(option.value === filter.value));
+        item.dataset.value = option.value;
+        item.textContent = option.textContent;
+        menu.appendChild(item);
+      });
+
+      button.addEventListener('click', () => {
+        menu.hidden ? openMenu() : closeMenu();
+      });
+
+      menu.addEventListener('click', (event) => {
+        const option = event.target.closest('[role="option"]');
+        if (!option) return;
+        applyFilter(option.dataset.value);
+        closeMenu();
+      });
+
+      document.addEventListener('click', (event) => {
+        if (section.contains(event.target) && event.target.closest('.f2d2-clothing-fallback__select-wrap')) return;
+        closeMenu();
+      });
+
+      section.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+          button.focus();
+        }
       });
     })();
   </script>
@@ -279,7 +349,11 @@
       stroke: none;
     }
 
-    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select {
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.6rem;
       width: 100%;
       min-height: 6.8rem;
       padding: 0 6.4rem 0 7.8rem;
@@ -287,7 +361,6 @@
       border-radius: 99rem;
       color: #fff;
       background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 2.4rem center / 2.2rem 2.2rem no-repeat,
         linear-gradient(180deg, rgba(8, 17, 32, 0.92), rgba(2, 7, 15, 0.96));
       box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.04),
@@ -297,11 +370,12 @@
       appearance: none;
       -webkit-appearance: none;
       cursor: pointer;
+      text-align: left;
       transition: border-color 180ms ease, box-shadow 180ms ease;
     }
 
-    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select:hover,
-    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select:focus {
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button:hover,
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button:focus {
       outline: none;
       border-color: rgba(91, 177, 255, 0.9);
       box-shadow:
@@ -309,9 +383,64 @@
         0 0 3rem rgba(0, 102, 255, 0.28);
     }
 
-    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter option {
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button > span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button > svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      z-index: 5;
+      width: 100%;
+      max-height: 32rem;
+      margin: 0;
+      padding: 0.8rem;
+      overflow: auto;
+      list-style: none;
       color: #fff;
-      background: #07101c;
+      border: 1px solid rgba(91, 177, 255, 0.55);
+      border-radius: 2.4rem;
+      background:
+        linear-gradient(180deg, rgba(9, 18, 32, 0.98), rgba(3, 8, 16, 0.98));
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 2.2rem 5rem rgba(0, 0, 0, 0.45),
+        0 0 2.8rem rgba(0, 102, 255, 0.16);
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-menu[hidden] {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-option {
+      padding: 1.2rem 2.2rem;
+      border-radius: 1.6rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 160ms ease, background 160ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-option:hover,
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-option[aria-selected="true"] {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(22, 128, 255, 0.85), rgba(0, 75, 189, 0.8));
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
@@ -469,10 +598,14 @@
         min-width: 0;
       }
 
-      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select {
+      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-button {
         width: 100%;
         min-height: 5.8rem;
         font-size: 1.6rem;
+      }
+
+      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__select-option {
+        font-size: 1.5rem;
       }
 
       #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
