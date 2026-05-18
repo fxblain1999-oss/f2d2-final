@@ -57,7 +57,7 @@
           assign title = block.settings.title | default: collection.title
           assign title_key = title | upcase
           assign is_vetements_card = false
-          if block.id == 'category_vetements' or title_key == 'VÊTEMENTS'
+          if collection_handle == 'vetements-pour-homme' or title_key == 'VÊTEMENTS'
             assign is_vetements_card = true
             assign collection = collections['vetements-pour-homme']
           endif
