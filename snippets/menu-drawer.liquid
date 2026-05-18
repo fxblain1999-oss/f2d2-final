@@ -50,7 +50,11 @@
                   endif
                 endfor
               -%}
-              {%- if link.links != blank or enable_mega_menu -%}
+              {%- if link_title_handle == 'produits' or link_title_handle == 'nos-produits' -%}
+                <a href="{{ routes.collections_url }}" class="menu-drawer__item-link flex items-center justify-between">
+                  {{- link.title | escape -}}
+                </a>
+              {%- elsif link.links != blank or enable_mega_menu -%}
                 {%- render 'menu-drawer-details',
                   link: link,
                   enable_mega_menu: enable_mega_menu,
