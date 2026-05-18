@@ -16,6 +16,33 @@
         </div>
       </div>
 
+      <div class="f2d2-clothing-fallback__filter">
+        <label for="F2D2ClothingFilter-{{ section.id }}">Filtrer les collections</label>
+        <select id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter>
+          <option value="all">Toutes les collections</option>
+          {%- for collection in collections -%}
+            {%- liquid
+              assign collection_handle = collection.handle
+              assign collection_search = collection.title | append: ' ' | append: collection.handle | handle
+              assign is_clothing_collection = false
+
+              if collection_search contains 'vetement' or collection_search contains 't-shirt' or collection_search contains 't-shirts' or collection_search contains 'chandail' or collection_search contains 'hoodie' or collection_search contains 'homme' or collection_search contains 'femme' or collection_search contains 'enfant'
+                assign is_clothing_collection = true
+              endif
+
+              if collection_handle == 'vetements' or collection_handle == 'tous-nos-vetements' or collection_handle == 'tous-les-vetements'
+                assign is_clothing_collection = false
+              endif
+
+              unless is_clothing_collection
+                continue
+              endunless
+            -%}
+            <option value="{{ collection.handle | escape }}">{{ collection.title | escape }}</option>
+          {%- endfor -%}
+        </select>
+      </div>
+
       <div class="f2d2-clothing-fallback__grid">
         {%- assign shown_clothing_collections = 0 -%}
         {%- for collection in collections -%}
@@ -54,7 +81,7 @@
               assign image = collection.image
             endif
           -%}
-          <article class="f2d2-clothing-fallback-card">
+          <article class="f2d2-clothing-fallback-card" data-f2d2-clothing-card data-collection-handle="{{ collection.handle | escape }}">
             <a href="{{ collection.url | default: routes.collections_url }}" class="f2d2-clothing-fallback-card__link">
               <div class="f2d2-clothing-fallback-card__media">
                 {%- if image != blank -%}
@@ -93,6 +120,23 @@
       </div>
     </div>
   </div>
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section) return;
+
+      const filter = section.querySelector('[data-f2d2-clothing-filter]');
+      const cards = section.querySelectorAll('[data-f2d2-clothing-card]');
+      if (!filter || !cards.length) return;
+
+      filter.addEventListener('change', () => {
+        const value = filter.value;
+        cards.forEach((card) => {
+          card.hidden = value !== 'all' && card.dataset.collectionHandle !== value;
+        });
+      });
+    })();
+  </script>
 {%- else -%}
   <div class="page-width page-width--narrow section--padding">
     <h1 class="main-page-title page-title h1 text-center">
@@ -146,6 +190,38 @@
       color: rgba(255, 255, 255, 0.72);
       font-size: 1.75rem;
       line-height: 1.55;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      max-width: 54rem;
+      margin: -1.6rem auto 3.2rem;
+      padding: 1.1rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 0.8rem;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter label {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.35rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select {
+      width: min(100%, 30rem);
+      min-height: 4.4rem;
+      padding: 0 4rem 0 1.4rem;
+      border: 1px solid rgba(91, 177, 255, 0.42);
+      border-radius: 0.6rem;
+      color: #fff;
+      background-color: rgba(3, 12, 20, 0.96);
+      font-size: 1.45rem;
+      font-weight: 700;
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
@@ -282,6 +358,16 @@
     }
 
     @media (max-width: 989px) {
+      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 54rem;
+      }
+
+      #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select {
+        width: 100%;
+      }
+
       #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
         grid-template-columns: 1fr;
         max-width: 54rem;
