@@ -149,11 +149,15 @@
 
   .section-{{ section.id }} .f2d2-clothing-card__image,
   .section-{{ section.id }} .f2d2-clothing-card__placeholder {
-    width: 100%;
-    height: 100%;
-    max-height: 28rem;
+    width: auto;
+    height: auto;
+
+    max-width: 82%;
+    max-height: 22rem;
+
     object-fit: contain;
-    filter: drop-shadow(0 2rem 2.4rem rgba(0, 0, 0, 0.5));
+
+    filter: none;
   }
 
   .section-{{ section.id }} .f2d2-clothing-card__content {
