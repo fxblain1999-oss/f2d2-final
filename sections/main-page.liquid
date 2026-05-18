@@ -43,6 +43,33 @@
         </select>
       </div>
 
+      <div class="collection-filter-wrapper f2d2-clothing-fallback__filter">
+        <label class="collection-filter-label" for="F2D2ClothingFilter-{{ section.id }}">Filtrer les collections</label>
+        <select class="collection-filter-select" id="F2D2ClothingFilter-{{ section.id }}" data-f2d2-clothing-filter>
+          <option value="all">Toutes les collections</option>
+          {%- for collection in collections -%}
+            {%- liquid
+              assign collection_handle = collection.handle
+              assign collection_search = collection.title | append: ' ' | append: collection.handle | handle
+              assign is_clothing_collection = false
+
+              if collection_search contains 'vetement' or collection_search contains 't-shirt' or collection_search contains 't-shirts' or collection_search contains 'chandail' or collection_search contains 'hoodie' or collection_search contains 'homme' or collection_search contains 'femme' or collection_search contains 'enfant'
+                assign is_clothing_collection = true
+              endif
+
+              if collection_handle == 'vetements' or collection_handle == 'tous-nos-vetements' or collection_handle == 'tous-les-vetements'
+                assign is_clothing_collection = false
+              endif
+
+              unless is_clothing_collection
+                continue
+              endunless
+            -%}
+            <option value="{{ collection.handle | escape }}">{{ collection.title | escape }}</option>
+          {%- endfor -%}
+        </select>
+      </div>
+
       <div class="f2d2-clothing-fallback__grid">
         {%- assign shown_clothing_collections = 0 -%}
         {%- for collection in collections -%}
@@ -82,6 +109,7 @@
             endif
           -%}
           <article class="f2d2-clothing-fallback-card" data-f2d2-clothing-card data-collection-handle="{{ collection.handle | escape }}">
+<<<<<<< HEAD
             <a href="{{ collection.url | default: routes.collections_url }}" class="f2d2-clothing-fallback-card__link">
               <div class="f2d2-clothing-fallback-card__media">
                 {%- if image != blank -%}
@@ -109,6 +137,35 @@
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
                 </span>
               </div>
+=======
+            <a href="{{ collection.url | default: routes.collections_url }}" class="f2d2-clothing-fallback-card__link">
+              <div class="f2d2-clothing-fallback-card__media">
+                {%- if image != blank -%}
+                  {{
+                    image
+                    | image_url: width: 900
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '320, 520, 720, 900',
+                      sizes: '(max-width: 749px) 90vw, (max-width: 1199px) 45vw, 31vw',
+                      class: 'f2d2-clothing-fallback-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'collection-1' | placeholder_svg_tag: 'f2d2-clothing-fallback-card__placeholder' }}
+                {%- endif -%}
+              </div>
+              <div class="f2d2-clothing-fallback-card__content">
+                <span class="f2d2-clothing-fallback-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 5 5.5 2 9l3 3 2-1v9h10v-9l2 1 3-3-3-3.5L16 4l-4 2-4-2Z"/><path d="M9 4c.6 1.5 1.6 2.2 3 2.2S14.4 5.5 15 4"/></svg>
+                </span>
+                <h2>{{ title | escape }}</h2>
+                <p>{{ description | escape }}</p>
+                <span class="f2d2-clothing-fallback-card__button">
+                  Voir la collection
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+                </span>
+              </div>
+>>>>>>> fcbd4a4 (Fix cart drawer mobile)
             </a>
           </article>
         {%- endfor -%}
@@ -192,11 +249,16 @@
       line-height: 1.55;
     }
 
+<<<<<<< HEAD
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter {
+=======
+    #shopify-section-{{ section.id }} .collection-filter-wrapper {
+>>>>>>> fcbd4a4 (Fix cart drawer mobile)
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1.4rem;
+<<<<<<< HEAD
       max-width: 54rem;
       margin: -1.6rem auto 3.2rem;
       padding: 1.1rem 1.4rem;
@@ -222,6 +284,68 @@
       background-color: rgba(3, 12, 20, 0.96);
       font-size: 1.45rem;
       font-weight: 700;
+=======
+      max-width: 52rem;
+      margin: 0 auto 4rem;
+      padding: 1.4rem 1.8rem;
+      border: 1px solid rgba(60, 130, 255, 0.18);
+      border-radius: 1.8rem;
+      background: rgba(12, 18, 28, 0.72);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 0.8rem 3rem rgba(0, 0, 0, 0.35);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter-label {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.03rem;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter-select {
+      min-width: 26rem;
+      min-height: 4.8rem;
+      padding: 1.4rem 4.8rem 1.4rem 1.8rem;
+      border: 1px solid rgba(72, 140, 255, 0.22);
+      border-radius: 1.2rem;
+      color: #fff;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%235DA2FF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 1.6rem center / 1.8rem 1.8rem no-repeat,
+        linear-gradient(180deg, rgba(22, 28, 40, 0.92), rgba(14, 18, 28, 0.92));
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 0.6rem 1.8rem rgba(0, 0, 0, 0.25);
+      font-size: 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter-select:hover {
+      border-color: rgba(93, 162, 255, 0.45);
+      box-shadow:
+        0 0 0 1px rgba(93, 162, 255, 0.15),
+        0 0 1.8rem rgba(0, 102, 255, 0.14);
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter-select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow:
+        0 0 0 0.3rem rgba(59, 130, 246, 0.18),
+        0 0 2.2rem rgba(59, 130, 246, 0.22);
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter-select option {
+      color: #fff;
+      background: #0f1724;
+>>>>>>> fcbd4a4 (Fix cart drawer mobile)
     }
 
     #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
@@ -358,6 +482,7 @@
     }
 
     @media (max-width: 989px) {
+<<<<<<< HEAD
       #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter {
         flex-direction: column;
         align-items: stretch;
@@ -366,6 +491,20 @@
 
       #shopify-section-{{ section.id }} .f2d2-clothing-fallback__filter select {
         width: 100%;
+=======
+      #shopify-section-{{ section.id }} .collection-filter-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        width: 92%;
+        max-width: 54rem;
+        padding: 1.6rem;
+        gap: 1rem;
+      }
+
+      #shopify-section-{{ section.id }} .collection-filter-select {
+        width: 100%;
+        min-width: 0;
+>>>>>>> fcbd4a4 (Fix cart drawer mobile)
       }
 
       #shopify-section-{{ section.id }} .f2d2-clothing-fallback__grid {
