@@ -310,6 +310,17 @@
     border-right: 0;
   }
 
+  .section-{{ section.id }} .f2d2-feature__icon,
+  .section-{{ section.id }} .f2d2-category-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    color: #fff;
+    background: linear-gradient(145deg, var(--f2d2-blue), var(--f2d2-blue-deep));
+    box-shadow: 0 0.8rem 1.8rem rgba(0, 91, 255, 0.16);
+  }
+
   .section-{{ section.id }} svg {
     width: 2.4rem;
     height: 2.4rem;
@@ -401,6 +412,13 @@
 
   .section-{{ section.id }} .f2d2-category-card__placeholder {
     opacity: 0.5;
+  }
+
+  .section-{{ section.id }} .f2d2-category-card__icon {
+    width: 6.8rem;
+    height: 6.8rem;
+    margin: 0 auto 1.1rem;
+    border-radius: 50%;
   }
 
   .section-{{ section.id }} .f2d2-category-card__content {
