@@ -51,7 +51,9 @@
     <div class="f2d2-products-page__grid">
       {%- for block in category_blocks -%}
         {%- liquid
-          assign collection = block.settings.collection
+          assign selected_collection = block.settings.collection
+          assign collection_handle = selected_collection.handle | default: selected_collection | remove: 'shopify://collections/'
+          assign collection = collections[collection_handle]
           assign title = block.settings.title | default: collection.title
           assign description = block.settings.description
           assign image = block.settings.image
