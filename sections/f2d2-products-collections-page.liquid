@@ -55,6 +55,7 @@
           assign collection_handle = selected_collection.handle | default: selected_collection | remove: 'shopify://collections/'
           assign collection = collections[collection_handle]
           assign title = block.settings.title | default: collection.title
+          assign title_key = title | upcase
           assign description = block.settings.description
           assign image = block.settings.image
           if image == blank and collection != blank
@@ -87,8 +88,6 @@
           endif
 
           assign href = collection.url
-
-          assign title_key = title | upcase
 
           case title_key
 
