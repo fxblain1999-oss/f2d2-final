@@ -65,7 +65,7 @@
         "category_accessoires": {
           "type": "category",
           "settings": {
-            "collection": "accesoire",
+            "collection": "accessoire",
             "title": "Accessoires",
             "description": "Petits détails, grand impact",
             "link": "",
