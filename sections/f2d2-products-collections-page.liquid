@@ -95,6 +95,27 @@
 
           endif
 
+          if image == blank and is_vetements_card
+            assign fallback_collection = collections['vetements']
+            assign fallback_second_product = blank
+            for product in fallback_collection.products offset: 1 limit: 1
+              assign fallback_second_product = product
+            endfor
+
+            if fallback_second_product.featured_media.preview_image != blank
+              assign image = fallback_second_product.featured_media.preview_image
+
+            elsif fallback_second_product.featured_image != blank
+              assign image = fallback_second_product.featured_image
+
+            elsif fallback_second_product.images.first != blank
+              assign image = fallback_second_product.images.first
+
+            elsif fallback_collection.image != blank
+              assign image = fallback_collection.image
+            endif
+          endif
+
           assign href = collection.url
 
           case title_key
