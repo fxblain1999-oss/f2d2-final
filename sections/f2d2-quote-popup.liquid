@@ -17,8 +17,8 @@
       </button>
 
       <div class="f2d2-quote-popup__meta">
-        <span>514-318-7208</span>
-        <span>info@f2d2.ca</span>
+        <a href="tel:+15143187208">514-318-7208</a>
+        <a href="mailto:info@f2d2.ca">info@f2d2.ca</a>
         <span>Sainte-Amable, QC</span>
       </div>
     </div>
@@ -231,6 +231,16 @@
     margin-top: 2rem;
     color: rgba(255, 255, 255, 0.72);
     font-size: 1.3rem;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__meta a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #{{ section_id }} .f2d2-quote-popup__meta a:hover,
+  #{{ section_id }} .f2d2-quote-popup__meta a:focus-visible {
+    color: #5ea7ff;
   }
 
   #{{ section_id }} .f2d2-quote-popup__modal[hidden] {
