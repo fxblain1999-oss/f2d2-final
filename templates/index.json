@@ -17,6 +17,9 @@
     },
     "cta": {
       "type": "f2d2-home-cta"
+    },
+    "clothing_quote_modal": {
+      "type": "f2d2-clothing-quote-modal"
     }
   },
   "order": [
@@ -25,6 +28,7 @@
     "featured_products",
     "corporate",
     "gallery",
-    "cta"
+    "cta",
+    "clothing_quote_modal"
   ]
 }
