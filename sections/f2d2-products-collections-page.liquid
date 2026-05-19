@@ -16,10 +16,16 @@
       {%- if section.settings.text != blank -%}
         <div class="f2d2-products-page__intro rte">{{ section.settings.text }}</div>
       {%- endif -%}
-      <a href="{{ routes.all_products_collection_url }}" class="f2d2-products-page__all-button">
-        Tous nos produits
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
-      </a>
+      <div class="f2d2-products-page__hero-actions">
+        <a href="{{ routes.all_products_collection_url }}" class="f2d2-products-page__all-button">
+          Tous nos produits
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+        </a>
+        <a href="/pages/nos-creations" class="f2d2-products-page__all-button f2d2-products-page__all-button--secondary">
+          Nos r&eacute;alisations
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+        </a>
+      </div>
     </div>
 
     <div class="f2d2-products-page__features" aria-label="Avantages">
@@ -269,13 +275,20 @@
     line-height: 1.55;
   }
 
+  .section-{{ section.id }} .f2d2-products-page__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: 2.6rem;
+  }
+
   .section-{{ section.id }} .f2d2-products-page__all-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     min-height: 5.2rem;
-    margin-top: 2.6rem;
     padding: 0 2.8rem;
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 0.4rem;
@@ -291,6 +304,10 @@
   .section-{{ section.id }} .f2d2-products-page__all-button:hover {
     transform: translateY(-0.2rem);
     border-color: var(--f2d2-blue);
+  }
+
+  .section-{{ section.id }} .f2d2-products-page__all-button--secondary {
+    background: rgba(0, 0, 0, 0.24);
   }
 
   .section-{{ section.id }} .f2d2-products-page__all-button svg {
@@ -684,11 +701,15 @@
       text-align: center;
     }
 
-    .section-{{ section.id }} .f2d2-products-page__all-button {
+    .section-{{ section.id }} .f2d2-products-page__hero-actions {
       width: min(100%, 25rem);
-      min-height: 5.2rem;
       margin-top: 2.4rem;
       margin-bottom: 4.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-products-page__all-button {
+      width: 100%;
+      min-height: 5.2rem;
       font-size: 1.3rem;
     }
 
