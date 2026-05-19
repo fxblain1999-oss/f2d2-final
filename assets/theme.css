@@ -3833,7 +3833,14 @@ input:is([type=radio])::after {
   border-radius: var(--pcard-radius);
 }
 .product-card__image.media-wrapper > img {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: var(--pcard-media-fit-size, 92%);
+  height: var(--pcard-media-fit-size, 92%);
   object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 .product-card__image-wrapper video {
   object-fit: contain;
