@@ -54,7 +54,7 @@
     "badges_corner_radius": "slightly",
     "pcard_style": "standard",
     "pcard_color_scheme": "scheme-10",
-    "pcard_image_ratio": "3/4",
+    "pcard_image_ratio": "1/1",
     "pcard_show_vendor": false,
     "pcard_show_type": false,
     "pcard_overlay_color_scheme": "scheme-4",
