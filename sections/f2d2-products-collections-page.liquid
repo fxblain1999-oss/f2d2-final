@@ -610,7 +610,7 @@
     .section-{{ section.id }} {
       padding: 0 0 3.2rem;
       background:
-        linear-gradient(180deg, rgba(2, 5, 8, 0.34) 0%, rgba(2, 5, 8, 0.94) 32rem, #020609 100%),
+        linear-gradient(180deg, rgba(2, 5, 8, 0.18) 0%, rgba(2, 5, 8, 0.96) 24rem, #020609 100%),
         radial-gradient(circle at 50% 16rem, rgba(0, 132, 255, 0.28), transparent 24rem),
         url({{ 'f2d2-hero-merch.png' | asset_url }}) center top / auto 36rem no-repeat,
         #020609;
@@ -652,9 +652,13 @@
     .section-{{ section.id }} h1 {
       max-width: 34rem;
       margin-inline: auto;
-      font-size: 3.4rem;
+      font-size: 3rem;
       line-height: 1.08;
       text-align: center;
+    }
+
+    .section-{{ section.id }} .f2d2-products-page__grid {
+      margin-top: -1rem;
     }
 
     .section-{{ section.id }} .f2d2-products-page__intro {
