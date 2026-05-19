@@ -771,15 +771,30 @@
 
     .section-{{ section.id }} .f2d2-products-page__features {
       order: 3;
+      position: relative;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      margin: 2.4rem 0 0;
+      margin: 4rem 0 0;
+      padding-top: 2.8rem;
+      padding-bottom: 1.4rem;
+    }
+
+    .section-{{ section.id }} .f2d2-products-page__features::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: min(100%, 28rem);
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(40, 165, 255, 0.46), transparent);
+      box-shadow: 0 0 1.8rem rgba(40, 165, 255, 0.28);
     }
 
     .section-{{ section.id }} .f2d2-products-page__features::before {
       content: "POURQUOI CHOISIR F2D2 ?";
       grid-column: 1 / -1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 1rem;
       color: #fff;
       font-size: 2rem;
       font-weight: 900;
