@@ -3824,7 +3824,7 @@ input:is([type=radio])::after {
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  transform: scale3d(1.08, 1.08, 1);
+  transform: scale3d(1, 1, 1);
 }
 .product-card__image-wrapper {
   position: relative;
@@ -3832,8 +3832,11 @@ input:is([type=radio])::after {
   overflow: hidden;
   border-radius: var(--pcard-radius);
 }
+.product-card__image.media-wrapper > img {
+  object-fit: contain;
+}
 .product-card__image-wrapper video {
-  object-fit: cover;
+  object-fit: contain;
 }
 .product-card__info {
   padding: 1.6rem 0 0;
@@ -3940,7 +3943,7 @@ input:is([type=radio])::after {
     transition: transform var(--animation-default);
   }
   .product-card__wrapper:hover .product-card__image-wrapper--main-only .product-card__image {
-    transform: scale(1.08, 1.08);
+    transform: scale(1, 1);
   }
 }
 .is-metro-item {
