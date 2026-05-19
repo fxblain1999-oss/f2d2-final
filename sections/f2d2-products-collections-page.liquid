@@ -10,7 +10,8 @@
         <p class="f2d2-products-page__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h1>{{ section.settings.heading | escape }}</h1>
+        {%- assign escaped_heading = section.settings.heading | escape | replace: 'Votre image. Notre expertise.', 'Votre image.<br>Notre expertise.' -%}
+        <h1>{{ escaped_heading }}</h1>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="f2d2-products-page__intro rte">{{ section.settings.text }}</div>
