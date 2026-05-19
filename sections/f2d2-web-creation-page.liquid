@@ -388,6 +388,200 @@
     font-size: clamp(26px, 3vw, 34px);
   }
 
+  .f2d2-web-quote-modal[hidden] {
+    display: none;
+  }
+
+  html.f2d2-web-quote-open {
+    overflow: hidden;
+  }
+
+  .f2d2-web-quote-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+    display: grid;
+    place-items: center;
+    padding: clamp(12px, 2vw, 24px);
+    background: rgba(6, 10, 16, 0.76);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .f2d2-web-quote-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  .f2d2-web-quote-modal__panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 1040px);
+    max-height: calc(100dvh - 48px);
+    overflow: auto;
+    padding: 32px 32px 28px;
+    color: #fff;
+    background: #0f141b;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+    outline: none;
+    isolation: isolate;
+  }
+
+  .f2d2-web-quote-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .f2d2-web-quote-modal__head {
+    max-width: 760px;
+    margin-bottom: 22px;
+    padding-right: 60px;
+  }
+
+  .f2d2-web-quote-modal__eyebrow {
+    margin: 0 0 10px;
+    color: #5ea7ff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .f2d2-web-quote-modal__head h2 {
+    margin: 0;
+    font-size: clamp(42px, 4.8vw, 58px);
+    line-height: 0.96;
+  }
+
+  .f2d2-web-quote-modal__head p {
+    margin: 9px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+  }
+
+  .f2d2-web-quote-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .f2d2-web-quote-modal__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .f2d2-web-quote-modal label {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .f2d2-web-quote-modal label span {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .f2d2-web-quote-modal input,
+  .f2d2-web-quote-modal select,
+  .f2d2-web-quote-modal textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    color: #fff;
+    background: #151b23 !important;
+    box-shadow: none;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .f2d2-web-quote-modal select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  .f2d2-web-quote-modal select option {
+    color: #fff;
+    background: #0f141b;
+  }
+
+  .f2d2-web-quote-modal textarea {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  .f2d2-web-quote-modal input::placeholder,
+  .f2d2-web-quote-modal textarea::placeholder {
+    color: rgba(255, 255, 255, 0.52);
+  }
+
+  .f2d2-web-quote-modal__wide,
+  .f2d2-web-quote-modal__status,
+  .f2d2-web-quote-modal__hint {
+    grid-column: 1 / -1;
+  }
+
+  .f2d2-web-quote-modal__hint {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .f2d2-web-quote-modal__status {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 800;
+  }
+
+  .f2d2-web-quote-modal__status--success {
+    background: rgba(31, 143, 78, 0.22);
+  }
+
+  .f2d2-web-quote-modal__status--error {
+    background: rgba(185, 45, 45, 0.22);
+  }
+
+  .f2d2-web-quote-modal__submit {
+    width: 100%;
+    min-height: 54px;
+    margin-top: 0;
+    padding: 14px 20px;
+    border: 1px solid #5ea7ff;
+    border-radius: 10px;
+    color: #fff;
+    background: linear-gradient(180deg, #1b7dff 0%, #0048b8 100%);
+    box-shadow:
+      0 16px 34px rgba(0, 72, 184, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
   @media (max-width: 990px) {
     .f2d2-web-hero {
       min-height: auto;
@@ -489,6 +683,34 @@
     .f2d2-web-btn {
       width: 100%;
     }
+
+    .f2d2-web-quote-modal {
+      align-items: start;
+      padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom));
+      overflow-y: auto;
+    }
+
+    .f2d2-web-quote-modal__panel {
+      width: 100%;
+      max-height: calc(100dvh - 20px);
+      padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+      border-radius: 14px;
+      overscroll-behavior: contain;
+    }
+
+    .f2d2-web-quote-modal__head {
+      padding-right: 48px;
+      margin-bottom: 10px;
+    }
+
+    .f2d2-web-quote-modal__head h2 {
+      font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .f2d2-web-quote-modal__grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
   }
 </style>
 
@@ -501,7 +723,7 @@
         <p class="f2d2-web-hero__lead">Sites modernes pour entreprises canadiennes</p>
         <p class="f2d2-web-hero__copy">Design sur mesure, performance optimale et hébergement 100% canadien inclus.</p>
         <div class="f2d2-web-actions">
-          <a class="f2d2-web-btn f2d2-web-btn--primary" href="/pages/contact">Demander une soumission</a>
+          <a class="f2d2-web-btn f2d2-web-btn--primary" href="#f2d2-web-quote-modal" data-f2d2-web-quote-open>Demander une soumission</a>
           <a class="f2d2-web-btn" href="/pages/nos-creations">Voir nos réalisations</a>
         </div>
       </div>
@@ -604,7 +826,7 @@
             <li>Sauvegardes quotidiennes</li>
             <li>Support 24/7</li>
           </ul>
-          <a class="f2d2-web-btn" href="/pages/contact">Choisir ce plan</a>
+          <a class="f2d2-web-btn" href="#f2d2-web-quote-modal" data-f2d2-web-quote-open>Choisir ce plan</a>
         </article>
 
         <article class="f2d2-web-plan f2d2-web-plan--featured">
@@ -621,7 +843,7 @@
             <li>Sauvegardes quotidiennes</li>
             <li>Support 24/7</li>
           </ul>
-          <a class="f2d2-web-btn f2d2-web-btn--primary" href="/pages/contact">Choisir ce plan</a>
+          <a class="f2d2-web-btn f2d2-web-btn--primary" href="#f2d2-web-quote-modal" data-f2d2-web-quote-open>Choisir ce plan</a>
         </article>
 
         <article class="f2d2-web-plan">
@@ -637,7 +859,7 @@
             <li>Sauvegardes quotidiennes</li>
             <li>Support prioritaire 24/7</li>
           </ul>
-          <a class="f2d2-web-btn" href="/pages/contact">Choisir ce plan</a>
+          <a class="f2d2-web-btn" href="#f2d2-web-quote-modal" data-f2d2-web-quote-open>Choisir ce plan</a>
         </article>
 
         <aside class="f2d2-web-proof" aria-label="Garanties incluses">
@@ -672,10 +894,181 @@
         <h2>Prêt à lancer votre site web ?</h2>
         <p>Parlons de votre projet ! Notre équipe vous accompagne à chaque étape, de la conception à la mise en ligne.</p>
       </div>
-      <a class="f2d2-web-btn f2d2-web-btn--primary" href="/pages/contact">Demander une soumission →</a>
+      <a class="f2d2-web-btn f2d2-web-btn--primary" href="#f2d2-web-quote-modal" data-f2d2-web-quote-open>Demander une soumission →</a>
+    </div>
+  </div>
+
+  <div id="f2d2-web-quote-modal" class="f2d2-web-quote-modal" role="dialog" aria-modal="true" aria-labelledby="f2d2-web-quote-title" hidden>
+    <div class="f2d2-web-quote-modal__overlay" data-f2d2-web-quote-close></div>
+
+    <div class="f2d2-web-quote-modal__panel" tabindex="-1">
+      <button type="button" class="f2d2-web-quote-modal__close" aria-label="Fermer" data-f2d2-web-quote-close>
+        &times;
+      </button>
+
+      <div class="f2d2-web-quote-modal__head">
+        <p class="f2d2-web-quote-modal__eyebrow">Soumission site web F2D2</p>
+        <h2 id="f2d2-web-quote-title">Parlez-nous de votre site web</h2>
+        <p>Quelques informations nous aident a proposer une solution claire, rapide et adaptee.</p>
+      </div>
+
+      {% form 'contact', id: 'f2d2-web-quote-form', class: 'f2d2-web-quote-modal__form' %}
+        {% if form.posted_successfully? %}
+          <div class="f2d2-web-quote-modal__status f2d2-web-quote-modal__status--success" role="status">
+            Merci. Votre demande de soumission web a bien ete envoyee.
+          </div>
+        {% elsif form.errors %}
+          <div class="f2d2-web-quote-modal__status f2d2-web-quote-modal__status--error" role="alert">
+            Verifiez les champs requis, puis reessayez.
+          </div>
+        {% endif %}
+
+        <input type="hidden" name="contact[Type de demande]" value="Soumission site web">
+
+        <div class="f2d2-web-quote-modal__grid">
+          <label>
+            <span>Nom complet *</span>
+            <input type="text" name="contact[Nom]" autocomplete="name" required>
+          </label>
+
+          <label>
+            <span>Courriel *</span>
+            <input type="email" name="contact[email]" autocomplete="email" required>
+          </label>
+
+          <label>
+            <span>Telephone *</span>
+            <input type="tel" name="contact[Telephone]" autocomplete="tel" required>
+          </label>
+
+          <label>
+            <span>Entreprise</span>
+            <input type="text" name="contact[Entreprise]" autocomplete="organization">
+          </label>
+
+          <label>
+            <span>Type de site *</span>
+            <select name="contact[Type de site]" required>
+              <option value="">Selectionnez</option>
+              <option value="Site vitrine">Site vitrine</option>
+              <option value="Boutique Shopify">Boutique Shopify</option>
+              <option value="Refonte de site existant">Refonte de site existant</option>
+              <option value="Hebergement seulement">Hebergement seulement</option>
+              <option value="SEO et optimisation">SEO et optimisation</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Nombre de pages</span>
+            <select name="contact[Nombre de pages]">
+              <option value="">A determiner</option>
+              <option value="1 a 3 pages">1 a 3 pages</option>
+              <option value="4 a 8 pages">4 a 8 pages</option>
+              <option value="9 a 15 pages">9 a 15 pages</option>
+              <option value="16 pages et plus">16 pages et plus</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Boutique en ligne</span>
+            <select name="contact[Boutique en ligne]">
+              <option value="">A determiner</option>
+              <option value="Oui">Oui</option>
+              <option value="Non">Non</option>
+              <option value="Peut-etre plus tard">Peut-etre plus tard</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Domaine et hebergement</span>
+            <select name="contact[Domaine et hebergement]">
+              <option value="">A determiner</option>
+              <option value="J'ai deja un domaine">J'ai deja un domaine</option>
+              <option value="J'ai besoin d'un domaine">J'ai besoin d'un domaine</option>
+              <option value="J'ai besoin d'hebergement">J'ai besoin d'hebergement</option>
+              <option value="J'ai besoin des deux">J'ai besoin des deux</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Delai souhaite</span>
+            <input type="text" name="contact[Delai souhaite]" placeholder="Ex: dans 4 semaines">
+          </label>
+
+          <label>
+            <span>Budget</span>
+            <select name="contact[Budget]">
+              <option value="">A determiner</option>
+              <option value="Moins de 1000$">Moins de 1000$</option>
+              <option value="1000$ a 2500$">1000$ a 2500$</option>
+              <option value="2500$ a 5000$">2500$ a 5000$</option>
+              <option value="5000$ et plus">5000$ et plus</option>
+            </select>
+          </label>
+
+          <label class="f2d2-web-quote-modal__wide">
+            <span>Site actuel ou inspiration</span>
+            <input type="text" name="contact[Site actuel ou inspirations]" placeholder="Lien vers votre site actuel ou exemples que vous aimez">
+          </label>
+
+          <label class="f2d2-web-quote-modal__wide">
+            <span>Details du projet *</span>
+            <textarea name="contact[body]" rows="6" required placeholder="Objectifs du site, services a presenter, fonctionnalites souhaitees, integrations, contenu deja pret, contraintes, delai..."></textarea>
+          </label>
+        </div>
+
+        <p class="f2d2-web-quote-modal__hint">
+          Pour joindre un logo, un cahier de charges ou des exemples, mentionnez-le dans le message. Nous vous repondrons avec la meilleure facon de les envoyer.
+        </p>
+
+        <button type="submit" class="f2d2-web-quote-modal__submit">Envoyer la demande web</button>
+      {% endform %}
     </div>
   </div>
 </section>
+
+<script>
+  (() => {
+    const page = document.querySelector('.f2d2-web-page');
+    if (!page) return;
+
+    const modal = page.querySelector('.f2d2-web-quote-modal');
+    const panel = page.querySelector('.f2d2-web-quote-modal__panel');
+    const openButtons = page.querySelectorAll('[data-f2d2-web-quote-open]');
+    const closeButtons = page.querySelectorAll('[data-f2d2-web-quote-close]');
+    const hasStatus = page.querySelector('.f2d2-web-quote-modal__status');
+    let previousFocus = null;
+
+    const openModal = () => {
+      previousFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.classList.add('f2d2-web-quote-open');
+      panel.focus();
+    };
+
+    const closeModal = () => {
+      modal.hidden = true;
+      document.documentElement.classList.remove('f2d2-web-quote-open');
+      if (previousFocus && previousFocus.focus) previousFocus.focus();
+    };
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal();
+      });
+    });
+
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+    page.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    if (hasStatus) openModal();
+  })();
+</script>
 
 {% schema %}
 {
