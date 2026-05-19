@@ -1,25 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "f2d2-home-hero"
+      "type": "f2d2-home-hero",
+      "settings": {}
     },
     "services": {
-      "type": "f2d2-home-services"
+      "type": "f2d2-home-services",
+      "settings": {}
     },
     "featured_products": {
-      "type": "f2d2-home-featured-products"
+      "type": "f2d2-home-featured-products",
+      "settings": {}
     },
     "corporate": {
-      "type": "f2d2-home-corporate-banner"
+      "type": "f2d2-home-corporate-banner",
+      "settings": {}
     },
     "gallery": {
-      "type": "f2d2-home-gallery"
+      "type": "f2d2-home-gallery",
+      "settings": {}
     },
     "cta": {
-      "type": "f2d2-home-cta"
+      "type": "f2d2-home-cta",
+      "settings": {}
     },
     "clothing_quote_modal": {
-      "type": "f2d2-clothing-quote-modal"
+      "type": "f2d2-clothing-quote-modal",
+      "settings": {}
     }
   },
   "order": [
