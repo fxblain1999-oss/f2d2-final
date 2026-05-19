@@ -11,7 +11,7 @@
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
         {%- assign escaped_heading = section.settings.heading | escape | replace: 'Votre image. Notre expertise.', 'Votre image.<br>Notre expertise.' -%}
-        <h1>{{ escaped_heading }}</h1>
+        <h1 data-f2d2-fit-title data-f2d2-fit-min="28">{{ escaped_heading }}</h1>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="f2d2-products-page__intro rte">{{ section.settings.text }}</div>
@@ -159,7 +159,7 @@
               {%- endif -%}
             </div>
             <div class="f2d2-category-card__content">
-              <h2>{{ title | escape }}</h2>
+              <h2 data-f2d2-fit-title data-f2d2-fit-min="12">{{ title | escape }}</h2>
               {%- if description != blank -%}
                 <p>{{ description | escape }}</p>
               {%- endif -%}
@@ -254,6 +254,13 @@
     font-weight: 800;
     letter-spacing: -0.04em;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .section-{{ section.id }} [data-f2d2-fit-title] {
+    max-height: calc(2lh + 2px);
+    overflow: hidden;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .section-{{ section.id }} .f2d2-products-page__intro {
@@ -919,6 +926,59 @@
     }
   }
 {% endstyle %}
+
+<script>
+  (() => {
+    const section = document.querySelector('.section-{{ section.id }}');
+    if (!section) return;
+
+    const titles = Array.from(section.querySelectorAll('[data-f2d2-fit-title]'));
+    if (!titles.length) return;
+
+    const lineHeightFor = (element) => {
+      const styles = window.getComputedStyle(element);
+      const fontSize = parseFloat(styles.fontSize) || 16;
+      const lineHeight = parseFloat(styles.lineHeight);
+      return Number.isFinite(lineHeight) ? lineHeight : fontSize * 1.08;
+    };
+
+    const fitsInTwoLines = (element) => {
+      const lineHeight = lineHeightFor(element);
+      return element.scrollHeight <= lineHeight * 2 + 2;
+    };
+
+    const fitTitle = (element) => {
+      element.style.fontSize = '';
+      const styles = window.getComputedStyle(element);
+      const maxSize = parseFloat(styles.fontSize) || 16;
+      const minSize = parseFloat(element.dataset.f2d2FitMin) || Math.max(maxSize * 0.72, 12);
+      let nextSize = maxSize;
+
+      while (!fitsInTwoLines(element) && nextSize > minSize) {
+        nextSize -= 0.5;
+        element.style.fontSize = `${nextSize}px`;
+      }
+    };
+
+    let frame = null;
+    const fitAllTitles = () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        titles.forEach(fitTitle);
+      });
+    };
+
+    fitAllTitles();
+    window.addEventListener('resize', fitAllTitles, { passive: true });
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(fitAllTitles);
+      observer.observe(section);
+    }
+
+    document.addEventListener('shopify:section:load', fitAllTitles);
+  })();
+</script>
 
 {% schema %}
 {
