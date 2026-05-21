@@ -12,14 +12,14 @@
       <div class="f2d2-realizations__wrap f2d2-realizations__hero-inner">
         <div class="f2d2-realizations__hero-copy">
           <p class="f2d2-realizations__eyebrow">Des idees. Du style. Du resultat.</p>
-          <h1>Nos <span>realisations</span></h1>
+          <h1><span>Nos</span><span>projets</span><span>realises</span></h1>
           <p>
             Decouvrez quelques projets realises pour nos clients : vetements,
             impression, accessoires promotionnels et branding personnalise.
           </p>
           <div class="f2d2-realizations__actions">
-            <a href="#projets" class="f2d2-realizations__button">
-              Voir les projets
+            <a href="#galerie" class="f2d2-realizations__button">
+              Voir nos projets
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
             </a>
             <a href="/pages/contact" class="f2d2-realizations__button f2d2-realizations__button--ghost">
@@ -202,6 +202,10 @@
   </section>
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     .section-{{ section.id }} {
       --f2d2-blue: #1084ff;
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
@@ -212,6 +216,7 @@
         radial-gradient(circle at 75% 8rem, rgba(16, 132, 255, 0.16), transparent 34rem),
         linear-gradient(180deg, #020609 0%, #041019 48%, #020609 100%);
       overflow: hidden;
+      scroll-behavior: smooth;
     }
 
     .section-{{ section.id }} * {
@@ -263,15 +268,19 @@
     }
 
     .section-{{ section.id }} h1 {
-      max-width: 70rem;
-      font-size: clamp(5rem, 7.4vw, 10.8rem);
-      line-height: 0.82;
+      max-width: 78rem;
+      font-size: clamp(5.2rem, 7vw, 10.2rem);
+      line-height: 0.84;
       font-weight: 900;
       text-transform: uppercase;
     }
 
     .section-{{ section.id }} h1 span {
       display: block;
+    }
+
+    .section-{{ section.id }} h1 span:nth-child(2),
+    .section-{{ section.id }} h1 span:nth-child(3) {
       color: var(--f2d2-blue);
       font-style: italic;
     }
@@ -337,6 +346,20 @@
 
     .section-{{ section.id }} .f2d2-realizations__section {
       padding: 3.8rem 0 0;
+    }
+
+    .section-{{ section.id }} #galerie {
+      min-height: 100svh;
+      scroll-margin-top: 9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 6rem max(2rem, calc((100vw - 134rem) / 2)) 5rem;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(16, 132, 255, 0.14), transparent 38rem),
+        linear-gradient(180deg, rgba(2, 6, 9, 0.2), rgba(2, 6, 9, 0.7));
     }
 
     .section-{{ section.id }} .f2d2-realizations__section-head {
@@ -477,12 +500,14 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 1rem;
+      flex: 1;
+      min-height: min(58rem, 58vh);
     }
 
     .section-{{ section.id }} .f2d2-realizations__tile {
       position: relative;
       display: block;
-      min-height: 20rem;
+      min-height: 100%;
       overflow: hidden;
       border: 1px solid var(--f2d2-line);
       border-radius: 0.8rem;
