@@ -219,7 +219,6 @@
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
       --f2d2-line: rgba(255, 255, 255, 0.14);
       --f2d2-text: rgba(255, 255, 255, 0.76);
-      --f2d2-gallery-offset: 17.8rem;
       color: #fff;
       background:
         radial-gradient(circle at 75% 8rem, rgba(16, 132, 255, 0.16), transparent 34rem),
@@ -358,13 +357,11 @@
     }
 
     .section-{{ section.id }} #galerie {
-      min-height: calc(100svh - var(--f2d2-gallery-offset));
+      min-height: 100svh;
       scroll-margin-top: 0;
-      display: flex;
-      flex-direction: column;
       width: 100vw;
       margin-left: calc(50% - 50vw);
-      padding: 3.2rem max(2rem, calc((100vw - 134rem) / 2)) 3rem;
+      padding: 3.2rem max(2rem, calc((100vw - 134rem) / 2)) 5rem;
       background:
         radial-gradient(circle at 50% 18%, rgba(16, 132, 255, 0.14), transparent 38rem),
         linear-gradient(180deg, rgba(2, 6, 9, 0.2), rgba(2, 6, 9, 0.7));
@@ -506,23 +503,18 @@
 
     .section-{{ section.id }} .f2d2-realizations__gallery-shell {
       position: relative;
-      flex: 1;
-      min-height: 0;
     }
 
     .section-{{ section.id }} .f2d2-realizations__gallery {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      height: 100%;
-      min-height: 0;
     }
 
     .section-{{ section.id }} .f2d2-realizations__tile {
       position: relative;
       display: block;
-      min-height: 0;
+      min-height: 20rem;
       overflow: hidden;
       border: 1px solid var(--f2d2-line);
       border-radius: 0.8rem;
@@ -604,8 +596,7 @@
     .section-{{ section.id }} .f2d2-realizations__load {
       display: flex;
       justify-content: center;
-      margin-top: 1.8rem;
-      flex: 0 0 auto;
+      margin-top: 2.2rem;
     }
 
     .section-{{ section.id }} .f2d2-realizations__categories {
@@ -769,10 +760,6 @@
     }
 
     @media (max-width: 989px) {
-      .section-{{ section.id }} {
-        --f2d2-gallery-offset: 9.6rem;
-      }
-
       .section-{{ section.id }} .f2d2-realizations__wrap {
         width: min(100% - 2.8rem, 58rem);
       }
@@ -812,12 +799,12 @@
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: none;
       }
 
       .section-{{ section.id }} .f2d2-realizations__tile {
-        min-height: 0;
+        min-height: 11rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
@@ -848,17 +835,8 @@
     }
 
     @media (max-width: 560px) {
-      .section-{{ section.id }} {
-        --f2d2-gallery-offset: 8.8rem;
-      }
-
       .section-{{ section.id }} .f2d2-realizations__wrap {
         width: min(100% - 2rem, 42rem);
-      }
-
-      .section-{{ section.id }} #galerie {
-        padding-top: 2.4rem;
-        padding-bottom: 2rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__section {
@@ -881,11 +859,6 @@
         min-height: 3.4rem;
         padding: 0 1.3rem;
         font-size: 1.05rem;
-      }
-
-      .section-{{ section.id }} .f2d2-realizations__gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(2, minmax(0, 1fr));
       }
 
       .section-{{ section.id }} .f2d2-realizations__project-copy {
@@ -915,11 +888,7 @@
       let currentPage = 0;
       let touchStartX = 0;
 
-      const pageSizeForViewport = () => {
-        if (window.matchMedia('(max-width: 560px)').matches) return 4;
-        if (window.matchMedia('(max-width: 989px)').matches) return 6;
-        return 10;
-      };
+      const pageSizeForViewport = () => window.matchMedia('(max-width: 989px)').matches ? 6 : 10;
 
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
@@ -951,7 +920,7 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
-        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 96 : 178;
+        const headerOffset = 178;
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
