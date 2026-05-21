@@ -215,8 +215,6 @@
     }
 
     .section-{{ section.id }} {
-      --f2d2-gallery-scroll-offset-desktop: 280px;
-      --f2d2-gallery-scroll-offset-mobile: 64px;
       --f2d2-blue: #1084ff;
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
       --f2d2-line: rgba(255, 255, 255, 0.14);
@@ -359,6 +357,7 @@
     }
 
     .section-{{ section.id }} #gallery {
+      scroll-margin-top: 280px;
       height: 100svh;
       min-height: 76rem;
       display: flex;
@@ -812,6 +811,7 @@
       }
 
       .section-{{ section.id }} #gallery {
+        scroll-margin-top: 64px;
         height: 100svh;
         min-height: 68rem;
         padding-top: 3.4rem;
@@ -861,6 +861,7 @@
       }
 
       .section-{{ section.id }} #gallery {
+        scroll-margin-top: 64px;
         height: 100svh;
         min-height: 62rem;
         padding-top: 2.8rem;
@@ -911,7 +912,6 @@
 
       const shell = section.querySelector('[data-f2d2-gallery-shell]');
       const gallery = section.querySelector('[data-f2d2-gallery]');
-      const gallerySection = section.querySelector('[data-f2d2-gallery-section]');
       const prev = section.querySelector('[data-f2d2-gallery-prev]');
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
@@ -950,37 +950,8 @@
         updateGallery();
       };
 
-      const cssPixelValue = (name, fallback) => {
-        const rawValue = getComputedStyle(section).getPropertyValue(name).trim();
-        const value = Number.parseFloat(rawValue);
-        return Number.isFinite(value) ? value : fallback;
-      };
-
-      const galleryScrollOffset = () => {
-        if (window.matchMedia('(max-width: 989px)').matches) {
-          return cssPixelValue('--f2d2-gallery-scroll-offset-mobile', 64);
-        }
-
-        return cssPixelValue('--f2d2-gallery-scroll-offset-desktop', 120);
-      };
-
-      const scrollToGallery = (event) => {
-        if (!gallerySection) return;
-        event.preventDefault();
-        event.stopPropagation();
-
-        const top = gallerySection.getBoundingClientRect().top + window.scrollY - galleryScrollOffset();
-        window.history.pushState(null, '', '#gallery');
-        window.scrollTo({ top, behavior: 'smooth' });
-      };
-
       prev.addEventListener('click', () => goToPage(-1));
       next.addEventListener('click', () => goToPage(1));
-      section.addEventListener('click', (event) => {
-        const link = event.target.closest('[data-f2d2-gallery-link], a[href="#gallery"], a[href="#galerie"]');
-        if (!link || !section.contains(link)) return;
-        scrollToGallery(event);
-      }, true);
 
       shell.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX;
