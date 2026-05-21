@@ -84,7 +84,7 @@
             -%}
             <button type="button" class="f2d2-realizations__tile" aria-label="Realisation F2D2 {{ i }}">
               <span class="f2d2-realizations__tile-image {{ image_class }}"></span>
-              <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" alt="" loading="lazy"></span>
+              <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" width="160" height="62" alt="" loading="lazy"></span>
             </button>
           {%- endfor -%}
         </div>
@@ -99,7 +99,7 @@
       <section class="f2d2-realizations__section">
         <div class="f2d2-realizations__section-head">
           <h2>Categories de realisations</h2>
-          <a href="/collections">Voir toutes <span aria-hidden="true">-></span></a>
+          <a href="{{ routes.collections_url }}">Voir toutes <span aria-hidden="true">-></span></a>
         </div>
         <div class="f2d2-realizations__categories">
           <article>
