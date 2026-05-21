@@ -1,5 +1,6 @@
 {{ 'section-collection-hero.css' | asset_url | stylesheet_tag }}
 
+{% unless collection.handle == 'design-f2d2' %}
 {% liquid
   assign banner = collection.featured_image
   assign banner_mobile = collection.featured_image
@@ -165,6 +166,7 @@
   </div>
 </div>
 
+{% endunless %}
 {% schema %}
 {
   "name": "t:sections.main-collection-banner.name",
