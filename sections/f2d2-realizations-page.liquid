@@ -215,7 +215,7 @@
     }
 
     .section-{{ section.id }} {
-      --f2d2-gallery-scroll-offset-desktop: 180px;
+      --f2d2-gallery-scroll-offset-desktop: 400px;
       --f2d2-gallery-scroll-offset-mobile: 64px;
       --f2d2-blue: #1084ff;
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
@@ -962,7 +962,7 @@
           return cssPixelValue('--f2d2-gallery-scroll-offset-mobile', 64);
         }
 
-        return cssPixelValue('--f2d2-gallery-scroll-offset-desktop', 180);
+        return cssPixelValue('--f2d2-gallery-scroll-offset-desktop', 120);
       };
 
       const scrollToGallery = (event) => {
