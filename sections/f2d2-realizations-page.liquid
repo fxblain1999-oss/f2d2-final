@@ -214,11 +214,9 @@
       scroll-behavior: smooth;
     }
 
-    #galerie {
-      scroll-margin-top: 100rem;
-    }
-
     .section-{{ section.id }} {
+      --f2d2-gallery-scroll-offset-desktop: 120px;
+      --f2d2-gallery-scroll-offset-mobile: 64px;
       --f2d2-blue: #1084ff;
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
       --f2d2-line: rgba(255, 255, 255, 0.14);
@@ -914,7 +912,7 @@
       const shell = section.querySelector('[data-f2d2-gallery-shell]');
       const gallery = section.querySelector('[data-f2d2-gallery]');
       const gallerySection = section.querySelector('#galerie');
-      const galleryLink = section.querySelector('[data-f2d2-gallery-link]');
+      const galleryLinks = section.querySelectorAll('[data-f2d2-gallery-link], a[href="#galerie"], a[href="#gallery"]');
       const prev = section.querySelector('[data-f2d2-gallery-prev]');
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
@@ -953,17 +951,32 @@
         updateGallery();
       };
 
-      prev.addEventListener('click', () => goToPage(-1));
-      next.addEventListener('click', () => goToPage(1));
+      const cssPixelValue = (name, fallback) => {
+        const rawValue = getComputedStyle(section).getPropertyValue(name).trim();
+        const value = Number.parseFloat(rawValue);
+        return Number.isFinite(value) ? value : fallback;
+      };
 
-      galleryLink?.addEventListener('click', (event) => {
+      const galleryScrollOffset = () => {
+        if (window.matchMedia('(max-width: 989px)').matches) {
+          return cssPixelValue('--f2d2-gallery-scroll-offset-mobile', 64);
+        }
+
+        return cssPixelValue('--f2d2-gallery-scroll-offset-desktop', 120);
+      };
+
+      const scrollToGallery = (event) => {
+        if (!gallerySection) return;
         event.preventDefault();
 
-        gallerySection?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
+        const top = gallerySection.getBoundingClientRect().top + window.scrollY - galleryScrollOffset();
+        window.history.pushState(null, '', '#galerie');
+        window.scrollTo({ top, behavior: 'smooth' });
+      };
+
+      prev.addEventListener('click', () => goToPage(-1));
+      next.addEventListener('click', () => goToPage(1));
+      galleryLinks.forEach((link) => link.addEventListener('click', scrollToGallery));
 
       shell.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX;
