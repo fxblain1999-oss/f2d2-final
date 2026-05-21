@@ -810,6 +810,13 @@
         min-height: 36rem;
       }
 
+      .section-{{ section.id }} #galerie {
+        height: calc(100svh - 9.6rem);
+        min-height: 62rem;
+        padding-top: 3.4rem;
+        padding-bottom: 3.2rem;
+      }
+
       .section-{{ section.id }} .f2d2-realizations__gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -853,8 +860,10 @@
       }
 
       .section-{{ section.id }} #galerie {
-        padding-top: 2.4rem;
-        padding-bottom: 2rem;
+        height: calc(100svh - 8.8rem);
+        min-height: 58rem;
+        padding-top: 2.8rem;
+        padding-bottom: 2.8rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__section {
