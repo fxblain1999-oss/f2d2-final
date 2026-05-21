@@ -1,6 +1,7 @@
 {{ 'collection.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+{% unless collection.handle == 'design-f2d2' %}
 {%- liquid
   assign current_filter_size = 0
   assign columns_desktop = section.settings.columns_desktop
@@ -196,6 +197,7 @@
   </div>
 </div>
 
+{% endunless %}
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
