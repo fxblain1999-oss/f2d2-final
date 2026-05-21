@@ -957,7 +957,7 @@
         if (!gallerySection) return;
         event.preventDefault();
         const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 64 : 120;
-        const top = gallerySection.offsetTop - 80;
+        const top = gallerySection.offsetTop - 50;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
       });
