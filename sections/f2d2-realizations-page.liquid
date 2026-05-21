@@ -359,9 +359,11 @@
     .section-{{ section.id }} #galerie {
       min-height: 100svh;
       scroll-margin-top: 0;
+      display: flex;
+      flex-direction: column;
       width: 100vw;
       margin-left: calc(50% - 50vw);
-      padding: 3.2rem max(2rem, calc((100vw - 134rem) / 2)) 5rem;
+      padding: 3.2rem max(2rem, calc((100vw - 134rem) / 2)) 3rem;
       background:
         radial-gradient(circle at 50% 18%, rgba(16, 132, 255, 0.14), transparent 38rem),
         linear-gradient(180deg, rgba(2, 6, 9, 0.2), rgba(2, 6, 9, 0.7));
@@ -503,18 +505,23 @@
 
     .section-{{ section.id }} .f2d2-realizations__gallery-shell {
       position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
     }
 
     .section-{{ section.id }} .f2d2-realizations__gallery {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 1rem;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      height: 100%;
+      min-height: 0;
     }
 
     .section-{{ section.id }} .f2d2-realizations__tile {
       position: relative;
       display: block;
-      min-height: 20rem;
+      min-height: 0;
       overflow: hidden;
       border: 1px solid var(--f2d2-line);
       border-radius: 0.8rem;
@@ -597,6 +604,7 @@
       display: flex;
       justify-content: center;
       margin-top: 2.2rem;
+      flex: 0 0 auto;
     }
 
     .section-{{ section.id }} .f2d2-realizations__categories {
