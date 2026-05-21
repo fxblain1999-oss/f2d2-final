@@ -18,7 +18,7 @@
             impression, accessoires promotionnels et branding personnalise.
           </p>
           <div class="f2d2-realizations__actions">
-            <a href="#galerie" class="f2d2-realizations__button" data-f2d2-gallery-link>
+            <a href="#gallery" class="f2d2-realizations__button" data-f2d2-gallery-link>
               Voir nos projets
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
             </a>
@@ -35,7 +35,7 @@
       <section id="projets" class="f2d2-realizations__section">
         <div class="f2d2-realizations__section-head">
           <h2>Projets en vedette</h2>
-          <a href="#galerie">Voir tous les projets <span aria-hidden="true">-></span></a>
+          <a href="#gallery">Voir tous les projets <span aria-hidden="true">-></span></a>
         </div>
         <div class="f2d2-realizations__featured">
           <article class="f2d2-realizations__project f2d2-realizations__project--wide">
@@ -59,7 +59,7 @@
         </div>
       </section>
 
-      <section id="galerie" class="f2d2-realizations__section">
+      <section id="gallery" class="f2d2-realizations__section" data-f2d2-gallery-section>
         <div class="f2d2-realizations__section-head">
           <h2>Galerie de realisations</h2>
         </div>
@@ -911,8 +911,7 @@
 
       const shell = section.querySelector('[data-f2d2-gallery-shell]');
       const gallery = section.querySelector('[data-f2d2-gallery]');
-      const gallerySection = section.querySelector('#galerie');
-      const galleryLinks = section.querySelectorAll('[data-f2d2-gallery-link], a[href="#galerie"], a[href="#gallery"]');
+      const gallerySection = section.querySelector('[data-f2d2-gallery-section]');
       const prev = section.querySelector('[data-f2d2-gallery-prev]');
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
@@ -968,15 +967,20 @@
       const scrollToGallery = (event) => {
         if (!gallerySection) return;
         event.preventDefault();
+        event.stopPropagation();
 
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - galleryScrollOffset();
-        window.history.pushState(null, '', '#galerie');
+        window.history.pushState(null, '', '#gallery');
         window.scrollTo({ top, behavior: 'smooth' });
       };
 
       prev.addEventListener('click', () => goToPage(-1));
       next.addEventListener('click', () => goToPage(1));
-      galleryLinks.forEach((link) => link.addEventListener('click', scrollToGallery));
+      section.addEventListener('click', (event) => {
+        const link = event.target.closest('[data-f2d2-gallery-link], a[href="#gallery"], a[href="#galerie"]');
+        if (!link || !section.contains(link)) return;
+        scrollToGallery(event);
+      }, true);
 
       shell.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX;
