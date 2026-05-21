@@ -1,6 +1,6 @@
 {%- if collection.handle == 'design-f2d2' -%}
   {%- liquid
-    assign hero_image = 'hero-bg.png' | asset_url
+    assign hero_image = 'f2d2-realizations-hero-wide.png' | asset_url
     assign merch_image = 'f2d2-hero-merch.png' | asset_url
     assign web_image = 'f2d2-web-hero-crop.png' | asset_url
     assign logo_image = 'logo_f2d2.png' | asset_url
@@ -784,7 +784,7 @@
         background:
           linear-gradient(90deg, rgba(2, 6, 9, 0.98) 0%, rgba(2, 6, 9, 0.72) 70%, rgba(2, 6, 9, 0.96) 100%),
           linear-gradient(180deg, rgba(2, 6, 9, 0.05) 0%, #020609 100%),
-          url({{ hero_image }}) top right / 95rem auto no-repeat;
+          url({{ hero_image }}) center right / cover no-repeat;
       }
 
       .section-{{ section.id }} .f2d2-realizations__hero-copy {
