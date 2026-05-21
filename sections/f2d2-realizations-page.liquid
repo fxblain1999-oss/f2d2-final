@@ -237,17 +237,21 @@
       margin: 0 auto;
     }
 
-    .section-{{ section.id }} .f2d2-realizations__hero {
+    .f2d2-realizations__hero {
       position: relative;
       min-height: 55rem;
-      display: grid;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
       align-items: center;
-      isolation: isolate;
     }
 
-    .section-{{ section.id }} .f2d2-realizations__hero-media {
+    .f2d2-realizations__hero-media {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       background:
         linear-gradient(90deg, rgba(2, 6, 9, 0.98) 0%, rgba(2, 6, 9, 0.78) 34%, rgba(2, 6, 9, 0.08) 72%, rgba(2, 6, 9, 0.22) 100%),
