@@ -1,0 +1,782 @@
+{%- if collection.handle == 'design-f2d2' -%}
+  {%- liquid
+    assign hero_image = 'hero-bg.png' | asset_url
+    assign merch_image = 'f2d2-hero-merch.png' | asset_url
+    assign web_image = 'f2d2-web-hero-crop.png' | asset_url
+    assign logo_image = 'logo_f2d2.png' | asset_url
+  -%}
+
+  <section class="f2d2-realizations section-{{ section.id }}">
+    <div class="f2d2-realizations__hero">
+      <div class="f2d2-realizations__hero-media" aria-hidden="true"></div>
+      <div class="f2d2-realizations__wrap f2d2-realizations__hero-inner">
+        <div class="f2d2-realizations__hero-copy">
+          <p class="f2d2-realizations__eyebrow">Des idees. Du style. Du resultat.</p>
+          <h1>Nos <span>realisations</span></h1>
+          <p>
+            Decouvrez quelques projets realises pour nos clients : vetements,
+            impression, accessoires promotionnels et branding personnalise.
+          </p>
+          <div class="f2d2-realizations__actions">
+            <a href="#projets" class="f2d2-realizations__button">
+              Voir les projets
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+            </a>
+            <a href="/pages/contact" class="f2d2-realizations__button f2d2-realizations__button--ghost">
+              Demander une soumission
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f2d2-realizations__wrap">
+      <section id="projets" class="f2d2-realizations__section">
+        <div class="f2d2-realizations__section-head">
+          <h2>Projets en vedette</h2>
+          <a href="#galerie">Voir tous les projets <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-realizations__featured">
+          <article class="f2d2-realizations__project f2d2-realizations__project--wide">
+            <div class="f2d2-realizations__project-image f2d2-realizations__project-image--merch"></div>
+            <div class="f2d2-realizations__project-copy">
+              <small>Restaurant</small>
+              <h3>Branding complet</h3>
+              <p>Uniformes, menus et affichage complet pour une image de marque professionnelle.</p>
+              <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+          <article class="f2d2-realizations__project">
+            <div class="f2d2-realizations__project-image f2d2-realizations__project-image--web"></div>
+            <div class="f2d2-realizations__project-copy">
+              <small>Equipe sportive</small>
+              <h3>Collection personnalisee</h3>
+              <p>Chandails, hoodies et accessoires personnalises pour une equipe qui se demarque.</p>
+              <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="galerie" class="f2d2-realizations__section">
+        <div class="f2d2-realizations__section-head">
+          <h2>Galerie de realisations</h2>
+        </div>
+        <div class="f2d2-realizations__filters" aria-label="Filtres de galerie">
+          <button type="button" class="is-active">Tous</button>
+          <button type="button">Vetements</button>
+          <button type="button">Stickers & impressions</button>
+          <button type="button">Accessoires</button>
+          <button type="button">Signalisation</button>
+          <button type="button">Evenementiel</button>
+        </div>
+        <div class="f2d2-realizations__gallery">
+          {%- for i in (1..10) -%}
+            {%- liquid
+              assign mod = i | modulo: 3
+              assign image_class = 'f2d2-realizations__tile-image--hero'
+              if mod == 1
+                assign image_class = 'f2d2-realizations__tile-image--merch'
+              elsif mod == 2
+                assign image_class = 'f2d2-realizations__tile-image--web'
+              endif
+            -%}
+            <button type="button" class="f2d2-realizations__tile" aria-label="Realisation F2D2 {{ i }}">
+              <span class="f2d2-realizations__tile-image {{ image_class }}"></span>
+              <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" alt="" loading="lazy"></span>
+            </button>
+          {%- endfor -%}
+        </div>
+        <div class="f2d2-realizations__load">
+          <a href="/pages/contact" class="f2d2-realizations__button f2d2-realizations__button--small f2d2-realizations__button--ghost">
+            Charger plus de projets
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="f2d2-realizations__section">
+        <div class="f2d2-realizations__section-head">
+          <h2>Categories de realisations</h2>
+          <a href="/collections">Voir toutes <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-realizations__categories">
+          <article>
+            <span>{% render 'icon-shirt' %}</span>
+            <h3>Vetements personnalises</h3>
+            <p>T-shirts, hoodies et uniformes.</p>
+          </article>
+          <article>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13 13 20 4 11V4h7l9 9Z"/><path d="M7.5 7.5h.01"/></svg></span>
+            <h3>Stickers UV DTF</h3>
+            <p>Impression durable et branding premium.</p>
+          </article>
+          <article>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V5l6 3 4-3 6 3v15l-6-3-4 3-6-3Z"/><path d="M10 8v15"/><path d="M14 5v15"/></svg></span>
+            <h3>Signalisation & bannieres</h3>
+            <p>Affichage commercial et evenementiel.</p>
+          </article>
+          <article>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10l1 11H6l1-11Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span>
+            <h3>Accessoires promotionnels</h3>
+            <p>Objets corporatifs et goodies.</p>
+          </article>
+          <article>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 3 6 5 6 10a6 6 0 0 1-12 0c0-5 3-7 6-10Z"/><path d="M9 14c1.5 1 4.5 1 6 0"/></svg></span>
+            <h3>Broderie personnalisee</h3>
+            <p>Finition haut de gamme durable.</p>
+          </article>
+          <article>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M17 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M3 21v-2a4 4 0 0 1 8 0v2"/><path d="M13 21v-2a4 4 0 0 1 8 0v2"/></svg></span>
+            <h3>Projets evenementiels</h3>
+            <p>Kiosques, festivals et evenements.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="f2d2-realizations__section">
+        <div class="f2d2-realizations__section-head">
+          <h2>Avant / apres</h2>
+          <a href="/pages/contact">Voir plus <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-realizations__before">
+          <article>
+            <div class="f2d2-realizations__before-image f2d2-realizations__before-image--vehicle">
+              <span>Avant</span><span>Apres</span>
+            </div>
+            <h3>Lettrage de vehicule</h3>
+            <p>Design complet et installation professionnelle.</p>
+          </article>
+          <article>
+            <div class="f2d2-realizations__before-image f2d2-realizations__before-image--dtf">
+              <span>Avant</span><span>Apres</span>
+            </div>
+            <h3>Impression DTF</h3>
+            <p>Qualite d'impression superieure et durable.</p>
+          </article>
+          <article>
+            <div class="f2d2-realizations__before-image f2d2-realizations__before-image--bottle">
+              <span>Avant</span><span>Apres</span>
+            </div>
+            <h3>Bouteille personnalisee</h3>
+            <p>Votre logo, votre style.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="f2d2-realizations__section">
+        <div class="f2d2-realizations__section-head">
+          <h2>Nos clients parlent de nous</h2>
+        </div>
+        <div class="f2d2-realizations__reviews">
+          <blockquote>
+            <div>★★★★★</div>
+            <p>Qualite incroyable et service rapide! L'equipe est a l'ecoute et le resultat depasse nos attentes.</p>
+            <cite>- Maxime L.<span>Entreprise</span></cite>
+          </blockquote>
+          <blockquote>
+            <div>★★★★★</div>
+            <p>Nos chandails d'equipe sont parfaits, tout le monde les adore!</p>
+            <cite>- Sarah P.<span>Equipe sportive</span></cite>
+          </blockquote>
+          <blockquote>
+            <div>★★★★★</div>
+            <p>Excellent service pour nos bannieres et notre branding. Je recommande fortement F2D2!</p>
+            <cite>- Alex R.<span>Restaurant</span></cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="f2d2-realizations__cta">
+        <div>
+          <h2>Pret a lancer votre projet?</h2>
+          <p>Parlez-nous de votre idee et obtenez une soumission rapide et gratuite.</p>
+        </div>
+        <div class="f2d2-realizations__actions">
+          <a href="/pages/contact" class="f2d2-realizations__button">Obtenir une soumission <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg></a>
+          <a href="/pages/contact" class="f2d2-realizations__button f2d2-realizations__button--ghost">Nous contacter <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11"/><path d="m11 6 4 4-4 4"/></svg></a>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <style>
+    .section-{{ section.id }} {
+      --f2d2-blue: #1084ff;
+      --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
+      --f2d2-line: rgba(255, 255, 255, 0.14);
+      --f2d2-text: rgba(255, 255, 255, 0.76);
+      color: #fff;
+      background:
+        radial-gradient(circle at 75% 8rem, rgba(16, 132, 255, 0.16), transparent 34rem),
+        linear-gradient(180deg, #020609 0%, #041019 48%, #020609 100%);
+      overflow: hidden;
+    }
+
+    .section-{{ section.id }} * {
+      box-sizing: border-box;
+      letter-spacing: 0;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__wrap {
+      width: min(100% - 4rem, 134rem);
+      margin: 0 auto;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__hero {
+      position: relative;
+      min-height: 55rem;
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(2, 6, 9, 0.98) 0%, rgba(2, 6, 9, 0.8) 32%, rgba(2, 6, 9, 0.2) 72%, rgba(2, 6, 9, 0.9) 100%),
+        linear-gradient(180deg, rgba(2, 6, 9, 0.12) 0%, #020609 100%),
+        url({{ hero_image }}) center right / cover no-repeat;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__hero-copy {
+      max-width: 54rem;
+      padding: 8rem 0;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__eyebrow {
+      margin: 0 0 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} h1,
+    .section-{{ section.id }} h2,
+    .section-{{ section.id }} h3,
+    .section-{{ section.id }} p {
+      margin: 0;
+    }
+
+    .section-{{ section.id }} h1 {
+      max-width: 70rem;
+      font-size: clamp(5rem, 7.4vw, 10.8rem);
+      line-height: 0.82;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} h1 span {
+      display: block;
+      color: var(--f2d2-blue);
+      font-style: italic;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__hero-copy > p:not(.f2d2-realizations__eyebrow) {
+      max-width: 42rem;
+      margin-top: 2.2rem;
+      color: var(--f2d2-text);
+      font-size: 1.6rem;
+      line-height: 1.55;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 2.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      min-height: 5.2rem;
+      padding: 0 2.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.4rem;
+      color: #fff;
+      background: linear-gradient(135deg, #0067d9, var(--f2d2-blue));
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__button:hover {
+      transform: translateY(-0.2rem);
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__button--ghost {
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__button--small {
+      min-height: 4.2rem;
+      padding: 0 2rem;
+      font-size: 1.15rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__button svg,
+    .section-{{ section.id }} a svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__section {
+      padding: 3.8rem 0 0;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__section-head h2 {
+      font-size: clamp(2rem, 2.2vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__section-head a,
+    .section-{{ section.id }} .f2d2-realizations__project-copy a {
+      color: #39a4ff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project,
+    .section-{{ section.id }} .f2d2-realizations__categories article,
+    .section-{{ section.id }} .f2d2-realizations__before article,
+    .section-{{ section.id }} .f2d2-realizations__reviews blockquote {
+      position: relative;
+      min-height: 28rem;
+      overflow: hidden;
+      border: 1px solid var(--f2d2-line);
+      border-radius: 0.8rem;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-image,
+    .section-{{ section.id }} .f2d2-realizations__tile-image,
+    .section-{{ section.id }} .f2d2-realizations__before-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.01);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-image::after,
+    .section-{{ section.id }} .f2d2-realizations__tile-image::after,
+    .section-{{ section.id }} .f2d2-realizations__before-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2, 6, 9, 0.88), rgba(2, 6, 9, 0.24) 72%);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-image--merch,
+    .section-{{ section.id }} .f2d2-realizations__tile-image--merch,
+    .section-{{ section.id }} .f2d2-realizations__before-image--dtf {
+      background-image: url({{ merch_image }});
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-image--web,
+    .section-{{ section.id }} .f2d2-realizations__tile-image--web,
+    .section-{{ section.id }} .f2d2-realizations__before-image--vehicle {
+      background-image: url({{ web_image }});
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-image--hero,
+    .section-{{ section.id }} .f2d2-realizations__before-image--bottle {
+      background-image: url({{ hero_image }});
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 36rem;
+      padding: 5rem 3.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-copy small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-copy h3 {
+      margin-top: 1rem;
+      font-size: clamp(2.4rem, 3vw, 4rem);
+      line-height: 0.98;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-copy p {
+      margin-top: 2rem;
+      color: var(--f2d2-text);
+      font-size: 1.35rem;
+      line-height: 1.5;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project-copy a {
+      display: inline-block;
+      margin-top: 3rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__filters button {
+      min-height: 3.8rem;
+      padding: 0 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__filters button.is-active {
+      color: #fff;
+      background: var(--f2d2-blue);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile {
+      position: relative;
+      display: block;
+      min-height: 20rem;
+      overflow: hidden;
+      border: 1px solid var(--f2d2-line);
+      border-radius: 0.8rem;
+      background: rgba(255, 255, 255, 0.045);
+      cursor: pointer;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-logo {
+      position: absolute;
+      inset: auto 1.4rem 1.4rem auto;
+      width: 8rem;
+      opacity: 0.92;
+      z-index: 1;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__load {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories article {
+      min-height: auto;
+      padding: 2.6rem 2rem;
+      text-align: center;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories span {
+      display: inline-grid;
+      place-items: center;
+      width: 6.2rem;
+      height: 6.2rem;
+      margin-bottom: 1.8rem;
+      border-radius: 50%;
+      color: var(--f2d2-blue);
+      background: rgba(16, 132, 255, 0.12);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories svg {
+      width: 3.2rem;
+      height: 3.2rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories h3 {
+      font-size: 1.35rem;
+      line-height: 1.2;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories p {
+      margin-top: 1rem;
+      color: var(--f2d2-text);
+      font-size: 1.2rem;
+      line-height: 1.45;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before,
+    .section-{{ section.id }} .f2d2-realizations__reviews {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before article {
+      min-height: auto;
+      padding: 0 0 2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before-image {
+      position: relative;
+      min-height: 19rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 1.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before-image span {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before h3,
+    .section-{{ section.id }} .f2d2-realizations__before p {
+      padding: 0 2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before h3 {
+      margin-top: 1.8rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__before p {
+      margin-top: 0.8rem;
+      color: var(--f2d2-text);
+      font-size: 1.25rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__reviews blockquote {
+      min-height: auto;
+      margin: 0;
+      padding: 3rem;
+      background: linear-gradient(145deg, rgba(16, 132, 255, 0.18), rgba(255, 255, 255, 0.045));
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__reviews div {
+      color: var(--f2d2-blue);
+      font-size: 1.7rem;
+      letter-spacing: 0.18em;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__reviews p {
+      margin-top: 1.4rem;
+      color: #fff;
+      font-size: 1.45rem;
+      line-height: 1.55;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__reviews cite {
+      display: block;
+      margin-top: 1.8rem;
+      color: #fff;
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__reviews cite span {
+      display: block;
+      margin-top: 0.2rem;
+      color: rgba(255, 255, 255, 0.54);
+      font-weight: 600;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin: 4.6rem 0 0;
+      padding: 4rem 5rem;
+      border: 1px solid var(--f2d2-line);
+      border-radius: 0.8rem 0.8rem 0 0;
+      background:
+        linear-gradient(90deg, rgba(2, 6, 9, 0.88), rgba(2, 6, 9, 0.35)),
+        url({{ web_image }}) center right / cover no-repeat;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__cta h2 {
+      max-width: 42rem;
+      font-size: clamp(3rem, 4vw, 5rem);
+      line-height: 0.92;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__cta p {
+      max-width: 48rem;
+      margin-top: 1.2rem;
+      color: var(--f2d2-text);
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 989px) {
+      .section-{{ section.id }} .f2d2-realizations__wrap {
+        width: min(100% - 2.8rem, 58rem);
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__hero {
+        min-height: 52rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__hero-media {
+        background:
+          linear-gradient(90deg, rgba(2, 6, 9, 0.98) 0%, rgba(2, 6, 9, 0.72) 70%, rgba(2, 6, 9, 0.96) 100%),
+          linear-gradient(180deg, rgba(2, 6, 9, 0.05) 0%, #020609 100%),
+          url({{ hero_image }}) top right / 95rem auto no-repeat;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__hero-copy {
+        padding: 5rem 0 4rem;
+      }
+
+      .section-{{ section.id }} h1 {
+        font-size: clamp(4.8rem, 15vw, 7.4rem);
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__actions,
+      .section-{{ section.id }} .f2d2-realizations__button {
+        width: 100%;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__featured,
+      .section-{{ section.id }} .f2d2-realizations__before,
+      .section-{{ section.id }} .f2d2-realizations__reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__project {
+        min-height: 36rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__tile {
+        min-height: 11rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__tile-logo {
+        width: 5rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__cta {
+        display: block;
+        padding: 3rem 2rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section-{{ section.id }} .f2d2-realizations__wrap {
+        width: min(100% - 2rem, 42rem);
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__section {
+        padding-top: 3.2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__section-head {
+        align-items: flex-end;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__section-head h2 {
+        font-size: 1.9rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filters {
+        gap: 0.8rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filters button {
+        min-height: 3.4rem;
+        padding: 0 1.3rem;
+        font-size: 1.05rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__project-copy {
+        padding: 4rem 2.2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__categories article {
+        padding: 2.2rem 1.2rem;
+      }
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "F2D2 realisations",
+  "settings": [],
+  "presets": [
+    {
+      "name": "F2D2 realisations"
+    }
+  ]
+}
+{% endschema %}
