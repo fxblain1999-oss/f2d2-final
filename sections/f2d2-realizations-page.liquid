@@ -807,12 +807,13 @@
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__tile {
-        min-height: 11rem;
+        min-height: 0;
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
@@ -847,6 +848,11 @@
         width: min(100% - 2rem, 42rem);
       }
 
+      .section-{{ section.id }} #galerie {
+        padding-top: 2.4rem;
+        padding-bottom: 2rem;
+      }
+
       .section-{{ section.id }} .f2d2-realizations__section {
         padding-top: 3.2rem;
       }
@@ -867,6 +873,11 @@
         min-height: 3.4rem;
         padding: 0 1.3rem;
         font-size: 1.05rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
       }
 
       .section-{{ section.id }} .f2d2-realizations__project-copy {
@@ -896,7 +907,11 @@
       let currentPage = 0;
       let touchStartX = 0;
 
-      const pageSizeForViewport = () => window.matchMedia('(max-width: 989px)').matches ? 6 : 10;
+      const pageSizeForViewport = () => {
+        if (window.matchMedia('(max-width: 560px)').matches) return 4;
+        if (window.matchMedia('(max-width: 989px)').matches) return 6;
+        return 10;
+      };
 
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
@@ -928,7 +943,7 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
-        const headerOffset = 178;
+        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 96 : 178;
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
