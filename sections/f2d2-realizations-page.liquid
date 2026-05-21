@@ -920,11 +920,20 @@
       let currentPage = 0;
       let touchStartX = 0;
 
+<<<<<<< HEAD
       const pageSizeForViewport = () => {
         if (window.matchMedia('(max-width: 560px)').matches) return 4;
         if (window.matchMedia('(max-width: 989px)').matches) return 6;
         return 10;
       };
+=======
+      const pageSizeForViewport = () => {
+        if (window.matchMedia('(max-width: 560px)').matches) return 4;
+        if (window.matchMedia('(max-width: 989px)').matches) return 6;
+        return 10;
+      };
+<<<<<<< HEAD
+>>>>>>> 11b063d (Fix cart drawer mobile)
 
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
@@ -956,7 +965,11 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
+<<<<<<< HEAD
         const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 64 : 120;
+=======
+        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 88 : 176;
+>>>>>>> 11b063d (Fix cart drawer mobile)
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
@@ -990,3 +1003,70 @@
   ]
 }
 {% endschema %}
+=======
+
+      const updateGallery = () => {
+        const pageSize = pageSizeForViewport();
+        const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
+        currentPage = Math.min(currentPage, pageCount - 1);
+
+        tiles.forEach((tile, index) => {
+          const isVisible = index >= currentPage * pageSize && index < (currentPage + 1) * pageSize;
+          tile.classList.toggle('is-hidden', !isVisible);
+          tile.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+          tile.tabIndex = isVisible ? 0 : -1;
+        });
+
+        const hasPages = pageCount > 1;
+        prev.hidden = !hasPages;
+        next.hidden = !hasPages;
+        prev.disabled = currentPage === 0;
+        next.disabled = currentPage >= pageCount - 1;
+      };
+
+      const goToPage = (direction) => {
+        currentPage += direction;
+        updateGallery();
+      };
+
+      prev.addEventListener('click', () => goToPage(-1));
+      next.addEventListener('click', () => goToPage(1));
+
+      galleryLink?.addEventListener('click', (event) => {
+        if (!gallerySection) return;
+        event.preventDefault();
+        const headerOffset = 0;
+        const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.history.pushState(null, '', '#galerie');
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+
+      shell.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+      }, { passive: true });
+
+      shell.addEventListener('touchend', (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+        if (Math.abs(delta) < 48) return;
+        goToPage(delta < 0 ? 1 : -1);
+      }, { passive: true });
+
+      updateGallery();
+      window.addEventListener('resize', updateGallery, { passive: true });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "F2D2 realisations",
+  "settings": [],
+  "presets": [
+    {
+      "name": "F2D2 realisations"
+    }
+  ]
+}
+{% endschema %}
+>>>>>>> 99d2bc1 (Fix cart drawer mobile)
