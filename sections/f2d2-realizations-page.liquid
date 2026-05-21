@@ -71,22 +71,30 @@
           <button type="button">Signalisation</button>
           <button type="button">Evenementiel</button>
         </div>
-        <div class="f2d2-realizations__gallery">
-          {%- for i in (1..10) -%}
-            {%- liquid
-              assign mod = i | modulo: 3
-              assign image_class = 'f2d2-realizations__tile-image--hero'
-              if mod == 1
-                assign image_class = 'f2d2-realizations__tile-image--merch'
-              elsif mod == 2
-                assign image_class = 'f2d2-realizations__tile-image--web'
-              endif
-            -%}
-            <button type="button" class="f2d2-realizations__tile" aria-label="Realisation F2D2 {{ i }}">
-              <span class="f2d2-realizations__tile-image {{ image_class }}"></span>
-              <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" width="160" height="62" alt="" loading="lazy"></span>
-            </button>
-          {%- endfor -%}
+        <div class="f2d2-realizations__gallery-shell" data-f2d2-gallery-shell>
+          <button type="button" class="f2d2-realizations__gallery-arrow f2d2-realizations__gallery-arrow--prev" data-f2d2-gallery-prev aria-label="Projets precedents">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="f2d2-realizations__gallery" data-f2d2-gallery>
+            {%- for i in (1..10) -%}
+              {%- liquid
+                assign mod = i | modulo: 3
+                assign image_class = 'f2d2-realizations__tile-image--hero'
+                if mod == 1
+                  assign image_class = 'f2d2-realizations__tile-image--merch'
+                elsif mod == 2
+                  assign image_class = 'f2d2-realizations__tile-image--web'
+                endif
+              -%}
+              <button type="button" class="f2d2-realizations__tile" aria-label="Realisation F2D2 {{ i }}">
+                <span class="f2d2-realizations__tile-image {{ image_class }}"></span>
+                <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" width="160" height="62" alt="" loading="lazy"></span>
+              </button>
+            {%- endfor -%}
+          </div>
+          <button type="button" class="f2d2-realizations__gallery-arrow f2d2-realizations__gallery-arrow--next" data-f2d2-gallery-next aria-label="Projets suivants">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
         <div class="f2d2-realizations__load">
           <a href="/pages/contact" class="f2d2-realizations__button f2d2-realizations__button--small f2d2-realizations__button--ghost">
@@ -496,13 +504,18 @@
       background: var(--f2d2-blue);
     }
 
+    .section-{{ section.id }} .f2d2-realizations__gallery-shell {
+      position: relative;
+      flex: 1;
+      min-height: min(58rem, 58vh);
+    }
+
     .section-{{ section.id }} .f2d2-realizations__gallery {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      flex: 1;
-      min-height: min(58rem, 58vh);
+      height: 100%;
     }
 
     .section-{{ section.id }} .f2d2-realizations__tile {
@@ -514,6 +527,63 @@
       border-radius: 0.8rem;
       background: rgba(255, 255, 255, 0.045);
       cursor: pointer;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile.is-hidden {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      width: 5.2rem;
+      height: 5.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(2, 6, 9, 0.72);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+      transform: translateY(-50%);
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow:hover {
+      border-color: rgba(16, 132, 255, 0.8);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow[hidden] {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow:disabled {
+      opacity: 0.32;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow--prev {
+      left: -2.6rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow--next {
+      right: -2.6rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__gallery-arrow svg {
+      width: 2.6rem;
+      height: 2.6rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .section-{{ section.id }} .f2d2-realizations__tile-logo {
@@ -741,8 +811,25 @@
         grid-auto-rows: 11rem;
       }
 
+      .section-{{ section.id }} .f2d2-realizations__gallery-shell {
+        min-height: 35rem;
+      }
+
       .section-{{ section.id }} .f2d2-realizations__tile {
         min-height: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
+        width: 4.4rem;
+        height: 4.4rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery-arrow--prev {
+        left: -0.8rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery-arrow--next {
+        right: -0.8rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__tile-logo {
@@ -795,6 +882,66 @@
       }
     }
   </style>
+
+  <script>
+    (() => {
+      const section = document.querySelector('.section-{{ section.id }}');
+      if (!section) return;
+
+      const shell = section.querySelector('[data-f2d2-gallery-shell]');
+      const gallery = section.querySelector('[data-f2d2-gallery]');
+      const prev = section.querySelector('[data-f2d2-gallery-prev]');
+      const next = section.querySelector('[data-f2d2-gallery-next]');
+      if (!shell || !gallery || !prev || !next) return;
+
+      const tiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
+      let currentPage = 0;
+      let touchStartX = 0;
+
+      const pageSizeForViewport = () => window.matchMedia('(max-width: 989px)').matches ? 6 : 10;
+
+      const updateGallery = () => {
+        const pageSize = pageSizeForViewport();
+        const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
+        currentPage = Math.min(currentPage, pageCount - 1);
+
+        tiles.forEach((tile, index) => {
+          const isVisible = index >= currentPage * pageSize && index < (currentPage + 1) * pageSize;
+          tile.classList.toggle('is-hidden', !isVisible);
+          tile.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+          tile.tabIndex = isVisible ? 0 : -1;
+        });
+
+        const hasPages = pageCount > 1;
+        prev.hidden = !hasPages;
+        next.hidden = !hasPages;
+        prev.disabled = currentPage === 0;
+        next.disabled = currentPage >= pageCount - 1;
+      };
+
+      const goToPage = (direction) => {
+        currentPage += direction;
+        updateGallery();
+      };
+
+      prev.addEventListener('click', () => goToPage(-1));
+      next.addEventListener('click', () => goToPage(1));
+
+      shell.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+      }, { passive: true });
+
+      shell.addEventListener('touchend', (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+        if (Math.abs(delta) < 48) return;
+        goToPage(delta < 0 ? 1 : -1);
+      }, { passive: true });
+
+      updateGallery();
+      window.addEventListener('resize', updateGallery, { passive: true });
+    })();
+  </script>
 {%- endif -%}
 
 {% schema %}
