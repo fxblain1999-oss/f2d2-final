@@ -921,11 +921,15 @@
       let touchStartX = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b4a15c5 (Fix cart drawer mobile)
       const pageSizeForViewport = () => {
         if (window.matchMedia('(max-width: 560px)').matches) return 4;
         if (window.matchMedia('(max-width: 989px)').matches) return 6;
         return 10;
       };
+<<<<<<< HEAD
 =======
       const pageSizeForViewport = () => {
         if (window.matchMedia('(max-width: 560px)').matches) return 4;
@@ -934,6 +938,8 @@
       };
 <<<<<<< HEAD
 >>>>>>> 11b063d (Fix cart drawer mobile)
+=======
+>>>>>>> b4a15c5 (Fix cart drawer mobile)
 
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
@@ -966,10 +972,14 @@
         if (!gallerySection) return;
         event.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
         const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 64 : 120;
 =======
         const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 88 : 176;
 >>>>>>> 11b063d (Fix cart drawer mobile)
+=======
+        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 88 : 170;
+>>>>>>> b4a15c5 (Fix cart drawer mobile)
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
@@ -1003,6 +1013,7 @@
   ]
 }
 {% endschema %}
+<<<<<<< HEAD
 =======
 
       const updateGallery = () => {
@@ -1070,3 +1081,5 @@
 }
 {% endschema %}
 >>>>>>> 99d2bc1 (Fix cart drawer mobile)
+=======
+>>>>>>> b4a15c5 (Fix cart drawer mobile)
