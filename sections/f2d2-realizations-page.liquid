@@ -956,7 +956,11 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
+<<<<<<< HEAD
         const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 64 : 120;
+=======
+        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 88 : 2000;
+>>>>>>> 8dc8ab5 (Fix cart drawer mobile)
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
