@@ -956,8 +956,8 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
-        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 64 : 120;
-        const top = gallerySection.offsetTop - 50;
+        const offset = window.matchMedia('(max-width: 989px)').matches ? 50 : 120;
+        const top = gallerySection.offsetTop - offset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
       });
