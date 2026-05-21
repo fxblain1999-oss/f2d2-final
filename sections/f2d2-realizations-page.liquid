@@ -956,7 +956,7 @@
       galleryLink?.addEventListener('click', (event) => {
         if (!gallerySection) return;
         event.preventDefault();
-        const headerOffset = 0;
+        const headerOffset = window.matchMedia('(max-width: 989px)').matches ? 88 : 176;
         const top = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
         window.history.pushState(null, '', '#galerie');
         window.scrollTo({ top, behavior: 'smooth' });
