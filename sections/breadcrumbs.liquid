@@ -1,4 +1,4 @@
-{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' or collection.handle == 'design-f2d2' %}
   {% liquid
     assign justify = section.settings.text_alignment | default: 'start'
   %}
