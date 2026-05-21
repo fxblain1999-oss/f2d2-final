@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "f2d2_realizations": {
+      "type": "f2d2-realizations-page",
+      "settings": {}
+    },
     "breadcrumbs_Gxg9wp": {
       "type": "breadcrumbs",
       "settings": {
@@ -231,6 +235,7 @@
     }
   },
   "order": [
+    "f2d2_realizations",
     "breadcrumbs_Gxg9wp",
     "banner",
     "custom_content_RecVe9",
