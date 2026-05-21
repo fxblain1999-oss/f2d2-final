@@ -214,6 +214,10 @@
       scroll-behavior: smooth;
     }
 
+    #galerie {
+      scroll-margin-top: 20rem;
+    }
+
     .section-{{ section.id }} {
       --f2d2-blue: #1084ff;
       --f2d2-blue-soft: rgba(16, 132, 255, 0.2);
@@ -954,12 +958,12 @@
       next.addEventListener('click', () => goToPage(1));
 
       galleryLink?.addEventListener('click', (event) => {
-        if (!gallerySection) return;
         event.preventDefault();
-        const offset = window.matchMedia('(max-width: 989px)').matches ? 50 : 120;
-        const top = gallerySection.offsetTop + 105;
-        window.history.pushState(null, '', '#galerie');
-        window.scrollTo({ top, behavior: 'smooth' });
+
+        gallerySection?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       });
 
       shell.addEventListener('touchstart', (event) => {
