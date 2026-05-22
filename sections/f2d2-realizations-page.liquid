@@ -1239,6 +1239,8 @@
       let currentPage = 0;
       let mobileTrackPage = 1;
       let mobileReady = false;
+      let mobileAnimating = false;
+      let mobileLoopTimer = null;
       let touchStartX = 0;
       let touchStartY = 0;
       let touchSwipeAxis = null;
@@ -1333,6 +1335,21 @@
         }
       };
 
+      const finishMobileLoop = () => {
+        if (!mobileQuery.matches) return;
+
+        window.clearTimeout(mobileLoopTimer);
+        const pageCount = mobilePageCount();
+        if (mobileTrackPage > pageCount) {
+          mobileTrackPage = 1;
+          setMobileTransform(false);
+        } else if (mobileTrackPage < 1) {
+          mobileTrackPage = pageCount;
+          setMobileTransform(false);
+        }
+        mobileAnimating = false;
+      };
+
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
 
@@ -1372,8 +1389,12 @@
 
       const goToPage = (direction) => {
         if (mobileQuery.matches) {
+          if (mobileAnimating) return;
+          mobileAnimating = true;
           mobileTrackPage += direction;
           setMobileTransform(true);
+          window.clearTimeout(mobileLoopTimer);
+          mobileLoopTimer = window.setTimeout(finishMobileLoop, 360);
           return;
         }
 
@@ -1477,16 +1498,7 @@
       }, { passive: true });
 
       gallery.addEventListener('transitionend', () => {
-        if (!mobileQuery.matches) return;
-
-        const pageCount = mobilePageCount();
-        if (mobileTrackPage > pageCount) {
-          mobileTrackPage = 1;
-          setMobileTransform(false);
-        } else if (mobileTrackPage < 1) {
-          mobileTrackPage = pageCount;
-          setMobileTransform(false);
-        }
+        finishMobileLoop();
       });
 
       updateGallery();
