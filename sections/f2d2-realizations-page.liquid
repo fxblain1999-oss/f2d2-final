@@ -1061,10 +1061,10 @@
 
       .section-{{ section.id }} #gallery {
         scroll-margin-top: 64px;
-        height: 100svh;
-        min-height: 62rem;
-        padding-top: 2.8rem;
-        padding-bottom: 2.8rem;
+        height: calc(100svh - 64px);
+        min-height: 0;
+        padding-top: 1.4rem;
+        padding-bottom: 1.6rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__section {
@@ -1073,6 +1073,7 @@
 
       .section-{{ section.id }} .f2d2-realizations__section-head {
         align-items: flex-end;
+        margin-bottom: 1.2rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__section-head h2 {
@@ -1081,6 +1082,7 @@
 
       .section-{{ section.id }} .f2d2-realizations__filters {
         gap: 0.8rem;
+        margin-bottom: 1.2rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__filters button {
@@ -1102,8 +1104,8 @@
         grid-template-columns: none;
         grid-template-rows: repeat(2, minmax(0, 1fr));
         gap: 1rem;
-        height: 43rem;
-        min-height: 43rem;
+        height: 100%;
+        min-height: 0;
         will-change: transform;
         transition: transform 260ms ease;
       }
@@ -1117,6 +1119,10 @@
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
+        display: none;
+      }
+
+      .section-{{ section.id }} #gallery .f2d2-realizations__load {
         display: none;
       }
 
