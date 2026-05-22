@@ -302,7 +302,7 @@
       <button type="button" class="f2d2-featured-lightbox__overlay" data-f2d2-featured-lightbox-close aria-label="Fermer l'image"></button>
       <div class="f2d2-featured-lightbox__panel" role="dialog" aria-modal="true" aria-label="Image du projet">
         <button type="button" class="f2d2-featured-lightbox__close" data-f2d2-featured-lightbox-close-button data-f2d2-featured-lightbox-close aria-label="Fermer">&times;</button>
-        <img src="" alt="" data-f2d2-featured-lightbox-image>
+        <img src="{{ smokehouse_image }}" alt="" width="1586" height="992" loading="lazy" data-f2d2-featured-lightbox-image>
       </div>
     </div>
   </section>
@@ -1584,7 +1584,6 @@
 
         const closeFeaturedLightbox = () => {
           featuredLightbox.hidden = true;
-          featuredLightboxImage.removeAttribute('src');
           document.documentElement.classList.remove('f2d2-featured-lightbox-open');
           if (previousFeaturedFocus && previousFeaturedFocus.focus) previousFeaturedFocus.focus();
         };
