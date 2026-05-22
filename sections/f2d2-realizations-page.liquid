@@ -301,7 +301,7 @@
     <div class="f2d2-featured-lightbox" data-f2d2-featured-lightbox hidden>
       <button type="button" class="f2d2-featured-lightbox__overlay" data-f2d2-featured-lightbox-close aria-label="Fermer l'image"></button>
       <div class="f2d2-featured-lightbox__panel" role="dialog" aria-modal="true" aria-label="Image du projet">
-        <button type="button" class="f2d2-featured-lightbox__close" data-f2d2-featured-lightbox-close aria-label="Fermer">&times;</button>
+        <button type="button" class="f2d2-featured-lightbox__close" data-f2d2-featured-lightbox-close-button data-f2d2-featured-lightbox-close aria-label="Fermer">&times;</button>
         <img src="" alt="" data-f2d2-featured-lightbox-image>
       </div>
     </div>
@@ -310,6 +310,10 @@
   <style>
     html {
       scroll-behavior: smooth;
+    }
+
+    html.f2d2-featured-lightbox-open {
+      overflow: hidden;
     }
 
     .section-{{ section.id }} {
@@ -546,7 +550,8 @@
     }
 
     .section-{{ section.id }} .f2d2-realizations__section-head a,
-    .section-{{ section.id }} .f2d2-realizations__project-copy a {
+    .section-{{ section.id }} .f2d2-realizations__project-copy a,
+    .section-{{ section.id }} .f2d2-realizations__project-action {
       color: #39a4ff;
       font-size: 1.25rem;
       font-weight: 800;
@@ -569,6 +574,28 @@
       border: 1px solid var(--f2d2-line);
       border-radius: 0.8rem;
       background: rgba(255, 255, 255, 0.045);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project {
+      display: block;
+      width: 100%;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project:hover,
+    .section-{{ section.id }} .f2d2-realizations__project:focus-visible {
+      transform: translateY(-0.2rem);
+      border-color: rgba(16, 132, 255, 0.82);
+      box-shadow: 0 0 0 1px rgba(16, 132, 255, 0.34), 0 1.8rem 4rem rgba(0, 0, 0, 0.22);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project:focus-visible {
+      outline: none;
     }
 
     .section-{{ section.id }} .f2d2-realizations__project--wide {
@@ -693,9 +720,67 @@
         2px 2px 8px rgba(0, 0, 0, 0.55);
     }
 
-    .section-{{ section.id }} .f2d2-realizations__project-copy a {
+    .section-{{ section.id }} .f2d2-realizations__project-copy a,
+    .section-{{ section.id }} .f2d2-realizations__project-action {
       display: inline-block;
       margin-top: 3rem;
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox[hidden] {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000001;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox__overlay {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(0, 0, 0, 0.82);
+      cursor: zoom-out;
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox__panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 128rem);
+      max-height: min(86svh, 86rem);
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox__panel img {
+      display: block;
+      width: 100%;
+      max-height: min(86svh, 86rem);
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.8rem;
+      background: #020609;
+      box-shadow: 0 2.8rem 8rem rgba(0, 0, 0, 0.45);
+    }
+
+    .section-{{ section.id }} .f2d2-featured-lightbox__close {
+      position: absolute;
+      top: -1.4rem;
+      right: -1.4rem;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 4.2rem;
+      height: 4.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(4, 10, 16, 0.96);
+      font-size: 2.8rem;
+      line-height: 1;
+      cursor: pointer;
     }
 
     .section-{{ section.id }} .f2d2-realizations__filters {
@@ -1304,6 +1389,10 @@
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
 
+      const featuredLightbox = section.querySelector('[data-f2d2-featured-lightbox]');
+      const featuredLightboxImage = section.querySelector('[data-f2d2-featured-lightbox-image]');
+      const featuredLightboxOpenButtons = Array.from(section.querySelectorAll('[data-f2d2-featured-lightbox-open]'));
+      const featuredLightboxCloseButtons = Array.from(section.querySelectorAll('[data-f2d2-featured-lightbox-close]'));
       const filterButtons = Array.from(section.querySelectorAll('.f2d2-realizations__filters button'));
       const filterToggle = section.querySelector('[data-f2d2-gallery-filter-toggle]');
       const filterLabel = section.querySelector('[data-f2d2-gallery-filter-label]');
@@ -1489,6 +1578,41 @@
 
       prev.addEventListener('click', () => goToPage(-1));
       next.addEventListener('click', () => goToPage(1));
+
+      if (featuredLightbox && featuredLightboxImage) {
+        let previousFeaturedFocus = null;
+
+        const closeFeaturedLightbox = () => {
+          featuredLightbox.hidden = true;
+          featuredLightboxImage.removeAttribute('src');
+          document.documentElement.classList.remove('f2d2-featured-lightbox-open');
+          if (previousFeaturedFocus && previousFeaturedFocus.focus) previousFeaturedFocus.focus();
+        };
+
+        const openFeaturedLightbox = (imageUrl, trigger) => {
+          if (!imageUrl) return;
+          previousFeaturedFocus = trigger;
+          featuredLightboxImage.src = imageUrl;
+          featuredLightbox.hidden = false;
+          document.documentElement.classList.add('f2d2-featured-lightbox-open');
+          const closeButton = featuredLightbox.querySelector('[data-f2d2-featured-lightbox-close-button]');
+          if (closeButton) closeButton.focus();
+        };
+
+        featuredLightboxOpenButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            openFeaturedLightbox(button.dataset.f2d2FeaturedLightboxImage, button);
+          });
+        });
+
+        featuredLightboxCloseButtons.forEach((button) => {
+          button.addEventListener('click', closeFeaturedLightbox);
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !featuredLightbox.hidden) closeFeaturedLightbox();
+        });
+      }
 
       const closeFilterMenu = () => {
         if (!filterToggle || !filterMenu) return;
