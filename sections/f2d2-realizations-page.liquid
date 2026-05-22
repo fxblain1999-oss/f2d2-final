@@ -3,6 +3,7 @@
     assign hero_image = 'f2d2-realizations-hero-wide.png' | asset_url
     assign merch_image = 'f2d2-hero-merch.png' | asset_url
     assign smokehouse_image = 'f2d2-project-smokehouse-bbq.png' | asset_url
+    assign team_collection_image = 'f2d2-project-team-collection.png' | asset_url
     assign web_image = 'f2d2-web-hero-crop.png' | asset_url
     assign logo_image = 'logo_f2d2.png' | asset_url
   -%}
@@ -22,9 +23,9 @@
       <div class="f2d2-realizations__wrap f2d2-realizations__hero-inner">
         <div class="f2d2-realizations__hero-copy">
           <p class="f2d2-realizations__eyebrow">Des idees. Du style. Du resultat.</p>
-          <h1><span>Nos</span><span>projets</span><span>realises</span></h1>
+          <h1><span>Nos</span><span>projets</span><span>réalisés</span></h1>
           <p>
-            Decouvrez quelques projets realises pour nos clients : vetements,
+            Decouvrez quelques projets realisés pour nos clients : vêtements,
             impression, accessoires promotionnels et branding personnalise.
           </p>
           <div class="f2d2-realizations__actions">
@@ -66,10 +67,18 @@
             </div>
           </article>
           <article class="f2d2-realizations__project">
-            <div class="f2d2-realizations__project-image f2d2-realizations__project-image--web"></div>
+            <div class="f2d2-realizations__project-image f2d2-realizations__project-image--team">
+              <img
+                src="{{ team_collection_image }}"
+                alt=""
+                loading="lazy"
+                width="1675"
+                height="939"
+              >
+            </div>
             <div class="f2d2-realizations__project-copy">
               <small>Equipe sportive</small>
-              <h3>Collection personnalisee</h3>
+              <h3>Collection<br>personnalisée</h3>
               <p>Chandails, hoodies et accessoires personnalises pour une equipe qui se demarque.</p>
               <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
             </div>
