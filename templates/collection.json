@@ -13,6 +13,10 @@
       "type": "f2d2-realizations-page",
       "settings": {}
     },
+    "clothing_quote_modal": {
+      "type": "f2d2-clothing-quote-modal",
+      "settings": {}
+    },
     "breadcrumbs_Gxg9wp": {
       "type": "breadcrumbs",
       "settings": {
@@ -236,6 +240,7 @@
   },
   "order": [
     "f2d2_realizations",
+    "clothing_quote_modal",
     "breadcrumbs_Gxg9wp",
     "banner",
     "custom_content_RecVe9",
