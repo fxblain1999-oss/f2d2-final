@@ -98,6 +98,17 @@
           <button type="button">Signalisation</button>
           <button type="button">Evenementiel</button>
         </div>
+        <div class="f2d2-realizations__filter-select">
+          <label for="f2d2-gallery-filter-{{ section.id }}">Filtrer les projets</label>
+          <select id="f2d2-gallery-filter-{{ section.id }}" data-f2d2-gallery-filter-select>
+            <option selected>Tous</option>
+            <option>Vetements</option>
+            <option>Stickers & impressions</option>
+            <option>Accessoires</option>
+            <option>Signalisation</option>
+            <option>Evenementiel</option>
+          </select>
+        </div>
         <div class="f2d2-realizations__gallery-shell" data-f2d2-gallery-shell>
           <button type="button" class="f2d2-realizations__gallery-arrow f2d2-realizations__gallery-arrow--prev" data-f2d2-gallery-prev aria-label="Projets precedents">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
@@ -670,6 +681,10 @@
       background: var(--f2d2-blue);
     }
 
+    .section-{{ section.id }} .f2d2-realizations__filter-select {
+      display: none;
+    }
+
     .section-{{ section.id }} .f2d2-realizations__gallery-shell {
       position: relative;
       flex: 1 1 auto;
@@ -1079,19 +1094,57 @@
       }
 
       .section-{{ section.id }} .f2d2-realizations__section-head h2 {
-        font-size: 1.9rem;
+        font-size: 2.35rem;
       }
 
       .section-{{ section.id }} .f2d2-realizations__filters {
-        gap: 0.8rem;
-        justify-content: center;
-        margin-bottom: 1.2rem;
+        display: none;
       }
 
-      .section-{{ section.id }} .f2d2-realizations__filters button {
-        min-height: 3.4rem;
-        padding: 0 1.3rem;
-        font-size: 1.05rem;
+      .section-{{ section.id }} .f2d2-realizations__filter-select {
+        position: relative;
+        display: block;
+        width: min(100%, 27rem);
+        margin: 0 auto 1.2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-select label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-select::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 1.6rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-right: 2px solid rgba(255, 255, 255, 0.74);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.74);
+        transform: translateY(-65%) rotate(45deg);
+        pointer-events: none;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-select select {
+        width: 100%;
+        min-height: 4.2rem;
+        padding: 0 4.2rem 0 1.6rem;
+        border: 1px solid rgba(16, 132, 255, 0.45);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(16, 132, 255, 0.16);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        font: inherit;
+        font-size: 1.2rem;
+        font-weight: 900;
+        text-align: center;
+        text-align-last: center;
+        appearance: none;
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery-shell {
@@ -1151,6 +1204,8 @@
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
 
+      const filterButtons = Array.from(section.querySelectorAll('.f2d2-realizations__filters button'));
+      const filterSelect = section.querySelector('[data-f2d2-gallery-filter-select]');
       const originalTiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
       let tiles = originalTiles.slice();
       let currentPage = 0;
@@ -1300,6 +1355,24 @@
 
       prev.addEventListener('click', () => goToPage(-1));
       next.addEventListener('click', () => goToPage(1));
+
+      const setActiveFilter = (value) => {
+        filterButtons.forEach((button) => {
+          button.classList.toggle('is-active', button.textContent.trim() === value);
+        });
+
+        if (filterSelect && filterSelect.value !== value) {
+          filterSelect.value = value;
+        }
+      };
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => setActiveFilter(button.textContent.trim()));
+      });
+
+      if (filterSelect) {
+        filterSelect.addEventListener('change', () => setActiveFilter(filterSelect.value));
+      }
 
       shell.addEventListener('touchstart', (event) => {
         if (!mobileQuery.matches || !event.touches.length) return;
