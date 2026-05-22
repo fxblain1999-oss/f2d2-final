@@ -1148,6 +1148,8 @@
       let mobileTrackPage = 1;
       let mobileReady = false;
       let touchStartX = 0;
+      let touchStartY = 0;
+      let touchSwipeAxis = null;
       const mobileQuery = window.matchMedia('(max-width: 560px)');
 
       const pageSizeForViewport = () => {
@@ -1291,14 +1293,47 @@
       next.addEventListener('click', () => goToPage(1));
 
       shell.addEventListener('touchstart', (event) => {
+        if (!mobileQuery.matches || !event.touches.length) return;
+
         touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+        touchSwipeAxis = null;
       }, { passive: true });
 
+      shell.addEventListener('touchmove', (event) => {
+        if (!mobileQuery.matches || !event.touches.length) return;
+
+        const deltaX = event.touches[0].clientX - touchStartX;
+        const deltaY = event.touches[0].clientY - touchStartY;
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        if (!touchSwipeAxis && Math.max(absX, absY) > 10) {
+          touchSwipeAxis = absX > absY * 1.15 ? 'x' : 'y';
+        }
+
+        if (touchSwipeAxis === 'x') {
+          event.preventDefault();
+        }
+      }, { passive: false });
+
       shell.addEventListener('touchend', (event) => {
+        if (!mobileQuery.matches || !event.changedTouches.length) return;
+
         const touchEndX = event.changedTouches[0].clientX;
-        const delta = touchEndX - touchStartX;
-        if (Math.abs(delta) < 48) return;
-        goToPage(delta < 0 ? 1 : -1);
+        const touchEndY = event.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const isHorizontalSwipe = touchSwipeAxis === 'x' || Math.abs(deltaX) > Math.abs(deltaY) * 1.15;
+
+        touchSwipeAxis = null;
+
+        if (!isHorizontalSwipe || Math.abs(deltaX) < 48) return;
+        goToPage(deltaX < 0 ? 1 : -1);
+      }, { passive: true });
+
+      shell.addEventListener('touchcancel', () => {
+        touchSwipeAxis = null;
       }, { passive: true });
 
       gallery.addEventListener('transitionend', () => {
