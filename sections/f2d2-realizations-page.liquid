@@ -49,7 +49,13 @@
           <a href="#gallery">Voir tous les projets <span aria-hidden="true">-></span></a>
         </div>
         <div class="f2d2-realizations__featured">
-          <article class="f2d2-realizations__project f2d2-realizations__project--wide">
+          <button
+            type="button"
+            class="f2d2-realizations__project f2d2-realizations__project--wide"
+            data-f2d2-featured-lightbox-open
+            data-f2d2-featured-lightbox-image="{{ smokehouse_image }}"
+            aria-label="Ouvrir l'image du projet Branding complet"
+          >
             <div class="f2d2-realizations__project-image f2d2-realizations__project-image--smokehouse">
               <img
                 src="{{ smokehouse_image }}"
@@ -63,10 +69,16 @@
               <small>Restaurant</small>
               <h3>Branding complet</h3>
               <p>Uniformes, menus et affichage complet pour une image de marque professionnelle.</p>
-              <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
+              <span class="f2d2-realizations__project-action">Voir le projet <span aria-hidden="true">-></span></span>
             </div>
-          </article>
-          <article class="f2d2-realizations__project f2d2-realizations__project--team">
+          </button>
+          <button
+            type="button"
+            class="f2d2-realizations__project f2d2-realizations__project--team"
+            data-f2d2-featured-lightbox-open
+            data-f2d2-featured-lightbox-image="{{ team_collection_image }}"
+            aria-label="Ouvrir l'image du projet Collection personnalisee"
+          >
             <div class="f2d2-realizations__project-image f2d2-realizations__project-image--team">
               <img
                 src="{{ team_collection_image }}"
@@ -80,9 +92,9 @@
               <small>Equipe sportive</small>
               <h3><span>Collection</span><span>personnalisée</span></h3>
               <p>Chandails, hoodies et accessoires personnalises pour une equipe qui se demarque.</p>
-              <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
+              <span class="f2d2-realizations__project-action">Voir le projet <span aria-hidden="true">-></span></span>
             </div>
-          </article>
+          </button>
         </div>
       </section>
 
@@ -285,6 +297,14 @@
         </div>
       </section>
     </div>
+
+    <div class="f2d2-featured-lightbox" data-f2d2-featured-lightbox hidden>
+      <button type="button" class="f2d2-featured-lightbox__overlay" data-f2d2-featured-lightbox-close aria-label="Fermer l'image"></button>
+      <div class="f2d2-featured-lightbox__panel" role="dialog" aria-modal="true" aria-label="Image du projet">
+        <button type="button" class="f2d2-featured-lightbox__close" data-f2d2-featured-lightbox-close aria-label="Fermer">&times;</button>
+        <img src="" alt="" data-f2d2-featured-lightbox-image>
+      </div>
+    </div>
   </section>
 
   <style>
@@ -410,7 +430,7 @@
     .section-{{ section.id }} h1 {
       max-width: 78rem;
       font-size: clamp(5.2rem, 7vw, 10.2rem);
-      line-height: 1;
+      line-height: 0.92;
       font-weight: 900;
       text-transform: uppercase;
       color: #fff;
