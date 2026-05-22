@@ -1282,8 +1282,10 @@
           }
 
           const realMobileTiles = mobileTiles();
-          const prependTiles = realMobileTiles.slice(-pageSize).map((tile) => tile.cloneNode(true));
-          const appendTiles = realMobileTiles.slice(0, pageSize).map((tile) => tile.cloneNode(true));
+          const clonePageCount = Math.min(Math.max(Math.ceil(originalTiles.length / pageSize), 1), 2);
+          const cloneTileCount = pageSize * clonePageCount;
+          const prependTiles = realMobileTiles.slice(-cloneTileCount).map((tile) => tile.cloneNode(true));
+          const appendTiles = realMobileTiles.slice(0, cloneTileCount).map((tile) => tile.cloneNode(true));
 
           prependTiles.reverse().forEach((clone) => {
             clone.dataset.f2d2GalleryClone = 'true';
@@ -1299,7 +1301,7 @@
             gallery.appendChild(clone);
           });
 
-          mobileTrackPage = 1;
+          mobileTrackPage = clonePageCount;
           mobileReady = true;
         }
 
@@ -1310,6 +1312,12 @@
         const pageSize = pageSizeForViewport();
         return Math.max(Math.ceil(originalTiles.length / pageSize), 1);
       };
+
+      const mobileClonePageCount = () => Math.min(mobilePageCount(), 2);
+
+      const mobileRealStartPage = () => mobileClonePageCount();
+
+      const mobileRealEndPage = () => mobileRealStartPage() + mobilePageCount() - 1;
 
       const mobilePageOffset = () => {
         const pageSize = pageSizeForViewport();
@@ -1339,12 +1347,11 @@
         if (!mobileQuery.matches) return;
 
         window.clearTimeout(mobileLoopTimer);
-        const pageCount = mobilePageCount();
-        if (mobileTrackPage > pageCount) {
-          mobileTrackPage = 1;
+        if (mobileTrackPage > mobileRealEndPage()) {
+          mobileTrackPage = mobileRealStartPage();
           setMobileTransform(false);
-        } else if (mobileTrackPage < 1) {
-          mobileTrackPage = pageCount;
+        } else if (mobileTrackPage < mobileRealStartPage()) {
+          mobileTrackPage = mobileRealEndPage();
           setMobileTransform(false);
         }
         mobileAnimating = false;
