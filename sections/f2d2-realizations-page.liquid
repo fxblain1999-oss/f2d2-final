@@ -1089,9 +1089,35 @@
         font-size: 1.05rem;
       }
 
+      .section-{{ section.id }} .f2d2-realizations__gallery-shell {
+        margin-inline: -1rem;
+        padding-inline: 1rem;
+        overflow: hidden;
+      }
+
       .section-{{ section.id }} .f2d2-realizations__gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% - 4rem) / 2);
+        grid-template-columns: none;
         grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        height: 43rem;
+        min-height: 43rem;
+        will-change: transform;
+        transition: transform 260ms ease;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__tile {
+        min-height: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__tile.is-hidden {
+        display: block;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__gallery-arrow {
+        display: none;
       }
 
       .section-{{ section.id }} .f2d2-realizations__project-copy {
@@ -1119,17 +1145,42 @@
       const tiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
       let currentPage = 0;
       let touchStartX = 0;
+      const mobileQuery = window.matchMedia('(max-width: 560px)');
 
       const pageSizeForViewport = () => {
-        if (window.matchMedia('(max-width: 560px)').matches) return 4;
+        if (mobileQuery.matches) return 4;
         if (window.matchMedia('(max-width: 989px)').matches) return 6;
         return 10;
+      };
+
+      const mobilePageOffset = () => {
+        const pageSize = pageSizeForViewport();
+        const firstTile = tiles[0];
+        const pageTile = tiles[pageSize];
+        if (!firstTile || !pageTile) return gallery.clientWidth;
+        return pageTile.offsetLeft - firstTile.offsetLeft;
       };
 
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
         const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
-        currentPage = Math.min(currentPage, pageCount - 1);
+
+        if (mobileQuery.matches) {
+          currentPage = ((currentPage % pageCount) + pageCount) % pageCount;
+          gallery.style.transform = `translateX(-${currentPage * mobilePageOffset()}px)`;
+          tiles.forEach((tile) => {
+            tile.classList.remove('is-hidden');
+            tile.setAttribute('aria-hidden', 'false');
+            tile.tabIndex = 0;
+          });
+
+          prev.hidden = true;
+          next.hidden = true;
+          return;
+        }
+
+        currentPage = Math.min(Math.max(currentPage, 0), pageCount - 1);
+        gallery.style.transform = '';
 
         tiles.forEach((tile, index) => {
           const isVisible = index >= currentPage * pageSize && index < (currentPage + 1) * pageSize;
