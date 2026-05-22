@@ -99,15 +99,17 @@
           <button type="button">Evenementiel</button>
         </div>
         <div class="f2d2-realizations__filter-select">
-          <label for="f2d2-gallery-filter-{{ section.id }}">Filtrer les projets</label>
-          <select id="f2d2-gallery-filter-{{ section.id }}" data-f2d2-gallery-filter-select>
-            <option selected>Tous</option>
-            <option>Vetements</option>
-            <option>Stickers & impressions</option>
-            <option>Accessoires</option>
-            <option>Signalisation</option>
-            <option>Evenementiel</option>
-          </select>
+          <button type="button" aria-expanded="false" data-f2d2-gallery-filter-toggle>
+            <span data-f2d2-gallery-filter-label>Tous</span>
+          </button>
+          <div class="f2d2-realizations__filter-menu" data-f2d2-gallery-filter-menu hidden>
+            <button type="button" class="is-active">Tous</button>
+            <button type="button">Vetements</button>
+            <button type="button">Stickers & impressions</button>
+            <button type="button">Accessoires</button>
+            <button type="button">Signalisation</button>
+            <button type="button">Evenementiel</button>
+          </div>
         </div>
         <div class="f2d2-realizations__gallery-shell" data-f2d2-gallery-shell>
           <button type="button" class="f2d2-realizations__gallery-arrow f2d2-realizations__gallery-arrow--prev" data-f2d2-gallery-prev aria-label="Projets precedents">
@@ -1104,23 +1106,15 @@
       .section-{{ section.id }} .f2d2-realizations__filter-select {
         position: relative;
         display: block;
-        width: min(100%, 27rem);
+        z-index: 5;
+        width: min(100%, 28rem);
         margin: 0 auto 1.2rem;
-      }
-
-      .section-{{ section.id }} .f2d2-realizations__filter-select label {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
       }
 
       .section-{{ section.id }} .f2d2-realizations__filter-select::after {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 2.1rem;
         right: 1.6rem;
         width: 0.8rem;
         height: 0.8rem;
@@ -1130,7 +1124,7 @@
         pointer-events: none;
       }
 
-      .section-{{ section.id }} .f2d2-realizations__filter-select select {
+      .section-{{ section.id }} .f2d2-realizations__filter-select > button {
         width: 100%;
         min-height: 4.2rem;
         padding: 0 4.2rem 0 1.6rem;
@@ -1139,12 +1133,43 @@
         color: #fff;
         background: rgba(16, 132, 255, 0.16);
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-        font: inherit;
         font-size: 1.2rem;
         font-weight: 900;
         text-align: center;
-        text-align-last: center;
-        appearance: none;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-menu {
+        position: absolute;
+        top: calc(100% + 0.6rem);
+        left: 0;
+        right: 0;
+        display: grid;
+        gap: 0.35rem;
+        padding: 0.6rem;
+        border: 1px solid rgba(16, 132, 255, 0.42);
+        border-radius: 1.2rem;
+        background: rgba(5, 16, 26, 0.98);
+        box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.42);
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-menu[hidden] {
+        display: none;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-menu button {
+        min-height: 3.6rem;
+        border: 0;
+        border-radius: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        background: transparent;
+        font-size: 1.12rem;
+        font-weight: 850;
+        text-align: center;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__filter-menu button.is-active {
+        color: #fff;
+        background: rgba(16, 132, 255, 0.72);
       }
 
       .section-{{ section.id }} .f2d2-realizations__gallery-shell {
@@ -1205,7 +1230,10 @@
       if (!shell || !gallery || !prev || !next) return;
 
       const filterButtons = Array.from(section.querySelectorAll('.f2d2-realizations__filters button'));
-      const filterSelect = section.querySelector('[data-f2d2-gallery-filter-select]');
+      const filterToggle = section.querySelector('[data-f2d2-gallery-filter-toggle]');
+      const filterLabel = section.querySelector('[data-f2d2-gallery-filter-label]');
+      const filterMenu = section.querySelector('[data-f2d2-gallery-filter-menu]');
+      const filterMenuButtons = filterMenu ? Array.from(filterMenu.querySelectorAll('button')) : [];
       const originalTiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
       let tiles = originalTiles.slice();
       let currentPage = 0;
@@ -1356,13 +1384,23 @@
       prev.addEventListener('click', () => goToPage(-1));
       next.addEventListener('click', () => goToPage(1));
 
+      const closeFilterMenu = () => {
+        if (!filterToggle || !filterMenu) return;
+        filterToggle.setAttribute('aria-expanded', 'false');
+        filterMenu.hidden = true;
+      };
+
       const setActiveFilter = (value) => {
         filterButtons.forEach((button) => {
           button.classList.toggle('is-active', button.textContent.trim() === value);
         });
 
-        if (filterSelect && filterSelect.value !== value) {
-          filterSelect.value = value;
+        filterMenuButtons.forEach((button) => {
+          button.classList.toggle('is-active', button.textContent.trim() === value);
+        });
+
+        if (filterLabel) {
+          filterLabel.textContent = value;
         }
       };
 
@@ -1370,8 +1408,28 @@
         button.addEventListener('click', () => setActiveFilter(button.textContent.trim()));
       });
 
-      if (filterSelect) {
-        filterSelect.addEventListener('change', () => setActiveFilter(filterSelect.value));
+      if (filterToggle && filterMenu) {
+        filterToggle.addEventListener('click', () => {
+          const isOpen = filterToggle.getAttribute('aria-expanded') === 'true';
+          filterToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          filterMenu.hidden = isOpen;
+        });
+
+        filterMenuButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            setActiveFilter(button.textContent.trim());
+            closeFilterMenu();
+          });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (event.target.closest('.f2d2-realizations__filter-select')) return;
+          closeFilterMenu();
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeFilterMenu();
+        });
       }
 
       shell.addEventListener('touchstart', (event) => {
