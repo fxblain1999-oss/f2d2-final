@@ -66,7 +66,7 @@
               <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
             </div>
           </article>
-          <article class="f2d2-realizations__project">
+          <article class="f2d2-realizations__project f2d2-realizations__project--team">
             <div class="f2d2-realizations__project-image f2d2-realizations__project-image--team">
               <img
                 src="{{ team_collection_image }}"
@@ -78,7 +78,7 @@
             </div>
             <div class="f2d2-realizations__project-copy">
               <small>Equipe sportive</small>
-              <h3>Collection<br>personnalisée</h3>
+              <h3><span>Collection</span><span>personnalisée</span></h3>
               <p>Chandails, hoodies et accessoires personnalises pour une equipe qui se demarque.</p>
               <a href="/pages/contact">Voir le projet <span aria-hidden="true">-></span></a>
             </div>
@@ -580,6 +580,15 @@
       line-height: 0.98;
       font-weight: 900;
       text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project--team .f2d2-realizations__project-copy h3 {
+      font-size: clamp(2.8rem, 2.45vw, 3.7rem);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__project--team .f2d2-realizations__project-copy h3 span {
+      display: block;
+      white-space: nowrap;
     }
 
     .section-{{ section.id }} .f2d2-realizations__project-copy p {
