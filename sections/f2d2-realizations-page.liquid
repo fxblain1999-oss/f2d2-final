@@ -1243,6 +1243,8 @@
       let mobileLoopTimer = null;
       let touchStartX = 0;
       let touchStartY = 0;
+      let touchStartTranslateX = 0;
+      let touchDeltaX = 0;
       let touchSwipeAxis = null;
       const mobileQuery = window.matchMedia('(max-width: 560px)');
 
@@ -1333,14 +1335,15 @@
         return rootFontSize * 2;
       };
 
-      const setMobileTransform = (animate = true) => {
-        gallery.style.transition = animate ? '' : 'none';
-        gallery.style.transform = `translateX(-${(mobileTrackPage * mobilePageOffset()) - mobilePeek()}px)`;
+      const mobileTranslateX = () => -((mobileTrackPage * mobilePageOffset()) - mobilePeek());
 
-        if (!animate) {
-          gallery.offsetHeight;
-          gallery.style.transition = '';
-        }
+      const setMobileTranslate = (translateX, animate = true) => {
+        gallery.style.transition = animate ? '' : 'none';
+        gallery.style.transform = `translateX(${translateX}px)`;
+      };
+
+      const setMobileTransform = (animate = true) => {
+        setMobileTranslate(mobileTranslateX(), animate);
       };
 
       const finishMobileLoop = () => {
@@ -1463,8 +1466,12 @@
       shell.addEventListener('touchstart', (event) => {
         if (!mobileQuery.matches || !event.touches.length) return;
 
+        if (mobileAnimating) finishMobileLoop();
+        window.clearTimeout(mobileLoopTimer);
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
+        touchStartTranslateX = mobileTranslateX();
+        touchDeltaX = 0;
         touchSwipeAxis = null;
       }, { passive: true });
 
@@ -1482,29 +1489,41 @@
 
         if (touchSwipeAxis === 'x') {
           event.preventDefault();
+          touchDeltaX = deltaX;
+          setMobileTranslate(touchStartTranslateX + deltaX, false);
         }
       }, { passive: false });
 
       shell.addEventListener('touchend', (event) => {
         if (!mobileQuery.matches || !event.changedTouches.length) return;
 
-        const touchEndX = event.changedTouches[0].clientX;
         const touchEndY = event.changedTouches[0].clientY;
-        const deltaX = touchEndX - touchStartX;
+        const deltaX = touchDeltaX || event.changedTouches[0].clientX - touchStartX;
         const deltaY = touchEndY - touchStartY;
         const isHorizontalSwipe = touchSwipeAxis === 'x' || Math.abs(deltaX) > Math.abs(deltaY) * 1.15;
 
         touchSwipeAxis = null;
+        touchDeltaX = 0;
 
-        if (!isHorizontalSwipe || Math.abs(deltaX) < 48) return;
-        goToPage(deltaX < 0 ? 1 : -1);
+        if (!isHorizontalSwipe) return;
+
+        mobileAnimating = true;
+        if (Math.abs(deltaX) >= Math.min(60, mobilePageOffset() * 0.18)) {
+          mobileTrackPage += deltaX < 0 ? 1 : -1;
+        }
+        setMobileTransform(true);
+        window.clearTimeout(mobileLoopTimer);
+        mobileLoopTimer = window.setTimeout(finishMobileLoop, 360);
       }, { passive: true });
 
       shell.addEventListener('touchcancel', () => {
         touchSwipeAxis = null;
+        touchDeltaX = 0;
+        if (mobileQuery.matches) setMobileTransform(true);
       }, { passive: true });
 
-      gallery.addEventListener('transitionend', () => {
+      gallery.addEventListener('transitionend', (event) => {
+        if (event.target !== gallery) return;
         finishMobileLoop();
       });
 
