@@ -151,34 +151,46 @@
         </div>
         <div class="f2d2-realizations__categories">
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 12 6l4-2 4 4-3 3v9H7v-9L4 8l4-4Z"/><path d="M10 5c.5 1.3 3.5 1.3 4 0"/></svg></span>
-            <h3>Vetements personnalises</h3>
-            <p>T-shirts, hoodies et uniformes.</p>
+            <a href="/pages/vetements" aria-label="Vetements personnalises">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 12 6l4-2 4 4-3 3v9H7v-9L4 8l4-4Z"/><path d="M10 5c.5 1.3 3.5 1.3 4 0"/></svg></span>
+              <h3>Vetements personnalises</h3>
+              <p>T-shirts, hoodies et uniformes.</p>
+            </a>
           </article>
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13 13 20 4 11V4h7l9 9Z"/><path d="M7.5 7.5h.01"/></svg></span>
-            <h3>Stickers UV DTF</h3>
-            <p>Impression durable et branding premium.</p>
+            <a href="/pages/uv-printing" aria-label="Stickers UV DTF">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13 13 20 4 11V4h7l9 9Z"/><path d="M7.5 7.5h.01"/></svg></span>
+              <h3>Stickers UV DTF</h3>
+              <p>Impression durable et branding premium.</p>
+            </a>
           </article>
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V5l6 3 4-3 6 3v15l-6-3-4 3-6-3Z"/><path d="M10 8v15"/><path d="M14 5v15"/></svg></span>
-            <h3>Signalisation & bannieres</h3>
-            <p>Affichage commercial et evenementiel.</p>
+            <a href="/pages/gravure-decoupe-laser" aria-label="Signalisation et bannieres">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V5l6 3 4-3 6 3v15l-6-3-4 3-6-3Z"/><path d="M10 8v15"/><path d="M14 5v15"/></svg></span>
+              <h3>Signalisation & bannieres</h3>
+              <p>Affichage commercial et evenementiel.</p>
+            </a>
           </article>
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10l1 11H6l1-11Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span>
-            <h3>Accessoires promotionnels</h3>
-            <p>Objets corporatifs et goodies.</p>
+            <a href="{{ routes.collections_url }}/accessoire" aria-label="Accessoires promotionnels">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10l1 11H6l1-11Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span>
+              <h3>Accessoires promotionnels</h3>
+              <p>Objets corporatifs et goodies.</p>
+            </a>
           </article>
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 3 6 5 6 10a6 6 0 0 1-12 0c0-5 3-7 6-10Z"/><path d="M9 14c1.5 1 4.5 1 6 0"/></svg></span>
-            <h3>CRÉATION NUMÉRIQUE</h3>
-            <p>Design web, visuels et contenu digital.</p>
+            <a href="/pages/creation-de-sites-webs" aria-label="Creation numerique">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v10H4z"/><path d="M8 20h8"/><path d="M12 16.5V20"/></svg></span>
+              <h3>CRÉATION NUMÉRIQUE</h3>
+              <p>Design web, visuels et contenu digital.</p>
+            </a>
           </article>
           <article>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M17 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M3 21v-2a4 4 0 0 1 8 0v2"/><path d="M13 21v-2a4 4 0 0 1 8 0v2"/></svg></span>
-            <h3>Projets evenementiels</h3>
-            <p>Kiosques, festivals et evenements.</p>
+            <a href="/pages/nos-services" aria-label="Projets evenementiels">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M17 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M3 21v-2a4 4 0 0 1 8 0v2"/><path d="M13 21v-2a4 4 0 0 1 8 0v2"/></svg></span>
+              <h3>Projets evenementiels</h3>
+              <p>Kiosques, festivals et evenements.</p>
+            </a>
           </article>
         </div>
       </section>
@@ -802,8 +814,20 @@
 
     .section-{{ section.id }} .f2d2-realizations__categories article {
       min-height: auto;
-      padding: 2.6rem 2rem;
       text-align: center;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories article > a {
+      display: block;
+      height: 100%;
+      padding: 2.6rem 2rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__categories article:hover {
+      border-color: rgba(16, 132, 255, 0.55);
+      background: rgba(16, 132, 255, 0.08);
     }
 
     .section-{{ section.id }} .f2d2-realizations__categories span {
@@ -1213,6 +1237,10 @@
       }
 
       .section-{{ section.id }} .f2d2-realizations__categories article {
+        padding: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-realizations__categories article > a {
         padding: 2.2rem 1.2rem;
       }
     }
