@@ -1098,7 +1098,7 @@
       .section-{{ section.id }} .f2d2-realizations__gallery {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: calc((100% - 4rem) / 2);
+        grid-auto-columns: calc((100% - 5rem) / 2);
         grid-template-columns: none;
         grid-template-rows: repeat(2, minmax(0, 1fr));
         gap: 1rem;
@@ -1142,8 +1142,11 @@
       const next = section.querySelector('[data-f2d2-gallery-next]');
       if (!shell || !gallery || !prev || !next) return;
 
-      const tiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
+      const originalTiles = Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
+      let tiles = originalTiles.slice();
       let currentPage = 0;
+      let mobileTrackPage = 1;
+      let mobileReady = false;
       let touchStartX = 0;
       const mobileQuery = window.matchMedia('(max-width: 560px)');
 
@@ -1153,25 +1156,100 @@
         return 10;
       };
 
+      const mobileTiles = () => Array.from(gallery.querySelectorAll('.f2d2-realizations__tile'));
+
+      const resetMobileClones = () => {
+        gallery.querySelectorAll('[data-f2d2-gallery-clone]').forEach((clone) => clone.remove());
+        originalTiles.forEach((tile) => {
+          tile.classList.remove('is-hidden');
+          tile.removeAttribute('data-f2d2-mobile-filler');
+        });
+        tiles = originalTiles.slice();
+        mobileReady = false;
+      };
+
+      const setupMobileClones = () => {
+        const pageSize = pageSizeForViewport();
+        const remainder = originalTiles.length % pageSize;
+        const fillerCount = remainder === 0 ? 0 : pageSize - remainder;
+
+        if (!mobileReady) {
+          resetMobileClones();
+
+          for (let index = 0; index < fillerCount; index += 1) {
+            const filler = originalTiles[index % originalTiles.length].cloneNode(true);
+            filler.dataset.f2d2GalleryClone = 'true';
+            filler.dataset.f2d2MobileFiller = 'true';
+            filler.setAttribute('aria-hidden', 'true');
+            filler.tabIndex = -1;
+            gallery.appendChild(filler);
+          }
+
+          const realMobileTiles = mobileTiles();
+          const prependTiles = realMobileTiles.slice(-pageSize).map((tile) => tile.cloneNode(true));
+          const appendTiles = realMobileTiles.slice(0, pageSize).map((tile) => tile.cloneNode(true));
+
+          prependTiles.reverse().forEach((clone) => {
+            clone.dataset.f2d2GalleryClone = 'true';
+            clone.setAttribute('aria-hidden', 'true');
+            clone.tabIndex = -1;
+            gallery.insertBefore(clone, gallery.firstChild);
+          });
+
+          appendTiles.forEach((clone) => {
+            clone.dataset.f2d2GalleryClone = 'true';
+            clone.setAttribute('aria-hidden', 'true');
+            clone.tabIndex = -1;
+            gallery.appendChild(clone);
+          });
+
+          mobileTrackPage = 1;
+          mobileReady = true;
+        }
+
+        tiles = mobileTiles();
+      };
+
+      const mobilePageCount = () => {
+        const pageSize = pageSizeForViewport();
+        return Math.max(Math.ceil(originalTiles.length / pageSize), 1);
+      };
+
       const mobilePageOffset = () => {
         const pageSize = pageSizeForViewport();
-        const firstTile = tiles[0];
-        const pageTile = tiles[pageSize];
+        const mobileAllTiles = mobileTiles();
+        const firstTile = mobileAllTiles[0];
+        const pageTile = mobileAllTiles[pageSize];
         if (!firstTile || !pageTile) return gallery.clientWidth;
         return pageTile.offsetLeft - firstTile.offsetLeft;
       };
 
+      const mobilePeek = () => {
+        const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize) || 10;
+        return rootFontSize * 2;
+      };
+
+      const setMobileTransform = (animate = true) => {
+        gallery.style.transition = animate ? '' : 'none';
+        gallery.style.transform = `translateX(-${(mobileTrackPage * mobilePageOffset()) - mobilePeek()}px)`;
+
+        if (!animate) {
+          gallery.offsetHeight;
+          gallery.style.transition = '';
+        }
+      };
+
       const updateGallery = () => {
         const pageSize = pageSizeForViewport();
-        const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
 
         if (mobileQuery.matches) {
-          currentPage = ((currentPage % pageCount) + pageCount) % pageCount;
-          gallery.style.transform = `translateX(-${currentPage * mobilePageOffset()}px)`;
-          tiles.forEach((tile) => {
+          setupMobileClones();
+          setMobileTransform(false);
+          mobileTiles().forEach((tile) => {
             tile.classList.remove('is-hidden');
-            tile.setAttribute('aria-hidden', 'false');
-            tile.tabIndex = 0;
+            const isClone = tile.hasAttribute('data-f2d2-gallery-clone');
+            tile.setAttribute('aria-hidden', isClone ? 'true' : 'false');
+            tile.tabIndex = isClone ? -1 : 0;
           });
 
           prev.hidden = true;
@@ -1179,6 +1257,8 @@
           return;
         }
 
+        resetMobileClones();
+        const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
         currentPage = Math.min(Math.max(currentPage, 0), pageCount - 1);
         gallery.style.transform = '';
 
@@ -1197,6 +1277,12 @@
       };
 
       const goToPage = (direction) => {
+        if (mobileQuery.matches) {
+          mobileTrackPage += direction;
+          setMobileTransform(true);
+          return;
+        }
+
         currentPage += direction;
         updateGallery();
       };
@@ -1214,6 +1300,19 @@
         if (Math.abs(delta) < 48) return;
         goToPage(delta < 0 ? 1 : -1);
       }, { passive: true });
+
+      gallery.addEventListener('transitionend', () => {
+        if (!mobileQuery.matches) return;
+
+        const pageCount = mobilePageCount();
+        if (mobileTrackPage > pageCount) {
+          mobileTrackPage = 1;
+          setMobileTransform(false);
+        } else if (mobileTrackPage < 1) {
+          mobileTrackPage = pageCount;
+          setMobileTransform(false);
+        }
+      });
 
       updateGallery();
       window.addEventListener('resize', updateGallery, { passive: true });
