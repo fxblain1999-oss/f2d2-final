@@ -16,9 +16,14 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "f2d2_nos_creations_page": {
+      "type": "f2d2-nos-creations-page",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "f2d2_nos_creations_page"
   ]
 }

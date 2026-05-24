@@ -1,0 +1,863 @@
+{{ 'f2d2-web-hero-crop.png' | asset_url | preload_tag: as: 'image' }}
+{{ 'f2d2-realizations-hero-wide.png' | asset_url | preload_tag: as: 'image' }}
+
+{%- liquid
+  assign contact_url = '/pages/contact'
+  assign web_url = '/pages/creation-de-sites-webs'
+  assign services_url = '/pages/nos-services'
+-%}
+
+<section class="f2d2-creations-page section-{{ section.id }}" data-f2d2-creations>
+  <div class="f2d2-creations-hero">
+    <div class="f2d2-creations-hero__media" aria-hidden="true">
+      <div class="f2d2-creations-device">
+        <img src="{{ 'f2d2-web-hero-crop.png' | asset_url }}" alt="" width="1440" height="900" loading="eager">
+      </div>
+    </div>
+
+    <div class="f2d2-creations__wrap f2d2-creations-hero__inner">
+      <div class="f2d2-creations-hero__copy">
+        <p class="f2d2-creations__eyebrow">Nos creations</p>
+        <h1>Exemples de pages web <span>que nous creons</span></h1>
+        <p>
+          Chaque projet est pense pour presenter votre marque avec clarte,
+          inspirer confiance et guider vos visiteurs vers l'action.
+        </p>
+        <div class="f2d2-creations-actions">
+          <a href="{{ web_url }}" class="f2d2-creations-btn f2d2-creations-btn--ghost">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7Z"/></svg>
+            Voir presentation
+          </a>
+          <a href="{{ contact_url }}" class="f2d2-creations-btn f2d2-creations-btn--primary">
+            Contactez-moi
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="f2d2-creations__wrap f2d2-creations-content">
+    <div class="f2d2-creations-tabs" aria-label="Categories de projets">
+      <button type="button" class="is-active" data-filter="all">Tous</button>
+      <button type="button" data-filter="landing">Landing page</button>
+      <button type="button" data-filter="shop">Boutique en ligne</button>
+      <button type="button" data-filter="blog">Blog</button>
+      <button type="button" data-filter="corporate">Site corporatif</button>
+    </div>
+
+    <label class="f2d2-creations-select">
+      <span class="visually-hidden">Choisir une categorie</span>
+      <select data-f2d2-creations-select>
+        <option value="all">Tous</option>
+        <option value="landing">Landing page</option>
+        <option value="shop">Boutique en ligne</option>
+        <option value="blog">Blog</option>
+        <option value="corporate">Site corporatif</option>
+      </select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </label>
+
+    <div class="f2d2-creations-groups">
+      <section class="f2d2-creations-group" data-category="landing">
+        <div class="f2d2-creations-group__head">
+          <h2>Landing page</h2>
+          <a href="{{ contact_url }}">Voir tous <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-creations-row" data-f2d2-creations-row>
+          <article class="f2d2-creation-card f2d2-creation-card--mountain">
+            <a href="{{ contact_url }}" aria-label="Projet Aventure sans limites">
+              <span class="f2d2-creation-card__content">
+                <strong>Aventure<br>sans limites</strong>
+                <small>Landing page</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--fitness">
+            <a href="{{ contact_url }}" aria-label="Projet entraine ton corps et ton mental">
+              <span class="f2d2-creation-card__content">
+                <strong>Entraine ton<br>corps et ton mental</strong>
+                <small>Landing page</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--studio">
+            <a href="{{ contact_url }}" aria-label="Projet experiences digitales">
+              <span class="f2d2-creation-card__content">
+                <strong>Experiences digitales<br>qui connectent</strong>
+                <small>Landing page</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--launch">
+            <a href="{{ contact_url }}" aria-label="Projet lance ta marque">
+              <span class="f2d2-creation-card__content">
+                <strong>Lance ta<br>marque</strong>
+                <small>Landing page</small>
+              </span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="f2d2-creations-group" data-category="shop">
+        <div class="f2d2-creations-group__head">
+          <h2>Boutique en ligne</h2>
+          <a href="{{ services_url }}">Voir tous <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-creations-row" data-f2d2-creations-row>
+          <article class="f2d2-creation-card f2d2-creation-card--beauty">
+            <a href="{{ contact_url }}" aria-label="Projet beaute naturelle">
+              <span class="f2d2-creation-card__content">
+                <strong>Beaute naturelle<br>pour ta peau</strong>
+                <small>Boutique en ligne</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--audio">
+            <a href="{{ contact_url }}" aria-label="Projet audio">
+              <span class="f2d2-creation-card__content">
+                <strong>Son qui<br>t'enveloppe</strong>
+                <small>Boutique en ligne</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--home">
+            <a href="{{ contact_url }}" aria-label="Projet maison">
+              <span class="f2d2-creation-card__content">
+                <strong>Design qui transforme<br>ta maison</strong>
+                <small>Boutique en ligne</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--green">
+            <a href="{{ contact_url }}" aria-label="Projet green shop">
+              <span class="f2d2-creation-card__content">
+                <strong>Green shop</strong>
+                <small>Boutique en ligne</small>
+              </span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="f2d2-creations-group" data-category="blog">
+        <div class="f2d2-creations-group__head">
+          <h2>Blog</h2>
+          <a href="{{ web_url }}">Voir tous <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-creations-row" data-f2d2-creations-row>
+          <article class="f2d2-creation-card f2d2-creation-card--travel">
+            <a href="{{ contact_url }}" aria-label="Projet blog de voyages">
+              <span class="f2d2-creation-card__content">
+                <strong>Mon blog de voyages</strong>
+                <small>Blog</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--stories">
+            <a href="{{ contact_url }}" aria-label="Projet histoires qui inspirent">
+              <span class="f2d2-creation-card__content">
+                <strong>Histoires qui<br>inspirent</strong>
+                <small>Blog</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--learning">
+            <a href="{{ contact_url }}" aria-label="Projet apprendre ensemble">
+              <span class="f2d2-creation-card__content">
+                <strong>Apprendre<br>ensemble</strong>
+                <small>Blog</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--city">
+            <a href="{{ contact_url }}" aria-label="Projet notes de developpement">
+              <span class="f2d2-creation-card__content">
+                <strong>Notes de<br>developpement</strong>
+                <small>Blog</small>
+              </span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="f2d2-creations-group" data-category="corporate">
+        <div class="f2d2-creations-group__head">
+          <h2>Site corporatif</h2>
+          <a href="{{ services_url }}">Voir tous <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="f2d2-creations-row" data-f2d2-creations-row>
+          <article class="f2d2-creation-card f2d2-creation-card--agency">
+            <a href="{{ contact_url }}" aria-label="Projet studio corporatif">
+              <span class="f2d2-creation-card__content">
+                <strong>Presence claire<br>et credible</strong>
+                <small>Site corporatif</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--service">
+            <a href="{{ contact_url }}" aria-label="Projet services experts">
+              <span class="f2d2-creation-card__content">
+                <strong>Services experts<br>bien presentes</strong>
+                <small>Site corporatif</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--portfolio">
+            <a href="{{ contact_url }}" aria-label="Projet portfolio pro">
+              <span class="f2d2-creation-card__content">
+                <strong>Portfolio<br>professionnel</strong>
+                <small>Site corporatif</small>
+              </span>
+            </a>
+          </article>
+          <article class="f2d2-creation-card f2d2-creation-card--consulting">
+            <a href="{{ contact_url }}" aria-label="Projet conseil">
+              <span class="f2d2-creation-card__content">
+                <strong>Confiance<br>des le premier clic</strong>
+                <small>Site corporatif</small>
+              </span>
+            </a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="f2d2-creations-cta">
+      <div class="f2d2-creations-cta__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+      </div>
+      <div>
+        <h2>Vous avez un projet en tete?</h2>
+        <p>Parlez-moi de votre idee et je vous aide a la transformer en page claire, moderne et efficace.</p>
+      </div>
+      <a href="{{ contact_url }}" class="f2d2-creations-btn f2d2-creations-btn--primary">
+        Contactez-moi
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </section>
+  </div>
+</section>
+
+<style>
+  body:has(.f2d2-creations-page) .main-page-title,
+  body:has(.f2d2-creations-page) .page__content:empty,
+  body:has(.f2d2-creations-page) .announcement-bar-section {
+    display: none;
+  }
+
+  body:has(.f2d2-creations-page) .section--padding {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .section-{{ section.id }} {
+    --creations-bg: #020407;
+    --creations-panel: rgba(9, 14, 21, 0.82);
+    --creations-panel-strong: rgba(11, 17, 27, 0.96);
+    --creations-line: rgba(255, 255, 255, 0.13);
+    --creations-line-strong: rgba(255, 255, 255, 0.23);
+    --creations-blue: #0578ff;
+    --creations-blue-strong: #0054c8;
+    --creations-muted: rgba(255, 255, 255, 0.68);
+    background: var(--creations-bg);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} *,
+  .section-{{ section.id }} *::before,
+  .section-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  .section-{{ section.id }} svg {
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .section-{{ section.id }} .f2d2-creations__wrap {
+    width: min(1440px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+      radial-gradient(circle at 73% 48%, rgba(0, 118, 255, 0.14), transparent 24rem),
+      linear-gradient(90deg, rgba(2, 4, 7, 1) 0%, rgba(2, 4, 7, 0.94) 32%, rgba(2, 4, 7, 0.48) 66%, rgba(2, 4, 7, 0.74) 100%),
+      linear-gradient(180deg, rgba(2, 4, 7, 0) 74%, #020407 100%),
+      url({{ 'f2d2-realizations-hero-wide.png' | asset_url }}) center / cover no-repeat;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero__inner {
+    position: relative;
+    z-index: 2;
+    padding: 88px 0 74px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero__copy {
+    max-width: 640px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations__eyebrow {
+    margin: 0 0 18px;
+    color: var(--creations-blue);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(44px, 5vw, 78px);
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: 0;
+    max-width: 780px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero h1 span {
+    display: block;
+    color: var(--creations-blue);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero p:not(.f2d2-creations__eyebrow) {
+    max-width: 520px;
+    margin: 22px 0 0;
+    color: var(--creations-muted);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-hero__media {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-device {
+    position: absolute;
+    right: clamp(30px, 8vw, 150px);
+    bottom: 42px;
+    width: min(43vw, 650px);
+    transform: perspective(1000px) rotateX(4deg) rotateY(-10deg) rotateZ(-5deg);
+    opacity: 0.72;
+    filter: drop-shadow(0 30px 55px rgba(0, 0, 0, 0.7));
+  }
+
+  .section-{{ section.id }} .f2d2-creations-device::before {
+    content: "";
+    position: absolute;
+    inset: -2%;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 14px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-device img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 24px;
+    border: 1px solid var(--creations-line-strong);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(5, 120, 255, 0.78);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-btn--primary {
+    border-color: rgba(5, 120, 255, 0.92);
+    background: linear-gradient(135deg, var(--creations-blue-strong), var(--creations-blue));
+    box-shadow: 0 16px 36px rgba(0, 83, 200, 0.28);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-content {
+    padding: 28px 0 54px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-tabs {
+    display: flex;
+    justify-content: center;
+    gap: clamp(18px, 4vw, 58px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 34px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-tabs button {
+    position: relative;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.78);
+    padding: 0 0 18px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-tabs button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: transparent;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-tabs button.is-active {
+    color: var(--creations-blue);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-tabs button.is-active::after {
+    background: var(--creations-blue);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-select {
+    position: relative;
+    display: none;
+    margin: 0 0 26px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-select select {
+    width: 100%;
+    height: 48px;
+    appearance: none;
+    border: 1px solid var(--creations-line-strong);
+    border-radius: 4px;
+    background: rgba(4, 8, 14, 0.9);
+    color: #fff;
+    padding: 0 46px 0 16px;
+    font: inherit;
+    font-size: 14px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-select svg {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-groups {
+    display: grid;
+    gap: 32px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-group.is-hidden {
+    display: none;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-group__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 14px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-group__head h2,
+  .section-{{ section.id }} .f2d2-creations-cta h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.12;
+    font-weight: 850;
+    letter-spacing: 0;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-group__head a {
+    color: var(--creations-blue);
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card {
+    min-height: 162px;
+    border: 1px solid var(--creations-line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #0c1118;
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(5, 120, 255, 0.52);
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card a {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 162px;
+    height: 100%;
+    padding: 24px 22px;
+    color: #fff;
+    text-decoration: none;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.14) 70%),
+      var(--card-bg, linear-gradient(135deg, #1b2632, #090d13));
+    background-size: cover;
+    background-position: center;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.38) 100%);
+    pointer-events: none;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 18px;
+    max-width: 82%;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card strong {
+    color: #fff;
+    font-size: clamp(17px, 1.45vw, 24px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card small {
+    width: fit-content;
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--mountain,
+  .section-{{ section.id }} .f2d2-creation-card--travel {
+    --card-bg: url({{ 'f2d2-realizations-hero-wide.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--fitness {
+    --card-bg:
+      radial-gradient(circle at 68% 42%, rgba(255, 255, 255, 0.2), transparent 9rem),
+      linear-gradient(115deg, #090b0f 0%, #111923 42%, #050608 100%);
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--studio,
+  .section-{{ section.id }} .f2d2-creation-card--launch,
+  .section-{{ section.id }} .f2d2-creation-card--agency,
+  .section-{{ section.id }} .f2d2-creation-card--portfolio {
+    --card-bg: url({{ 'f2d2-web-hero-crop.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--beauty {
+    --card-bg:
+      linear-gradient(90deg, rgba(235, 224, 217, 0.96), rgba(235, 224, 217, 0.38)),
+      url({{ 'card-1.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--beauty strong,
+  .section-{{ section.id }} .f2d2-creation-card--green strong {
+    color: #151515;
+    text-transform: none;
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--beauty small,
+  .section-{{ section.id }} .f2d2-creation-card--green small {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.52);
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--audio {
+    --card-bg:
+      radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.2), transparent 8rem),
+      linear-gradient(120deg, #030507 0%, #151923 56%, #020305 100%);
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--home {
+    --card-bg: url({{ 'card-bg-group-b.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--green {
+    --card-bg:
+      linear-gradient(90deg, rgba(238, 240, 235, 0.92), rgba(238, 240, 235, 0.45)),
+      url({{ 'card-bg-group-a.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--stories {
+    --card-bg:
+      linear-gradient(120deg, rgba(37, 21, 10, 0.94), rgba(8, 6, 5, 0.55)),
+      url({{ 'corporate_bg.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--learning,
+  .section-{{ section.id }} .f2d2-creation-card--service,
+  .section-{{ section.id }} .f2d2-creation-card--consulting {
+    --card-bg:
+      linear-gradient(120deg, rgba(12, 16, 20, 0.86), rgba(45, 49, 53, 0.42)),
+      url({{ 'hero-bg.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creation-card--city {
+    --card-bg:
+      linear-gradient(120deg, rgba(2, 5, 9, 0.88), rgba(55, 62, 70, 0.38)),
+      url({{ 'section_bg.png' | asset_url }});
+  }
+
+  .section-{{ section.id }} .f2d2-creations-cta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    margin-top: 26px;
+    padding: 22px 28px;
+    border: 1px solid var(--creations-line);
+    border-radius: 6px;
+    background:
+      radial-gradient(circle at 80% 50%, rgba(5, 120, 255, 0.16), transparent 25rem),
+      var(--creations-panel);
+  }
+
+  .section-{{ section.id }} .f2d2-creations-cta__icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #073a87, #075ed8);
+    color: #fff;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-cta__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .section-{{ section.id }} .f2d2-creations-cta p {
+    margin: 6px 0 0;
+    color: var(--creations-muted);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 989px) {
+    .section-{{ section.id }} .f2d2-creations__wrap {
+      width: min(100% - 36px, 680px);
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero {
+      min-height: auto;
+      align-items: flex-start;
+      border-bottom: 0;
+      background:
+        linear-gradient(180deg, rgba(2, 4, 7, 0.72), #020407 86%),
+        url({{ 'f2d2-realizations-hero-wide.png' | asset_url }}) center top / cover no-repeat;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero__inner {
+      padding: 70px 0 28px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero__copy {
+      max-width: 520px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero h1 {
+      font-size: clamp(36px, 10vw, 54px);
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero__media {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-actions .f2d2-creations-btn--primary {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-content {
+      padding: 10px 0 34px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-tabs {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-select {
+      display: block;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-groups {
+      gap: 26px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(270px, 88%);
+      grid-template-columns: none;
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      scrollbar-width: none;
+      margin-inline: -18px;
+      padding-inline: 18px;
+      padding-bottom: 8px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .section-{{ section.id }} .f2d2-creation-card {
+      min-height: 152px;
+      scroll-snap-align: start;
+    }
+
+    .section-{{ section.id }} .f2d2-creation-card a {
+      min-height: 152px;
+      padding: 22px 18px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-cta {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 22px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-cta .f2d2-creations-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .section-{{ section.id }} .f2d2-creations__wrap {
+      width: min(100% - 28px, 420px);
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero__inner {
+      padding-top: 50px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations__eyebrow {
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero p:not(.f2d2-creations__eyebrow) {
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-btn {
+      width: 100%;
+      min-height: 46px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-group__head h2,
+    .section-{{ section.id }} .f2d2-creations-cta h2 {
+      font-size: 20px;
+    }
+
+    .section-{{ section.id }} .f2d2-creation-card__content {
+      max-width: 92%;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const root = document.querySelector('[data-f2d2-creations]');
+    if (!root) return;
+
+    const tabs = Array.from(root.querySelectorAll('[data-filter]'));
+    const select = root.querySelector('[data-f2d2-creations-select]');
+    const groups = Array.from(root.querySelectorAll('[data-category]'));
+
+    const applyFilter = (value) => {
+      tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.filter === value));
+      if (select && select.value !== value) select.value = value;
+      groups.forEach((group) => {
+        group.classList.toggle('is-hidden', value !== 'all' && group.dataset.category !== value);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
+    });
+
+    if (select) {
+      select.addEventListener('change', (event) => applyFilter(event.target.value));
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "F2D2 nos creations",
+  "settings": [],
+  "presets": [
+    {
+      "name": "F2D2 nos creations"
+    }
+  ]
+}
+{% endschema %}
