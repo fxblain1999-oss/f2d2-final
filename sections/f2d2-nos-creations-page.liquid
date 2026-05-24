@@ -21,7 +21,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7-11-7Z"/></svg>
             Découvrir nos projets
           </a>
-          <a href="#f2d2-creations-web-quote-modal" class="f2d2-creations-btn f2d2-creations-btn--primary" data-f2d2-creations-web-quote-open>
+          <a href="#f2d2-web-quote-modal" class="f2d2-creations-btn f2d2-creations-btn--primary" data-f2d2-web-quote-open>
             Discutons de votre projet
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
@@ -225,141 +225,15 @@
         <h2>Parlons de votre prochain projet web</h2>
         <p>Créons ensemble une expérience moderne, rapide et pensée pour vos objectifs.</p>
       </div>
-      <a href="#f2d2-creations-web-quote-modal" class="f2d2-creations-btn f2d2-creations-btn--primary" data-f2d2-creations-web-quote-open>
+      <a href="#f2d2-web-quote-modal" class="f2d2-creations-btn f2d2-creations-btn--primary" data-f2d2-web-quote-open>
         Contactez-moi
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </a>
     </section>
   </div>
 
-  <div id="f2d2-creations-web-quote-modal" class="f2d2-creations-web-quote-modal" role="dialog" aria-modal="true" aria-labelledby="f2d2-creations-web-quote-title" hidden>
-    <div class="f2d2-creations-web-quote-modal__overlay" data-f2d2-creations-web-quote-close></div>
+  {% render 'f2d2-web-quote-modal', root_selector: '.f2d2-creations-page' %}
 
-    <div class="f2d2-creations-web-quote-modal__panel" tabindex="-1">
-      <button type="button" class="f2d2-creations-web-quote-modal__close" aria-label="Fermer" data-f2d2-creations-web-quote-close>
-        &times;
-      </button>
-
-      <div class="f2d2-creations-web-quote-modal__head">
-        <p class="f2d2-creations-web-quote-modal__eyebrow">Soumission site web F2D2</p>
-        <h2 id="f2d2-creations-web-quote-title">Parlez-nous de votre site web</h2>
-        <p>Quelques informations nous aident a proposer une solution claire, rapide et adaptee.</p>
-      </div>
-
-      {% form 'contact', id: 'f2d2-creations-web-quote-form', class: 'f2d2-creations-web-quote-modal__form' %}
-        {% if form.posted_successfully? %}
-          <div class="f2d2-creations-web-quote-modal__status f2d2-creations-web-quote-modal__status--success" role="status">
-            Merci. Votre demande de soumission web a bien ete envoyee.
-          </div>
-        {% elsif form.errors %}
-          <div class="f2d2-creations-web-quote-modal__status f2d2-creations-web-quote-modal__status--error" role="alert">
-            Verifiez les champs requis, puis reessayez.
-          </div>
-        {% endif %}
-
-        <input type="hidden" name="contact[Type de demande]" value="Soumission site web">
-
-        <div class="f2d2-creations-web-quote-modal__grid">
-          <label>
-            <span>Nom complet *</span>
-            <input type="text" name="contact[Nom]" autocomplete="name" required>
-          </label>
-
-          <label>
-            <span>Courriel *</span>
-            <input type="email" name="contact[email]" autocomplete="email" required>
-          </label>
-
-          <label>
-            <span>Telephone *</span>
-            <input type="tel" name="contact[Telephone]" autocomplete="tel" required>
-          </label>
-
-          <label>
-            <span>Entreprise</span>
-            <input type="text" name="contact[Entreprise]" autocomplete="organization">
-          </label>
-
-          <label>
-            <span>Type de site *</span>
-            <select name="contact[Type de site]" required>
-              <option value="">Selectionnez</option>
-              <option value="Site vitrine">Site vitrine</option>
-              <option value="Boutique Shopify">Boutique Shopify</option>
-              <option value="Refonte de site existant">Refonte de site existant</option>
-              <option value="Hebergement seulement">Hebergement seulement</option>
-              <option value="SEO et optimisation">SEO et optimisation</option>
-              <option value="Autre">Autre</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Nombre de pages</span>
-            <select name="contact[Nombre de pages]">
-              <option value="">A determiner</option>
-              <option value="1 a 3 pages">1 a 3 pages</option>
-              <option value="4 a 8 pages">4 a 8 pages</option>
-              <option value="9 a 15 pages">9 a 15 pages</option>
-              <option value="16 pages et plus">16 pages et plus</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Boutique en ligne</span>
-            <select name="contact[Boutique en ligne]">
-              <option value="">A determiner</option>
-              <option value="Oui">Oui</option>
-              <option value="Non">Non</option>
-              <option value="Peut-etre plus tard">Peut-etre plus tard</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Domaine et hebergement</span>
-            <select name="contact[Domaine et hebergement]">
-              <option value="">A determiner</option>
-              <option value="J'ai deja un domaine">J'ai deja un domaine</option>
-              <option value="J'ai besoin d'un domaine">J'ai besoin d'un domaine</option>
-              <option value="J'ai besoin d'hebergement">J'ai besoin d'hebergement</option>
-              <option value="J'ai besoin des deux">J'ai besoin des deux</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Delai souhaite</span>
-            <input type="text" name="contact[Delai souhaite]" placeholder="Ex: dans 4 semaines">
-          </label>
-
-          <label>
-            <span>Budget</span>
-            <select name="contact[Budget]">
-              <option value="">A determiner</option>
-              <option value="Moins de 1000$">Moins de 1000$</option>
-              <option value="1000$ a 2500$">1000$ a 2500$</option>
-              <option value="2500$ a 5000$">2500$ a 5000$</option>
-              <option value="5000$ et plus">5000$ et plus</option>
-            </select>
-          </label>
-
-          <label class="f2d2-creations-web-quote-modal__wide">
-            <span>Site actuel ou inspiration</span>
-            <input type="text" name="contact[Site actuel ou inspirations]" placeholder="Lien vers votre site actuel ou exemples que vous aimez">
-          </label>
-
-          <label class="f2d2-creations-web-quote-modal__wide">
-            <span>Details du projet *</span>
-            <textarea name="contact[body]" rows="6" required placeholder="Objectifs du site, services a presenter, fonctionnalites souhaitees, integrations, contenu deja pret, contraintes, delai..."></textarea>
-          </label>
-        </div>
-
-        <p class="f2d2-creations-web-quote-modal__hint">
-          Pour joindre un logo, un cahier de charges ou des exemples, mentionnez-le dans le message. Nous vous repondrons avec la meilleure facon de les envoyer.
-        </p>
-
-        <button type="submit" class="f2d2-creations-web-quote-modal__submit">Envoyer la demande web</button>
-      {% endform %}
-    </div>
-  </div>
 </section>
 
 <style>
@@ -374,9 +248,6 @@
     padding-bottom: 0;
   }
 
-  html.f2d2-creations-web-quote-open {
-    overflow: hidden;
-  }
 
   .section-{{ section.id }} {
     --creations-bg: #020407;
@@ -790,180 +661,6 @@
     line-height: 1.45;
   }
 
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal[hidden] {
-    display: none;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.78);
-    backdrop-filter: blur(12px);
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__panel {
-    position: relative;
-    z-index: 2;
-    width: min(920px, 100%);
-    max-height: min(92dvh, 920px);
-    overflow-y: auto;
-    padding: clamp(24px, 4vw, 44px);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 8px;
-    background:
-      radial-gradient(circle at 92% 8%, rgba(5, 120, 255, 0.22), transparent 21rem),
-      linear-gradient(145deg, rgba(13, 19, 30, 0.98), rgba(4, 7, 12, 0.98));
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.52);
-    color: #fff;
-    outline: none;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    color: #fff;
-    font-size: 28px;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__head {
-    padding-right: 52px;
-    margin-bottom: 22px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__eyebrow {
-    margin: 0 0 12px;
-    color: var(--creations-blue);
-    font-size: 12px;
-    font-weight: 850;
-    letter-spacing: 0;
-    text-transform: uppercase;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__head h2 {
-    margin: 0;
-    color: #fff;
-    font-size: clamp(34px, 4vw, 52px);
-    line-height: 0.98;
-    font-weight: 900;
-    letter-spacing: 0;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__head p {
-    margin: 10px 0 0;
-    color: rgba(255, 255, 255, 0.72);
-    line-height: 1.5;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__form {
-    display: grid;
-    gap: 14px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal label {
-    display: grid;
-    gap: 6px;
-    margin: 0;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal label span {
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal input,
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal select,
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal textarea {
-    width: 100%;
-    min-height: 48px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.07);
-    color: #fff;
-    padding: 12px 14px;
-    font: inherit;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal select option {
-    color: #fff;
-    background: #0f141b;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal textarea {
-    min-height: 124px;
-    resize: vertical;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal input::placeholder,
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__wide,
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__hint,
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__status {
-    grid-column: 1 / -1;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__hint {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 12px;
-    line-height: 1.45;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__status {
-    padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 4px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__status--success {
-    background: rgba(31, 143, 78, 0.22);
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__status--error {
-    background: rgba(185, 45, 45, 0.22);
-  }
-
-  .section-{{ section.id }} .f2d2-creations-web-quote-modal__submit {
-    width: 100%;
-    min-height: 52px;
-    border: 1px solid rgba(5, 120, 255, 0.92);
-    border-radius: 4px;
-    background: linear-gradient(135deg, var(--creations-blue-strong), var(--creations-blue));
-    color: #fff;
-    font: inherit;
-    font-size: 14px;
-    font-weight: 850;
-    cursor: pointer;
-  }
 
   @media (max-width: 989px) {
     .section-{{ section.id }} .f2d2-creations__wrap {
@@ -1051,22 +748,6 @@
     .section-{{ section.id }} .f2d2-creations-cta .f2d2-creations-btn {
       width: 100%;
     }
-
-    .section-{{ section.id }} .f2d2-creations-web-quote-modal {
-      align-items: flex-start;
-      padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom));
-      overflow-y: auto;
-    }
-
-    .section-{{ section.id }} .f2d2-creations-web-quote-modal__panel {
-      max-height: calc(100dvh - 20px);
-      padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
-    }
-
-    .section-{{ section.id }} .f2d2-creations-web-quote-modal__grid {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
   }
 
   @media (max-width: 560px) {
@@ -1121,12 +802,6 @@
     const tabs = Array.from(root.querySelectorAll('[data-filter]'));
     const select = root.querySelector('[data-f2d2-creations-select]');
     const groups = Array.from(root.querySelectorAll('[data-category]'));
-    const modal = root.querySelector('.f2d2-creations-web-quote-modal');
-    const modalPanel = root.querySelector('.f2d2-creations-web-quote-modal__panel');
-    const openQuoteButtons = root.querySelectorAll('[data-f2d2-creations-web-quote-open]');
-    const closeQuoteButtons = root.querySelectorAll('[data-f2d2-creations-web-quote-close]');
-    const hasStatus = root.querySelector('.f2d2-creations-web-quote-modal__status');
-    let previousFocus = null;
 
     const applyFilter = (value) => {
       tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.filter === value));
@@ -1144,35 +819,6 @@
       select.addEventListener('change', (event) => applyFilter(event.target.value));
     }
 
-    const openQuoteModal = () => {
-      if (!modal || !modalPanel) return;
-      previousFocus = document.activeElement;
-      modal.hidden = false;
-      document.documentElement.classList.add('f2d2-creations-web-quote-open');
-      modalPanel.focus();
-    };
-
-    const closeQuoteModal = () => {
-      if (!modal) return;
-      modal.hidden = true;
-      document.documentElement.classList.remove('f2d2-creations-web-quote-open');
-      if (previousFocus && previousFocus.focus) previousFocus.focus();
-    };
-
-    openQuoteButtons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        openQuoteModal();
-      });
-    });
-
-    closeQuoteButtons.forEach((button) => button.addEventListener('click', closeQuoteModal));
-
-    root.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && modal && !modal.hidden) closeQuoteModal();
-    });
-
-    if (hasStatus) openQuoteModal();
   })();
 </script>
 
