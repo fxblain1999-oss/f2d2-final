@@ -1,5 +1,4 @@
-{{ 'f2d2-web-hero-crop.png' | asset_url | preload_tag: as: 'image' }}
-{{ 'f2d2-realizations-hero-wide.png' | asset_url | preload_tag: as: 'image' }}
+{{ 'f2d2-creations-hero-bg.png' | asset_url | preload_tag: as: 'image' }}
 
 {%- liquid
   assign contact_url = '/pages/contact'
@@ -9,12 +8,6 @@
 
 <section class="f2d2-creations-page section-{{ section.id }}" data-f2d2-creations>
   <div class="f2d2-creations-hero">
-    <div class="f2d2-creations-hero__media" aria-hidden="true">
-      <div class="f2d2-creations-device">
-        <img src="{{ 'f2d2-web-hero-crop.png' | asset_url }}" alt="" width="1440" height="900" loading="eager">
-      </div>
-    </div>
-
     <div class="f2d2-creations__wrap f2d2-creations-hero__inner">
       <div class="f2d2-creations-hero__copy">
         <p class="f2d2-creations__eyebrow">Nos creations</p>
@@ -288,15 +281,14 @@
 
   .section-{{ section.id }} .f2d2-creations-hero {
     position: relative;
-    min-height: 540px;
+    min-height: clamp(620px, 48vw, 780px);
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background:
-      radial-gradient(circle at 73% 48%, rgba(0, 118, 255, 0.14), transparent 24rem),
-      linear-gradient(90deg, rgba(2, 4, 7, 1) 0%, rgba(2, 4, 7, 0.94) 32%, rgba(2, 4, 7, 0.48) 66%, rgba(2, 4, 7, 0.74) 100%),
-      linear-gradient(180deg, rgba(2, 4, 7, 0) 74%, #020407 100%),
-      url({{ 'f2d2-realizations-hero-wide.png' | asset_url }}) center / cover no-repeat;
+      linear-gradient(90deg, #020407 0%, rgba(2, 4, 7, 0.96) 25%, rgba(2, 4, 7, 0.68) 43%, rgba(2, 4, 7, 0.12) 72%, rgba(2, 4, 7, 0.52) 100%),
+      linear-gradient(180deg, rgba(2, 4, 7, 0.04) 0%, rgba(2, 4, 7, 0) 58%, #020407 100%),
+      url({{ 'f2d2-creations-hero-bg.png' | asset_url }}) center right / cover no-repeat;
   }
 
   .section-{{ section.id }} .f2d2-creations-hero__inner {
@@ -339,38 +331,6 @@
     color: var(--creations-muted);
     font-size: 16px;
     line-height: 1.65;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-hero__media {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-device {
-    position: absolute;
-    right: clamp(30px, 8vw, 150px);
-    bottom: 42px;
-    width: min(43vw, 650px);
-    transform: perspective(1000px) rotateX(4deg) rotateY(-10deg) rotateZ(-5deg);
-    opacity: 0.72;
-    filter: drop-shadow(0 30px 55px rgba(0, 0, 0, 0.7));
-  }
-
-  .section-{{ section.id }} .f2d2-creations-device::before {
-    content: "";
-    position: absolute;
-    inset: -2%;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 14px;
-  }
-
-  .section-{{ section.id }} .f2d2-creations-device img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
   }
 
   .section-{{ section.id }} .f2d2-creations-actions {
@@ -703,12 +663,13 @@
     }
 
     .section-{{ section.id }} .f2d2-creations-hero {
-      min-height: auto;
+      min-height: 620px;
       align-items: flex-start;
       border-bottom: 0;
       background:
-        linear-gradient(180deg, rgba(2, 4, 7, 0.72), #020407 86%),
-        url({{ 'f2d2-realizations-hero-wide.png' | asset_url }}) center top / cover no-repeat;
+        linear-gradient(180deg, rgba(2, 4, 7, 0.3) 0%, rgba(2, 4, 7, 0.82) 45%, #020407 92%),
+        linear-gradient(90deg, rgba(2, 4, 7, 0.9), rgba(2, 4, 7, 0.2) 70%),
+        url({{ 'f2d2-creations-hero-bg.png' | asset_url }}) 66% top / auto 100% no-repeat;
     }
 
     .section-{{ section.id }} .f2d2-creations-hero__inner {
@@ -721,10 +682,6 @@
 
     .section-{{ section.id }} .f2d2-creations-hero h1 {
       font-size: clamp(36px, 10vw, 54px);
-    }
-
-    .section-{{ section.id }} .f2d2-creations-hero__media {
-      display: none;
     }
 
     .section-{{ section.id }} .f2d2-creations-actions .f2d2-creations-btn--primary {
@@ -795,6 +752,15 @@
 
     .section-{{ section.id }} .f2d2-creations-hero__inner {
       padding-top: 50px;
+      padding-bottom: 190px;
+    }
+
+    .section-{{ section.id }} .f2d2-creations-hero {
+      min-height: 650px;
+      background:
+        linear-gradient(180deg, rgba(2, 4, 7, 0.24) 0%, rgba(2, 4, 7, 0.86) 48%, #020407 91%),
+        linear-gradient(90deg, rgba(2, 4, 7, 0.88), rgba(2, 4, 7, 0.12) 76%),
+        url({{ 'f2d2-creations-hero-bg.png' | asset_url }}) 62% top / auto 100% no-repeat;
     }
 
     .section-{{ section.id }} .f2d2-creations__eyebrow {
