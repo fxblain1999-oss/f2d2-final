@@ -246,6 +246,8 @@
       min-height: clamp(58rem, 72vh, 82rem);
       overflow: hidden;
       background: #02070d;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2.4rem 6rem rgba(0, 0, 0, 0.34);
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media,
@@ -257,9 +259,9 @@
     .section-{{ section.id }} .f2d2-corporate-hero__media::after {
       content: "";
       background:
-        linear-gradient(90deg, rgba(2, 7, 13, 0.98) 0%, rgba(2, 7, 13, 0.90) 34%, rgba(2, 7, 13, 0.48) 66%, rgba(2, 7, 13, 0.14) 100%),
-        linear-gradient(180deg, rgba(2, 7, 13, 0.02), rgba(2, 7, 13, 0.92)),
-        radial-gradient(circle at 28% 48%, rgba(10, 132, 255, 0.20), transparent 32rem);
+        linear-gradient(90deg, rgba(2, 7, 13, 0.88) 0%, rgba(2, 7, 13, 0.72) 34%, rgba(2, 7, 13, 0.30) 66%, rgba(2, 7, 13, 0.04) 100%),
+        linear-gradient(180deg, rgba(2, 7, 13, 0), rgba(2, 7, 13, 0.62)),
+        radial-gradient(circle at 28% 48%, rgba(10, 132, 255, 0.14), transparent 32rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__image {
@@ -794,8 +796,8 @@
 
       .section-{{ section.id }} .f2d2-corporate-hero__media::after {
         background:
-          linear-gradient(90deg, rgba(2, 7, 13, 0.98) 0%, rgba(2, 7, 13, 0.82) 62%, rgba(2, 7, 13, 0.36) 100%),
-          linear-gradient(180deg, rgba(2, 7, 13, 0.04), rgba(2, 7, 13, 0.94));
+          linear-gradient(90deg, rgba(2, 7, 13, 0.88) 0%, rgba(2, 7, 13, 0.68) 62%, rgba(2, 7, 13, 0.22) 100%),
+          linear-gradient(180deg, rgba(2, 7, 13, 0.02), rgba(2, 7, 13, 0.70));
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero__image {
@@ -898,7 +900,7 @@
         grid-template-columns: minmax(0, 1fr) minmax(38rem, 44rem);
         column-gap: 3.2rem;
         align-items: start;
-        padding-top: clamp(5rem, 5vw, 7.5rem);
+        padding-top: clamp(7rem, 6vw, 10rem);
         position: relative;
       }
 
