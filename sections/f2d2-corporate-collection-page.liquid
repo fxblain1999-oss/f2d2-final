@@ -50,7 +50,7 @@
           <div class="f2d2-corporate-benefits">
             <article>
               <span aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.2 1.2-1.5 3-1.5 4.5 1.5 0 3.3-.3 4.5-1.5"/><path d="M9 15 6 18"/><path d="M14 4c2.6 0 4.7.8 6 2.1-1.2 5.2-4.8 9-10 10.9L7 14l-3-3C5.9 5.8 8.8 4 14 4Z"/><path d="M14 9.5h.01"/><path d="M15 14 10 9"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
               </span>
               <h3>Production rapide</h3>
               <p>Délais respectés et livraison partout au Canada.</p>
@@ -58,7 +58,7 @@
 
             <article>
               <span aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/><path d="m15 5 4 4"/></svg>
+                <svg viewBox="0 0 24 24"><path d="m15 5 4 4"/><path d="M13 7 4 16v4h4l9-9"/><path d="M16 3.5a2.1 2.1 0 0 1 3 3L17 8.5l-3-3 2-2Z"/></svg>
               </span>
               <h3>Design graphique inclus</h3>
               <p>Maquettes claires et prêtes à approuver.</p>
@@ -66,7 +66,7 @@
 
             <article>
               <span aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-7h6v7"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01"/><path d="M9 13h.01"/><path d="M9 17h.01"/></svg>
               </span>
               <h3>Entreprise locale</h3>
               <p>Service humain, flexible et proche de vos besoins.</p>
@@ -74,7 +74,7 @@
 
             <article>
               <span aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 12V8H4v4"/><path d="M4 16h16"/><path d="M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/><path d="M12 8v8"/><path d="M9.5 10.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
               </span>
               <h3>Prix de volume compétitifs</h3>
               <p>Tarifs adaptés aux petites et grandes quantités.</p>
@@ -945,6 +945,10 @@
       .section-{{ section.id }} .f2d2-corporate-benefits {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.6rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits-block .f2d2-corporate-section__head {
+        text-align: center;
       }
 
       .section-{{ section.id }} .f2d2-corporate-benefits article {
