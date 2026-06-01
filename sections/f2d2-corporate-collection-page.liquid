@@ -333,8 +333,8 @@
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(34rem, 1fr);
       gap: 0;
-      align-items: start;
-      padding-block: 0 5rem;
+      align-items: stretch;
+      padding-block: 0;
       background: var(--corp-panel);
       border-left: 1px solid var(--corp-line);
       border-right: 1px solid var(--corp-line);
@@ -344,6 +344,7 @@
     .section-{{ section.id }} .f2d2-corporate-side {
       display: grid;
       align-content: start;
+      min-height: 100%;
     }
 
     .section-{{ section.id }} .f2d2-corporate-main {
@@ -371,6 +372,7 @@
 
     .section-{{ section.id }} h2 {
       margin: 0;
+      color: var(--corp-ink);
       font-size: clamp(2.2rem, 2vw, 3rem);
       line-height: 1.1;
       letter-spacing: 0;
@@ -439,6 +441,7 @@
 
     .section-{{ section.id }} h3 {
       margin: 0;
+      color: var(--corp-ink);
       font-size: 1.45rem;
       line-height: 1.18;
       text-transform: uppercase;
@@ -537,8 +540,7 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-side {
-      position: sticky;
-      top: 0;
+      position: relative;
     }
 
     .section-{{ section.id }} .f2d2-corporate-process ol {
@@ -588,6 +590,10 @@
       overflow: hidden;
       color: #ffffff;
       background: var(--corp-dark);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume h2 {
+      color: #ffffff;
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume img {
@@ -677,6 +683,10 @@
       background:
         radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.28), transparent 28rem),
         var(--corp-dark);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta h2 {
+      color: #ffffff;
     }
 
     .section-{{ section.id }} .f2d2-corporate-cta p {
