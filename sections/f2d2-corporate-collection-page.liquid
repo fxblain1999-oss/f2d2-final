@@ -996,6 +996,9 @@
       .section-{{ section.id }} .f2d2-corporate-reviews {
         grid-column: 2;
         grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         max-width: none;
         margin: 0;
         padding: 4.8rem 0 4.8rem 3.2rem;
@@ -1054,21 +1057,22 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 100%;
         gap: 1.2rem;
+        align-items: center;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
         width: 100%;
         min-width: 0;
-        padding: 1.6rem 1.4rem;
+        padding: 2rem 1.6rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews p {
-        font-size: 1.25rem;
-        line-height: 1.38;
+        font-size: 1.35rem;
+        line-height: 1.45;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews cite {
-        margin-top: 1rem;
+        margin-top: 1.4rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta h2 {
