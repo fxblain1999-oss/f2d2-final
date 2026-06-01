@@ -210,16 +210,15 @@
       --corp-bg: #02070d;
       --corp-ink: #ffffff;
       --corp-muted: rgba(255, 255, 255, 0.68);
-      --corp-line: rgba(255, 255, 255, 0.12);
+      --corp-line: rgba(255, 255, 255, 0.08);
+      --corp-line-soft: rgba(255, 255, 255, 0.05);
+      --corp-column-line: rgba(255, 255, 255, 0.06);
       --corp-dark: #02070d;
-      --corp-panel: rgba(6, 13, 21, 0.88);
+      --corp-panel: #07111b;
       --corp-blue: #0a84ff;
       --corp-blue-strong: #0054c8;
       --corp-soft: rgba(10, 132, 255, 0.12);
-      background:
-        radial-gradient(circle at 18% 8%, rgba(10, 132, 255, 0.16), transparent 36rem),
-        radial-gradient(circle at 88% 28%, rgba(0, 84, 200, 0.14), transparent 34rem),
-        linear-gradient(180deg, #040a11 0%, #02070d 44%, #02070d 100%);
+      background: #02070d;
       color: var(--corp-ink);
     }
 
@@ -354,7 +353,18 @@
       bottom: 0;
       left: calc((100% - 3.2rem) * 0.677419);
       width: 1px;
-      background: var(--corp-line);
+      background: var(--corp-column-line);
+      pointer-events: none;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-layout::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
+      background: rgba(255, 255, 255, 0.015);
       pointer-events: none;
     }
 
@@ -375,6 +385,10 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-layout::after {
+        left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::before {
         left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
       }
 
@@ -430,8 +444,8 @@
       .section-{{ section.id }} .f2d2-corporate-reviews,
       .section-{{ section.id }} .f2d2-corporate-cta {
         border-radius: 0;
-        border-left: 1px solid var(--corp-line);
-        border-right: 1px solid var(--corp-line);
+        border-left: 1px solid var(--corp-column-line);
+        border-right: 1px solid var(--corp-column-line);
         box-shadow: none;
       }
 
@@ -447,7 +461,7 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta {
-        border-top: 1px solid var(--corp-line);
+        border-top: 1px solid var(--corp-line-soft);
       }
     }
 
@@ -455,8 +469,16 @@
     .section-{{ section.id }} .f2d2-corporate-process,
     .section-{{ section.id }} .f2d2-corporate-reviews,
     .section-{{ section.id }} .f2d2-corporate-cta {
+      position: relative;
+      z-index: 1;
       padding: clamp(2rem, 2vw, 3.2rem);
-      border-bottom: 1px solid var(--corp-line);
+      border-bottom: 0;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-section + .f2d2-corporate-section {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--corp-line-soft);
     }
 
     .section-{{ section.id }} .f2d2-corporate-section__head {
@@ -504,9 +526,17 @@
     .section-{{ section.id }} .f2d2-corporate-cta {
       background: var(--corp-panel);
       border: 1px solid var(--corp-line);
-      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.18);
+      box-shadow: none;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits article:hover,
+    .section-{{ section.id }} .f2d2-corporate-categories article:hover,
+    .section-{{ section.id }} .f2d2-corporate-reviews blockquote:hover {
+      border-color: rgba(0, 132, 255, 0.35);
+      box-shadow: 0 0 30px rgba(0, 132, 255, 0.12);
     }
 
     .section-{{ section.id }} .f2d2-corporate-process,
@@ -635,13 +665,14 @@
 
     .section-{{ section.id }} .f2d2-corporate-gallery {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 14px;
     }
 
     .section-{{ section.id }} .f2d2-corporate-gallery a {
       aspect-ratio: 1.22;
       overflow: hidden;
-      background: #dfe5ed;
+      background: transparent;
+      border: 0;
     }
 
     .section-{{ section.id }} .f2d2-corporate-gallery img {
@@ -658,6 +689,8 @@
 
     .section-{{ section.id }} .f2d2-corporate-side {
       position: relative;
+      background: rgba(255, 255, 255, 0.015);
+      border-left: 1px solid var(--corp-column-line);
     }
 
     .section-{{ section.id }} .f2d2-corporate-process ol {
@@ -767,7 +800,8 @@
       margin: 0;
       padding: 1.8rem;
       border: 1px solid var(--corp-line);
-      background: rgba(255, 255, 255, 0.045);
+      background: #07111b;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews strong {
@@ -850,6 +884,10 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-layout::after {
+        display: none;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::before {
         display: none;
       }
 
