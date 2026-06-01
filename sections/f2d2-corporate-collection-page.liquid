@@ -364,7 +364,7 @@
       margin: clamp(5rem, 5vw, 8rem) auto 0;
       padding: 0;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.015);
+      background: transparent;
       border: 0;
     }
 
@@ -903,7 +903,7 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-body::after {
-        content: "";
+        content: none;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -916,8 +916,8 @@
       .section-{{ section.id }} .f2d2-corporate-intro {
         grid-column: 1 / -1;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(27rem, 31rem) minmax(38rem, 44rem);
-        gap: 3.2rem;
+        grid-template-columns: minmax(0, 1.28fr) minmax(38rem, 0.9fr) minmax(42rem, 1fr);
+        gap: 0;
         align-items: stretch;
         padding-top: 0;
         padding-bottom: 4.8rem;
@@ -942,9 +942,9 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-process {
-        padding: 0.2rem 0 0;
-        background: transparent;
-        border: 0;
+        padding: clamp(3.2rem, 3vw, 5rem);
+        background: rgba(2, 7, 13, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         text-align: center;
       }
 
