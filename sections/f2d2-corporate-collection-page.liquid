@@ -234,26 +234,20 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero {
-      position: relative;
-      min-height: clamp(65rem, 48vw, 75rem);
-      overflow: hidden;
-      color: #ffffff;
-      background:
-        radial-gradient(circle at 22% 38%, rgba(10, 132, 255, 0.18), transparent 34rem),
-        #02070d;
+      display: none;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media,
     .section-{{ section.id }} .f2d2-corporate-hero__media::after {
       position: absolute;
-      inset: 0 0 0 50%;
+      inset: 0;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media::after {
       content: "";
       background:
-        linear-gradient(90deg, rgba(2, 7, 13, 0.38), rgba(2, 7, 13, 0.08)),
-        linear-gradient(180deg, rgba(2, 7, 13, 0.04), rgba(2, 7, 13, 0.34));
+        linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 36%, rgba(0, 0, 0, 0.36) 68%, rgba(0, 0, 0, 0.16) 100%),
+        radial-gradient(circle at 22% 44%, rgba(10, 132, 255, 0.20), transparent 30rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__image {
@@ -270,12 +264,11 @@
       min-height: inherit;
       display: flex;
       align-items: center;
-      padding-block: clamp(7rem, 8vw, 11rem);
+      padding-block: clamp(5rem, 7vw, 9rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__copy {
-      width: min(48%, 72rem);
-      max-width: 72rem;
+      max-width: 69rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate__eyebrow {
@@ -290,17 +283,17 @@
     .section-{{ section.id }} .f2d2-corporate-hero h1 {
       margin: 0;
       color: #ffffff;
-      font-size: clamp(5.2rem, 6vw, 9rem);
-      line-height: 0.9;
+      font-size: clamp(4.4rem, 5.1vw, 7.6rem);
+      line-height: 0.92;
       letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero p:not(.f2d2-corporate__eyebrow) {
       max-width: 52rem;
-      margin: 2.4rem 0 0;
+      margin: 2rem 0 0;
       color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(1.7rem, 1.5vw, 2.2rem);
+      font-size: clamp(1.55rem, 1.4vw, 2rem);
       line-height: 1.45;
     }
 
@@ -308,7 +301,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.4rem;
-      margin-top: 3.6rem;
+      margin-top: 3rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-btn {
@@ -316,7 +309,7 @@
       align-items: center;
       justify-content: center;
       min-height: 5.2rem;
-      padding: 0 3rem;
+      padding: 0 2.6rem;
       border: 1px solid rgba(255, 255, 255, 0.22);
       color: #ffffff;
       font-size: 1.25rem;
@@ -362,7 +355,6 @@
       width: 1px;
       background: var(--corp-column-line);
       pointer-events: none;
-      display: none;
     }
 
     .section-{{ section.id }} .f2d2-corporate-layout::before {
@@ -374,7 +366,6 @@
       left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
       background: rgba(255, 255, 255, 0.015);
       pointer-events: none;
-      display: none;
     }
 
     .section-{{ section.id }} .f2d2-corporate-main,
@@ -390,8 +381,15 @@
 
     @media (min-width: 1181px) {
       .section-{{ section.id }} .f2d2-corporate-layout {
-        grid-template-columns: minmax(0, 7fr) minmax(34rem, 3fr);
-        row-gap: 88px;
+        grid-template-columns: minmax(0, 1.95fr) minmax(30rem, 0.85fr) minmax(48rem, 1.25fr);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::after {
+        left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::before {
+        left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
       }
 
       .section-{{ section.id }} .f2d2-corporate-main,
@@ -405,55 +403,65 @@
 
       .section-{{ section.id }} .f2d2-corporate-section--benefits {
         grid-column: 1;
-        grid-row: 1 / span 2;
+        grid-row: 1;
       }
 
       .section-{{ section.id }} .f2d2-corporate-process {
         grid-column: 2;
         grid-row: 1;
-        background: rgba(255, 255, 255, 0.015);
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 40px;
       }
 
       .section-{{ section.id }} .f2d2-corporate-section--categories {
-        grid-column: 1 / -1;
-        grid-row: 3;
+        grid-column: 1 / span 2;
+        grid-row: 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-volume {
-        grid-column: 2;
-        grid-row: 2;
+        grid-column: 3;
+        grid-row: 1;
         align-self: end;
         margin-top: 0;
-        min-height: clamp(30rem, 24vw, 35rem);
+        min-height: 25rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-section--realizations {
-        grid-column: 1 / -1;
-        grid-row: 4;
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews {
-        grid-column: 1 / -1;
-        grid-row: 5;
+        grid-column: 3;
+        grid-row: 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta {
-        grid-column: 1 / -1;
-        grid-row: 6;
+        grid-column: 3;
+        grid-row: 3;
         align-self: stretch;
       }
 
+      .section-{{ section.id }} .f2d2-corporate-volume,
+      .section-{{ section.id }} .f2d2-corporate-reviews,
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        border-radius: 0;
+        border-left: 1px solid var(--corp-column-line);
+        border-right: 1px solid var(--corp-column-line);
+        box-shadow: none;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-volume {
+        border-bottom: 0;
+      }
+
       .section-{{ section.id }} .f2d2-corporate-reviews {
-        padding-top: clamp(2rem, 2vw, 3.2rem);
-        padding-bottom: clamp(2rem, 2vw, 3.2rem);
+        border-top: 0;
+        border-bottom: 0;
+        padding-top: clamp(3rem, 3vw, 5rem);
+        padding-bottom: clamp(3rem, 3vw, 5rem);
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta {
-        width: min(100%, 140rem);
-        min-height: clamp(35rem, 28vw, 45rem);
-        margin-inline: auto;
+        border-top: 1px solid var(--corp-line-soft);
       }
     }
 
@@ -468,8 +476,8 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-section + .f2d2-corporate-section {
-      margin-top: 72px;
-      padding-top: 64px;
+      margin-top: 48px;
+      padding-top: 48px;
       border-top: 1px solid var(--corp-line-soft);
     }
 
@@ -552,14 +560,14 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article {
-      min-height: 18rem;
-      padding: 2.4rem;
+      min-height: 13rem;
+      padding: 1.7rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits span {
       display: inline-flex;
-      width: 6.2rem;
-      height: 6.2rem;
+      width: 4.8rem;
+      height: 4.8rem;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.2rem;
@@ -580,7 +588,7 @@
     .section-{{ section.id }} h3 {
       margin: 0;
       color: var(--corp-ink);
-      font-size: 1.65rem;
+      font-size: 1.45rem;
       line-height: 1.18;
       text-transform: uppercase;
     }
@@ -613,8 +621,8 @@
 
     .section-{{ section.id }} .f2d2-corporate-categories a {
       display: grid;
-      grid-template-rows: 20rem 1fr;
-      min-height: 38rem;
+      grid-template-rows: 17.5rem 1fr;
+      min-height: 35rem;
       color: inherit;
       text-decoration: none;
     }
@@ -657,12 +665,11 @@
 
     .section-{{ section.id }} .f2d2-corporate-gallery {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .section-{{ section.id }} .f2d2-corporate-gallery a {
-      aspect-ratio: 1.34;
-      min-height: clamp(30rem, 22vw, 40rem);
+      aspect-ratio: 1.22;
       overflow: hidden;
       background: transparent;
       border: 0;
@@ -683,8 +690,7 @@
     .section-{{ section.id }} .f2d2-corporate-side {
       position: relative;
       background: rgba(255, 255, 255, 0.015);
-      border-left: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 40px;
+      border-left: 1px solid var(--corp-column-line);
     }
 
     .section-{{ section.id }} .f2d2-corporate-process ol {
@@ -730,7 +736,7 @@
 
     .section-{{ section.id }} .f2d2-corporate-volume {
       position: relative;
-      min-height: clamp(30rem, 24vw, 35rem);
+      min-height: 25rem;
       overflow: hidden;
       color: #ffffff;
       background: var(--corp-dark);
@@ -757,7 +763,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: clamp(3rem, 3vw, 4.4rem);
+      padding: 2.2rem;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.22));
     }
 
@@ -772,9 +778,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 5.4rem;
+      min-height: 4.6rem;
       margin-top: 1.6rem;
-      padding: 0 2.8rem;
+      padding: 0 2rem;
       color: #ffffff;
       background: linear-gradient(180deg, var(--corp-blue), var(--corp-blue-strong));
       font-size: 1.15rem;
@@ -786,13 +792,13 @@
     .section-{{ section.id }} .f2d2-corporate-reviews > div {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.6rem;
+      gap: 1.4rem;
+      margin-top: 2rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
       margin: 0;
-      padding: 1.35rem;
+      padding: 1.8rem;
       border: 1px solid var(--corp-line);
       background: #07111b;
       transition: border-color 180ms ease, box-shadow 180ms ease;
@@ -800,13 +806,12 @@
 
     .section-{{ section.id }} .f2d2-corporate-reviews strong {
       color: var(--corp-blue);
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       letter-spacing: 0.08em;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews p {
       margin-top: 0.8rem;
-      font-size: 1.2rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews cite {
@@ -827,10 +832,9 @@
     .section-{{ section.id }} .f2d2-corporate-cta {
       color: #ffffff;
       background:
-        radial-gradient(circle at 84% 0%, rgba(10, 132, 255, 0.56), transparent 34rem),
-        linear-gradient(135deg, rgba(0, 84, 200, 0.42), rgba(0, 0, 0, 0) 58%),
+        radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.42), transparent 28rem),
+        linear-gradient(135deg, rgba(0, 84, 200, 0.22), rgba(0, 0, 0, 0)),
         var(--corp-dark);
-      padding: clamp(4rem, 4vw, 6rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-cta h2 {
@@ -848,9 +852,7 @@
     .section-{{ section.id }} .f2d2-corporate-cta h2 {
       margin-top: 0.6rem;
       color: #ffffff;
-      font-size: clamp(4.2rem, 4.3vw, 7rem);
-      max-width: 90rem;
-      line-height: 0.98;
+      font-size: clamp(3rem, 3vw, 4.8rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-cta ul {
@@ -873,22 +875,6 @@
       background: var(--corp-blue);
       border-radius: 50%;
       vertical-align: middle;
-    }
-
-    @media (min-width: 1181px) {
-      .section-{{ section.id }} .f2d2-corporate-process {
-        background: rgba(255, 255, 255, 0.015);
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 40px;
-      }
-
-      .section-{{ section.id }} .f2d2-corporate-cta {
-        display: flex;
-        min-height: clamp(35rem, 28vw, 45rem);
-        flex-direction: column;
-        justify-content: center;
-        padding: 60px;
-      }
     }
 
     @media (max-width: 1180px) {
@@ -934,12 +920,7 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero {
-        min-height: 66rem;
-      }
-
-      .section-{{ section.id }} .f2d2-corporate-hero__media,
-      .section-{{ section.id }} .f2d2-corporate-hero__media::after {
-        inset: 0;
+        min-height: 57rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero__media::after {
@@ -950,10 +931,6 @@
 
       .section-{{ section.id }} .f2d2-corporate-hero__image {
         object-position: 62% center;
-      }
-
-      .section-{{ section.id }} .f2d2-corporate-hero__copy {
-        width: 100%;
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero h1 {
@@ -1056,10 +1033,6 @@
       .section-{{ section.id }} .f2d2-corporate-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.8rem;
-      }
-
-      .section-{{ section.id }} .f2d2-corporate-gallery a {
-        min-height: 0;
       }
 
       .section-{{ section.id }} .f2d2-corporate-process,
