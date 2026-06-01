@@ -207,7 +207,7 @@
     }
 
     .section-{{ section.id }}.f2d2-corporate-page {
-      --corp-bg: #f5f7fa;
+      --corp-bg: #ffffff;
       --corp-ink: #0b1118;
       --corp-muted: #5a6472;
       --corp-line: rgba(10, 17, 26, 0.12);
@@ -223,6 +223,12 @@
     .section-{{ section.id }} .f2d2-corporate__wrap {
       width: min(100% - 3.2rem, 148rem);
       margin-inline: auto;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-layout {
+      width: 100%;
+      max-width: none;
+      margin-inline: 0;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero {
@@ -336,8 +342,8 @@
       align-items: stretch;
       padding-block: 0;
       background: var(--corp-panel);
-      border-left: 1px solid var(--corp-line);
-      border-right: 1px solid var(--corp-line);
+      border-left: 0;
+      border-right: 0;
     }
 
     .section-{{ section.id }} .f2d2-corporate-main,
