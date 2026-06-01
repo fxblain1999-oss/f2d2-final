@@ -356,17 +356,16 @@
       position: relative;
       isolation: isolate;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 2.4rem;
+      grid-template-columns: minmax(0, 1.55fr) minmax(30rem, 0.75fr) minmax(40rem, 1fr);
+      gap: 0;
       align-items: stretch;
       min-height: 42rem;
       max-width: 148rem;
       margin: clamp(5rem, 5vw, 8rem) auto 0;
-      padding: 8rem 4.8rem;
+      padding: 0;
       overflow: hidden;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-        url({{ 'f2d2-hero-merch.png' | asset_url }}) center / cover no-repeat;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--corp-line);
     }
 
     .section-{{ section.id }} .f2d2-corporate-intro > * {
@@ -378,9 +377,9 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 3.6rem;
+      padding: clamp(3.2rem, 3vw, 5rem);
       background: rgba(2, 7, 13, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 0;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -391,9 +390,12 @@
       flex-direction: column;
       justify-content: center;
       min-height: 100%;
-      padding: 3.6rem;
+      padding: clamp(3.2rem, 3vw, 5rem);
       background: rgba(2, 7, 13, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 1px solid var(--corp-line);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -453,8 +455,8 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.6rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article,
@@ -476,18 +478,18 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article {
-      min-height: auto;
-      padding: 1.2rem;
-      background: rgba(255, 255, 255, 0.035);
+      min-height: 16.5rem;
+      padding: 2rem;
+      background: var(--corp-panel);
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits span {
       display: inline-flex;
-      width: 3.8rem;
-      height: 3.8rem;
+      width: 4.8rem;
+      height: 4.8rem;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.2rem;
       color: var(--corp-blue);
       background: var(--corp-soft);
     }
@@ -513,7 +515,7 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits p {
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-process {
@@ -563,13 +565,22 @@
     .section-{{ section.id }} .f2d2-corporate-volume {
       position: relative;
       overflow: hidden;
+      background: #02070d;
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume img {
-      display: none;
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.58;
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume div {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -577,7 +588,7 @@
       min-height: 100%;
       padding: 0;
       text-align: center;
-      background: transparent;
+      background: linear-gradient(90deg, rgba(2, 7, 13, 0.86), rgba(2, 7, 13, 0.54));
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume p {
