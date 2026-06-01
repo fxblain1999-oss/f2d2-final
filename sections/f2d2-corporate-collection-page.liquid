@@ -568,6 +568,15 @@
       background: #02070d;
     }
 
+    .section-{{ section.id }} .f2d2-corporate-volume::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.65);
+      pointer-events: none;
+    }
+
     .section-{{ section.id }} .f2d2-corporate-volume img {
       position: absolute;
       inset: 0;
@@ -575,26 +584,31 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.58;
+      opacity: 1;
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume div {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100%;
-      padding: 0;
+      padding: clamp(3rem, 4vw, 5rem);
       text-align: center;
-      background: linear-gradient(90deg, rgba(2, 7, 13, 0.86), rgba(2, 7, 13, 0.54));
+      background: transparent;
     }
 
     .section-{{ section.id }} .f2d2-corporate-volume p {
       max-width: 42rem;
       margin-top: 1.2rem;
       color: rgba(255, 255, 255, 0.82);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume a {
+      margin-top: 1.8rem;
+      min-width: min(100%, 25rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-categories {
