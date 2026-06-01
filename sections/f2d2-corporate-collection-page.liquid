@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="f2d2-corporate__wrap">
+    <div class="f2d2-corporate__wrap f2d2-corporate-body">
       <section class="f2d2-corporate-intro">
         <div class="f2d2-corporate-benefits-block">
           <div class="f2d2-corporate-section__head">
@@ -828,6 +828,173 @@
         grid-auto-rows: 24rem;
       }
     }
+
+
+    /* ==========================================================
+       Desktop refinement: keep the hero, but bring the lower page
+       back to the balanced 2-column corporate layout from the mockup.
+       ========================================================== */
+    @media (min-width: 1181px) {
+      .section-{{ section.id }} .f2d2-corporate-body {
+        width: min(100% - 5.6rem, 150rem);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(38rem, 44rem);
+        column-gap: 3.2rem;
+        align-items: start;
+        padding-top: clamp(5rem, 5vw, 7.5rem);
+        position: relative;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(100% - 44rem - 1.6rem);
+        width: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-intro {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(27rem, 31rem) minmax(38rem, 44rem);
+        gap: 3.2rem;
+        align-items: stretch;
+        padding-top: 0;
+        padding-bottom: 4.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits-block,
+      .section-{{ section.id }} .f2d2-corporate-process,
+      .section-{{ section.id }} .f2d2-corporate-volume {
+        min-width: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.4rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits article {
+        min-height: 16.8rem;
+        padding: 2rem 1.6rem;
+        background: rgba(7, 17, 27, 0.92);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-process {
+        padding: 0.2rem 0 0;
+        background: transparent;
+        border: 0;
+        text-align: center;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-process h2 {
+        max-width: 28rem;
+        margin-inline: auto;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-volume {
+        min-height: 27rem;
+        align-self: end;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section {
+        margin-top: 0;
+        padding-top: 4.8rem;
+        border-top: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section--categories {
+        grid-column: 1;
+        grid-row: 2;
+        padding-bottom: 4.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section--realizations {
+        grid-column: 1;
+        grid-row: 3;
+        padding-bottom: 2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-reviews {
+        grid-column: 2;
+        grid-row: 2;
+        max-width: none;
+        margin: 0;
+        padding: 4.8rem 0 4.8rem 3.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        grid-column: 2;
+        grid-row: 3;
+        display: block;
+        margin-top: 0;
+        padding: 4.8rem 3rem;
+        min-height: 34rem;
+        align-self: start;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-categories {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.4rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-categories a {
+        grid-template-rows: 16rem 1fr;
+        min-height: 34rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-gallery {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-auto-rows: clamp(12rem, 10vw, 18rem);
+        gap: 1.2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-gallery__large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-gallery a:nth-child(2),
+      .section-{{ section.id }} .f2d2-corporate-gallery a:nth-child(3),
+      .section-{{ section.id }} .f2d2-corporate-gallery a:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-gallery a:nth-child(5),
+      .section-{{ section.id }} .f2d2-corporate-gallery a:nth-child(6) {
+        grid-column: span 2;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-reviews__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
+        padding: 2rem 1.6rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta h2 {
+        max-width: 36rem;
+        font-size: clamp(4rem, 3.5vw, 5.8rem);
+        line-height: 0.95;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem 1.8rem;
+        margin-top: 2.8rem;
+        min-width: 0;
+      }
+    }
+
   </style>
 {%- endif -%}
 
@@ -842,3 +1009,4 @@
   ]
 }
 {% endschema %}
+
