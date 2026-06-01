@@ -21,11 +21,11 @@
       </div>
       <div class="f2d2-corporate__wrap f2d2-corporate-hero__inner">
         <div class="f2d2-corporate-hero__copy">
-          <p class="f2d2-corporate__eyebrow">Collection corporatif</p>
+          <p class="f2d2-corporate__eyebrow">Collection corporative</p>
           <h1>Votre image de marque sur tous vos produits.</h1>
           <p>
-            Vetements, cadeaux promotionnels, signalisation, autocollants,
-            bouteilles, tasses et plus encore.
+            Vetements personnalises, cadeaux corporatifs, affichage,
+            signalisation, UV DTF et articles promotionnels.
           </p>
           <div class="f2d2-corporate__actions">
             <a href="{{ quote_target }}" class="f2d2-corporate-btn f2d2-corporate-btn--primary" data-f2d2-clothing-quote-open>
@@ -51,28 +51,28 @@
                 <svg viewBox="0 0 24 24"><path d="M5 19c7-1 12-6 14-14-8 2-13 7-14 14Z"/><path d="M5 19 3 21"/><path d="m12 12 4 4"/><path d="M8 16l-1-5 5 1"/></svg>
               </span>
               <h3>Production rapide</h3>
-              <p>Delais respectes et livraison partout au Canada.</p>
+              <p>Delais respectes.</p>
             </article>
             <article>
               <span aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="m14 4 6 6L9 21H3v-6L14 4Z"/><path d="m13 5 6 6"/><path d="m4 20 5-1"/></svg>
               </span>
               <h3>Design graphique inclus</h3>
-              <p>Notre equipe vous accompagne de la conception a la livraison.</p>
+              <p>Maquettes pretes a approuver.</p>
             </article>
             <article>
               <span aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 3c2 4 5 6 9 7-4 1-7 3-9 7-2-4-5-6-9-7 4-1 7-3 9-7Z"/><path d="M12 17v4"/><path d="M8 21h8"/></svg>
               </span>
               <h3>Entreprise locale</h3>
-              <p>Service humain, flexible et proche de vos besoins.</p>
+              <p>Service humain et flexible.</p>
             </article>
             <article>
               <span aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M20 13 13 20 4 11V4h7l9 9Z"/><path d="M8 8h.01"/><path d="M12 9v6"/><path d="M15 10.5h-4.5a1.5 1.5 0 0 0 0 3H13a1.5 1.5 0 0 1 0 3H8"/></svg>
               </span>
               <h3>Prix de volume competitifs</h3>
-              <p>Tarifs avantageux pour les commandes en grande quantite.</p>
+              <p>Tarifs adaptes aux quantites.</p>
             </article>
           </div>
         </section>
@@ -234,20 +234,26 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero {
-      display: none;
+      position: relative;
+      min-height: clamp(65rem, 48vw, 75rem);
+      overflow: hidden;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 22% 38%, rgba(10, 132, 255, 0.18), transparent 34rem),
+        #02070d;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media,
     .section-{{ section.id }} .f2d2-corporate-hero__media::after {
       position: absolute;
-      inset: 0;
+      inset: 0 0 0 50%;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media::after {
       content: "";
       background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 36%, rgba(0, 0, 0, 0.36) 68%, rgba(0, 0, 0, 0.16) 100%),
-        radial-gradient(circle at 22% 44%, rgba(10, 132, 255, 0.20), transparent 30rem);
+        linear-gradient(90deg, rgba(2, 7, 13, 0.38), rgba(2, 7, 13, 0.08)),
+        linear-gradient(180deg, rgba(2, 7, 13, 0.04), rgba(2, 7, 13, 0.34));
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__image {
@@ -264,11 +270,12 @@
       min-height: inherit;
       display: flex;
       align-items: center;
-      padding-block: clamp(5rem, 7vw, 9rem);
+      padding-block: clamp(7rem, 8vw, 11rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__copy {
-      max-width: 69rem;
+      width: min(48%, 72rem);
+      max-width: 72rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate__eyebrow {
@@ -283,17 +290,17 @@
     .section-{{ section.id }} .f2d2-corporate-hero h1 {
       margin: 0;
       color: #ffffff;
-      font-size: clamp(4.4rem, 5.1vw, 7.6rem);
-      line-height: 0.92;
+      font-size: clamp(5.2rem, 6vw, 9rem);
+      line-height: 0.9;
       letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero p:not(.f2d2-corporate__eyebrow) {
       max-width: 52rem;
-      margin: 2rem 0 0;
+      margin: 2.4rem 0 0;
       color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(1.55rem, 1.4vw, 2rem);
+      font-size: clamp(1.7rem, 1.5vw, 2.2rem);
       line-height: 1.45;
     }
 
@@ -301,7 +308,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.4rem;
-      margin-top: 3rem;
+      margin-top: 3.6rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-btn {
@@ -309,7 +316,7 @@
       align-items: center;
       justify-content: center;
       min-height: 5.2rem;
-      padding: 0 2.6rem;
+      padding: 0 3rem;
       border: 1px solid rgba(255, 255, 255, 0.22);
       color: #ffffff;
       font-size: 1.25rem;
@@ -476,8 +483,8 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-section + .f2d2-corporate-section {
-      margin-top: 48px;
-      padding-top: 48px;
+      margin-top: 72px;
+      padding-top: 64px;
       border-top: 1px solid var(--corp-line-soft);
     }
 
@@ -560,14 +567,14 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article {
-      min-height: 13rem;
-      padding: 1.7rem;
+      min-height: 18rem;
+      padding: 2.4rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits span {
       display: inline-flex;
-      width: 4.8rem;
-      height: 4.8rem;
+      width: 6.2rem;
+      height: 6.2rem;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.2rem;
@@ -588,7 +595,7 @@
     .section-{{ section.id }} h3 {
       margin: 0;
       color: var(--corp-ink);
-      font-size: 1.45rem;
+      font-size: 1.65rem;
       line-height: 1.18;
       text-transform: uppercase;
     }
@@ -621,8 +628,8 @@
 
     .section-{{ section.id }} .f2d2-corporate-categories a {
       display: grid;
-      grid-template-rows: 17.5rem 1fr;
-      min-height: 35rem;
+      grid-template-rows: 20rem 1fr;
+      min-height: 38rem;
       color: inherit;
       text-decoration: none;
     }
@@ -665,11 +672,11 @@
 
     .section-{{ section.id }} .f2d2-corporate-gallery {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .section-{{ section.id }} .f2d2-corporate-gallery a {
-      aspect-ratio: 1.22;
+      aspect-ratio: 1.34;
       overflow: hidden;
       background: transparent;
       border: 0;
@@ -690,7 +697,8 @@
     .section-{{ section.id }} .f2d2-corporate-side {
       position: relative;
       background: rgba(255, 255, 255, 0.015);
-      border-left: 1px solid var(--corp-column-line);
+      border-left: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 40px;
     }
 
     .section-{{ section.id }} .f2d2-corporate-process ol {
@@ -736,7 +744,7 @@
 
     .section-{{ section.id }} .f2d2-corporate-volume {
       position: relative;
-      min-height: 25rem;
+      min-height: clamp(30rem, 24vw, 35rem);
       overflow: hidden;
       color: #ffffff;
       background: var(--corp-dark);
@@ -763,7 +771,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: 2.2rem;
+      padding: clamp(3rem, 3vw, 4.4rem);
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.22));
     }
 
@@ -778,9 +786,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 4.6rem;
+      min-height: 5.4rem;
       margin-top: 1.6rem;
-      padding: 0 2rem;
+      padding: 0 2.8rem;
       color: #ffffff;
       background: linear-gradient(180deg, var(--corp-blue), var(--corp-blue-strong));
       font-size: 1.15rem;
@@ -792,13 +800,13 @@
     .section-{{ section.id }} .f2d2-corporate-reviews > div {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
-      margin-top: 2rem;
+      gap: 1rem;
+      margin-top: 1.6rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
       margin: 0;
-      padding: 1.8rem;
+      padding: 1.35rem;
       border: 1px solid var(--corp-line);
       background: #07111b;
       transition: border-color 180ms ease, box-shadow 180ms ease;
@@ -806,12 +814,13 @@
 
     .section-{{ section.id }} .f2d2-corporate-reviews strong {
       color: var(--corp-blue);
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       letter-spacing: 0.08em;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews p {
       margin-top: 0.8rem;
+      font-size: 1.2rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews cite {
@@ -832,9 +841,10 @@
     .section-{{ section.id }} .f2d2-corporate-cta {
       color: #ffffff;
       background:
-        radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.42), transparent 28rem),
-        linear-gradient(135deg, rgba(0, 84, 200, 0.22), rgba(0, 0, 0, 0)),
+        radial-gradient(circle at 84% 0%, rgba(10, 132, 255, 0.56), transparent 34rem),
+        linear-gradient(135deg, rgba(0, 84, 200, 0.42), rgba(0, 0, 0, 0) 58%),
         var(--corp-dark);
+      padding: clamp(4rem, 4vw, 6rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-cta h2 {
@@ -852,7 +862,7 @@
     .section-{{ section.id }} .f2d2-corporate-cta h2 {
       margin-top: 0.6rem;
       color: #ffffff;
-      font-size: clamp(3rem, 3vw, 4.8rem);
+      font-size: clamp(4.2rem, 4.3vw, 7rem);
     }
 
     .section-{{ section.id }} .f2d2-corporate-cta ul {
@@ -920,7 +930,12 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero {
-        min-height: 57rem;
+        min-height: 66rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero__media,
+      .section-{{ section.id }} .f2d2-corporate-hero__media::after {
+        inset: 0;
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero__media::after {
@@ -931,6 +946,10 @@
 
       .section-{{ section.id }} .f2d2-corporate-hero__image {
         object-position: 62% center;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero__copy {
+        width: 100%;
       }
 
       .section-{{ section.id }} .f2d2-corporate-hero h1 {
