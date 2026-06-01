@@ -207,16 +207,19 @@
     }
 
     .section-{{ section.id }}.f2d2-corporate-page {
-      --corp-bg: #ffffff;
-      --corp-ink: #0b1118;
-      --corp-muted: #5a6472;
-      --corp-line: rgba(10, 17, 26, 0.12);
-      --corp-dark: #05080d;
-      --corp-panel: #ffffff;
+      --corp-bg: #02070d;
+      --corp-ink: #ffffff;
+      --corp-muted: rgba(255, 255, 255, 0.68);
+      --corp-line: rgba(255, 255, 255, 0.12);
+      --corp-dark: #02070d;
+      --corp-panel: rgba(6, 13, 21, 0.88);
       --corp-blue: #0a84ff;
       --corp-blue-strong: #0054c8;
-      --corp-soft: #edf5ff;
-      background: var(--corp-bg);
+      --corp-soft: rgba(10, 132, 255, 0.12);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(10, 132, 255, 0.16), transparent 36rem),
+        radial-gradient(circle at 88% 28%, rgba(0, 84, 200, 0.14), transparent 34rem),
+        linear-gradient(180deg, #040a11 0%, #02070d 44%, #02070d 100%);
       color: var(--corp-ink);
     }
 
@@ -232,11 +235,7 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero {
-      position: relative;
-      min-height: clamp(48rem, 42vw, 58rem);
-      overflow: hidden;
-      color: #ffffff;
-      background: var(--corp-dark);
+      display: none;
     }
 
     .section-{{ section.id }} .f2d2-corporate-hero__media,
@@ -339,10 +338,10 @@
       position: relative;
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(34rem, 1fr);
-      gap: 0;
+      gap: 3.2rem;
       align-items: stretch;
-      padding-block: 0;
-      background: var(--corp-panel);
+      padding-block: clamp(3rem, 4vw, 5.4rem) 5rem;
+      background: transparent;
       border-left: 0;
       border-right: 0;
     }
@@ -352,7 +351,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 67.7419%;
+      left: calc((100% - 3.2rem) * 0.677419);
       width: 1px;
       background: var(--corp-line);
       pointer-events: none;
@@ -366,10 +365,18 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-main {
-      border-right: 1px solid var(--corp-line);
+      border-right: 0;
     }
 
     @media (min-width: 1181px) {
+      .section-{{ section.id }} .f2d2-corporate-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(28rem, 0.9fr) minmax(34rem, 1.05fr);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::after {
+        left: calc(((100% - 6.4rem) * 0.734177) + 3.2rem);
+      }
+
       .section-{{ section.id }} .f2d2-corporate-main,
       .section-{{ section.id }} .f2d2-corporate-side {
         display: contents;
@@ -390,31 +397,31 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-section--categories {
-        grid-column: 1;
+        grid-column: 1 / span 2;
         grid-row: 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-volume {
-        grid-column: 2;
-        grid-row: 2;
+        grid-column: 3;
+        grid-row: 1;
         align-self: start;
-        margin-top: calc(clamp(2.2rem, 2vw, 3rem) + 3.2rem);
+        margin-top: 0;
         min-height: 25rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-section--realizations {
-        grid-column: 1;
+        grid-column: 1 / span 2;
         grid-row: 3 / span 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews {
-        grid-column: 2;
-        grid-row: 3;
+        grid-column: 3;
+        grid-row: 2;
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta {
-        grid-column: 2;
-        grid-row: 4;
+        grid-column: 3;
+        grid-row: 3;
         align-self: stretch;
       }
     }
@@ -472,13 +479,15 @@
     .section-{{ section.id }} .f2d2-corporate-cta {
       background: var(--corp-panel);
       border: 1px solid var(--corp-line);
-      box-shadow: none;
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .section-{{ section.id }} .f2d2-corporate-process,
     .section-{{ section.id }} .f2d2-corporate-reviews,
     .section-{{ section.id }} .f2d2-corporate-cta {
-      border-width: 0 0 1px;
+      border-width: 1px;
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article {
@@ -558,6 +567,7 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-categories div {
+      background: linear-gradient(180deg, rgba(8, 18, 29, 0.98), rgba(4, 11, 18, 0.98));
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
@@ -718,7 +728,7 @@
       margin: 0;
       padding: 1.4rem;
       border: 1px solid var(--corp-line);
-      background: #f8fafc;
+      background: rgba(255, 255, 255, 0.045);
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews strong {
@@ -749,7 +759,8 @@
     .section-{{ section.id }} .f2d2-corporate-cta {
       color: #ffffff;
       background:
-        radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.28), transparent 28rem),
+        radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.42), transparent 28rem),
+        linear-gradient(135deg, rgba(0, 84, 200, 0.22), rgba(0, 0, 0, 0)),
         var(--corp-dark);
     }
 
@@ -863,7 +874,7 @@
       .section-{{ section.id }} .f2d2-corporate-layout {
         width: 100%;
         padding-block: 0;
-        background: #ffffff;
+        background: transparent;
       }
 
       .section-{{ section.id }} .f2d2-corporate-gallery,
