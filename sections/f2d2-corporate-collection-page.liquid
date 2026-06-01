@@ -336,6 +336,7 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-layout {
+      position: relative;
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(34rem, 1fr);
       gap: 0;
@@ -344,6 +345,17 @@
       background: var(--corp-panel);
       border-left: 0;
       border-right: 0;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-layout::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 67.7419%;
+      width: 1px;
+      background: var(--corp-line);
+      pointer-events: none;
     }
 
     .section-{{ section.id }} .f2d2-corporate-main,
@@ -355,6 +367,54 @@
 
     .section-{{ section.id }} .f2d2-corporate-main {
       border-right: 1px solid var(--corp-line);
+    }
+
+    @media (min-width: 1181px) {
+      .section-{{ section.id }} .f2d2-corporate-main,
+      .section-{{ section.id }} .f2d2-corporate-side {
+        display: contents;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-main {
+        border-right: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section--benefits {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-process {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section--categories {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-volume {
+        grid-column: 2;
+        grid-row: 2;
+        min-height: auto;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section--realizations {
+        grid-column: 1;
+        grid-row: 3 / span 2;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-reviews {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        grid-column: 2;
+        grid-row: 4;
+        align-self: stretch;
+      }
     }
 
     .section-{{ section.id }} .f2d2-corporate-section,
@@ -735,6 +795,10 @@
       .section-{{ section.id }} .f2d2-corporate-layout {
         grid-template-columns: 1fr;
         border: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout::after {
+        display: none;
       }
 
       .section-{{ section.id }} .f2d2-corporate-side {
