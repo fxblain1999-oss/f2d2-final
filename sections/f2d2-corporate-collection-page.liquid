@@ -1002,6 +1002,10 @@
         border-bottom: 0;
       }
 
+      .section-{{ section.id }} .f2d2-corporate-reviews .f2d2-corporate-section__head {
+        text-align: center;
+      }
+
       .section-{{ section.id }} .f2d2-corporate-cta {
         grid-column: 2;
         grid-row: 3;
@@ -1046,10 +1050,13 @@
 
       .section-{{ section.id }} .f2d2-corporate-reviews__grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
         gap: 1.2rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
+        width: 100%;
+        min-width: 0;
         padding: 2rem 1.6rem;
       }
 
