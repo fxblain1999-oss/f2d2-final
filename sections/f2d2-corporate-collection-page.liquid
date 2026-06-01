@@ -229,8 +229,8 @@
     }
 
     .section-{{ section.id }} .f2d2-corporate-layout {
-      width: min(100% - 3.2rem, 148rem);
-      max-width: 148rem;
+      width: min(100% - 3.2rem, 166rem);
+      max-width: 166rem;
       margin-inline: auto;
     }
 
@@ -338,7 +338,8 @@
       position: relative;
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(34rem, 1fr);
-      gap: 3.2rem;
+      column-gap: 3.2rem;
+      row-gap: 0;
       align-items: stretch;
       padding-block: clamp(3rem, 4vw, 5.4rem) 5rem;
       background: transparent;
@@ -370,11 +371,11 @@
 
     @media (min-width: 1181px) {
       .section-{{ section.id }} .f2d2-corporate-layout {
-        grid-template-columns: minmax(0, 2fr) minmax(28rem, 0.9fr) minmax(34rem, 1.05fr);
+        grid-template-columns: minmax(0, 1.95fr) minmax(30rem, 0.85fr) minmax(48rem, 1.25fr);
       }
 
       .section-{{ section.id }} .f2d2-corporate-layout::after {
-        left: calc(((100% - 6.4rem) * 0.734177) + 3.2rem);
+        left: calc(((100% - 6.4rem) * 0.691358) + 3.2rem);
       }
 
       .section-{{ section.id }} .f2d2-corporate-main,
@@ -488,6 +489,20 @@
     .section-{{ section.id }} .f2d2-corporate-reviews,
     .section-{{ section.id }} .f2d2-corporate-cta {
       border-width: 1px;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process {
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      text-align: center;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process h2 {
+      max-width: 34rem;
+      margin-inline: auto;
     }
 
     .section-{{ section.id }} .f2d2-corporate-benefits article {
@@ -720,13 +735,13 @@
     .section-{{ section.id }} .f2d2-corporate-reviews > div {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.6rem;
+      gap: 1.4rem;
+      margin-top: 2rem;
     }
 
     .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
       margin: 0;
-      padding: 1.4rem;
+      padding: 1.8rem;
       border: 1px solid var(--corp-line);
       background: rgba(255, 255, 255, 0.045);
     }
