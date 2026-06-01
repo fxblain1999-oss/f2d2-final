@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "f2d2_corporate": {
+      "type": "f2d2-corporate-collection-page",
+      "settings": {}
+    },
     "f2d2_realizations": {
       "type": "f2d2-realizations-page",
       "settings": {}
@@ -239,6 +243,7 @@
     }
   },
   "order": [
+    "f2d2_corporate",
     "f2d2_realizations",
     "clothing_quote_modal",
     "breadcrumbs_Gxg9wp",

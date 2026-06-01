@@ -1,6 +1,6 @@
 {{ 'section-collection-hero.css' | asset_url | stylesheet_tag }}
 
-{% unless collection.handle == 'design-f2d2' %}
+{% unless collection.handle == 'design-f2d2' or collection.handle == 'corporatif' %}
 {% liquid
   assign banner = collection.featured_image
   assign banner_mobile = collection.featured_image

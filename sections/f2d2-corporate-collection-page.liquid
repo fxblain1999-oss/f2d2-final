@@ -1,0 +1,776 @@
+{%- if collection.handle == 'corporatif' -%}
+  {%- liquid
+    assign quote_target = '#f2d2-clothing-quote-modal'
+    assign realizations_url = routes.collections_url | append: '/design-f2d2'
+    assign clothing_url = '/pages/vetements'
+    assign collections_url = routes.collections_url
+    assign contact_url = '/pages/contact'
+  -%}
+
+  <section class="f2d2-corporate-page section-{{ section.id }}">
+    <div class="f2d2-corporate-hero">
+      <div class="f2d2-corporate-hero__media" aria-hidden="true">
+        <img
+          src="{{ 'corporate_bg.png' | asset_url }}"
+          alt=""
+          width="1920"
+          height="520"
+          loading="eager"
+          class="f2d2-corporate-hero__image"
+        >
+      </div>
+      <div class="f2d2-corporate__wrap f2d2-corporate-hero__inner">
+        <div class="f2d2-corporate-hero__copy">
+          <p class="f2d2-corporate__eyebrow">Collection corporatif</p>
+          <h1>Votre image de marque sur tous vos produits.</h1>
+          <p>
+            Vetements, cadeaux promotionnels, signalisation, autocollants,
+            bouteilles, tasses et plus encore.
+          </p>
+          <div class="f2d2-corporate__actions">
+            <a href="{{ quote_target }}" class="f2d2-corporate-btn f2d2-corporate-btn--primary" data-f2d2-clothing-quote-open>
+              Demander une soumission
+            </a>
+            <a href="{{ realizations_url }}" class="f2d2-corporate-btn f2d2-corporate-btn--ghost">
+              Voir nos realisations
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f2d2-corporate__wrap f2d2-corporate-layout">
+      <main class="f2d2-corporate-main">
+        <section class="f2d2-corporate-section">
+          <div class="f2d2-corporate-section__head">
+            <h2>Pourquoi choisir F2D2 ?</h2>
+          </div>
+          <div class="f2d2-corporate-benefits">
+            <article>
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 19c7-1 12-6 14-14-8 2-13 7-14 14Z"/><path d="M5 19 3 21"/><path d="m12 12 4 4"/><path d="M8 16l-1-5 5 1"/></svg>
+              </span>
+              <h3>Production rapide</h3>
+              <p>Delais respectes et livraison partout au Canada.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m14 4 6 6L9 21H3v-6L14 4Z"/><path d="m13 5 6 6"/><path d="m4 20 5-1"/></svg>
+              </span>
+              <h3>Design graphique inclus</h3>
+              <p>Notre equipe vous accompagne de la conception a la livraison.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3c2 4 5 6 9 7-4 1-7 3-9 7-2-4-5-6-9-7 4-1 7-3 9-7Z"/><path d="M12 17v4"/><path d="M8 21h8"/></svg>
+              </span>
+              <h3>Entreprise locale</h3>
+              <p>Service humain, flexible et proche de vos besoins.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 13 13 20 4 11V4h7l9 9Z"/><path d="M8 8h.01"/><path d="M12 9v6"/><path d="M15 10.5h-4.5a1.5 1.5 0 0 0 0 3H13a1.5 1.5 0 0 1 0 3H8"/></svg>
+              </span>
+              <h3>Prix de volume competitifs</h3>
+              <p>Tarifs avantageux pour les commandes en grande quantite.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="f2d2-corporate-section">
+          <div class="f2d2-corporate-section__head">
+            <h2>Tout ce qu'il vous faut pour votre entreprise</h2>
+          </div>
+          <div class="f2d2-corporate-categories">
+            <article>
+              <a href="{{ clothing_url }}">
+                <img src="{{ 'f2d2-project-team-collection.png' | asset_url }}" alt="" width="800" height="448" loading="lazy">
+                <div>
+                  <h3>Vetements</h3>
+                  <p>Chandails, hoodies, vestes, casquettes.</p>
+                  <span>Voir tous les vetements -></span>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a href="{{ collections_url }}">
+                <img src="{{ 'f2d2-hero-merch.png' | asset_url }}" alt="" width="1920" height="1080" loading="lazy">
+                <div>
+                  <h3>Accessoires</h3>
+                  <p>Tasses, bouteilles, sacs, stylos.</p>
+                  <span>Voir tous les accessoires -></span>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a href="{{ collections_url }}">
+                <img src="{{ 'f2d2-project-smokehouse-bbq.png' | asset_url }}" alt="" width="1586" height="992" loading="lazy">
+                <div>
+                  <h3>Affichage</h3>
+                  <p>Bannieres, coroplastes, enseignes, autocollants muraux.</p>
+                  <span>Voir tout l'affichage -></span>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a href="{{ collections_url }}">
+                <img src="{{ 'f2d2-realizations-hero-wide.png' | asset_url }}" alt="" width="1922" height="818" loading="lazy">
+                <div>
+                  <h3>Promotion</h3>
+                  <p>UV DTF, stickers, cadeaux clients, articles promotionnels.</p>
+                  <span>Voir tous les produits promo -></span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <section class="f2d2-corporate-section f2d2-corporate-section--realizations">
+          <div class="f2d2-corporate-section__head f2d2-corporate-section__head--split">
+            <h2>Nos realisations</h2>
+            <a href="{{ realizations_url }}">Voir plus de realisations -></a>
+          </div>
+          <div class="f2d2-corporate-gallery">
+            <a href="{{ realizations_url }}"><img src="{{ 'f2d2-project-team-collection.png' | asset_url }}" alt="" width="800" height="448" loading="lazy"></a>
+            <a href="{{ realizations_url }}"><img src="{{ 'f2d2-project-smokehouse-bbq.png' | asset_url }}" alt="" width="800" height="500" loading="lazy"></a>
+            <a href="{{ realizations_url }}"><img src="{{ 'f2d2-realizations-hero-wide.png' | asset_url }}" alt="" width="800" height="340" loading="lazy"></a>
+            <a href="{{ realizations_url }}"><img src="{{ 'f2d2-hero-merch.png' | asset_url }}" alt="" width="800" height="450" loading="lazy"></a>
+            <a href="{{ realizations_url }}"><img src="{{ 'corporate_bg.png' | asset_url }}" alt="" width="800" height="217" loading="lazy"></a>
+            <a href="{{ realizations_url }}"><img src="{{ 'f2d2-web-hero-crop.png' | asset_url }}" alt="" width="800" height="450" loading="lazy"></a>
+          </div>
+        </section>
+      </main>
+
+      <aside class="f2d2-corporate-side">
+        <section class="f2d2-corporate-process">
+          <h2>Comment ca fonctionne ?</h2>
+          <ol>
+            <li><strong>Soumission</strong><span>Vous nous envoyez votre projet.</span></li>
+            <li><strong>Approbation</strong><span>Nous validons une maquette claire.</span></li>
+            <li><strong>Production</strong><span>On produit vos articles avec soin.</span></li>
+            <li><strong>Livraison</strong><span>Livraison rapide a votre entreprise.</span></li>
+          </ol>
+        </section>
+
+        <section class="f2d2-corporate-volume">
+          <img src="{{ 'f2d2-hero-merch.png' | asset_url }}" alt="" width="800" height="450" loading="lazy">
+          <div>
+            <h2>Commandes corporatives</h2>
+            <p>Besoin de 25, 50, 100 ou 1000 unites ? Nous offrons des tarifs adaptes aux entreprises, organismes et municipalites.</p>
+            <a href="{{ quote_target }}" data-f2d2-clothing-quote-open>Obtenir un prix</a>
+          </div>
+        </section>
+
+        <section class="f2d2-corporate-reviews">
+          <h2>Ils nous font confiance</h2>
+          <div>
+            <blockquote>
+              <strong>★★★★★</strong>
+              <p>Service impeccable et produits de qualite. Nos chandails corporatifs sont parfaits.</p>
+              <cite>Julien R.<span>Construction</span></cite>
+            </blockquote>
+            <blockquote>
+              <strong>★★★★★</strong>
+              <p>Livraison rapide, excellente communication et resultat au-dela de nos attentes.</p>
+              <cite>Marie-Eve L.<span>Agence immobiliere</span></cite>
+            </blockquote>
+            <blockquote>
+              <strong>★★★★★</strong>
+              <p>F2D2 comprend vraiment nos besoins et le visuel est toujours sur la coche.</p>
+              <cite>Alexandre T.<span>Evenements</span></cite>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="f2d2-corporate-cta">
+          <p>Pret a faire rayonner votre marque ?</p>
+          <h2>Demander une soumission</h2>
+          <a href="{{ quote_target }}" data-f2d2-clothing-quote-open>Commencer maintenant</a>
+          <ul>
+            <li>Reponse rapide</li>
+            <li>Soumission gratuite</li>
+            <li>Aucun engagement</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <style>
+    body:has(.f2d2-corporate-page) .breadcrumbs,
+    body:has(.f2d2-corporate-page) .collection-hero,
+    body:has(.f2d2-corporate-page) .collection-section {
+      display: none !important;
+    }
+
+    .section-{{ section.id }}.f2d2-corporate-page {
+      --corp-bg: #f5f7fa;
+      --corp-ink: #0b1118;
+      --corp-muted: #5a6472;
+      --corp-line: rgba(10, 17, 26, 0.12);
+      --corp-dark: #05080d;
+      --corp-panel: #ffffff;
+      --corp-blue: #0a84ff;
+      --corp-blue-strong: #0054c8;
+      --corp-orange: #ff6a00;
+      background: var(--corp-bg);
+      color: var(--corp-ink);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate__wrap {
+      width: min(100% - 3.2rem, 148rem);
+      margin-inline: auto;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero {
+      position: relative;
+      min-height: clamp(48rem, 54vw, 66rem);
+      overflow: hidden;
+      color: #ffffff;
+      background: var(--corp-dark);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero__media,
+    .section-{{ section.id }} .f2d2-corporate-hero__media::after {
+      position: absolute;
+      inset: 0;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero__media::after {
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.76) 34%, rgba(0, 0, 0, 0.30) 66%, rgba(0, 0, 0, 0.18) 100%),
+        radial-gradient(circle at 22% 44%, rgba(10, 132, 255, 0.24), transparent 30rem);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero__inner {
+      position: relative;
+      z-index: 1;
+      min-height: inherit;
+      display: flex;
+      align-items: center;
+      padding-block: clamp(5rem, 7vw, 9rem);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero__copy {
+      max-width: 69rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate__eyebrow {
+      margin: 0 0 1rem;
+      color: #5ea7ff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(4.2rem, 6.8vw, 9.2rem);
+      line-height: 0.9;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-hero p:not(.f2d2-corporate__eyebrow) {
+      max-width: 52rem;
+      margin: 2rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.55rem, 1.4vw, 2rem);
+      line-height: 1.45;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-top: 3rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 5.2rem;
+      padding: 0 2.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-btn--primary {
+      border-color: var(--corp-blue);
+      background: linear-gradient(180deg, var(--corp-blue), var(--corp-blue-strong));
+      box-shadow: 0 1.4rem 3.2rem rgba(0, 84, 200, 0.32);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-btn--ghost {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(34rem, 45rem);
+      gap: 2.4rem;
+      align-items: start;
+      padding-block: 3.2rem 5rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-main,
+    .section-{{ section.id }} .f2d2-corporate-side {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-section__head {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-section__head--split {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .section-{{ section.id }} h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 2vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-section__head a {
+      color: var(--corp-blue-strong);
+      font-size: 1.35rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits,
+    .section-{{ section.id }} .f2d2-corporate-categories,
+    .section-{{ section.id }} .f2d2-corporate-gallery {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits article,
+    .section-{{ section.id }} .f2d2-corporate-categories article,
+    .section-{{ section.id }} .f2d2-corporate-process,
+    .section-{{ section.id }} .f2d2-corporate-reviews,
+    .section-{{ section.id }} .f2d2-corporate-cta {
+      background: var(--corp-panel);
+      border: 1px solid var(--corp-line);
+      box-shadow: 0 1.4rem 3.4rem rgba(10, 17, 26, 0.06);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits article {
+      min-height: 15.8rem;
+      padding: 2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits span {
+      display: inline-flex;
+      width: 4.8rem;
+      height: 4.8rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      color: var(--corp-blue);
+      background: rgba(10, 132, 255, 0.09);
+    }
+
+    .section-{{ section.id }} svg {
+      width: 2.8rem;
+      height: 2.8rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .section-{{ section.id }} h3 {
+      margin: 0;
+      font-size: 1.45rem;
+      line-height: 1.18;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} p {
+      margin: 0;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits p,
+    .section-{{ section.id }} .f2d2-corporate-categories p,
+    .section-{{ section.id }} .f2d2-corporate-process span,
+    .section-{{ section.id }} .f2d2-corporate-volume p,
+    .section-{{ section.id }} .f2d2-corporate-reviews p {
+      color: var(--corp-muted);
+      font-size: 1.35rem;
+      line-height: 1.45;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-benefits p {
+      margin-top: 0.7rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories article {
+      overflow: hidden;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories a {
+      display: grid;
+      grid-template-rows: 18rem 1fr;
+      min-height: 38rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: #e9edf2;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-categories span {
+      margin-top: auto;
+      color: var(--corp-blue-strong);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-gallery a {
+      aspect-ratio: 1.28;
+      overflow: hidden;
+      background: #dfe5ed;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 220ms ease;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-gallery a:hover img {
+      transform: scale(1.04);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-side {
+      position: sticky;
+      top: 2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process,
+    .section-{{ section.id }} .f2d2-corporate-reviews,
+    .section-{{ section.id }} .f2d2-corporate-cta {
+      padding: 2.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin: 1.8rem 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: process;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process li {
+      counter-increment: process;
+      position: relative;
+      display: grid;
+      gap: 0.5rem;
+      padding-top: 3.4rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process li::before {
+      content: counter(process);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      color: #ffffff;
+      background: var(--corp-blue);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-process strong {
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume {
+      position: relative;
+      min-height: 24rem;
+      overflow: hidden;
+      color: #ffffff;
+      background: var(--corp-dark);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.58;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume div {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: inherit;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.2rem;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.22));
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume p {
+      max-width: 34rem;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-volume a,
+    .section-{{ section.id }} .f2d2-corporate-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 4.6rem;
+      margin-top: 1.6rem;
+      padding: 0 2rem;
+      color: #ffffff;
+      background: linear-gradient(180deg, var(--corp-blue), var(--corp-blue-strong));
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews > div {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews blockquote {
+      margin: 0;
+      padding: 1.4rem;
+      border: 1px solid var(--corp-line);
+      background: #f8fafc;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews strong {
+      color: var(--corp-blue);
+      letter-spacing: 0.1em;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews p {
+      margin-top: 0.8rem;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews cite {
+      display: grid;
+      gap: 0.2rem;
+      margin-top: 1rem;
+      color: var(--corp-ink);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-reviews cite span {
+      color: var(--corp-muted);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta {
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(10, 132, 255, 0.28), transparent 28rem),
+        var(--corp-dark);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta p {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta h2 {
+      margin-top: 0.6rem;
+      color: #ffffff;
+      font-size: clamp(3rem, 3vw, 4.8rem);
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.8rem 0 0;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.2rem;
+      list-style: none;
+    }
+
+    .section-{{ section.id }} .f2d2-corporate-cta li::before {
+      content: "";
+      display: inline-block;
+      width: 0.6rem;
+      height: 0.6rem;
+      margin-right: 0.6rem;
+      background: var(--corp-blue);
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 1180px) {
+      .section-{{ section.id }} .f2d2-corporate-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-side {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        grid-column: 1 / -1;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits,
+      .section-{{ section.id }} .f2d2-corporate-categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 749px) {
+      .section-{{ section.id }} .f2d2-corporate__wrap {
+        width: min(100% - 2rem, 148rem);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero {
+        min-height: 62rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero__media::after {
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.32) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.72));
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero__image {
+        object-position: 62% center;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero h1 {
+        max-width: 34rem;
+        font-size: clamp(3.6rem, 11vw, 5rem);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-hero p:not(.f2d2-corporate__eyebrow) {
+        max-width: 31rem;
+        font-size: 1.5rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate__actions,
+      .section-{{ section.id }} .f2d2-corporate-btn {
+        width: 100%;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-layout {
+        padding-block: 2.4rem 3.6rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-benefits,
+      .section-{{ section.id }} .f2d2-corporate-categories,
+      .section-{{ section.id }} .f2d2-corporate-gallery,
+      .section-{{ section.id }} .f2d2-corporate-side,
+      .section-{{ section.id }} .f2d2-corporate-process ol {
+        grid-template-columns: 1fr;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-section__head--split {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-categories a {
+        grid-template-rows: 15rem 1fr;
+        min-height: 30rem;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "F2D2 corporatif",
+  "settings": [],
+  "presets": [
+    {
+      "name": "F2D2 corporatif"
+    }
+  ]
+}
+{% endschema %}
