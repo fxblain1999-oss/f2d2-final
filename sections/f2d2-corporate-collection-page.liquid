@@ -425,6 +425,30 @@
         grid-row: 3;
         align-self: stretch;
       }
+
+      .section-{{ section.id }} .f2d2-corporate-volume,
+      .section-{{ section.id }} .f2d2-corporate-reviews,
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        border-radius: 0;
+        border-left: 1px solid var(--corp-line);
+        border-right: 1px solid var(--corp-line);
+        box-shadow: none;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-volume {
+        border-bottom: 0;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-reviews {
+        border-top: 0;
+        border-bottom: 0;
+        padding-top: clamp(3rem, 3vw, 5rem);
+        padding-bottom: clamp(3rem, 3vw, 5rem);
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta {
+        border-top: 1px solid var(--corp-line);
+      }
     }
 
     .section-{{ section.id }} .f2d2-corporate-section,
