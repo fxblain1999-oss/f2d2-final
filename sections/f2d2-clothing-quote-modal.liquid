@@ -252,11 +252,18 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    color-scheme: dark;
+    -webkit-text-fill-color: #ffffff;
   }
 
-  .f2d2-clothing-quote-modal select option {
+  .f2d2-clothing-quote-modal select option,
+  .f2d2-clothing-quote-modal select option:checked,
+  .f2d2-clothing-quote-modal select option:hover,
+  .f2d2-clothing-quote-modal select option:focus {
     color: #ffffff;
-    background: #0f141b;
+    color-scheme: dark;
+    background: #0f141b !important;
+    -webkit-text-fill-color: #ffffff;
   }
 
   .f2d2-clothing-quote-modal textarea {

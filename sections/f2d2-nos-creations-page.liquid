@@ -1,5 +1,7 @@
 {{ 'f2d2-creations-hero-bg.png' | asset_url | preload_tag: as: 'image' }}
 
+{%- if page.handle == 'nos-creations' -%}
+
 {%- liquid
   assign contact_url = '/pages/contact'
   assign web_url = '/pages/creation-de-sites-webs'
@@ -821,6 +823,8 @@
 
   })();
 </script>
+
+{%- endif -%}
 
 {% schema %}
 {

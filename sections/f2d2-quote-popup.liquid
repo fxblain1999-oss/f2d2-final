@@ -273,11 +273,18 @@
   #{{ section_id }} select {
     color: #ffffff;
     background: #151b23;
+    color-scheme: dark;
+    -webkit-text-fill-color: #ffffff;
   }
 
-  #{{ section_id }} select option {
+  #{{ section_id }} select option,
+  #{{ section_id }} select option:checked,
+  #{{ section_id }} select option:hover,
+  #{{ section_id }} select option:focus {
     color: #ffffff;
-    background: #0f141b;
+    color-scheme: dark;
+    background: #0f141b !important;
+    -webkit-text-fill-color: #ffffff;
   }
 
   #{{ section_id }} select {
@@ -396,10 +403,6 @@
   #{{ section_id }} input::placeholder,
   #{{ section_id }} textarea::placeholder {
     color: rgba(255, 255, 255, 0.52);
-  }
-
-  #{{ section_id }} select option {
-    color: #111111;
   }
 
   #{{ section_id }} .f2d2-quote-popup__wide,
