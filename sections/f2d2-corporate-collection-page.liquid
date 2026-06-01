@@ -199,7 +199,7 @@
       <section class="f2d2-corporate-cta">
         <div>
           <p>Prêt à faire rayonner votre marque ?</p>
-          <h2>Demander une soumission</h2>
+          <h2>Demander une<br>soumission</h2>
           <a href="{{ quote_target }}" data-f2d2-clothing-quote-open>Commencer maintenant</a>
         </div>
 
@@ -855,12 +855,13 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta {
-        align-items: start;
+        align-items: center;
+        text-align: center;
         padding: 3rem 2rem;
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta h2 {
-        font-size: clamp(3.4rem, 12vw, 5.2rem);
+        font-size: clamp(3.2rem, 10vw, 4.2rem);
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta a {
@@ -1012,7 +1013,10 @@
       .section-{{ section.id }} .f2d2-corporate-cta {
         grid-column: 2;
         grid-row: 3;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
         width: calc(100% - 3.2rem);
         margin-top: 0;
         margin-left: 3.2rem;
@@ -1076,14 +1080,19 @@
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta h2 {
-        max-width: 36rem;
-        font-size: clamp(4rem, 3.5vw, 5.8rem);
+        max-width: none;
+        font-size: clamp(3.6rem, 2.85vw, 4.8rem);
         line-height: 0.95;
+      }
+
+      .section-{{ section.id }} .f2d2-corporate-cta a {
+        margin-inline: auto;
       }
 
       .section-{{ section.id }} .f2d2-corporate-cta ul {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1.2rem 1.8rem;
         margin-top: 2.8rem;
         min-width: 0;
