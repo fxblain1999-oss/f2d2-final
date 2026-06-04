@@ -159,6 +159,22 @@
               assign fallback_asset = 'f2d2-hero-merch.png'
 
           endcase
+
+          if title_key == 'STICKERS UV DTF'
+            for product in collections.all.products
+              assign product_title_key = product.title | upcase
+              if product_title_key contains 'UV DTF'
+                if product.featured_media.preview_image != blank
+                  assign image = product.featured_media.preview_image
+                elsif product.featured_image != blank
+                  assign image = product.featured_image
+                elsif product.images.first != blank
+                  assign image = product.images.first
+                endif
+                break
+              endif
+            endfor
+          endif
         -%}
         <article class="f2d2-category-card" {{ block.shopify_attributes }}>
           <a href="{{ href }}" class="f2d2-category-card__link" aria-label="{{ title | escape }}">
