@@ -123,7 +123,8 @@
             endif
           endif
 
-          assign href = collection.url
+          assign href = block.settings.link | default: collection.url
+          assign fallback_asset = blank
 
           case title_key
 
@@ -145,6 +146,18 @@
             when 'ACCESSOIRES'
               assign href = '/collections/accessoire'
 
+            when 'STICKERS UV DTF'
+              assign href = '/pages/uv-printing'
+              assign fallback_asset = 'uv_icon.webp'
+
+            when 'TRANSFERTS DTF SUR FILM'
+              assign href = '/pages/impression-dtf'
+              assign fallback_asset = 'dtf_icon.webp'
+
+            when 'SUBLIMATION'
+              assign href = '/pages/sublimation'
+              assign fallback_asset = 'f2d2-hero-merch.png'
+
           endcase
         -%}
         <article class="f2d2-category-card" {{ block.shopify_attributes }}>
@@ -160,6 +173,15 @@
                     sizes: '(max-width: 749px) 44vw, (max-width: 1199px) 30vw, 16vw',
                     class: 'f2d2-category-card__image'
                 }}
+              {%- elsif fallback_asset != blank -%}
+                <img
+                  src="{{ fallback_asset | asset_url }}"
+                  alt=""
+                  width="700"
+                  height="700"
+                  loading="lazy"
+                  class="f2d2-category-card__image f2d2-category-card__image--icon"
+                >
               {%- else -%}
                 {{ 'collection-1' | placeholder_svg_tag: 'f2d2-category-card__placeholder' }}
               {%- endif -%}
@@ -439,6 +461,13 @@
 
   .section-{{ section.id }} .f2d2-category-card__placeholder {
     opacity: 0.5;
+  }
+
+  .section-{{ section.id }} .f2d2-category-card__image--icon {
+    width: min(58%, 11rem);
+    height: min(58%, 11rem);
+    opacity: 0.9;
+    transform: none;
   }
 
   .section-{{ section.id }} .f2d2-category-card__icon {

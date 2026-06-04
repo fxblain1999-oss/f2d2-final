@@ -12,34 +12,34 @@
     "main": {
       "type": "f2d2-products-collections-page",
       "blocks": {
-        "category_vetements": {
+        "category_uv_dtf": {
           "type": "category",
           "settings": {
-            "collection": "vetements-pour-homme",
-            "title": "Vêtements",
-            "description": "Confort et style au quotidien",
-            "link": "/pages/vetements",
-            "icon": "shirt"
+            "collection": "",
+            "title": "Stickers UV DTF",
+            "description": "Autocollants durables et couleurs vives",
+            "link": "/pages/uv-printing",
+            "icon": "mug"
           }
         },
-        "category_chandails": {
+        "category_dtf_film": {
           "type": "category",
           "settings": {
-            "collection": "hoodies",
-            "title": "Chandails à capuche",
-            "description": "Chaleur et confort",
-            "link": "",
-            "icon": "hoodie"
+            "collection": "",
+            "title": "Transferts DTF sur film",
+            "description": "Films prêts à presser pour vos projets",
+            "link": "/pages/impression-dtf",
+            "icon": "mug"
           }
         },
-        "category_casquettes": {
+        "category_sublimation": {
           "type": "category",
           "settings": {
-            "collection": "chapeau",
-            "title": "Casquettes",
-            "description": "Style et protection",
-            "link": "",
-            "icon": "cap"
+            "collection": "bouteilles-et-contenants",
+            "title": "Sublimation",
+            "description": "Objets personnalisés aux couleurs nettes",
+            "link": "/pages/sublimation",
+            "icon": "bottle"
           }
         },
         "category_bouteilles": {
@@ -74,9 +74,9 @@
         }
       },
       "block_order": [
-        "category_vetements",
-        "category_chandails",
-        "category_casquettes",
+        "category_uv_dtf",
+        "category_dtf_film",
+        "category_sublimation",
         "category_bouteilles",
         "category_sacs",
         "category_accessoires"
