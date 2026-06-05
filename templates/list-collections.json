@@ -55,7 +55,7 @@
         "category_sacs": {
           "type": "category",
           "settings": {
-            "collection": "sacs",
+            "collection": "sacs-et-bagages",
             "title": "Sacs & bagages",
             "description": "Pratiques et résistants",
             "link": "/collections/all",
