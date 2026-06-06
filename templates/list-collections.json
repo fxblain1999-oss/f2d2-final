@@ -25,10 +25,10 @@
         "category_dtf_film": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "transfert-dtf",
             "title": "Transferts DTF sur film",
             "description": "Films prêts à presser pour vos projets",
-            "link": "/pages/impression-dtf",
+            "link": "/collections/transfert-dtf",
             "icon": "mug"
           }
         },
@@ -40,42 +40,6 @@
             "description": "Objets personnalisés aux couleurs nettes",
             "link": "/pages/sublimation",
             "icon": "bottle"
-<<<<<<< HEAD
-          }
-        },
-        "category_bouteilles": {
-          "type": "category",
-          "settings": {
-            "collection": "bouteilles-et-contenants",
-            "title": "Bouteilles & contenants",
-            "description": "Hydratez-vous avec style",
-            "link": "",
-            "icon": "bottle"
-          }
-        },
-        "category_sacs": {
-          "type": "category",
-          "settings": {
-            "collection": "sacs-et-bagages",
-            "title": "Sacs & bagages",
-            "description": "Pratiques et résistants",
-            "link": "/collections/all",
-            "icon": "bag"
-          }
-        },
-        "category_accessoires": {
-          "type": "category",
-          "settings": {
-            "collection": "accessoire",
-            "title": "Accessoires",
-            "description": "Petits détails, grand impact",
-            "link": "",
-            "icon": "mug"
-          }
-        }
-      },
-      "block_order": [
-=======
           }
         },
         "category_bouteilles": {
@@ -110,7 +74,6 @@
         }
       },
       "block_order": [
->>>>>>> ce8f8db (Update site)
         "category_uv_dtf",
         "category_dtf_film",
         "category_sublimation",
