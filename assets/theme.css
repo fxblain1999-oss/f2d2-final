@@ -6904,3 +6904,30 @@ body.index-template .footer-info__item + .footer-info__item {
     border: 0 !important;
   }
 }
+
+#SearchDrawer,
+#CartDrawer,
+search-drawer.drawer,
+cart-drawer.drawer,
+.search-drawer.drawer,
+.cart-drawer.drawer {
+  z-index: 1000000 !important;
+}
+
+#SearchDrawer .fixed-overlay,
+#CartDrawer .fixed-overlay,
+search-drawer.drawer .fixed-overlay,
+cart-drawer.drawer .fixed-overlay,
+.search-drawer.drawer .fixed-overlay,
+.cart-drawer.drawer .fixed-overlay {
+  z-index: 1000000 !important;
+}
+
+#SearchDrawer .drawer__inner,
+#CartDrawer .drawer__inner,
+search-drawer.drawer .drawer__inner,
+cart-drawer.drawer .drawer__inner,
+.search-drawer.drawer .drawer__inner,
+.cart-drawer.drawer .drawer__inner {
+  z-index: 1000001 !important;
+}
