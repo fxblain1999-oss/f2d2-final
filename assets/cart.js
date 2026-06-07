@@ -66,7 +66,9 @@ class CartDrawer extends DrawerComponent {
 
   handleAfterHide() {
     super.handleAfterHide();
-    document.body.classList.remove('cart-drawer-open');
+    setTimeout(() => {
+      document.body.classList.remove('cart-drawer-open');
+    });
   }
 
   async onCartRefresh(event) {

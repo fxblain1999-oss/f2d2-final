@@ -160,7 +160,9 @@ class SearchDrawer extends DrawerComponent {
   }
   handleAfterHide() {
     super.handleAfterHide();
-    document.body.classList.remove('search-drawer-open');
+    setTimeout(() => {
+      document.body.classList.remove('search-drawer-open');
+    });
   }
   get input() {
     return this.querySelector('input[type="search"]');
