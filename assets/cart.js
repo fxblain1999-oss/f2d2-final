@@ -45,7 +45,9 @@ class CartDrawer extends DrawerComponent {
   }
 
   syncHeaderVisibility() {
-    document.body.classList.toggle('cart-drawer-open', this.open || this.hasAttribute('active'));
+    if (this.open || this.hasAttribute('active')) {
+      document.body.classList.add('cart-drawer-open');
+    }
   }
 
   prepareToShow() {

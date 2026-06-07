@@ -139,6 +139,29 @@ class SearchDrawer extends DrawerComponent {
   get requiresBodyAppended() {
     return false;
   }
+  static get observedAttributes() {
+    return [...super.observedAttributes, 'active'];
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+    super.attributeChangedCallback(name, oldValue, newValue);
+    if (name === 'open' || name === 'active') {
+      if (this.open || this.hasAttribute('active')) {
+        document.body.classList.add('search-drawer-open');
+      }
+    }
+  }
+  prepareToShow() {
+    super.prepareToShow();
+    document.body.classList.add('search-drawer-open');
+  }
+  show(focusElement = null, animate = true) {
+    document.body.classList.add('search-drawer-open');
+    super.show(focusElement, animate);
+  }
+  handleAfterHide() {
+    super.handleAfterHide();
+    document.body.classList.remove('search-drawer-open');
+  }
   get input() {
     return this.querySelector('input[type="search"]');
   }

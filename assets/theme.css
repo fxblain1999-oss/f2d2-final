@@ -6931,3 +6931,20 @@ cart-drawer.drawer .drawer__inner,
 .cart-drawer.drawer .drawer__inner {
   z-index: 1000001 !important;
 }
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body:has(#SearchDrawer[open]),
+body:has(#SearchDrawer[active]),
+body:has(search-drawer[open]),
+body:has(search-drawer[active]),
+body.search-drawer-open,
+body:has(#CartDrawer[open]),
+body:has(#CartDrawer[active]),
+body:has(cart-drawer[open]),
+body:has(cart-drawer[active]),
+body.cart-drawer-open {
+  padding-right: 0 !important;
+}
