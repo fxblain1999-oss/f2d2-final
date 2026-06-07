@@ -156,7 +156,22 @@
 
             when 'SUBLIMATION'
               assign href = '/pages/sublimation'
-              assign image = images['IMG_0070x_401d6a08-26f2-4ddd-8c2a-ba3e5875e051.webp']
+              if collections['sublimation'].image != blank
+                assign image = collections['sublimation'].image
+              elsif collections['sublimation'] != blank
+                for product in collections['sublimation'].products
+                  if product.featured_media.preview_image != blank
+                    assign image = product.featured_media.preview_image
+                  elsif product.featured_image != blank
+                    assign image = product.featured_image
+                  elsif product.images.first != blank
+                    assign image = product.images.first
+                  endif
+                  if image != blank
+                    break
+                  endif
+                endfor
+              endif
               assign fallback_asset = 'f2d2-hero-merch.png'
 
           endcase
