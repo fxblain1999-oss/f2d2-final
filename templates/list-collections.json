@@ -86,9 +86,14 @@
         "heading": "Votre image. Notre expertise.",
         "text": "<p> Des produits qui représentent votre marque. </p>"
       }
+    },
+    "clothing_quote_modal": {
+      "type": "f2d2-clothing-quote-modal",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "clothing_quote_modal"
   ]
 }
