@@ -1,14 +1,22 @@
 ﻿{% assign section_id = 'f2d2-services-' | append: section.id %}
+{% assign service_links = 'https://f2d2.ca/products/film-de-transfert-dtf-personnalise-12x30|https://f2d2.ca/products/collants-uv-dtf|https://f2d2.ca/collections/corporatif|https://f2d2.ca/products/feuille-de-sublimation-personnalisee-17x16' | split: '|' %}
 
 <section id="{{ section_id }}" class="f2d2-home-services">
   <div class="page-width f2d2-home-services__wrap">
     <div class="f2d2-home-services__grid" data-f2d2-services-track>
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
-          <article class="f2d2-service-card" {{ block.shopify_attributes }}>
+          {% assign service_url = service_links[forloop.index0] %}
+          {% assign display_title = block.settings.title %}
+          {% assign display_title_key = display_title | downcase %}
+          {% if forloop.index == 4 and display_title_key contains 'gravure' %}
+            {% assign display_title = 'Sublimation' %}
+          {% endif %}
+
+          <a href="{{ service_url }}" class="f2d2-service-card" {{ block.shopify_attributes }}>
             <div class="f2d2-service-card__icon">
-              {% assign title = block.settings.title | downcase %}
-              {% assign icon_alt = block.settings.title | default: 'Service' | escape %}
+              {% assign title = display_title | downcase %}
+              {% assign icon_alt = display_title | default: 'Service' | escape %}
 
               {% if block.settings.icon != blank %}
                 <img
@@ -22,6 +30,8 @@
                 <img src="{{ 'uv_icon.webp' | asset_url }}" alt="UV DTF" loading="lazy" width="120" height="120">
               {% elsif title contains 'corporatif' %}
                 <img src="{{ 'corp_icon.webp' | asset_url }}" alt="Corporatif" loading="lazy" width="120" height="120">
+              {% elsif title contains 'sublimation' %}
+                <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Sublimation" loading="lazy" width="120" height="120">
               {% elsif title contains 'gravure' %}
                 <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Gravure" loading="lazy" width="120" height="120">
               {% elsif title contains 'dtf' %}
@@ -33,15 +43,16 @@
               {% endif %}
             </div>
 
-            {% if block.settings.title != blank %}
-              <h3 class="f2d2-service-card__title">{{ block.settings.title }}</h3>
+            {% if display_title != blank %}
+              <h3 class="f2d2-service-card__title">{{ display_title }}</h3>
             {% endif %}
-          </article>
+          </a>
         {% endfor %}
       {% else %}
-        {% assign fallback_titles = 'DTF|UV DTF|Corporatif|Gravure' | split: '|' %}
+        {% assign fallback_titles = 'DTF|UV DTF|Corporatif|Sublimation' | split: '|' %}
         {% for title in fallback_titles %}
-          <article class="f2d2-service-card">
+          {% assign service_url = service_links[forloop.index0] %}
+          <a href="{{ service_url }}" class="f2d2-service-card">
             <div class="f2d2-service-card__icon">
               {% assign fallback_title = title | downcase %}
 
@@ -49,6 +60,8 @@
                 <img src="{{ 'uv_icon.webp' | asset_url }}" alt="UV DTF" loading="lazy" width="120" height="120">
               {% elsif fallback_title contains 'corporatif' %}
                 <img src="{{ 'corp_icon.webp' | asset_url }}" alt="Corporatif" loading="lazy" width="120" height="120">
+              {% elsif fallback_title contains 'sublimation' %}
+                <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Sublimation" loading="lazy" width="120" height="120">
               {% elsif fallback_title contains 'gravure' %}
                 <img src="{{ 'gravure_icon.webp' | asset_url }}" alt="Gravure" loading="lazy" width="120" height="120">
               {% elsif fallback_title contains 'dtf' %}
@@ -58,7 +71,7 @@
               {% endif %}
             </div>
             <h3 class="f2d2-service-card__title">{{ title }}</h3>
-          </article>
+          </a>
         {% endfor %}
       {% endif %}
     </div>
@@ -100,6 +113,8 @@
   position: relative;
   min-height: 160px;
   padding: 1rem 0.8rem;
+  color: inherit;
+  text-decoration: none;
   text-align: center;
   display: flex;
   flex-direction: column;
