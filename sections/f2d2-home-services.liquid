@@ -133,18 +133,20 @@
 
 #{{ section_id }} .f2d2-service-card__icon img {
   --icon-hover-y: 0px;
+  --icon-hover-scale: 1;
   --icon-scale: 1;
   --icon-y: 0px;
   width: 100px;
   height: 100px;
   object-fit: contain;
   display: block;
-  transform: translateY(var(--icon-hover-y)) scale(var(--icon-scale)) translateY(var(--icon-y));
+  transform: translateY(var(--icon-hover-y)) scale(var(--icon-hover-scale)) scale(var(--icon-scale)) translateY(var(--icon-y));
   transition: transform 180ms ease;
 }
 
 #{{ section_id }} .f2d2-service-card:hover .f2d2-service-card__icon img {
-  --icon-hover-y: -6px;
+  --icon-hover-y: -1px;
+  --icon-hover-scale: 1.05;
 }
 
 #{{ section_id }} .f2d2-service-card:nth-child(4) .f2d2-service-card__icon img {
