@@ -1700,9 +1700,10 @@
         originalTiles.forEach((tile) => {
           const tags = (tile.dataset.f2d2Tags || '').toLowerCase();
 
-          const shouldShow =
-            filter === 'tous' ||
-            tags.includes(filter);
+        const shouldShow =
+          filter === 'tous'
+            ? tags.includes('realisations')
+            : tags.includes(filter);
 
           tile.classList.toggle('is-hidden', !shouldShow);
         });
