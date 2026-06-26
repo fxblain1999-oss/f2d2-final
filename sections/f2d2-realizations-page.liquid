@@ -105,24 +105,24 @@
           <h2>Galerie de realisations</h2>
         </div>
         <div class="f2d2-realizations__filters" aria-label="Filtres de galerie">
-          <button type="button" class="is-active">Tous</button>
-          <button type="button">Vetements</button>
-          <button type="button">Stickers & impressions</button>
-          <button type="button">Accessoires</button>
-          <button type="button">Signalisation</button>
-          <button type="button">Evenementiel</button>
+          <button type="button" class="is-active" data-filter="tous">Tous</button>
+          <button type="button" data-filter="vetements">Vetements</button>
+          <button type="button" data-filter="stickers">Stickers & impressions</button>
+          <button type="button" data-filter="accessoires">Accessoires</button>
+          <button type="button" data-filter="signalisation">Signalisation</button>
+          <button type="button" data-filter="evenementiel">Evenementiel</button>
         </div>
         <div class="f2d2-realizations__filter-select">
           <button type="button" aria-expanded="false" data-f2d2-gallery-filter-toggle>
             <span data-f2d2-gallery-filter-label>Tous</span>
           </button>
           <div class="f2d2-realizations__filter-menu" data-f2d2-gallery-filter-menu hidden>
-            <button type="button" class="is-active">Tous</button>
-            <button type="button">Vetements</button>
-            <button type="button">Stickers & impressions</button>
-            <button type="button">Accessoires</button>
-            <button type="button">Signalisation</button>
-            <button type="button">Evenementiel</button>
+            <button type="button" class="is-active" data-filter="tous">Tous</button>
+            <button type="button" data-filter="vetements">Vetements</button>
+            <button type="button" data-filter="stickers">Stickers & impressions</button>
+            <button type="button" data-filter="accessoires">Accessoires</button>
+            <button type="button" data-filter="signalisation">Signalisation</button>
+            <button type="button" data-filter="evenementiel">Evenementiel</button>
           </div>
         </div>
         <div class="f2d2-realizations__gallery-shell" data-f2d2-gallery-shell>
@@ -1472,7 +1472,6 @@
           tile.classList.remove('is-hidden');
           tile.removeAttribute('data-f2d2-mobile-filler');
         });
-        tiles = originalTiles.slice();
         mobileReady = false;
       };
 
@@ -1589,6 +1588,13 @@
         }
 
         resetMobileClones();
+
+        originalTiles.forEach((tile) => {
+          tile.classList.add('is-hidden');
+          tile.setAttribute('aria-hidden', 'true');
+          tile.tabIndex = -1;
+        });
+
         const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
         currentPage = Math.min(Math.max(currentPage, 0), pageCount - 1);
         gallery.style.transform = '';
@@ -1698,24 +1704,29 @@
         const filter = normalizeFilter(value);
 
         filterButtons.forEach((button) => {
-          button.classList.toggle('is-active', button.textContent.trim() === value);
+          button.classList.toggle("is-active", button.dataset.filter === filter);
         });
 
         filterMenuButtons.forEach((button) => {
-          button.classList.toggle('is-active', button.textContent.trim() === value);
+          button.classList.toggle("is-active", button.dataset.filter === filter);
         });
 
-        if (filterLabel) {
-          filterLabel.textContent = value;
-        }
+        if (filterLabel) filterLabel.textContent = value;
 
-        tiles = getFilteredTiles(filter);
-        currentPage = 0;
-        updateGallery();
+        originalTiles.forEach((tile) => {
+          const tags = normalizeFilter(tile.dataset.f2d2Tags || "");
+
+          const shouldShow =
+            filter === "tous"
+              ? tags.includes("realisations")
+              : tags.includes(filter);
+
+          tile.style.display = shouldShow ? "" : "none";
+        });
       };
 
       filterButtons.forEach((button) => {
-        button.addEventListener('click', () => setActiveFilter(button.textContent.trim()));
+        button.addEventListener('click', () => setActiveFilter(button.dataset.filter));
       });
 
       if (filterToggle && filterMenu) {
@@ -1727,7 +1738,7 @@
 
         filterMenuButtons.forEach((button) => {
           button.addEventListener('click', () => {
-            setActiveFilter(button.textContent.trim());
+            setActiveFilter(button.dataset.filter);
             closeFilterMenu();
           });
         });
