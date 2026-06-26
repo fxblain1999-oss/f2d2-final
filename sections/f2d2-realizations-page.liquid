@@ -630,8 +630,13 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
+      padding: 1.2rem;
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-image {
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(0,0,0,0.55));
     }
 
     .section-{{ section.id }} .f2d2-realizations__project-image::after,
