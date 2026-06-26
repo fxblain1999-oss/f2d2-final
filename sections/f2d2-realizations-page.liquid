@@ -1671,7 +1671,20 @@
         filterMenu.hidden = true;
       };
 
+      const normalizeFilter = (value) => {
+        return value
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace('vetements', 'vetements')
+          .replace('stickers & impressions', 'stickers')
+          .replace('evenementiel', 'evenementiel')
+          .trim();
+      };
+
       const setActiveFilter = (value) => {
+        const filter = normalizeFilter(value);
+
         filterButtons.forEach((button) => {
           button.classList.toggle('is-active', button.textContent.trim() === value);
         });
@@ -1683,6 +1696,20 @@
         if (filterLabel) {
           filterLabel.textContent = value;
         }
+
+        originalTiles.forEach((tile) => {
+          const tags = (tile.dataset.f2d2Tags || '').toLowerCase();
+
+          const shouldShow =
+            filter === 'tous' ||
+            tags.includes(filter);
+
+          tile.classList.toggle('is-hidden', !shouldShow);
+        });
+
+        tiles = originalTiles.filter((tile) => !tile.classList.contains('is-hidden'));
+        currentPage = 0;
+        updateGallery();
       };
 
       filterButtons.forEach((button) => {
