@@ -1585,6 +1585,12 @@
 
         resetMobileClones();
 
+        originalTiles.forEach((tile) => {
+          tile.classList.add('is-hidden');
+          tile.setAttribute('aria-hidden', 'true');
+          tile.tabIndex = -1;
+        });
+
         const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
         currentPage = Math.min(Math.max(currentPage, 0), pageCount - 1);
         gallery.style.transform = '';
