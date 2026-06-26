@@ -1852,6 +1852,7 @@
         finishMobileLoop();
       });
 
+      tiles = getFilteredTiles(activeFilter);
       updateGallery();
       window.addEventListener('resize', updateGallery, { passive: true });
     })();
