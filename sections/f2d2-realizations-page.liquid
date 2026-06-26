@@ -1473,14 +1473,15 @@
 
       const setupMobileClones = () => {
         const pageSize = pageSizeForViewport();
-        const remainder = originalTiles.length % pageSize;
+        const baseTiles = tiles.length ? tiles : originalTiles;
+        const remainder = baseTiles.length % pageSize;
         const fillerCount = remainder === 0 ? 0 : pageSize - remainder;
 
         if (!mobileReady) {
           resetMobileClones();
 
           for (let index = 0; index < fillerCount; index += 1) {
-            const filler = originalTiles[index % originalTiles.length].cloneNode(true);
+            const filler = baseTiles[index % baseTiles.length].cloneNode(true);
             filler.dataset.f2d2GalleryClone = 'true';
             filler.dataset.f2d2MobileFiller = 'true';
             filler.setAttribute('aria-hidden', 'true');
@@ -1489,7 +1490,7 @@
           }
 
           const realMobileTiles = mobileTiles();
-          const clonePageCount = Math.min(Math.max(Math.ceil(originalTiles.length / pageSize), 1), 2);
+          const clonePageCount = Math.min(Math.max(Math.ceil(baseTiles.length / pageSize), 1), 2);
           const cloneTileCount = pageSize * clonePageCount;
           const prependTiles = realMobileTiles.slice(-cloneTileCount).map((tile) => tile.cloneNode(true));
           const appendTiles = realMobileTiles.slice(0, cloneTileCount).map((tile) => tile.cloneNode(true));
