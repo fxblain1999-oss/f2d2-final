@@ -130,20 +130,33 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="f2d2-realizations__gallery" data-f2d2-gallery>
-            {%- for i in (1..20) -%}
-              {%- liquid
-                assign mod = i | modulo: 3
-                assign image_class = 'f2d2-realizations__tile-image--hero'
-                if mod == 1
-                  assign image_class = 'f2d2-realizations__tile-image--merch'
-                elsif mod == 2
-                  assign image_class = 'f2d2-realizations__tile-image--web'
-                endif
-              -%}
-              <button type="button" class="f2d2-realizations__tile" aria-label="Realisation F2D2 {{ i }}">
-                <span class="f2d2-realizations__tile-image {{ image_class }}"></span>
-                <span class="f2d2-realizations__tile-logo" aria-hidden="true"><img src="{{ logo_image }}" width="160" height="62" alt="" loading="lazy"></span>
-              </button>
+            {%- assign realisation_collection = collections['nos-realisations'] -%}
+
+            {%- for product in realisation_collection.products -%}
+              {%- if product.tags contains 'realisations' and product.featured_image -%}
+
+                <button
+                  type="button"
+                  class="f2d2-realizations__tile"
+                  data-f2d2-tags="{{ product.tags | join: ',' | downcase }}"
+                  aria-label="{{ product.title | escape }}"
+                >
+                  <span class="f2d2-realizations__tile-image">
+                    <img
+                      src="{{ product.featured_image | image_url: width: 900 }}"
+                      alt="{{ product.title | escape }}"
+                      loading="lazy"
+                      width="900"
+                      height="900"
+                    >
+                  </span>
+
+                  <span class="f2d2-realizations__tile-logo" aria-hidden="true">
+                    <img src="{{ logo_image }}" width="160" height="62" alt="" loading="lazy">
+                  </span>
+                </button>
+
+              {%- endif -%}
             {%- endfor -%}
           </div>
           <button type="button" class="f2d2-realizations__gallery-arrow f2d2-realizations__gallery-arrow--next" data-f2d2-gallery-next aria-label="Projets suivants">
