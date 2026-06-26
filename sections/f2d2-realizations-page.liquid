@@ -132,13 +132,8 @@
           <div class="f2d2-realizations__gallery" data-f2d2-gallery>
             {%- assign realisation_collection = collections['nos-realisations'] -%}
 
-            <p style="color:red;font-size:24px;">
-            Collection : {{ realisation_collection.title }}<br>
-            Produits : {{ realisation_collection.products_count }}
-            </p>
-
             {%- for product in realisation_collection.products -%}
-              {%- if product.tags contains 'realisations' and product.featured_image -%}
+              {%- if product.featured_image -%}
 
                 <button
                   type="button"
