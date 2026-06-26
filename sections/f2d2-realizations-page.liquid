@@ -1705,15 +1705,15 @@
         filterToggle.setAttribute('aria-expanded', 'false');
         filterMenu.hidden = true;
       };
-
+      
       const normalizeFilter = (value) => {
-        return value
+        return String(value || '')
           .toLowerCase()
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
-          .replace('vetements', 'vetements')
-          .replace('stickers & impressions', 'stickers')
-          .replace('evenementiel', 'evenementiel')
+          .replace(/&/g, ' ')
+          .replace(/,/g, ' ')
+          .replace(/\s+/g, ' ')
           .trim();
       };
 
