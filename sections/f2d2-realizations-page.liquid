@@ -111,6 +111,7 @@
           <button type="button" data-filter="accessoires">Accessoires</button>
           <button type="button" data-filter="signalisation">Signalisation</button>
           <button type="button" data-filter="evenementiel">Evenementiel</button>
+          <button type="button" data-filter="machines">Nos machines</button>
         </div>
         <div class="f2d2-realizations__filter-select">
           <button type="button" aria-expanded="false" data-f2d2-gallery-filter-toggle>
@@ -123,6 +124,7 @@
             <button type="button" data-filter="accessoires">Accessoires</button>
             <button type="button" data-filter="signalisation">Signalisation</button>
             <button type="button" data-filter="evenementiel">Evenementiel</button>
+            <button type="button" data-filter="machines">Nos machines</button>
           </div>
         </div>
         <div class="f2d2-realizations__gallery-shell" data-f2d2-gallery-shell>
@@ -1716,12 +1718,20 @@
       };
 
       const getFilteredTiles = (filter) => {
-        const cleanFilter = normalizeFilter(filter || 'tous');
+        const cleanFilter = normalizeFilter(filter);
+
         return originalTiles.filter((tile) => {
-          const tags = normalizeFilter(tile.dataset.f2d2Tags || '');
+          const tags = getNormalizedTags(tile);
 
           if (cleanFilter === 'tous') {
-            return tags.length > 0 || Boolean(tile.querySelector('img'));
+            return (
+              (tags.includes('realisations') || tags.length > 0) &&
+              !tags.includes('machines')
+            );
+          }
+
+          if (cleanFilter === 'machines') {
+            return tags.includes('machines');
           }
 
           return tags.includes(cleanFilter);
