@@ -1721,7 +1721,7 @@
         const cleanFilter = normalizeFilter(filter);
 
         return originalTiles.filter((tile) => {
-          const tags = getNormalizedTags(tile);
+          const tags = normalizeFilter(tile.dataset.f2d2Tags || '');
 
           if (cleanFilter === 'tous') {
             return (
