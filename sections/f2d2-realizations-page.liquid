@@ -1468,10 +1468,6 @@
 
       const resetMobileClones = () => {
         gallery.querySelectorAll('[data-f2d2-gallery-clone]').forEach((clone) => clone.remove());
-        originalTiles.forEach((tile) => {
-          tile.classList.remove('is-hidden');
-          tile.removeAttribute('data-f2d2-mobile-filler');
-        });
         mobileReady = false;
       };
 
@@ -1589,12 +1585,6 @@
 
         resetMobileClones();
 
-        originalTiles.forEach((tile) => {
-          tile.classList.add('is-hidden');
-          tile.setAttribute('aria-hidden', 'true');
-          tile.tabIndex = -1;
-        });
-
         const pageCount = Math.max(Math.ceil(tiles.length / pageSize), 1);
         currentPage = Math.min(Math.max(currentPage, 0), pageCount - 1);
         gallery.style.transform = '';
@@ -1704,25 +1694,29 @@
         const filter = normalizeFilter(value);
 
         filterButtons.forEach((button) => {
-          button.classList.toggle("is-active", button.dataset.filter === filter);
+          button.classList.toggle('is-active', normalizeFilter(button.dataset.filter) === filter);
         });
 
         filterMenuButtons.forEach((button) => {
-          button.classList.toggle("is-active", button.dataset.filter === filter);
+          button.classList.toggle('is-active', normalizeFilter(button.dataset.filter) === filter);
         });
 
-        if (filterLabel) filterLabel.textContent = value;
+        if (filterLabel) {
+          const activeButton = [...filterButtons, ...filterMenuButtons].find(
+            (button) => normalizeFilter(button.dataset.filter) === filter
+          );
+          filterLabel.textContent = activeButton ? activeButton.textContent.trim() : 'Tous';
+        }
 
-        originalTiles.forEach((tile) => {
-          const tags = normalizeFilter(tile.dataset.f2d2Tags || "");
+        tiles = getFilteredTiles(filter);
+        currentPage = 0;
+        mobileTrackPage = mobileRealStartPage();
 
-          const shouldShow =
-            filter === "tous"
-              ? tags.includes("realisations")
-              : tags.includes(filter);
+        resetMobileClones();
+        mobileReady = false;
 
-          tile.style.display = shouldShow ? "" : "none";
-        });
+        updateGallery();
+        closeFilterMenu();
       };
 
       filterButtons.forEach((button) => {
