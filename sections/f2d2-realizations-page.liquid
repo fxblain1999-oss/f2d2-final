@@ -132,6 +132,11 @@
           <div class="f2d2-realizations__gallery" data-f2d2-gallery>
             {%- assign realisation_collection = collections['nos-realisations'] -%}
 
+            <p style="color:red;font-size:24px;">
+            Collection : {{ realisation_collection.title }}<br>
+            Produits : {{ realisation_collection.products_count }}
+            </p>
+
             {%- for product in realisation_collection.products -%}
               {%- if product.tags contains 'realisations' and product.featured_image -%}
 
@@ -624,6 +629,14 @@
       background-size: cover;
       background-position: center;
       transform: scale(1.01);
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
     }
 
     .section-{{ section.id }} .f2d2-realizations__project-image::after,
