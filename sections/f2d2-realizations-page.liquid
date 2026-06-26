@@ -640,12 +640,19 @@
     }
 
     .section-{{ section.id }} .f2d2-realizations__project-image::after,
-    .section-{{ section.id }} .f2d2-realizations__tile-image::after,
     .section-{{ section.id }} .f2d2-realizations__before-image::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(2, 6, 9, 0.88), rgba(2, 6, 9, 0.24) 72%);
+      background: linear-gradient(
+        90deg,
+        rgba(2, 6, 9, 0.88),
+        rgba(2, 6, 9, 0.24) 72%
+      );
+    }
+
+    .section-{{ section.id }} .f2d2-realizations__tile-image::after {
+      display: none;
     }
 
     .section-{{ section.id }} .f2d2-realizations__project-image--merch,
