@@ -1721,17 +1721,13 @@
         const cleanFilter = normalizeFilter(filter);
 
         return originalTiles.filter((tile) => {
-          const tags = normalizeFilter(tile.dataset.f2d2Tags || '');
+          const tags = (tile.dataset.f2d2Tags || "")
+            .toLowerCase()
+            .split(",")
+            .map(tag => normalizeFilter(tag));
 
-          if (cleanFilter === 'tous') {
-            return (
-              (tags.includes('realisations') || tags.length > 0) &&
-              !tags.includes('machines')
-            );
-          }
-
-          if (cleanFilter === 'machines') {
-            return tags.includes('machines');
+          if (cleanFilter === "tous") {
+            return !tags.includes("machines");
           }
 
           return tags.includes(cleanFilter);
