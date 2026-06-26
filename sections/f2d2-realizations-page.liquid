@@ -1682,6 +1682,18 @@
           .trim();
       };
 
+      const getFilteredTiles = (filter) => {
+        return originalTiles.filter((tile) => {
+          const tags = (tile.dataset.f2d2Tags || '').toLowerCase();
+
+          if (filter === 'tous') {
+            return tags.includes('realisations');
+          }
+
+          return tags.includes(filter);
+        });
+      };
+
       const setActiveFilter = (value) => {
         const filter = normalizeFilter(value);
 
@@ -1697,18 +1709,7 @@
           filterLabel.textContent = value;
         }
 
-        originalTiles.forEach((tile) => {
-          const tags = (tile.dataset.f2d2Tags || '').toLowerCase();
-
-        const shouldShow =
-          filter === 'tous'
-            ? tags.includes('realisations')
-            : tags.includes(filter);
-
-          tile.classList.toggle('is-hidden', !shouldShow);
-        });
-
-        tiles = originalTiles.filter((tile) => !tile.classList.contains('is-hidden'));
+        tiles = getFilteredTiles(filter);
         currentPage = 0;
         updateGallery();
       };
